@@ -2,14 +2,14 @@ export function preprocess(eTempFloorplan) {
     const copy = JSON.parse(JSON.stringify(eTempFloorplan))
     const barycenter = getBarycenter(copy)
     for (const level of copy.levels) {
-        for (const room of level.RectangleRoom || []) {
+        for (const room of level.rooms || []) {
             for (let i = 0; i < room.points.length; i += 2) {
                 room.points[i] -= barycenter[0]
                 room.points[i + 1] -= barycenter[1]
                 room.points[i + 1] *= -1
             }
         }
-        const snappableTypes = ['Door', 'Window', 'Radiator']
+        const snappableTypes = ['doors', 'windows', 'radiators']
         for (const snappableType of snappableTypes) {
             const snappables = level[snappableType] || []
             for (const snappable of snappables) {
@@ -25,7 +25,7 @@ export function preprocess(eTempFloorplan) {
 
 function getBarycenter(eTempFloorplan) {
     const level = eTempFloorplan.levels[0]
-    const rooms = level.RectangleRoom || []
+    const rooms = level.rooms || []
     const xs = []
     const ys = []
     for (const room of rooms) {

@@ -4,7 +4,7 @@ import { PrismGeometry } from './prism.js'
 export function getLevel(eTempFloorplan, levelIndex = 0) {
     const group = new THREE.Group()
     const level = eTempFloorplan.levels[levelIndex]
-    const rooms = level.RectangleRoom || []
+    const rooms = level.rooms || []
     const ceilingHeight = level.ceilingHeight
     
     for (const room of rooms) {
@@ -32,17 +32,17 @@ function getSnappables(level) {
     const group = new THREE.Group()
     const snappableTypes = [
         {
-            type: 'Door',
+            type: 'doors',
             color: 0x5478E4,
             specular: 0x00ffff,
         },
         {
-            type: 'Window',
+            type: 'windows',
             color: 0x81D4FA,
             specular: 0xffffff,
         },
         {
-            type: 'Radiator',
+            type: 'radiators',
             color: 0xCC5500,
             specular: 0xff0000,
         }
