@@ -1,0 +1,9 @@
+#temp-heat-3d {
+    border: solid 2px black;
+    width: 70vw;
+    height: 70vh;
+}
+
+body {
+    height: 100%;
+}
