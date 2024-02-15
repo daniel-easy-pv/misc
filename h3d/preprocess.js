@@ -11,7 +11,7 @@ export function preprocess(eTempFloorplan) {
         }
         const snappableTypes = ['Door', 'Window', 'Radiator']
         for (const snappableType of snappableTypes) {
-            const snappables = level[snappableType]
+            const snappables = level[snappableType] || []
             for (const snappable of snappables) {
                 snappable.position.x -= barycenter[0]
                 snappable.position.y -= barycenter[1]
