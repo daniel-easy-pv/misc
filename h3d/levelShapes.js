@@ -7,12 +7,13 @@ export function getLevel(eTempFloorplan, levelIndex = 0) {
     const rooms = level.rooms || []
     const ceilingHeight = level.ceilingHeight
     
-    for (const room of rooms) {
-        const shape = getRoom(room, ceilingHeight)
-        group.add(shape)
-    }
+    // for (const room of rooms) {
+    //     const shape = getRoom(room, ceilingHeight)
+    //     group.add(shape)
+    // }
     const snappables = getSnappables(level)
     group.add(snappables)
+    group.add(getWalls(level))
     group.rotation.x = -Math.PI / 2
     return group
 }
@@ -45,33 +46,47 @@ function getSnappables(level) {
             type: 'radiators',
             color: 0xCC5500,
             specular: 0xff0000,
-        }
+        },
     ]
     for (const snappableType of snappableTypes) {
         const { type, color, specular } = snappableType
         const snappableGroup = new THREE.Group()
         const snappables = level[type]
         for (const snappable of snappables) {
-            const { h, height, width, position } = snappable
-            const d = height
-            const w = width
-            const { x, y } = position
+            const { h, points } = snappable
             const r = snappable.rotation || 0
-            const points = [
-                new THREE.Vector2(0, 0),
-                new THREE.Vector2(w, 0),
-                new THREE.Vector2(w, -d),
-                new THREE.Vector2(0, -d),
-            ]
-            const geometry = new PrismGeometry(points, h)
+            const points2 = []
+            for (let i = 0; i < points.length; i += 2) {
+                points2.push(new THREE.Vector2(points[i], points[i + 1]))
+            }
+            const geometry = new PrismGeometry(points2, h)
             const material = new THREE.MeshPhongMaterial( { color, specular, shininess: 20 } )
             const shape = new THREE.Mesh(geometry, material)
             shape.rotation.z = Math.PI / 180 * r
-            shape.position.x = x
-            shape.position.y = y
             snappableGroup.add(shape)
         }
         group.add(snappableGroup)
+    }
+    return group
+}
+
+function getWalls(level) {
+    const group = new THREE.Group()
+    for (const wall of level.walls || []) {
+        const { width, height, rotation, position } = wall
+        const points = [
+            new THREE.Vector2(-width / 2, -height / 2),
+            new THREE.Vector2(width / 2, -height / 2),
+            new THREE.Vector2(width / 2, height / 2),
+            new THREE.Vector2(-width / 2, height / 2),
+        ]
+        const geometry = new PrismGeometry(points, 2000)
+        const material = new THREE.MeshPhongMaterial( { color: 0x666666, specular: 0xffffff, shininess: 20 })
+        const shape = new THREE.Mesh(geometry, material)
+        shape.position.x = position.x
+        shape.position.y = position.y - width / 2
+        shape.rotation.z = Math.PI / 180 * rotation
+        group.add(shape)
     }
     return group
 }

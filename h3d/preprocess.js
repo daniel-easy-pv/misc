@@ -13,12 +13,22 @@ export function preprocess(eTempFloorplan) {
         for (const snappableType of snappableTypes) {
             const snappables = level[snappableType] || []
             for (const snappable of snappables) {
-                snappable.position.x -= barycenter[0]
-                snappable.position.y -= barycenter[1]
+                for (let i = 0; i < snappable.points.length; i += 2) {
+                    snappable.points[i] -= barycenter[0]
+                    snappable.points[i + 1] -= barycenter[1]
+                    snappable.points[i + 1] *= -1
+                }
                 snappable.rotation = -snappable.rotation ?? 0
-                snappable.position.y *= -1
             }
         }
+        const walls = level.walls || []
+        for (const wall of walls) {
+            wall.position.x -= barycenter[0]
+            wall.position.y -= barycenter[1]
+            wall.position.y *= -1
+            wall.rotation *= -1
+        }
+
     }
     return copy
 }

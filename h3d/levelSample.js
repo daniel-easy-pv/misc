@@ -366,12 +366,7 @@ export const eTempFloorplan =
                             "rotation": 0,
                             "grouped": true
                         }
-                    ],
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    ]
                 },
                 {
                     "edges": 100,
@@ -606,12 +601,7 @@ export const eTempFloorplan =
                             "grouped": true
                         }
                     ],
-                    "konvaType": "r",
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    "konvaType": "r"
                 },
                 {
                     "edges": 100,
@@ -896,12 +886,7 @@ export const eTempFloorplan =
                             "rotation": 270,
                             "grouped": true
                         }
-                    ],
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    ]
                 },
                 {
                     "edges": 100,
@@ -1057,12 +1042,7 @@ export const eTempFloorplan =
                             "rotation": 270,
                             "grouped": true
                         }
-                    ],
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    ]
                 },
                 {
                     "edges": 100,
@@ -1217,12 +1197,7 @@ export const eTempFloorplan =
                             "rotation": 180,
                             "grouped": true
                         }
-                    ],
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    ]
                 },
                 {
                     "edges": 100,
@@ -1378,12 +1353,7 @@ export const eTempFloorplan =
                             "grouped": true
                         }
                     ],
-                    "konvaType": "r",
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    "konvaType": "r"
                 },
                 {
                     "edges": 100,
@@ -2247,12 +2217,7 @@ export const eTempFloorplan =
                             "grouped": true
                         }
                     ],
-                    "konvaType": "r",
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    "konvaType": "r"
                 }
             ],
             "radiators": [
@@ -2260,233 +2225,290 @@ export const eTempFloorplan =
                     "slateId": "b00988b0-133c-46aa-b703-0fe19160bfa7",
                     "material": 193,
                     "h": 600,
-                    "rotation": 90,
-                    "position": {
-                        "x": 16666,
-                        "y": 4244
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        16666,
+                        4244,
+                        15666,
+                        4244,
+                        15666,
+                        4444,
+                        16666,
+                        4444
+                    ]
                 },
                 {
                     "slateId": "9a2983f8-4faf-4070-8e42-32772cdff2bd",
                     "h": 600,
-                    "material": 191,
-                    "rotation": -90,
-                    "position": {
-                        "x": 13132,
-                        "y": 11769
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        13132,
+                        11769,
+                        14132,
+                        11769,
+                        14132,
+                        11569,
+                        13132,
+                        11569
+                    ],
+                    "material": 191
                 },
                 {
                     "slateId": "9e15317f-4e38-4c43-bbbf-0055e1c2eee8",
                     "h": 600,
-                    "material": 191,
-                    "rotation": 0,
-                    "position": {
-                        "x": 16123,
-                        "y": 5921
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        16123,
+                        5921,
+                        16123,
+                        6921,
+                        16323,
+                        6921,
+                        16323,
+                        5921
+                    ],
+                    "material": 191
                 },
                 {
                     "slateId": "92a1f81d-0391-4f92-92fa-d8231a2f8835",
                     "h": 600,
-                    "material": 191,
-                    "rotation": -90,
-                    "position": {
-                        "x": 19994,
-                        "y": 10593
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        19994,
+                        10593,
+                        20994,
+                        10593,
+                        20994,
+                        10393,
+                        19994,
+                        10393
+                    ],
+                    "material": 191
                 },
                 {
                     "slateId": "232cec49-dc0d-4c25-9c05-316ee19292f9",
                     "h": 600,
-                    "material": 191,
-                    "rotation": -126,
-                    "position": {
-                        "x": 18244.270028041774,
-                        "y": 12528.79432558373
-                    },
-                    "width": 199.99999999999875,
-                    "height": 999.9999999999989
+                    "points": [
+                        18244.270028041774,
+                        12528.79432558373,
+                        19053.28702241672,
+                        11941.009073291258,
+                        18935.729971958226,
+                        11779.20567441627,
+                        18126.71297758328,
+                        12366.990926708742
+                    ],
+                    "material": 191
                 },
                 {
                     "slateId": "9fab3590-4b9d-4852-a391-c397e773248d",
                     "material": 192,
                     "h": 600,
-                    "rotation": -90,
-                    "position": {
-                        "x": 16446,
-                        "y": 12658
-                    },
-                    "width": 200,
-                    "height": 1340
+                    "points": [
+                        16446,
+                        12658,
+                        17786,
+                        12658,
+                        17786,
+                        12458,
+                        16446,
+                        12458
+                    ]
                 },
                 {
                     "slateId": "46c24d46-6efb-429c-b0fe-d5349aa05df7",
                     "h": 600,
-                    "material": 191,
-                    "rotation": -56.00000000000001,
-                    "position": {
-                        "x": 15188.561923375404,
-                        "y": 11957.307305520131
-                    },
-                    "width": 200.0000000000005,
-                    "height": 1000
+                    "points": [
+                        15188.561923375404,
+                        11957.307305520131,
+                        16017.599495930446,
+                        12516.500208990878,
+                        16129.438076624596,
+                        12350.692694479869,
+                        15300.400504069554,
+                        11791.499791009122
+                    ],
+                    "material": 191
                 }
             ],
             "doors": [
                 {
                     "slateId": "58991e9c-8de6-42a3-9d40-08a9d5cc0289",
                     "h": 2100,
-                    "material": 129,
-                    "rotation": 0,
-                    "position": {
-                        "x": 19985,
-                        "y": 5010
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        19985,
+                        5010,
+                        19985,
+                        6010,
+                        20185,
+                        6010,
+                        20185,
+                        5010
+                    ],
+                    "material": 129
                 },
                 {
                     "slateId": "48cfa9f1-3e4f-496d-a697-637ef9f1d06c",
                     "h": 2100,
-                    "material": 129,
-                    "rotation": 135,
-                    "position": {
-                        "x": 12264.26406871193,
-                        "y": 11324.84271247462
-                    },
-                    "width": 200.00000000000034,
-                    "height": 1000.0000000000016
+                    "points": [
+                        12264.26406871193,
+                        11324.84271247462,
+                        11557.15728752538,
+                        10617.73593128807,
+                        11415.73593128807,
+                        10759.15728752538,
+                        12122.84271247462,
+                        11466.26406871193
+                    ],
+                    "material": 129
                 },
                 {
                     "slateId": "0ab8a299-c548-48a4-8bab-9f519ca5bcae",
                     "h": 2100,
-                    "material": 129,
-                    "rotation": -153.99999999999991,
-                    "position": {
-                        "x": 11602.693831235378,
-                        "y": 9749.234137828491
-                    },
-                    "width": 199.9999999999992,
-                    "height": 1000.0000000000002
+                    "points": [
+                        11602.693831235378,
+                        9749.234137828491,
+                        12041.064978024457,
+                        8850.440091529324,
+                        11861.306168764624,
+                        8762.765862171509,
+                        11422.935021975545,
+                        9661.559908470676
+                    ],
+                    "material": 129
                 }
             ],
             "windows": [
                 {
                     "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
                     "h": 650,
-                    "material": 167,
-                    "rotation": -90,
-                    "position": {
-                        "x": 17798,
-                        "y": 4244
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        17798,
+                        4244,
+                        18798,
+                        4244,
+                        18798,
+                        4044,
+                        17798,
+                        4044
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "7302c6ba-7a60-426b-86cf-71a3a75c4890",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 180,
-                    "position": {
-                        "x": 12407,
-                        "y": 5904
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        12407,
+                        5904,
+                        12407,
+                        4904,
+                        12207,
+                        4904,
+                        12207,
+                        5904
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "23a0ab8e-de01-49d3-acec-1e981f2dd82c",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 180,
-                    "position": {
-                        "x": 12407,
-                        "y": 7799
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        12407,
+                        7799,
+                        12407,
+                        6799,
+                        12207,
+                        6799,
+                        12207,
+                        7799
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 90,
-                    "position": {
-                        "x": 17745,
-                        "y": 12658
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        17745,
+                        12658,
+                        16745,
+                        12658,
+                        16745,
+                        12858,
+                        17745,
+                        12858
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "4b526b03-2550-4fc6-87ea-a0c5ac7210d8",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 124,
-                    "position": {
-                        "x": 16023.438076624596,
-                        "y": 12520.692694479869
-                    },
-                    "width": 200.0000000000005,
-                    "height": 1000
+                    "points": [
+                        16023.438076624596,
+                        12520.692694479869,
+                        15194.400504069554,
+                        11961.499791009122,
+                        15082.561923375404,
+                        12127.307305520131,
+                        15911.599495930446,
+                        12686.500208990878
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "b4b4a87a-a8cb-49a0-b128-d17ae165da21",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 54,
-                    "position": {
-                        "x": 19095.729971958226,
-                        "y": 11910.20567441627
-                    },
-                    "width": 199.99999999999875,
-                    "height": 999.9999999999989
+                    "points": [
+                        19095.729971958226,
+                        11910.20567441627,
+                        18286.71297758328,
+                        12497.990926708742,
+                        18404.270028041774,
+                        12659.79432558373,
+                        19213.28702241672,
+                        12072.009073291258
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "9131a619-de45-4326-ba7f-62a4aeaa6175",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 48.000000000000355,
-                    "position": {
-                        "x": 22392.489255960198,
-                        "y": 10051.93155190645
-                    },
-                    "width": 199.9999999999986,
-                    "height": 612.000000000001
+                    "points": [
+                        22392.489255960198,
+                        10051.93155190645,
+                        21937.68462276803,
+                        10461.439482998068,
+                        22071.5107440398,
+                        10610.068448093547,
+                        22526.315377231967,
+                        10200.560517001928
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "5d7cf606-eecb-4fe4-8dfc-080804d88c48",
                     "h": 650,
-                    "material": 167,
-                    "rotation": 0,
-                    "position": {
-                        "x": 22514,
-                        "y": 8791
-                    },
-                    "width": 200,
-                    "height": 1000
+                    "points": [
+                        22514,
+                        8791,
+                        22514,
+                        9791,
+                        22714,
+                        9791,
+                        22714,
+                        8791
+                    ],
+                    "material": 167
                 },
                 {
                     "slateId": "87809fad-f5e1-453b-a4dd-b6ed704170c5",
                     "h": 650,
-                    "material": 167,
-                    "rotation": -48.99999999999974,
-                    "position": {
-                        "x": 21909.11348352855,
-                        "y": 8191.251773600362
-                    },
-                    "width": 200.0000000000004,
-                    "height": 650.0000000000014
+                    "points": [
+                        21909.11348352855,
+                        8191.251773600362,
+                        22399.67471067335,
+                        8617.690142444193,
+                        22530.88651647145,
+                        8466.748226399639,
+                        22040.32528932665,
+                        8040.309857555808
+                    ],
+                    "material": 167
                 }
             ],
             "walls": [
@@ -2569,8 +2591,8 @@ export const eTempFloorplan =
                     ],
                     "height": 3675,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 15007,
+                        "y": 9931.5
                     },
                     "rotation": 180,
                     "material": 108,
@@ -2657,8 +2679,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2499,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 19193,
+                        "y": 9343.5
                     },
                     "rotation": 0,
                     "material": 108,
@@ -2741,8 +2763,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2084,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 17165,
+                        "y": 8094
                     },
                     "rotation": 270,
                     "material": 108,
@@ -2843,8 +2865,8 @@ export const eTempFloorplan =
                     ],
                     "height": 888,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 18749,
+                        "y": 8094
                     },
                     "rotation": 270,
                     "material": 108,
@@ -2945,8 +2967,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1013.9999000000007,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 15514.000049999999,
+                        "y": 8094
                     },
                     "rotation": 270,
                     "material": 108,
@@ -2994,8 +3016,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1472.1837521179204,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 15618,
+                        "y": 12247.5
                     },
                     "rotation": 123.89515704394276,
                     "material": 46,
@@ -3043,8 +3065,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1842,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 17150,
+                        "y": 12658
                     },
                     "rotation": 90,
                     "material": 46,
@@ -3092,8 +3114,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1390.2967309175401,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 18632,
+                        "y": 12247.5
                     },
                     "rotation": 53.805981507161704,
                     "material": 46,
@@ -3141,8 +3163,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1244,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 19193,
+                        "y": 11215
                     },
                     "rotation": 0,
                     "material": 46,
@@ -3223,8 +3245,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1633.9999000000007,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 13224.000049999999,
+                        "y": 8093
                     },
                     "rotation": 270,
                     "material": 108,
@@ -3323,8 +3345,8 @@ export const eTempFloorplan =
                     ],
                     "height": 768,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 14523,
+                        "y": 8093
                     },
                     "rotation": 270,
                     "material": 108,
@@ -3370,8 +3392,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2519.343168367501,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 11857.5,
+                        "y": 9226.5
                     },
                     "rotation": 205.86325620534745,
                     "material": 46,
@@ -3417,8 +3439,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1978.5353168442557,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 12002.5,
+                        "y": 11064.5
                     },
                     "rotation": 135.4095411274586,
                     "material": 46,
@@ -3464,8 +3486,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2210,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 13802,
+                        "y": 11769
                     },
                     "rotation": 90,
                     "material": 93,
@@ -3618,8 +3640,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2088.9999000000025,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 20337.50005,
+                        "y": 8093
                     },
                     "rotation": 270,
                     "material": 108,
@@ -3667,8 +3689,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 20543,
+                        "y": 10593
                     },
                     "rotation": 90,
                     "material": 46,
@@ -3716,8 +3738,8 @@ export const eTempFloorplan =
                     ],
                     "height": 971.4123738145399,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 22153.5,
+                        "y": 10267.5
                     },
                     "rotation": 47.92072152100038,
                     "material": 46,
@@ -3765,8 +3787,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1228,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 22514,
+                        "y": 9328
                     },
                     "rotation": 0,
                     "material": 46,
@@ -3814,8 +3836,8 @@ export const eTempFloorplan =
                     ],
                     "height": 951.5681793754984,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 22153.5,
+                        "y": 8403.5
                     },
                     "rotation": -49.26155625301058,
                     "material": 46,
@@ -3863,8 +3885,8 @@ export const eTempFloorplan =
                     ],
                     "height": 411,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 21587.5,
+                        "y": 8093
                     },
                     "rotation": 270,
                     "material": 46,
@@ -3961,8 +3983,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 16123,
+                        "y": 6744
                     },
                     "rotation": 180,
                     "material": 108,
@@ -4059,8 +4081,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 18207,
+                        "y": 6744
                     },
                     "rotation": 0,
                     "material": 108,
@@ -4157,8 +4179,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2083.9999000000007,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 17165.00005,
+                        "y": 5494
                     },
                     "rotation": 270,
                     "material": 108,
@@ -4255,8 +4277,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1398,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 14041,
+                        "y": 7295
                     },
                     "rotation": 0,
                     "material": 108,
@@ -4335,8 +4357,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1633.999899999999,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 13224.00005,
+                        "y": 6596
                     },
                     "rotation": 270,
                     "material": 108,
@@ -4380,8 +4402,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1398,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 12407,
+                        "y": 7295
                     },
                     "rotation": 180,
                     "material": 46,
@@ -4478,8 +4500,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2252,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 14041,
+                        "y": 5370
                     },
                     "rotation": 0,
                     "material": 109,
@@ -4523,8 +4545,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2254,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 12407,
+                        "y": 5369
                     },
                     "rotation": 180,
                     "material": 46,
@@ -4570,8 +4592,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1634,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 13224,
+                        "y": 4242
                     },
                     "rotation": 270,
                     "material": {
@@ -4635,8 +4657,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1397,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 21382,
+                        "y": 7295.5
                     },
                     "rotation": 0,
                     "material": 46,
@@ -4698,8 +4720,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1396,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 20684,
+                        "y": 6597
                     },
                     "rotation": 270,
                     "material": 46,
@@ -4761,8 +4783,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1201.0004163196609,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 19985.5,
+                        "y": 5996.500000000002
                     },
                     "rotation": -0.0477067162966307,
                     "material": 46,
@@ -4824,8 +4846,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1152,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 19985,
+                        "y": 4820
                     },
                     "rotation": 0,
                     "material": 46,
@@ -4887,8 +4909,8 @@ export const eTempFloorplan =
                     ],
                     "height": 3964,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 18003,
+                        "y": 4244
                     },
                     "rotation": 270,
                     "material": 46,
@@ -4950,8 +4972,8 @@ export const eTempFloorplan =
                     ],
                     "height": 1882,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 15080,
+                        "y": 4244
                     },
                     "rotation": 270,
                     "material": 46,
@@ -5113,12 +5135,7 @@ export const eTempFloorplan =
                             "rotation": 270,
                             "grouped": true
                         }
-                    ],
-                    "rotation": 0,
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    }
+                    ]
                 }
             ],
             "walls": [
@@ -5160,8 +5177,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 13666,
+                        "y": 6746
                     },
                     "rotation": 180,
                     "material": 46,
@@ -5205,8 +5222,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 14916,
+                        "y": 7996
                     },
                     "rotation": 90,
                     "material": 46,
@@ -5250,8 +5267,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 16166,
+                        "y": 6746
                     },
                     "rotation": 0,
                     "material": 46,
@@ -5295,8 +5312,8 @@ export const eTempFloorplan =
                     ],
                     "height": 2500,
                     "position": {
-                        "x": 0,
-                        "y": 0
+                        "x": 14916,
+                        "y": 5496
                     },
                     "rotation": 270,
                     "material": 46,
