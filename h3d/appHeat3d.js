@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLevel } from './levelShapes.js'
 import { getLighting } from './lighting.js'
 import { preprocess } from './preprocess.js'
+import { initEvents } from './events.js'
 
 export class Heat3DModel {
     constructor(
@@ -17,7 +18,9 @@ export class Heat3DModel {
         const renderer = new THREE.WebGLRenderer({
             antialias: true,
         })
-        new OrbitControls(camera, domElement)
+        const pointer = new THREE.Vector2()
+        const raycaster = new THREE.Raycaster()
+        const controls = new OrbitControls(camera, domElement)
         renderer.setSize(domElement.offsetWidth, domElement.offsetHeight)
         renderer.setClearColor( 0xFFFFFF )
         renderer.setPixelRatio(window.devicePixelRatio)
@@ -28,16 +31,15 @@ export class Heat3DModel {
         const axes = new THREE.AxesHelper(20000)
         scene.add(axes)
         
-        
-
         camera.position.set(0, 0, 10000)
-        // camera.up.set(0, 0, 1)
-        // camera.lookAt(0, 0, 4000)
-        // controls.update()
-        // controls.target.set(0, 0, 0)
         let animationFrameId
         function animate() {
             animationFrameId = requestAnimationFrame( animate )
+            render()
+        }
+        function render() {
+            camera.updateMatrixWorld()
+            controls.update()
             renderer.render( scene, camera )
         }
         animate()
@@ -48,5 +50,12 @@ export class Heat3DModel {
             cancelAnimationFrame(animationFrameId)
             domElement.innerHTML = ''
         }
+
+        initEvents(domElement, {
+            scene,
+            camera,
+            pointer,
+            raycaster,
+        })
     }
 }

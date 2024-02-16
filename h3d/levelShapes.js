@@ -56,6 +56,7 @@ function getSnappables(level) {
             const shape = new THREE.Mesh(geometry, material)
             shape.rotation.z = Math.PI / 180 * r
             shape.position.z = HEIGHT_ABOVE_GROUND[snappableType]
+            shape.userData.slateClass = 'Radiator'
             snappableGroup.add(shape)
         }
         group.add(snappableGroup)
