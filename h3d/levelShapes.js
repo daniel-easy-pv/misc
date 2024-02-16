@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
+import { getWalls } from './walls.js'
 
 export function getLevel(eTempFloorplan, levelIndex = 0) {
     const group = new THREE.Group()
@@ -36,20 +37,23 @@ function getSnappables(level) {
             type: 'doors',
             color: 0x5478E4,
             specular: 0x00ffff,
+            z: 0,
         },
         {
             type: 'windows',
             color: 0x81D4FA,
             specular: 0xffffff,
+            z: 900,
         },
         {
             type: 'radiators',
             color: 0xCC5500,
             specular: 0xff0000,
+            z: 200,
         },
     ]
     for (const snappableType of snappableTypes) {
-        const { type, color, specular } = snappableType
+        const { type, color, specular, z } = snappableType
         const snappableGroup = new THREE.Group()
         const snappables = level[type]
         for (const snappable of snappables) {
@@ -63,6 +67,7 @@ function getSnappables(level) {
             const material = new THREE.MeshPhongMaterial( { color, specular, shininess: 20 } )
             const shape = new THREE.Mesh(geometry, material)
             shape.rotation.z = Math.PI / 180 * r
+            shape.position.z = z
             snappableGroup.add(shape)
         }
         group.add(snappableGroup)
@@ -70,39 +75,3 @@ function getSnappables(level) {
     return group
 }
 
-function getWalls(level) {
-    const wallDict = {
-        internal: {
-            color: 0xcccccc,
-            specular: 0xffffff,
-        },
-        external: {
-            color: 0x777777,
-            specular: 0xffffff,
-        }
-    }
-    const group = new THREE.Group()
-    for (const wall of level.walls || []) {
-        const { width, height, rotation, position, neighbours } = wall
-        const externality = neighbours.length === 2 ? 'internal' : 'external'
-        const points = [
-            new THREE.Vector2(0, -height / 2),
-            new THREE.Vector2(width, -height / 2),
-            new THREE.Vector2(width, height / 2),
-            new THREE.Vector2(0, height / 2),
-        ]
-        const geometry = new PrismGeometry(points, 2000)
-        const material = new THREE.MeshPhongMaterial( { 
-            ...wallDict[externality], 
-            opacity: 0.5,
-            transparent: true,
-            shininess: 20 
-        })
-        const shape = new THREE.Mesh(geometry, material)
-        shape.position.x = position.x
-        shape.position.y = position.y
-        shape.rotation.z = Math.PI / 180 * rotation
-        group.add(shape)
-    }
-    return group
-}
