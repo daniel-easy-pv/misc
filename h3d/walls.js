@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
+import { CSG } from 'three-csg-ts'
 
 export function getWalls(level) {
     const wallDict = {
@@ -24,20 +25,25 @@ export function getWalls(level) {
         ]
         const h = Math.max(...neighbours.map(n => heightOfRoom(level, n.roomIndexInLevel)))
 
-        const holes = getHoles(neighbours, { wallThickness: width })
-        group.add(holes)
         const geometry = new PrismGeometry(points, h)
         const material = new THREE.MeshPhongMaterial( { 
             ...wallDict[externality], 
-            opacity: 0.7,
+            opacity: 0.2,
             transparent: true,
             shininess: 20 
         })
-        const shape = new THREE.Mesh(geometry, material)
-        shape.position.x = position.x
-        shape.position.y = position.y
-        shape.rotation.z = Math.PI / 180 * rotation
-        group.add(shape)
+        const wallWithoutHoles = new THREE.Mesh(geometry, material)
+        wallWithoutHoles.position.x = position.x
+        wallWithoutHoles.position.y = position.y
+        wallWithoutHoles.rotation.z = Math.PI / 180 * rotation
+        const holes = getHoles(neighbours, { wallThickness: width })
+        let wallWithHoles = wallWithoutHoles
+        for (const hole of holes) {
+            wallWithHoles.updateMatrix()
+            hole.updateMatrix()
+            wallWithHoles = CSG.subtract(wallWithHoles, hole)
+        }
+        group.add(wallWithHoles)
     }
     return group
 }
@@ -49,7 +55,7 @@ function heightOfRoom(level, roomIndexInLevel) {
 function getHoles(neighbours, {
     wallThickness,
 }) {
-    const holeGroup = new THREE.Group()
+    const holeMeshes = []
     for (const neighbour of neighbours) {
         for (const snappable of (neighbour.windows || []).concat(neighbour.doors || [])) {
             const { d, w, position, rotation } = snappable.rectangleHole
@@ -71,9 +77,9 @@ function getHoles(neighbours, {
             const snappableShape = new THREE.Mesh(snappableGeometry, snappableMaterial)
             snappableShape.position.set(...Object.values(position))
             snappableShape.rotation.z = Math.PI / 180 * rotation
-            holeGroup.add(snappableShape)
+            holeMeshes.push(snappableShape)
         }
     }
-    return holeGroup
+    return holeMeshes
 }
 
