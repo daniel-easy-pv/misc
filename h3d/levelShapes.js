@@ -33,18 +33,18 @@ function getRoom(room, ceilingHeight) {
 function getSnappables(level) {
     const group = new THREE.Group()
     const snappableTypes = [
-        {
-            type: 'doors',
-            color: 0x5478E4,
-            specular: 0x00ffff,
-            z: 0,
-        },
-        {
-            type: 'windows',
-            color: 0x81D4FA,
-            specular: 0xffffff,
-            z: 900,
-        },
+        // {
+        //     type: 'doors',
+        //     color: 0x5478E4,
+        //     specular: 0x00ffff,
+        //     z: 0,
+        // },
+        // {
+        //     type: 'windows',
+        //     color: 0x81D4FA,
+        //     specular: 0xffffff,
+        //     z: 900,
+        // },
         {
             type: 'radiators',
             color: 0xCC5500,

@@ -1,3 +1,5 @@
+import { HEIGHT_ABOVE_GROUND } from './consts'
+
 export function preprocess(eTempFloorplan) {
     const copy = JSON.parse(JSON.stringify(eTempFloorplan))
     const barycenter = getBarycenter(copy)
@@ -27,6 +29,18 @@ export function preprocess(eTempFloorplan) {
             wall.position.y -= barycenter[1]
             wall.position.y *= -1
             wall.rotation *= -1
+            for (const neighbour of wall.neighbours || []) {
+                const snappableTypes = ['windows', 'doors']
+                for (const snappableType of snappableTypes) {
+                    for (const snappable of neighbour[snappableType] || []) {
+                        snappable.rectangleHole = getRectangleProperties(snappable.points)
+                        snappable.rectangleHole.position.x -= barycenter[0]
+                        snappable.rectangleHole.position.y -= barycenter[1]
+                        snappable.rectangleHole.position.y *= -1
+                        snappable.rectangleHole.position.z = HEIGHT_ABOVE_GROUND[snappableType]
+                    }
+                }
+            }
         }
 
     }
@@ -51,4 +65,16 @@ function getBarycenter(eTempFloorplan) {
     const x = (xMin + xMax) / 2
     const y = (yMin + yMax) / 2 
     return [x, y]
+}
+
+function getRectangleProperties(rectangle) {
+    const x = (rectangle[0] + rectangle[2] + rectangle[4] + rectangle[6]) / 4
+    const y = (rectangle[1] + rectangle[3] + rectangle[5] + rectangle[7]) / 4
+    const d = Math.round(Math.sqrt((rectangle[2] - rectangle[0]) ** 2 + 
+    (rectangle[3] - rectangle[1]) ** 2))
+    const w = Math.round(Math.sqrt((rectangle[4] - rectangle[2]) ** 2 + 
+    (rectangle[5] - rectangle[3]) ** 2))
+    const rotation = -Math.round((Math.atan2(rectangle[3] - rectangle[1]
+        , rectangle[2] - rectangle[0]) * 180) / Math.PI) + 90
+    return { d, w, position: { x, y }, rotation }
 }

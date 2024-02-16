@@ -64,7 +64,24 @@ export const eTempFloorplan =
                                 "y": 9931.5
                             },
                             "rotation": 180,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
+                                    "h": 650,
+                                    "points": [
+                                        15007,
+                                        10185,
+                                        15007,
+                                        9185,
+                                        14807,
+                                        9185,
+                                        14807,
+                                        10185
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 9691.48048303546,
@@ -102,7 +119,24 @@ export const eTempFloorplan =
                                 "y": 9343.5
                             },
                             "rotation": 0,
-                            "grouped": true
+                            "grouped": true,
+                            "doors": [
+                                {
+                                    "slateId": "58991e9c-8de6-42a3-9d40-08a9d5cc0289",
+                                    "h": 2100,
+                                    "points": [
+                                        19193,
+                                        8871,
+                                        19193,
+                                        9871,
+                                        19393,
+                                        9871,
+                                        19393,
+                                        8871
+                                    ],
+                                    "material": 129
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 13176.48048303546,
@@ -257,7 +291,7 @@ export const eTempFloorplan =
                             "windows": [
                                 {
                                     "slateId": "4b526b03-2550-4fc6-87ea-a0c5ac7210d8",
-                                    "h": 650,
+                                    "h": 900,
                                     "points": [
                                         16023.438076624596,
                                         12520.692694479869,
@@ -307,24 +341,7 @@ export const eTempFloorplan =
                                 "y": 12658
                             },
                             "rotation": 90,
-                            "grouped": true,
-                            "windows": [
-                                {
-                                    "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
-                                    "h": 650,
-                                    "points": [
-                                        17745,
-                                        12658,
-                                        16745,
-                                        12658,
-                                        16745,
-                                        12858,
-                                        17745,
-                                        12858
-                                    ],
-                                    "material": 167
-                                }
-                            ]
+                            "grouped": true
                         },
                         {
                             "distanceFrom": 7057.18375211792,
@@ -897,7 +914,24 @@ export const eTempFloorplan =
                                 "y": 11769
                             },
                             "rotation": 90,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
+                                    "h": 900,
+                                    "points": [
+                                        14240,
+                                        11769,
+                                        13240,
+                                        11769,
+                                        13240,
+                                        11969,
+                                        14240,
+                                        11969
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         }
                     ],
                     "konvaType": "r",
@@ -1363,9 +1397,9 @@ export const eTempFloorplan =
                                         21909.11348352855,
                                         8191.251773600362,
                                         22399.67471067335,
-                                        8617.690142444193,
+                                        8617.690142444195,
                                         22530.88651647145,
-                                        8466.748226399639,
+                                        8466.74822639964,
                                         22040.32528932665,
                                         8040.309857555808
                                     ],
@@ -3470,24 +3504,7 @@ export const eTempFloorplan =
                                 "y": 4244
                             },
                             "rotation": 270,
-                            "grouped": true,
-                            "windows": [
-                                {
-                                    "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
-                                    "h": 650,
-                                    "points": [
-                                        17798,
-                                        4244,
-                                        18798,
-                                        4244,
-                                        18798,
-                                        4044,
-                                        17798,
-                                        4044
-                                    ],
-                                    "material": 167
-                                }
-                            ]
+                            "grouped": true
                         },
                         {
                             "distanceFrom": 25303.00041631966,
@@ -3941,14 +3958,14 @@ export const eTempFloorplan =
                     "slateId": "58991e9c-8de6-42a3-9d40-08a9d5cc0289",
                     "h": 2100,
                     "points": [
-                        19985,
-                        5010,
-                        19985,
-                        6010,
-                        20185,
-                        6010,
-                        20185,
-                        5010
+                        19193,
+                        8871,
+                        19193,
+                        9871,
+                        19393,
+                        9871,
+                        19393,
+                        8871
                     ],
                     "material": 129
                 },
@@ -3988,14 +4005,14 @@ export const eTempFloorplan =
                     "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
                     "h": 650,
                     "points": [
-                        17798,
-                        4244,
-                        18798,
-                        4244,
-                        18798,
-                        4044,
-                        17798,
-                        4044
+                        15007,
+                        10185,
+                        15007,
+                        9185,
+                        14807,
+                        9185,
+                        14807,
+                        10185
                     ],
                     "material": 167
                 },
@@ -4031,22 +4048,22 @@ export const eTempFloorplan =
                 },
                 {
                     "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
-                    "h": 650,
+                    "h": 900,
                     "points": [
-                        17745,
-                        12658,
-                        16745,
-                        12658,
-                        16745,
-                        12858,
-                        17745,
-                        12858
+                        14240,
+                        11769,
+                        13240,
+                        11769,
+                        13240,
+                        11969,
+                        14240,
+                        11969
                     ],
                     "material": 167
                 },
                 {
                     "slateId": "4b526b03-2550-4fc6-87ea-a0c5ac7210d8",
-                    "h": 650,
+                    "h": 900,
                     "points": [
                         16023.438076624596,
                         12520.692694479869,
@@ -4111,9 +4128,9 @@ export const eTempFloorplan =
                         21909.11348352855,
                         8191.251773600362,
                         22399.67471067335,
-                        8617.690142444193,
+                        8617.690142444195,
                         22530.88651647145,
-                        8466.748226399639,
+                        8466.74822639964,
                         22040.32528932665,
                         8040.309857555808
                     ],
@@ -4159,7 +4176,24 @@ export const eTempFloorplan =
                                 "y": 9931.5
                             },
                             "rotation": 180,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
+                                    "h": 650,
+                                    "points": [
+                                        15007,
+                                        10185,
+                                        15007,
+                                        9185,
+                                        14807,
+                                        9185,
+                                        14807,
+                                        10185
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 6707.878485211757,
@@ -4245,7 +4279,24 @@ export const eTempFloorplan =
                                 "y": 9343.5
                             },
                             "rotation": 0,
-                            "grouped": true
+                            "grouped": true,
+                            "doors": [
+                                {
+                                    "slateId": "58991e9c-8de6-42a3-9d40-08a9d5cc0289",
+                                    "h": 2100,
+                                    "points": [
+                                        19193,
+                                        8871,
+                                        19193,
+                                        9871,
+                                        19393,
+                                        9871,
+                                        19393,
+                                        8871
+                                    ],
+                                    "material": 129
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 1,
@@ -4624,7 +4675,7 @@ export const eTempFloorplan =
                             "windows": [
                                 {
                                     "slateId": "4b526b03-2550-4fc6-87ea-a0c5ac7210d8",
-                                    "h": 650,
+                                    "h": 900,
                                     "points": [
                                         16023.438076624596,
                                         12520.692694479869,
@@ -4686,24 +4737,7 @@ export const eTempFloorplan =
                                 "y": 12658
                             },
                             "rotation": 90,
-                            "grouped": true,
-                            "windows": [
-                                {
-                                    "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
-                                    "h": 650,
-                                    "points": [
-                                        17745,
-                                        12658,
-                                        16745,
-                                        12658,
-                                        16745,
-                                        12858,
-                                        17745,
-                                        12858
-                                    ],
-                                    "material": 167
-                                }
-                            ]
+                            "grouped": true
                         }
                     ],
                     "height": 1842,
@@ -5175,7 +5209,24 @@ export const eTempFloorplan =
                                 "y": 11769
                             },
                             "rotation": 90,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "a8f95fe2-810d-4dbc-84fc-cd1ebd3c741b",
+                                    "h": 900,
+                                    "points": [
+                                        14240,
+                                        11769,
+                                        13240,
+                                        11769,
+                                        13240,
+                                        11969,
+                                        14240,
+                                        11969
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         }
                     ],
                     "height": 2210,
@@ -5568,9 +5619,9 @@ export const eTempFloorplan =
                                         21909.11348352855,
                                         8191.251773600362,
                                         22399.67471067335,
-                                        8617.690142444193,
+                                        8617.690142444195,
                                         22530.88651647145,
-                                        8466.748226399639,
+                                        8466.74822639964,
                                         22040.32528932665,
                                         8040.309857555808
                                     ],
@@ -6683,24 +6734,7 @@ export const eTempFloorplan =
                                 "y": 4244
                             },
                             "rotation": 270,
-                            "grouped": true,
-                            "windows": [
-                                {
-                                    "slateId": "f6f13047-6522-4786-adc7-f226476c9666",
-                                    "h": 650,
-                                    "points": [
-                                        17798,
-                                        4244,
-                                        18798,
-                                        4244,
-                                        18798,
-                                        4044,
-                                        17798,
-                                        4044
-                                    ],
-                                    "material": 167
-                                }
-                            ]
+                            "grouped": true
                         }
                     ],
                     "height": 3964,
@@ -6830,7 +6864,24 @@ export const eTempFloorplan =
                                 "y": 6746
                             },
                             "rotation": 180,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "ac3bd86d-57a9-4081-aadb-eda0274bff05",
+                                    "h": 650,
+                                    "points": [
+                                        13666,
+                                        6996,
+                                        13666,
+                                        5996,
+                                        13466,
+                                        5996,
+                                        13466,
+                                        6996
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 2500,
@@ -7195,6 +7246,23 @@ export const eTempFloorplan =
                     "radiators": []
                 }
             ],
+            "windows": [
+                {
+                    "slateId": "ac3bd86d-57a9-4081-aadb-eda0274bff05",
+                    "h": 650,
+                    "points": [
+                        13666,
+                        6996,
+                        13666,
+                        5996,
+                        13466,
+                        5996,
+                        13466,
+                        6996
+                    ],
+                    "material": 167
+                }
+            ],
             "walls": [
                 {
                     "neighbours": [
@@ -7229,7 +7297,24 @@ export const eTempFloorplan =
                                 "y": 6746
                             },
                             "rotation": 180,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "ac3bd86d-57a9-4081-aadb-eda0274bff05",
+                                    "h": 650,
+                                    "points": [
+                                        13666,
+                                        6996,
+                                        13666,
+                                        5996,
+                                        13466,
+                                        5996,
+                                        13466,
+                                        6996
+                                    ],
+                                    "material": 167
+                                }
+                            ]
                         }
                     ],
                     "height": 2500,
