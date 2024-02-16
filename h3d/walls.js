@@ -2,17 +2,16 @@ import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
 import { CSG } from 'three-csg-ts'
 
-export function getWalls(level) {
-    const wallDict = {
-        internal: {
-            color: 0xcccccc,
-            specular: 0xffffff,
-        },
-        external: {
-            color: 0x777777,
-            specular: 0xffffff,
-        }
+const wallDict = {
+    internal: {
+        color: 0x000000,
+    },
+    external: {
+        color: 0x000000,
     }
+}
+
+export function getWalls(level) {
     const group = new THREE.Group()
     for (const wall of level.walls || []) {
         const { width, height, rotation, position, neighbours } = wall
@@ -26,11 +25,10 @@ export function getWalls(level) {
         const h = Math.max(...neighbours.map(n => heightOfRoom(level, n.roomIndexInLevel)))
 
         const geometry = new PrismGeometry(points, h)
-        const material = new THREE.MeshPhongMaterial( { 
+        const material = new THREE.MeshBasicMaterial( { 
             ...wallDict[externality], 
             opacity: 0.2,
             transparent: true,
-            shininess: 20 
         })
         const wallWithoutHoles = new THREE.Mesh(geometry, material)
         wallWithoutHoles.position.x = position.x
@@ -55,7 +53,7 @@ function heightOfRoom(level, roomIndexInLevel) {
 function getHoles(neighbours, {
     wallThickness,
 }) {
-    const holeMeshes = []
+    const meshes = []
     for (const neighbour of neighbours) {
         for (const snappable of (neighbour.windows || []).concat(neighbour.doors || [])) {
             const { d, w, position, rotation } = snappable.rectangleHole
@@ -68,18 +66,14 @@ function getHoles(neighbours, {
                 new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, d / 2),
             ]
             const h = snappable.h
-            const snappableGeometry = new PrismGeometry(snappablePoints, h)
-            const snappableMaterial = new THREE.MeshPhongMaterial({
-                color: 'cyan',
-                specular: 0xffffff,
-                shininess: 20,
-            })
-            const snappableShape = new THREE.Mesh(snappableGeometry, snappableMaterial)
-            snappableShape.position.set(...Object.values(position))
-            snappableShape.rotation.z = Math.PI / 180 * rotation
-            holeMeshes.push(snappableShape)
+            const geometry = new PrismGeometry(snappablePoints, h)
+            const material = new THREE.MeshBasicMaterial()
+            const mesh = new THREE.Mesh(geometry, material)
+            mesh.position.set(...Object.values(position))
+            mesh.rotation.z = Math.PI / 180 * rotation
+            meshes.push(mesh)
         }
     }
-    return holeMeshes
+    return meshes
 }
 
