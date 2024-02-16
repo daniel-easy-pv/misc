@@ -27,7 +27,7 @@ export function getWalls(level) {
         const geometry = new PrismGeometry(points, h)
         const material = new THREE.MeshBasicMaterial( { 
             ...wallDict[externality], 
-            opacity: 0.2,
+            opacity: 0.1,
             transparent: true,
         })
         const wallWithoutHoles = new THREE.Mesh(geometry, material)
