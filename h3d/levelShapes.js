@@ -71,20 +71,36 @@ function getSnappables(level) {
 }
 
 function getWalls(level) {
+    const wallDict = {
+        internal: {
+            color: 0xcccccc,
+            specular: 0xffffff,
+        },
+        external: {
+            color: 0x777777,
+            specular: 0xffffff,
+        }
+    }
     const group = new THREE.Group()
     for (const wall of level.walls || []) {
-        const { width, height, rotation, position } = wall
+        const { width, height, rotation, position, neighbours } = wall
+        const externality = neighbours.length === 2 ? 'internal' : 'external'
         const points = [
-            new THREE.Vector2(-width / 2, -height / 2),
-            new THREE.Vector2(width / 2, -height / 2),
-            new THREE.Vector2(width / 2, height / 2),
-            new THREE.Vector2(-width / 2, height / 2),
+            new THREE.Vector2(0, -height / 2),
+            new THREE.Vector2(width, -height / 2),
+            new THREE.Vector2(width, height / 2),
+            new THREE.Vector2(0, height / 2),
         ]
         const geometry = new PrismGeometry(points, 2000)
-        const material = new THREE.MeshPhongMaterial( { color: 0x666666, specular: 0xffffff, shininess: 20 })
+        const material = new THREE.MeshPhongMaterial( { 
+            ...wallDict[externality], 
+            opacity: 0.5,
+            transparent: true,
+            shininess: 20 
+        })
         const shape = new THREE.Mesh(geometry, material)
         shape.position.x = position.x
-        shape.position.y = position.y - width / 2
+        shape.position.y = position.y
         shape.rotation.z = Math.PI / 180 * rotation
         group.add(shape)
     }
