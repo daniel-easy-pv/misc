@@ -3,3 +3,5 @@ export const HEIGHT_ABOVE_GROUND = {
     doors: 0,
     radiators: 150,
 }
+
+export const FLOOR_THICKNESS = 100
