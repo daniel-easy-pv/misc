@@ -15,7 +15,6 @@ export function getLevel(eTempFloorplan, levelIndex = 0) {
     const snappables = getSnappables(level)
     group.add(snappables)
     group.add(getWalls(level))
-    group.rotation.x = -Math.PI / 2
     return group
 }
 
@@ -57,6 +56,7 @@ function getSnappables(level) {
             shape.rotation.z = Math.PI / 180 * r
             shape.position.z = HEIGHT_ABOVE_GROUND[snappableType]
             shape.userData.slateClass = 'Radiator'
+            shape.userData.slateId = snappable.slateId
             snappableGroup.add(shape)
         }
         group.add(snappableGroup)

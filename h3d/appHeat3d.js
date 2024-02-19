@@ -2,8 +2,9 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLevel } from './levelShapes.js'
 import { getLighting } from './lighting.js'
-import { preprocess } from './preprocess.js'
+import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from './events.js'
+import { ScreenPosition } from './ScreenPosition.js'
 
 export class Heat3DModel {
     constructor(
@@ -20,7 +21,11 @@ export class Heat3DModel {
         })
         const pointer = new THREE.Vector2()
         const raycaster = new THREE.Raycaster()
+        camera.up.set(0, 0, 1)
+        const b = getBarycenter(eTempFloorplan)
+        camera.position.set(b[0], -b[1]-10000, 0)
         const controls = new OrbitControls(camera, domElement)
+        controls.target.set(b[0],-b[1], 0)
         renderer.setSize(domElement.offsetWidth, domElement.offsetHeight)
         renderer.setClearColor( 0xFFFFFF )
         renderer.setPixelRatio(window.devicePixelRatio)
@@ -29,9 +34,9 @@ export class Heat3DModel {
         scene.add( getLevel(data) )
         scene.add( getLighting())
         const axes = new THREE.AxesHelper(20000)
+        axes.position.set(b[0], -b[1], 0)
         scene.add(axes)
         
-        camera.position.set(0, 0, 10000)
         let animationFrameId
         function animate() {
             animationFrameId = requestAnimationFrame( animate )
@@ -57,5 +62,7 @@ export class Heat3DModel {
             pointer,
             raycaster,
         })
+
+        this.screenPosition = new ScreenPosition(domElement, camera)
     }
 }
