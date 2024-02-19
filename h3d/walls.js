@@ -1,6 +1,8 @@
 import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
 import { CSG } from 'three-csg-ts'
+import { getRectangleProperties } from './preprocess.js'
+import { HEIGHT_ABOVE_GROUND } from './consts.js'
 
 const wallDict = {
     internal: {
@@ -55,23 +57,26 @@ function getHoles(neighbours, {
 }) {
     const meshes = []
     for (const neighbour of neighbours) {
-        for (const snappable of (neighbour.windows || []).concat(neighbour.doors || [])) {
-            const { d, w, position, rotation } = snappable.rectangleHole
-            const t = wallThickness ? wallThickness : w
-            const THICKNESS_EXTENSION = 100
-            const snappablePoints = [
-                new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, -d / 2),
-                new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, -d / 2),
-                new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, d / 2),
-                new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, d / 2),
-            ]
-            const h = snappable.h
-            const geometry = new PrismGeometry(snappablePoints, h)
-            const material = new THREE.MeshBasicMaterial()
-            const mesh = new THREE.Mesh(geometry, material)
-            mesh.position.set(...Object.values(position))
-            mesh.rotation.z = Math.PI / 180 * rotation
-            meshes.push(mesh)
+        for (const snappableType of Object.keys(neighbour).filter(type => ['windows', 'doors'].includes(type))) {
+            for (const snappable of neighbour[snappableType]) {
+                const { d, w, x, y, rotation } = getRectangleProperties(snappable.points)
+                const z = HEIGHT_ABOVE_GROUND[snappableType]
+                const t = wallThickness ? wallThickness : w
+                const THICKNESS_EXTENSION = 100
+                const snappablePoints = [
+                    new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, -d / 2),
+                    new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, -d / 2),
+                    new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, d / 2),
+                    new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, d / 2),
+                ]
+                const h = snappable.h
+                const geometry = new PrismGeometry(snappablePoints, h)
+                const material = new THREE.MeshBasicMaterial()
+                const mesh = new THREE.Mesh(geometry, material)
+                mesh.position.set(x, y, z)
+                mesh.rotation.z = Math.PI / 180 * rotation
+                meshes.push(mesh)
+            }
         }
     }
     return meshes

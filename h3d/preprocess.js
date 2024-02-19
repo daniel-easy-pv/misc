@@ -1,5 +1,3 @@
-import { HEIGHT_ABOVE_GROUND } from './consts'
-
 export function preprocess(eTempFloorplan) {
     const copy = JSON.parse(JSON.stringify(eTempFloorplan))
     for (const level of copy.levels) {
@@ -26,9 +24,9 @@ export function preprocess(eTempFloorplan) {
                 const snappableTypes = ['windows', 'doors']
                 for (const snappableType of snappableTypes) {
                     for (const snappable of neighbour[snappableType] || []) {
-                        snappable.rectangleHole = getRectangleProperties(snappable.points)
-                        snappable.rectangleHole.position.y *= -1
-                        snappable.rectangleHole.position.z = HEIGHT_ABOVE_GROUND[snappableType]
+                        for (let i = 0; i < snappable.points.length; i += 2) {
+                            snappable.points[i + 1] *= -1
+                        }
                     }
                 }
             }
@@ -58,7 +56,7 @@ export function getBarycenter(eTempFloorplan) {
     return [x, y]
 }
 
-function getRectangleProperties(rectangle) {
+export function getRectangleProperties(rectangle) {
     const x = (rectangle[0] + rectangle[2] + rectangle[4] + rectangle[6]) / 4
     const y = (rectangle[1] + rectangle[3] + rectangle[5] + rectangle[7]) / 4
     const d = Math.round(Math.sqrt((rectangle[2] - rectangle[0]) ** 2 + 
@@ -67,5 +65,5 @@ function getRectangleProperties(rectangle) {
     (rectangle[5] - rectangle[3]) ** 2))
     const rotation = -Math.round((Math.atan2(rectangle[3] - rectangle[1]
         , rectangle[2] - rectangle[0]) * 180) / Math.PI) + 90
-    return { d, w, position: { x, y }, rotation }
+    return { d, w, x, y, rotation }
 }
