@@ -10,3 +10,5 @@ export const MESH_COLORS = {
 }
 
 export const FLOOR_THICKNESS = 100
+
+export const MOUSE_ACCURACY_THRESHOLD = 20 // how many pixels within to click on

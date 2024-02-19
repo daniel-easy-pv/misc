@@ -6,20 +6,18 @@ export class ScreenPosition {
         this.camera = camera
     }
 
-    #project(vector) {
+    toNormalized(vector) {
         const v = new THREE.Vector3().copy(vector)
         v.project(this.camera)
-    }
-
-    toNormalized(vector) {
-        this.#project(vector)
-        return [vector.x, vector.y]
+        return [v.x, v.y]
     }
 
     toPixels(vector) {
-        this.#project(vector)
-        const vx = (vector.x + 1) * this.domElement.offsetWidth / 2
-        const vy = -(vector.y - 1) * this.domElement.offsetHeight / 2
-        return [vx, vy]
+        const v = new THREE.Vector3().copy(vector)
+        v.project(this.camera)
+        const navOffset = document.querySelector('nav')?.offsetHeight ?? 0
+        const vx = (v.x + 1) * this.domElement.offsetWidth / 2 + this.domElement.offsetLeft
+        const vy = -(v.y - 1) * this.domElement.offsetHeight / 2 + this.domElement.offsetTop + navOffset
+        return new THREE.Vector2(vx, vy)
     }
 }
