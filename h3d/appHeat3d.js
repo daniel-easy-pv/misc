@@ -3,8 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLevel } from './levelShapes.js'
 import { getLighting } from './lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
-import { initEvents } from './events.js'
-import { ScreenPosition } from './ScreenPosition.js'
+import { initEvents } from './events/index.js'
 
 export class Heat3DModel {
     constructor(
@@ -62,7 +61,5 @@ export class Heat3DModel {
             pointer,
             raycaster,
         })
-
-        this.screenPosition = new ScreenPosition(domElement, camera)
     }
 }

@@ -1,73 +1,51 @@
 import * as THREE from 'three'
-import { ScreenPosition } from './ScreenPosition'
-import { getMeshByUserDataValue } from './utils'
-import { MOUSE_ACCURACY_THRESHOLD } from './consts'
-
-export function initEvents(domElement, {
-    scene,
-    camera,
-    pointer,
-    raycaster,
-} = {}) {
-    domElement.addEventListener('mousemove', function onPointerMove(event) {
-        const elementRect = domElement.getBoundingClientRect()
-        pointer.x = ((event.clientX - elementRect.left) / domElement.clientWidth) * 2 - 1
-        pointer.y = -((event.clientY - elementRect.top) / domElement.clientHeight) * 2 + 1
-    })
-    // domElement.addEventListener('click', function() {
-    //     raycaster.setFromCamera(pointer, camera)
-    //     const intersects = raycaster.intersectObjects(scene.children)
-    //         .filter(intersection => intersection.object.userData.slateClass === 'Radiator')
-    //     if (intersects.length > 0) {
-    //         console.log(intersects[0])
-    //     }
-    // })
-    let firstClick
+import { ScreenPosition } from '../ScreenPosition'
+import { getMeshByUserDataValue } from '../utils'
+import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
+export function addPipeListener(domElement, threeElements) {
+    const {
+        scene,
+        camera,
+        pointer,
+        raycaster,
+    } = threeElements
+    let anchor
     let tempMesh
     domElement.addEventListener('click', function heyRadiators(evt) {
-        const mouseX = evt.clientX
-        const mouseY = evt.clientY
-        const mousePos = new THREE.Vector2(mouseX, mouseY)
+        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY)
         const radiators = getMeshByUserDataValue(scene, 'slateClass', 'Radiator')
         const positions = new ScreenPosition(domElement, camera)
         const pixels = radiators.map(radiator => positions.toPixels(radiator.position))
-        let closestIndex = -1
-        let closestDistance = Infinity
-        for (let i = 0; i < pixels.length; i++) {
-            const pixel = pixels[i]
-            const distance = pixel.distanceTo(mousePos)
-            if (distance < closestDistance) {
-                closestIndex = i
-                closestDistance = distance
-            }
-        }
+        const { closestIndex, closestDistance } = getClosest(pixels, mousePos)
+
+        // terminate if none selected
         if (closestDistance > MOUSE_ACCURACY_THRESHOLD) return
         const closestRadiator = radiators[closestIndex]
         if (!closestRadiator) {
-            firstClick = null
+            anchor = null
             return
         }
-        if (!firstClick) {
-            firstClick = closestRadiator.position
+        if (!anchor) {
+            anchor = closestRadiator.position
         } else {
             const secondClick = closestRadiator.position
-            const path = new Pipe([firstClick, secondClick])
+            const path = new Pipe([anchor, secondClick])
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
             const material = new THREE.MeshBasicMaterial({ color: 0x0000ff })
             const mesh = new THREE.Mesh(geometry, material)
             scene.remove(tempMesh)
             scene.add(mesh)
-            firstClick = null
+            anchor = null
         }
     })
     
-    domElement.addEventListener('mousemove', function(evt) {
-        if (!firstClick) return
+    domElement.addEventListener('mousemove', function() {
+        if (!anchor) return
         raycaster.setFromCamera(pointer, camera)
         const intersects = raycaster.intersectObjects(scene.children)
         if (intersects.length > 0) {
             const intersectionPoint = intersects[0].point
-            const path = new Pipe([firstClick, intersectionPoint])
+            const path = new Pipe([anchor, intersectionPoint])
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
             const material = new THREE.MeshBasicMaterial({ color: 0x0000ff })
             const mesh = new THREE.Mesh(geometry, material)
@@ -76,6 +54,23 @@ export function initEvents(domElement, {
             tempMesh = mesh
         }
     })
+}
+
+function getClosest(arrs, vector) {
+    let closestIndex = -1
+    let closestDistance = Infinity
+    for (let i = 0; i < arrs.length; i++) {
+        const arr = arrs[i]
+        const d = arr.distanceTo(vector)
+        if (d < closestDistance) {
+            closestIndex = i
+            closestDistance = d
+        }
+    }
+    return {
+        closestIndex,
+        closestDistance,
+    }
 }
 
 class Pipe extends THREE.Curve {

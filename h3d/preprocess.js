@@ -13,7 +13,6 @@ export function preprocess(eTempFloorplan) {
                 for (let i = 0; i < snappable.points.length; i += 2) {
                     snappable.points[i + 1] *= -1
                 }
-                snappable.rotation = -snappable.rotation ?? 0
             }
         }
         const walls = level.walls || []
