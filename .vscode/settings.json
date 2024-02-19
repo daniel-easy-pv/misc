@@ -1,5 +1,5 @@
 {
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "off",
     "html.format.indentInnerHtml": true,
     "[html]": {
       "editor.formatOnSave": true
