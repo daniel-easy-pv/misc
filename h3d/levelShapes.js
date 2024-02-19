@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
 import { getWalls } from './walls.js'
 import { FLOOR_THICKNESS, HEIGHT_ABOVE_GROUND } from './consts.js'
+import { getRectangleProperties } from './preprocess.js'
 
 export function getLevel(eTempFloorplan, levelIndex = 0) {
     const group = new THREE.Group()
@@ -45,16 +46,20 @@ function getSnappables(level) {
         const snappables = level[snappableType]
         for (const snappable of snappables) {
             const { h, points } = snappable
-            const r = snappable.rotation || 0
-            const points2 = []
-            for (let i = 0; i < points.length; i += 2) {
-                points2.push(new THREE.Vector2(points[i], points[i + 1]))
-            }
+            const { d, w, x, y, rotation } = getRectangleProperties(points)
+            const z = HEIGHT_ABOVE_GROUND[snappableType]
+            const r = -Math.PI / 180 * rotation
+            const points2 = [
+                new THREE.Vector2(-w/2, -d / 2),
+                new THREE.Vector2(w / 2, -d / 2),
+                new THREE.Vector2(w / 2, d / 2),
+                new THREE.Vector2(-w/2, d / 2),
+            ]
             const geometry = new PrismGeometry(points2, h)
             const material = new THREE.MeshPhongMaterial( properties )
             const shape = new THREE.Mesh(geometry, material)
-            shape.rotation.z = Math.PI / 180 * r
-            shape.position.z = HEIGHT_ABOVE_GROUND[snappableType]
+            shape.rotation.z = r
+            shape.position.set(x, y, z)
             shape.userData.slateClass = 'Radiator'
             shape.userData.slateId = snappable.slateId
             snappableGroup.add(shape)

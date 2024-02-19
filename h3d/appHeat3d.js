@@ -15,7 +15,7 @@ export class Heat3DModel {
         const data = preprocess(eTempFloorplan)
         const scene = new THREE.Scene()
         const camera = new THREE.PerspectiveCamera( 75, domElement.offsetWidth / domElement.offsetHeight,
-            1, 100000 )
+            10, 100000 )
         const renderer = new THREE.WebGLRenderer({
             antialias: true,
         })

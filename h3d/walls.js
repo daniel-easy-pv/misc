@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { PrismGeometry } from './prism.js'
 import { CSG } from 'three-csg-ts'
 import { getRectangleProperties } from './preprocess.js'
-import { HEIGHT_ABOVE_GROUND } from './consts.js'
+import { HEIGHT_ABOVE_GROUND, MESH_COLORS } from './consts.js'
 
 const wallDict = {
     internal: {
@@ -44,6 +44,9 @@ export function getWalls(level) {
             wallWithHoles = CSG.subtract(wallWithHoles, hole)
         }
         group.add(wallWithHoles)
+
+        const apertures = getApertures(neighbours, { wallThickness: width })
+        group.add(apertures)
     }
     return group
 }
@@ -62,19 +65,14 @@ function getHoles(neighbours, {
                 const { d, w, x, y, rotation } = getRectangleProperties(snappable.points)
                 const z = HEIGHT_ABOVE_GROUND[snappableType]
                 const t = wallThickness ? wallThickness : w
-                const THICKNESS_EXTENSION = 100
-                const snappablePoints = [
-                    new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, -d / 2),
-                    new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, -d / 2),
-                    new THREE.Vector2(t - w / 2 + THICKNESS_EXTENSION, d / 2),
-                    new THREE.Vector2(-w/2 - THICKNESS_EXTENSION, d / 2),
-                ]
+                const THICKNESS_EXTENSION = 500
+                const snappablePoints = buildCuboid(t + THICKNESS_EXTENSION, d)
                 const h = snappable.h
                 const geometry = new PrismGeometry(snappablePoints, h)
                 const material = new THREE.MeshBasicMaterial()
                 const mesh = new THREE.Mesh(geometry, material)
-                mesh.position.set(x, y, z)
-                mesh.rotation.z = Math.PI / 180 * rotation
+                mesh.rotation.z = -Math.PI / 180 * rotation
+                mesh.position.set(x, y - (t - w) / 2, z)
                 meshes.push(mesh)
             }
         }
@@ -82,3 +80,44 @@ function getHoles(neighbours, {
     return meshes
 }
 
+function getApertures(neighbours, {
+    wallThickness,
+}) {
+    const meshes = []
+    for (const neighbour of neighbours) {
+        for (const snappableType of Object.keys(neighbour).filter(type => ['windows', 'doors'].includes(type))) {
+            for (const snappable of neighbour[snappableType]) {
+                const { d, w, x, y, rotation } = getRectangleProperties(snappable.points)
+                const z = HEIGHT_ABOVE_GROUND[snappableType]
+                const t = wallThickness ? wallThickness : w
+                const THICKNESS_EXTENSION = -Math.max(0, wallThickness - w)
+                const snappablePoints = buildCuboid(t + THICKNESS_EXTENSION, d)
+                const h = snappable.h
+                const geometry = new PrismGeometry(snappablePoints, h)
+                const material = new THREE.MeshBasicMaterial({
+                    color: MESH_COLORS[snappableType],
+                    transparent: true,
+                    opacity: 0.3,
+                })
+                const mesh = new THREE.Mesh(geometry, material)
+                mesh.rotation.z = -Math.PI / 180 * rotation
+                mesh.position.set(x, y - (t - w) / 2, z)
+                meshes.push(mesh)
+            }
+        }
+    }
+    const group = new THREE.Group()
+    for (const mesh of meshes) {
+        group.add(mesh)
+    }
+    return group
+}
+
+function buildCuboid(w, d) {
+    return [
+        new THREE.Vector2(-w / 2, -d / 2),
+        new THREE.Vector2(w / 2, -d / 2),
+        new THREE.Vector2(w / 2, d / 2),
+        new THREE.Vector2(-w / 2, d / 2),
+    ]
+}

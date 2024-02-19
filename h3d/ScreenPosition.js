@@ -1,3 +1,5 @@
+import * as THREE from 'three'
+
 export class ScreenPosition {
     constructor(domElement, camera) {
         this.domElement = domElement
@@ -5,7 +7,8 @@ export class ScreenPosition {
     }
 
     #project(vector) {
-        vector.project(this.camera)
+        const v = new THREE.Vector3().copy(vector)
+        v.project(this.camera)
     }
 
     toNormalized(vector) {
