@@ -34,9 +34,9 @@ export function addPipeListener(domElement, threeElements) {
         } else {
             const secondClick = closestOnGrid(domElement, anchor, camera, mousePos)
             destroyHelpers(domElement)
-            const path = new Pipe([anchor, secondClick])
+            const path = new PipeCurve([anchor, secondClick])
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
-            const material = Pipe.Material
+            const material = PipeCurve.Material
             const mesh = new THREE.Mesh(geometry, material)
             scene.remove(tempMesh)
             scene.add(mesh)
@@ -44,30 +44,32 @@ export function addPipeListener(domElement, threeElements) {
         }
     })
     
-    domElement.addEventListener('mousemove', function() {
-        if (!anchor) return
-        raycaster.setFromCamera(pointer, camera)
-        const intersects = raycaster.intersectObjects(scene.children)
-        if (intersects.length > 0) {
-            const intersectionPoint = intersects[0].point
-            const path = new Pipe([anchor, intersectionPoint])
-            const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
-            const material = Pipe.Material
-            const mesh = new THREE.Mesh(geometry, material)
-            scene.remove(tempMesh)
-            scene.add(mesh)
-            tempMesh = mesh
-        }
-    })
-
+    // Displays the next mesh that will be added, following the mouse
     domElement.addEventListener('mousemove', function(evt) {
         if (!anchor) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
         destroyHelpers(domElement)
-        drawAxes(domElement, anchor, camera, mousePos)
-        const { closestCandidateIndex, circles } = closestOnGridDetailed(domElement, anchor, camera, mousePos)
-        drawCircles(domElement, circles, closestCandidateIndex)
+        const coordHelperGroup = document.createElement('div')
+        coordHelperGroup.classList.add('coord-helpers')
+        const axes = getAxes(domElement, anchor, camera, mousePos)
+        coordHelperGroup.appendChild(axes)
+        const { 
+            closestCandidateIndex, 
+            circles, 
+            candidates } = closestOnGridDetailed(domElement, anchor, camera, mousePos)
+        const circleGroup = drawCircles(domElement, circles, closestCandidateIndex)
+        coordHelperGroup.appendChild(circleGroup)
+        domElement.appendChild(coordHelperGroup)
+        
+        const candidate = candidates[closestCandidateIndex]
+        const path = new PipeCurve([anchor, candidate])
+        const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
+        const material = PipeCurve.Material
+        const mesh = new THREE.Mesh(geometry, material)
+        scene.remove(tempMesh)
+        scene.add(mesh)
+        tempMesh = mesh
     })
 
     
@@ -180,14 +182,16 @@ function candidatesOnGrid(_domElement, anchor) {
 }
 
 function drawCircles(domElement, circles, closestCandidateIndex) {
+    const circleGroup = document.createElement('div')
     for (let i = 0; i < circles.length; i++) {
         const c = circles[i]
         const circle = addCircle(c.x, c.y, i === closestCandidateIndex ? 'red' : 'black')
-        domElement.appendChild(circle)
+        circleGroup.appendChild(circle)
     }
+    return circleGroup
 }
 
-function drawAxes(domElement, anchor, camera, mousePos) {
+function getAxes(domElement, anchor, camera, mousePos) {
     const axes = UNITS.map(axis => anchor.clone().addScaledVector(axis, UNIT))
     const screenPosition = new ScreenPosition(domElement, camera)
     // project axes to 2D
@@ -198,17 +202,18 @@ function drawAxes(domElement, anchor, camera, mousePos) {
     const qs = deltas.map(v => v.clone().multiplyScalar(v.dot(pm)))
     const projections = qs.map(v => v.clone().add(po))
     // draw on screen for debugging
+    const rayGroup = document.createElement('div')
     for (let i = 0; i < projections.length; i++) {
         const p = projections[i]
         const ray = buildRay(po.x, po.y, p.x, p.y, AXIS_COLORS[i])
-        domElement.appendChild(ray)
+        rayGroup.appendChild(ray)
     }
+    return rayGroup
 }
 
 function destroyHelpers(domElement = document) {
-    for (const helper of domElement.querySelectorAll('.coord-helpers')) {
-        helper.parentNode.removeChild(helper)
-    }
+    const coordHelperGroup = domElement.querySelector('.coord-helpers')
+    coordHelperGroup?.parentNode.removeChild(coordHelperGroup)
 }
 
 function argmin(arr, func) {
@@ -244,11 +249,6 @@ function addCircle(left, top, color = 'black') {
     circle.style.position = 'absolute'
     circle.style.left = left + 'px'
     circle.style.transform = 'translate(-50%,-50%)'
-  
-    // Add a class to the circle's classList
-    circle.classList.add('coord-helpers')
-  
-    // Append the circle to the body (or any other desired container)
     return circle
 }
 
@@ -270,13 +270,10 @@ function buildRay(startX, startY, endX, endY, color = 'black') {
     ray.style.left = startX + 'px'
     ray.style.transformOrigin = '0% 50%'
     ray.style.transform = 'rotate(' + angle + 'rad)'
-    ray.classList.add('coord-helpers')
-  
-    // Append the ray to the body (or any other desired container)
     return ray
 }
 
-class Pipe extends THREE.Curve {
+class PipeCurve extends THREE.Curve {
     constructor(arr) {
         super()
         this.arr = arr
