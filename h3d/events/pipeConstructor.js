@@ -11,12 +11,15 @@ export function addPipeListener(domElement, threeElements) {
     } = threeElements
     let anchor
     let tempMesh
-    domElement.addEventListener('click', function heyRadiators(evt) {
-        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY)
+
+    addStationaryClickListener(domElement)
+
+    domElement.addEventListener('stationaryClick', function heyRadiators(evt) {
+        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY)
         const radiators = getMeshByUserDataValue(scene, 'slateClass', 'Radiator')
         const positions = new ScreenPosition(domElement, camera)
-        const pixels = radiators.map(radiator => positions.toPixels(radiator.position))
-        const { closestIndex, closestDistance } = getClosest(pixels, mousePos)
+        const potentialSnapPositions = radiators.map(radiator => positions.toPixels(radiator.position))
+        const { closestIndex, closestDistance } = getClosest(potentialSnapPositions, mousePos)
 
         // terminate if none selected
         if (closestDistance > MOUSE_ACCURACY_THRESHOLD) return
@@ -54,6 +57,8 @@ export function addPipeListener(domElement, threeElements) {
             tempMesh = mesh
         }
     })
+
+    
 }
 
 function getClosest(arrs, vector) {
@@ -71,6 +76,37 @@ function getClosest(arrs, vector) {
         closestIndex,
         closestDistance,
     }
+}
+
+function addStationaryClickListener(domElement) {
+    let startX, startY
+
+    domElement.addEventListener('mousedown', function(event) {
+        startX = event.clientX
+        startY = event.clientY
+    })
+
+    domElement.addEventListener('mouseup', function(event) {
+        const endX = event.clientX
+        const endY = event.clientY
+
+        // Calculate the distance between mousedown and mouseup positions
+        const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))
+
+        // Check if the distance is within 10 pixels
+        if (distance <= 10) {
+            // Fire a custom event
+            const customEvent = new CustomEvent('stationaryClick', {
+                detail: {
+                    startX,
+                    startY,
+                    endX,
+                    endY,
+                }
+            })
+            domElement.dispatchEvent(customEvent)
+        }
+    })
 }
 
 class Pipe extends THREE.Curve {
