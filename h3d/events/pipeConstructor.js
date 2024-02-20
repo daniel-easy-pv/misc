@@ -15,7 +15,8 @@ export function addPipeListener(domElement, threeElements) {
     addStationaryClickListener(domElement)
 
     domElement.addEventListener('stationaryClick', function buildPipe(evt) {
-        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY)
+        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
         
         // first click
         if (!anchor) {
@@ -61,7 +62,8 @@ export function addPipeListener(domElement, threeElements) {
 
     domElement.addEventListener('mousemove', function(evt) {
         if (!anchor) return
-        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY)
+        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
         destroyHelpers(domElement)
         drawAxes(domElement, anchor, camera, mousePos)
         const { closestCandidateIndex, circles } = closestOnGridDetailed(domElement, anchor, camera, mousePos)
@@ -237,7 +239,9 @@ function addCircle(left, top, color = 'black') {
   
     // Set the position using top and left properties
     circle.style.position = 'absolute'
-    circle.style.top = top + 'px'
+    const navOffset = document.querySelector('nav')?.offsetHeight ?? 0
+    circle.style.top = `${top - navOffset}px`
+    circle.style.position = 'absolute'
     circle.style.left = left + 'px'
     circle.style.transform = 'translate(-50%,-50%)'
   
@@ -261,7 +265,8 @@ function buildRay(startX, startY, endX, endY, color = 'black') {
     ray.style.height = '1px' // Adjust the thickness as needed
     ray.style.background = color
     ray.style.position = 'absolute'
-    ray.style.top = startY + 'px'
+    const navOffset = document.querySelector('nav')?.offsetHeight ?? 0
+    ray.style.top = `${startY - navOffset}px`
     ray.style.left = startX + 'px'
     ray.style.transformOrigin = '0% 50%'
     ray.style.transform = 'rotate(' + angle + 'rad)'
