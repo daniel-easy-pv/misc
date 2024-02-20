@@ -12,6 +12,11 @@ export class ScreenPosition {
         return [v.x, v.y]
     }
 
+    /**
+     * 
+     * @param {THREE.Vector3} vector 
+     * @returns THREE.Vector2
+     */
     toPixels(vector) {
         const v = new THREE.Vector3().copy(vector)
         v.project(this.camera)
