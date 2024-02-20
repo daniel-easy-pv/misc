@@ -15,6 +15,9 @@ export function addPipeListener(domElement, threeElements) {
         // pointer,
         // raycaster,
     } = threeElements
+    
+    const pipeGroup = initPipeGroup(scene)
+    
     let anchor
     let tempMesh
 
@@ -48,9 +51,15 @@ export function addPipeListener(domElement, threeElements) {
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
             const material = PipeCurve.Material
             const mesh = new THREE.Mesh(geometry, material)
-            scene.remove(tempMesh)
-            scene.add(mesh)
+            pipeGroup.remove(tempMesh)
+            pipeGroup.add(mesh)
             anchor = null
+
+            // add imaginary valve for future pipe connections
+            const imaginaryValve = new THREE.Group()
+            imaginaryValve.userData.isPipeEntry = true
+            imaginaryValve.position.copy(secondClick)
+            pipeGroup.add(imaginaryValve)
         }
     })
     
@@ -77,8 +86,8 @@ export function addPipeListener(domElement, threeElements) {
         const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
         const material = PipeCurve.Material
         const mesh = new THREE.Mesh(geometry, material)
-        scene.remove(tempMesh)
-        scene.add(mesh)
+        pipeGroup.remove(tempMesh)
+        pipeGroup.add(mesh)
         tempMesh = mesh
     })
 
@@ -301,4 +310,16 @@ class PipeCurve extends THREE.Curve {
         const tz = (1-t) * p0.z + t * p1.z
         return optionalTarget.set(tx, ty, tz)
     } 
+}
+
+function initPipeGroup(scene) {
+    const existingPipeGroup = getMeshByUserDataValue(scene, 'isPipeGroup', true)
+    if (existingPipeGroup.length) {
+        return existingPipeGroup[0]
+    } else {
+        const pipeGroup = new THREE.Group()
+        pipeGroup.userData.isPipeGroup = true
+        scene.add(pipeGroup)
+        return pipeGroup
+    }
 }
