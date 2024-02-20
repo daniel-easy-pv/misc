@@ -3,6 +3,7 @@ import { PrismGeometry } from './prism.js'
 import { getWalls } from './walls.js'
 import { FLOOR_THICKNESS, HEIGHT_ABOVE_GROUND } from './consts.js'
 import { getRectangleProperties } from './preprocess.js'
+import { Radiator } from './classes/Radiator.js'
 
 export function getLevel(eTempFloorplan, levelIndex = 0) {
     const group = new THREE.Group()
@@ -13,7 +14,7 @@ export function getLevel(eTempFloorplan, levelIndex = 0) {
         const shape = getRoom(room)
         group.add(shape)
     }
-    const snappables = getSnappables(level)
+    const snappables = getRadiators(level)
     group.add(snappables)
     group.add(getWalls(level))
     return group
@@ -31,40 +32,21 @@ function getRoom(room) {
     return shape
 }
 
-function getSnappables(level) {
+function getRadiators(level) {
     const group = new THREE.Group()
-    const snappableTypes = {
-        radiators: {
-            color: 0xCC5500,
-            specular: 0xff0000,
-            transparent: true, 
-            opacity: 0.8,
-        },
-    }
-    for (const [snappableType, properties] of Object.entries(snappableTypes)) {
-        const snappableGroup = new THREE.Group()
-        const snappables = level[snappableType]
-        for (const snappable of snappables) {
-            const { h, points } = snappable
-            const { d, w, x, y, rotation } = getRectangleProperties(points)
-            const z = HEIGHT_ABOVE_GROUND[snappableType]
-            const r = -Math.PI / 180 * rotation
-            const points2 = [
-                new THREE.Vector2(-w/2, -d / 2),
-                new THREE.Vector2(w / 2, -d / 2),
-                new THREE.Vector2(w / 2, d / 2),
-                new THREE.Vector2(-w/2, d / 2),
-            ]
-            const geometry = new PrismGeometry(points2, h)
-            const material = new THREE.MeshPhongMaterial( properties )
-            const shape = new THREE.Mesh(geometry, material)
-            shape.rotation.z = r
-            shape.position.set(x, y, z)
-            shape.userData.slateClass = 'Radiator'
-            shape.userData.slateId = snappable.slateId
-            snappableGroup.add(shape)
-        }
-        group.add(snappableGroup)
+    const snappableType = 'radiators'
+    const snappables = level[snappableType]
+    for (const snappable of snappables) {
+        const { h, points } = snappable
+        const { d, w, x, y, rotation } = getRectangleProperties(points)
+        const z = HEIGHT_ABOVE_GROUND[snappableType]
+        const r = -Math.PI / 180 * rotation
+        const shape = new Radiator(w, d, h).getMesh()
+        shape.rotation.z = r
+        shape.position.set(x, y, z)
+        shape.userData.slateClass = 'Radiator'
+        shape.userData.slateId = snappable.slateId
+        group.add(shape)
     }
     return group
 }

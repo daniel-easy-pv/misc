@@ -2,12 +2,18 @@ import * as THREE from 'three'
 import { ScreenPosition } from '../ScreenPosition'
 import { getMeshByUserDataValue } from '../utils'
 import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
+
+// pipes must snap to a grid with this resolution in mm
+const GRID_SNAP_DELTA = 500
+const GRID_DIM = 10
+
+
 export function addPipeListener(domElement, threeElements) {
     const {
         scene,
         camera,
-        pointer,
-        raycaster,
+        // pointer,
+        // raycaster,
     } = threeElements
     let anchor
     let tempMesh
@@ -20,16 +26,20 @@ export function addPipeListener(domElement, threeElements) {
         
         // first click
         if (!anchor) {
-            const radiators = getMeshByUserDataValue(scene, 'slateClass', 'Radiator')
-            const potentialSnapPositions = radiators
-                .map(radiator => new ScreenPosition(domElement, camera).toPixels(radiator.position))
+            const pipeEntries = getMeshByUserDataValue(scene, 'isPipeEntry', true)
+            const screenPosition = new ScreenPosition(domElement, camera)
+            const potentialSnapPositions = pipeEntries
+                .map(entry => {
+                    const target = entry.getWorldPosition(new THREE.Vector3())
+                    return screenPosition.toPixels(target)
+                })
             const { closestIndex, closestDistance } = getClosest(potentialSnapPositions, mousePos)
     
             // terminate if none selected
             if (closestDistance > MOUSE_ACCURACY_THRESHOLD) return
-            const closestRadiator = radiators[closestIndex]
-            if (closestRadiator) {
-                anchor = closestRadiator.position
+            const closestPipeEntry = pipeEntries[closestIndex]
+            if (closestPipeEntry) {
+                anchor = closestPipeEntry.getWorldPosition(new THREE.Vector3())
             }
         } else {
             const secondClick = closestOnGrid(domElement, anchor, camera, mousePos)
@@ -138,15 +148,14 @@ const UNITS = [
     new THREE.Vector3(0, 0, 1),
 ]
 
-// pipes must snap to a grid with this resolution in mm
-const GRID_SNAP_DELTA = 500
-const GRID_DIM = 10
+
 /**
  * 
  * @param {HTMLElement} domElement 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
+ * @returns {THREE.Vector3}
  */
 function closestOnGrid(domElement, anchor, camera, mousePos) {
     const details = closestOnGridDetailed(domElement, anchor, camera, mousePos)
