@@ -1,5 +1,6 @@
 import { PrismGeometry } from '../prism'
 import * as THREE from 'three'
+import { Valve } from './Valve'
 
 const VALVE_RADIUS = 20
 const VALVE_HEIGHT = 40
@@ -31,33 +32,56 @@ export class Radiator {
     }
 
     #getValve() {
-        const geometry = new THREE.CylinderGeometry(VALVE_RADIUS, VALVE_RADIUS, VALVE_HEIGHT)
-        const material = new THREE.MeshBasicMaterial({
+        return new Valve(VALVE_RADIUS, VALVE_HEIGHT, {
             color: 0xffff00,
-        })
-        const mesh = new THREE.Mesh(geometry, material)
-        mesh.rotation.y = - Math.PI / 2
-        return mesh
+        }).getMesh()
     }
 
-    #getValvePositions() {
+    #getValvePositionsAndRotations() {
         const { d, h } = this
-        const y = d / 2 + VALVE_HEIGHT / 2
+        const y = d / 2
         const z = VALVE_HEIGHT + VALVE_OFFSET_Z
         return [
-            new THREE.Vector3(0, -y, z),
-            new THREE.Vector3(0, y, z),
-            new THREE.Vector3(0, y, h - z),
-            new THREE.Vector3(0, -y, h - z),
+            {
+                position: new THREE.Vector3(0, -y, z),
+                rotation: [
+                    {
+                        axis: new THREE.Vector3(1, 0, 0),
+                        radians: Math.PI,
+                    }
+                ]
+            },
+            {
+                position: new THREE.Vector3(0, y, z),
+                rotation: [
+                ]
+            },
+            {
+                position: new THREE.Vector3(0, y, h - z),
+                rotation: [
+                ]
+            },
+            {
+                position: new THREE.Vector3(0, -y, h - z),
+                rotation: [
+                    {
+                        axis: new THREE.Vector3(1, 0, 0),
+                        radians: Math.PI,
+                    }
+                ]
+            },
         ]
     }
 
     getMesh() {
         const group = new THREE.Group()
-        const radiator = this.#getBody()
-        group.add(radiator)
-        for (const position of this.#getValvePositions()) {
+        const body = this.#getBody()
+        group.add(body)
+        for (const { position, rotation } of this.#getValvePositionsAndRotations()) {
             const valve = this.#getValve()
+            for (const { axis, radians } of rotation || []) {
+                valve.rotateOnAxis(axis, radians)
+            }
             valve.position.copy(position)
             valve.userData.isPipeEntry = true
             group.add(valve)

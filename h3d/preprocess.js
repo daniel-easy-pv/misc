@@ -6,7 +6,13 @@ export function preprocess(eTempFloorplan) {
                 room.points[i + 1] *= -1
             }
         }
-        const snappableTypes = ['doors', 'windows', 'radiators']
+        const snappableTypes = [
+            'doors', 
+            'windows', 
+            'radiators', 
+            'heatPumps', 
+            'heatPumpCylinders'
+        ]
         for (const snappableType of snappableTypes) {
             const snappables = level[snappableType] || []
             for (const snappable of snappables) {
