@@ -4,9 +4,9 @@ import { getMeshByUserDataValue } from '../utils'
 import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
 
 // pipes must snap to a grid with this resolution in mm
-const GRID_SNAP_DELTA = 500
-const GRID_DIM = 10
-
+const GRID_SNAP_DELTA = 100
+const GRID_DIM = 40
+const GRID_DOT_SIZE = '3px'
 
 export function addPipeListener(domElement, threeElements) {
     const {
@@ -255,8 +255,8 @@ function addCircle(left, top, color = 'black') {
     // Create a new div element
     const circle = document.createElement('div')
   
-    circle.style.width = '5px' // Adjust the size as needed
-    circle.style.height = '5px' // Adjust the size as needed
+    circle.style.width = GRID_DOT_SIZE
+    circle.style.height = GRID_DOT_SIZE
     circle.style.borderRadius = '50%'
     circle.style.background = color
   
@@ -275,7 +275,7 @@ function buildRay(startX, startY, endX, endY, color = 'black') {
     const ray = document.createElement('div')
   
     // Calculate the length and angle of the ray
-    const length = 300
+    const length = 1000
     const angle = Math.atan2(endY - startY, endX - startX)
   
     // Apply styles to make it a line (ray)

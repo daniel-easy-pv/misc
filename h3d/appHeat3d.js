@@ -5,6 +5,8 @@ import { getLighting } from './lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from './events/index.js'
 
+const FRUSTUM_SIZE = 15000
+
 export class Heat3DModel {
     constructor(
         domElementName,
@@ -13,8 +15,16 @@ export class Heat3DModel {
         const domElement = document.getElementById(domElementName)
         const data = preprocess(eTempFloorplan)
         const scene = new THREE.Scene()
-        const camera = new THREE.PerspectiveCamera( 75, domElement.offsetWidth / domElement.offsetHeight,
+        const aspect = domElement.offsetWidth / domElement.offsetHeight
+        const perspectiveCamera = new THREE.PerspectiveCamera( 75, domElement.offsetWidth / domElement.offsetHeight,
             10, 100000 )
+        perspectiveCamera // not used
+        const orthographicCamera = new THREE.OrthographicCamera(
+            FRUSTUM_SIZE/-2 * aspect, 
+            FRUSTUM_SIZE / 2 * aspect, 
+            FRUSTUM_SIZE / 2, 
+            FRUSTUM_SIZE / -2, 10, 1000000)
+        const camera = orthographicCamera
         const renderer = new THREE.WebGLRenderer({
             antialias: true,
         })
