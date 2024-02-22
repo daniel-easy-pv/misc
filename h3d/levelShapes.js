@@ -37,7 +37,7 @@ function getRoom(room) {
 function getRadiators(level) {
     const group = new THREE.Group()
     const snappableType = 'radiators'
-    const snappables = level[snappableType]
+    const snappables = level[snappableType] || []
     for (const snappable of snappables) {
         const { h, points, slateId } = snappable
         const { d, w, x, y, rotation } = getRectangleProperties(points)
@@ -56,7 +56,7 @@ function getRadiators(level) {
 function getHeatPumps(level) {
     const group = new THREE.Group()
     const snappableType = 'heatPumps'
-    const snappables = level[snappableType]
+    const snappables = level[snappableType] || []
     for (const snappable of snappables) {
         const { points, slateId } = snappable
         const h = 800
@@ -76,14 +76,14 @@ function getHeatPumps(level) {
 function getHeatPumpCylinders(level) {
     const group = new THREE.Group()
     const snappableType = 'heatPumpCylinders'
-    const snappables = level[snappableType]
+    const snappables = level[snappableType] || []
     for (const snappable of snappables) {
         const { points, slateId } = snappable
         const h = 800
         const { w, x, y, rotation } = getRectangleProperties(points)
         const z = HEIGHT_ABOVE_GROUND[snappableType]
         const r = -Math.PI / 180 * rotation
-        const shape = new HeatPumpCylinder(w, h).getMesh()
+        const shape = new HeatPumpCylinder(w / 2, h).getMesh()
         shape.rotation.z = r
         shape.position.set(x, y, z)
         shape.userData.slateClass = 'HeatPumpCylinder'
