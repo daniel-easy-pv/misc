@@ -55,7 +55,7 @@ function getRadiators(level) {
 
 function getHeatPumps(level) {
     const group = new THREE.Group()
-    const snappableType = 'heatPumps'
+    const snappableType = 'heatPumpMachines'
     const snappables = level[snappableType] || []
     for (const snappable of snappables) {
         const { points, slateId } = snappable
@@ -66,7 +66,7 @@ function getHeatPumps(level) {
         const shape = new Radiator(w, d, h).getMesh()
         shape.rotation.z = r
         shape.position.set(x, y, z)
-        shape.userData.slateClass = 'HeatPump'
+        shape.userData.slateClass = 'HeatPumpMachine'
         shape.userData.slateId = slateId
         group.add(shape)
     }

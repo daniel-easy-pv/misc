@@ -10,7 +10,7 @@ export function preprocess(eTempFloorplan) {
             'doors', 
             'windows', 
             'radiators', 
-            'heatPumps', 
+            'heatPumpMachines', 
             'heatPumpCylinders'
         ]
         for (const snappableType of snappableTypes) {
