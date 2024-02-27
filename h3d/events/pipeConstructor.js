@@ -177,8 +177,14 @@ function addStationaryClickListener(domElement) {
     })
 }
 
-
-
+/**
+ * @typedef {Object} CandidateObject
+ * @property {THREE.Vector3[]} candidates
+ * @property {THREE.Vector2[]} circles
+ * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 
+ * is closest to the mouse
+ * @prpoerty {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
+ */
 
 /**
  * 
@@ -186,7 +192,7 @@ function addStationaryClickListener(domElement) {
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
- * @returns {THREE.Vector3}
+ * @returns {CandidateObject}
  */
 export function findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos) {
     const candidates = candidatesToSnap(scene, anchor, euler)
@@ -194,7 +200,8 @@ export function findClosestCandidate(domElement, scene, anchor, euler, camera, m
         console.log('no candidates')
         return
     }
-    const circles = projectedCandidates(domElement, anchor, camera, candidates)
+    const screenPosition = new ScreenPosition(domElement, camera)
+    const circles = candidates.map(v => screenPosition.toPixels(v))
     const closestCandidateIndex = argmin(
         Array.from({ length: candidates.length }, (_, i) => i), 
         i => mousePos.distanceToSquared(circles[i]))
@@ -207,11 +214,6 @@ export function findClosestCandidate(domElement, scene, anchor, euler, camera, m
     }
 }
 
-function projectedCandidates(domElement, _anchor, camera, candidates) {
-    const screenPosition = new ScreenPosition(domElement, camera)
-    // project candidates to 2D
-    return candidates.map(v => screenPosition.toPixels(v))
-}
 
 /**
  * Returns the coordinate frame after rotating the standard frame by an Euler angle.
@@ -241,6 +243,16 @@ function candidatesOnGrid(_domElement, anchor, euler) {
     })
     return candidates
 }
+
+/**
+ * Given a scene of objects, and a coordinate system represented by anchor-euler,
+ * return an array of intersection points from anchor in the direction of Euler.
+ * 
+ * @param {THREE.Scene} scene 
+ * @param {THREE.Vector3} anchor 
+ * @param {THREE.Euler} euler 
+ * @returns {THREE.Vector3[]}
+ */
 function candidatesToSnap(scene, anchor, euler) {
     const pointsToSnap = [anchor]
     const NEAR = 100
