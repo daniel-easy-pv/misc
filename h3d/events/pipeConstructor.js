@@ -58,7 +58,8 @@ export function addPipeListener(domElement, threeElements) {
                 anchor = closestPipeEntry.getWorldPosition(new THREE.Vector3())
             }
         } else {
-            const secondClick = closestOnGrid(domElement, anchor, euler, camera, mousePos)
+            const secondClick = findClosestCandidate(
+                domElement, scene, anchor, euler, camera, mousePos).closestCandidate
             destroyHelpers(domElement)
             const path = new PipeCurve([anchor, secondClick])
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
@@ -89,7 +90,7 @@ export function addPipeListener(domElement, threeElements) {
         const { 
             closestCandidateIndex, 
             circles, 
-            candidates } = closestOnGridDetailed(domElement, anchor, euler, camera, mousePos)
+            candidates } = findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos)
         const circleGroup = drawCircles(domElement, circles, closestCandidateIndex)
         coordHelperGroup.appendChild(circleGroup)
         domElement.appendChild(coordHelperGroup)
@@ -107,6 +108,7 @@ export function addPipeListener(domElement, threeElements) {
     const tempFuschia = new THREE.Group()
     scene.add(tempFuschia)
     domElement.addEventListener('updateFuschia', function() {
+        if (!anchor) return
         const sphereGroup = candidatesOnWalls(scene, anchor, euler)
         tempFuschia.clear()
         tempFuschia.add(sphereGroup)
@@ -180,22 +182,22 @@ function addStationaryClickListener(domElement) {
  * @param {THREE.Vector2} mousePos 
  * @returns {THREE.Vector3}
  */
-function closestOnGrid(domElement, anchor, euler, camera, mousePos) {
-    const details = closestOnGridDetailed(domElement, anchor, euler, camera, mousePos)
-    const { candidates, closestCandidateIndex } = details
-    return candidates[closestCandidateIndex]
-}
-
-function closestOnGridDetailed(domElement, anchor, euler, camera, mousePos) {
-    const candidates = candidatesOnGrid(domElement, anchor, euler)
+function findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos) {
+    const candidates = candidatesToSnap(scene, anchor, euler)
+    if (candidates.length === 0) {
+        console.log('no candidates')
+        return
+    }
     const circles = projectedCandidates(domElement, anchor, camera, candidates)
     const closestCandidateIndex = argmin(
         Array.from({ length: candidates.length }, (_, i) => i), 
         i => mousePos.distanceToSquared(circles[i]))
+    const closestCandidate = candidates[closestCandidateIndex]
     return {
         candidates,
         circles,
         closestCandidateIndex,
+        closestCandidate,
     }
 }
 
@@ -214,6 +216,7 @@ function getCoordinateFrame(euler) {
     return UNITS.map(v => v.clone().applyEuler(euler))
 }
 
+// eslint-disable-next-line no-unused-vars
 function candidatesOnGrid(_domElement, anchor, euler) {
     const candidates = getCoordinateFrame(euler).flatMap(axis => {
         const seq = Array.from({ length: 2 * GRID_DIM + 1 }, (_, i) => (i - GRID_DIM) * GRID_SNAP_DELTA)
@@ -222,7 +225,7 @@ function candidatesOnGrid(_domElement, anchor, euler) {
     return candidates
 }
 function candidatesToSnap(scene, anchor, euler) {
-    const pointsToSnap = []
+    const pointsToSnap = [anchor]
     const NEAR = 100
     const FAR = 100000 // 100 m
     for (const direction of getCoordinateFrame(euler)) {
