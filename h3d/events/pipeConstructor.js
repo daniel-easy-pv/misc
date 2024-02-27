@@ -34,8 +34,6 @@ export function addPipeListener(app) {
     let tempMesh
     const euler = new THREE.Euler(0, 0, Math.PI / 4, 'ZYX')
 
-    addStationaryClickListener(domElement)
-
     domElement.addEventListener('stationaryClick', function buildPipe(evt) {
         if (app.mode !== AppModes.Insert) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
@@ -146,36 +144,7 @@ function getClosest(arrs, vector) {
     }
 }
 
-function addStationaryClickListener(domElement) {
-    let startX, startY
 
-    domElement.addEventListener('mousedown', function(event) {
-        startX = event.clientX
-        startY = event.clientY
-    })
-
-    domElement.addEventListener('mouseup', function(event) {
-        const endX = event.clientX
-        const endY = event.clientY
-
-        // Calculate the distance between mousedown and mouseup positions
-        const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))
-
-        // Check if the distance is within 10 pixels
-        if (distance <= 10) {
-            // Fire a custom event
-            const customEvent = new CustomEvent('stationaryClick', {
-                detail: {
-                    startX,
-                    startY,
-                    endX,
-                    endY,
-                }
-            })
-            domElement.dispatchEvent(customEvent)
-        }
-    })
-}
 
 /**
  * @typedef {Object} CandidateObject
