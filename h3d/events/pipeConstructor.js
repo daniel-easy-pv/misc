@@ -8,6 +8,18 @@ const GRID_SNAP_DELTA = 100
 const GRID_DIM = 40
 const GRID_DOT_SIZE = '3px'
 
+// a coordinate system from the anchor
+const AXIS_COLORS = [
+    'red',
+    'green',
+    'blue',
+]
+const UNITS = [
+    new THREE.Vector3(1, 0, 0),
+    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(0, 0, 1),
+]
+
 export function addPipeListener(domElement, threeElements) {
     const {
         scene,
@@ -20,6 +32,7 @@ export function addPipeListener(domElement, threeElements) {
     
     let anchor
     let tempMesh
+    const euler = new THREE.Euler(0, 0, Math.PI / 4, 'ZYX')
 
     addStationaryClickListener(domElement)
 
@@ -45,7 +58,7 @@ export function addPipeListener(domElement, threeElements) {
                 anchor = closestPipeEntry.getWorldPosition(new THREE.Vector3())
             }
         } else {
-            const secondClick = closestOnGrid(domElement, anchor, camera, mousePos)
+            const secondClick = closestOnGrid(domElement, anchor, euler, camera, mousePos)
             destroyHelpers(domElement)
             const path = new PipeCurve([anchor, secondClick])
             const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
@@ -71,12 +84,12 @@ export function addPipeListener(domElement, threeElements) {
         destroyHelpers(domElement)
         const coordHelperGroup = document.createElement('div')
         coordHelperGroup.classList.add('coord-helpers')
-        const axes = getAxes(domElement, anchor, camera, mousePos)
+        const axes = getAxes(domElement, anchor, euler, camera, mousePos)
         coordHelperGroup.appendChild(axes)
         const { 
             closestCandidateIndex, 
             circles, 
-            candidates } = closestOnGridDetailed(domElement, anchor, camera, mousePos)
+            candidates } = closestOnGridDetailed(domElement, anchor, euler, camera, mousePos)
         const circleGroup = drawCircles(domElement, circles, closestCandidateIndex)
         coordHelperGroup.appendChild(circleGroup)
         domElement.appendChild(coordHelperGroup)
@@ -91,6 +104,11 @@ export function addPipeListener(domElement, threeElements) {
         tempMesh = mesh
     })
 
+    domElement.addEventListener('keydown', function(evt) {
+        if (evt.key === 'r') {
+            euler.z += Math.PI / 8
+        }
+    })
     
 }
 
@@ -142,20 +160,7 @@ function addStationaryClickListener(domElement) {
     })
 }
 
-// distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
-const UNIT = 1000 
 
-// a coordinate system from the anchor
-const AXIS_COLORS = [
-    'red',
-    'green',
-    'blue',
-]
-const UNITS = [
-    new THREE.Vector3(1, 0, 0),
-    new THREE.Vector3(0, 1, 0),
-    new THREE.Vector3(0, 0, 1),
-]
 
 
 /**
@@ -166,14 +171,14 @@ const UNITS = [
  * @param {THREE.Vector2} mousePos 
  * @returns {THREE.Vector3}
  */
-function closestOnGrid(domElement, anchor, camera, mousePos) {
-    const details = closestOnGridDetailed(domElement, anchor, camera, mousePos)
+function closestOnGrid(domElement, anchor, euler, camera, mousePos) {
+    const details = closestOnGridDetailed(domElement, anchor, euler, camera, mousePos)
     const { candidates, closestCandidateIndex } = details
     return candidates[closestCandidateIndex]
 }
 
-function closestOnGridDetailed(domElement, anchor, camera, mousePos) {
-    const candidates = candidatesOnGrid(domElement, anchor)
+function closestOnGridDetailed(domElement, anchor, euler, camera, mousePos) {
+    const candidates = candidatesOnGrid(domElement, anchor, euler)
     const circles = projectedCandidates(domElement, anchor, camera, candidates)
     const closestCandidateIndex = argmin(
         Array.from({ length: candidates.length }, (_, i) => i), 
@@ -191,8 +196,17 @@ function projectedCandidates(domElement, _anchor, camera, candidates) {
     return candidates.map(v => screenPosition.toPixels(v))
 }
 
-function candidatesOnGrid(_domElement, anchor) {
-    const candidates = UNITS.flatMap(axis => {
+/**
+ * Returns the coordinate frame after rotating the standard frame by an Euler angle.
+ * 
+ * @param {THREE.Euler} euler
+ */
+function getCoordinateFrame(euler) {
+    return UNITS.map(v => v.clone().applyEuler(euler))
+}
+
+function candidatesOnGrid(_domElement, anchor, euler) {
+    const candidates = getCoordinateFrame(euler).flatMap(axis => {
         const seq = Array.from({ length: 2 * GRID_DIM + 1 }, (_, i) => (i - GRID_DIM) * GRID_SNAP_DELTA)
         return seq.map(l => axis.clone().multiplyScalar(l).add(anchor))
     })
@@ -209,8 +223,9 @@ function drawCircles(domElement, circles, closestCandidateIndex) {
     return circleGroup
 }
 
-function getAxes(domElement, anchor, camera, mousePos) {
-    const axes = UNITS.map(axis => anchor.clone().addScaledVector(axis, UNIT))
+function getAxes(domElement, anchor, euler, camera, mousePos) {
+    const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
+    const axes = getCoordinateFrame(euler).map(axis => anchor.clone().addScaledVector(axis, UNIT))
     const screenPosition = new ScreenPosition(domElement, camera)
     // project axes to 2D
     const po = screenPosition.toPixels(anchor)
