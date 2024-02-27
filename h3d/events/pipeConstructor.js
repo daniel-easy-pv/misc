@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { ScreenPosition } from '../ScreenPosition'
 import { getMeshByUserDataValue } from '../utils'
-import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
+import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../consts'
 import { AppModes } from './h3dModes'
 
 // pipes must snap to a grid with this resolution in mm
@@ -79,6 +79,7 @@ export function addPipeListener(app) {
             imaginaryValve.position.copy(secondClick)
             pipeGroup.add(imaginaryValve)
         }
+        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
     })
     
     // Displays the next mesh that will be added, following the mouse
@@ -113,9 +114,9 @@ export function addPipeListener(app) {
     const tempFuschia = new THREE.Group()
     scene.add(tempFuschia)
     domElement.addEventListener('updateFuschia', function() {
+        tempFuschia.clear()
         if (!anchor) return
         const sphereGroup = candidatesOnWalls(scene, anchor, euler)
-        tempFuschia.clear()
         tempFuschia.add(sphereGroup)
     })
 
@@ -128,6 +129,7 @@ export function addPipeListener(app) {
             anchor = null
             pipeGroup.remove(tempMesh)
             destroyHelpers(domElement)
+            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
         }
     })
 
@@ -223,13 +225,24 @@ function projectedCandidates(domElement, _anchor, camera, candidates) {
  * 
  * @param {THREE.Euler} euler
  */
-function getCoordinateFrame(euler) {
+function get3Frame(euler) {
     return UNITS.map(v => v.clone().applyEuler(euler))
+}
+
+/**
+ * Returns the coordinate frame after rotating the standard frame by an Euler angle.
+ * 
+ * @param {THREE.Euler} euler
+ */
+function get6Frame(euler) {
+    const frame = get3Frame(euler)
+    const negativeFrame = frame.map(v => v.clone().multiplyScalar(-1))
+    return frame.concat(negativeFrame)
 }
 
 // eslint-disable-next-line no-unused-vars
 function candidatesOnGrid(_domElement, anchor, euler) {
-    const candidates = getCoordinateFrame(euler).flatMap(axis => {
+    const candidates = get3Frame(euler).flatMap(axis => {
         const seq = Array.from({ length: 2 * GRID_DIM + 1 }, (_, i) => (i - GRID_DIM) * GRID_SNAP_DELTA)
         return seq.map(l => axis.clone().multiplyScalar(l).add(anchor))
     })
@@ -239,7 +252,7 @@ function candidatesToSnap(scene, anchor, euler) {
     const pointsToSnap = [anchor]
     const NEAR = 100
     const FAR = 100000 // 100 m
-    for (const direction of getCoordinateFrame(euler)) {
+    for (const direction of get6Frame(euler)) {
         const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
         const intersectObject = raycaster.intersectObject(scene, true)
         for (const intersection of intersectObject) {
@@ -257,6 +270,8 @@ function candidatesOnWalls(scene, anchor, euler) {
         const material = new THREE.MeshBasicMaterial({ color: 0xff00ff })
         const sphere = new THREE.Mesh(geometry, material)
         sphere.position.copy(point)
+        sphere.layers.disable(0)
+        sphere.layers.enable(LAYER_MAGENTA_SPHERES)
         sphereGroup.add(sphere)
     }
     return sphereGroup
@@ -284,7 +299,7 @@ function drawCircles(domElement, circles, closestCandidateIndex) {
  */
 function getHTMLAxes(domElement, anchor, euler, camera, mousePos) {
     const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
-    const axes = getCoordinateFrame(euler).map(axis => anchor.clone().addScaledVector(axis, UNIT))
+    const axes = get3Frame(euler).map(axis => anchor.clone().addScaledVector(axis, UNIT))
     const screenPosition = new ScreenPosition(domElement, camera)
     // project axes to 2D
     const po = screenPosition.toPixels(anchor)

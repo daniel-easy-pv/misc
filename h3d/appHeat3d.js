@@ -4,6 +4,7 @@ import { getLevel } from './levelShapes.js'
 import { getLighting } from './lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from './events/index.js'
+import { LAYER_MAGENTA_SPHERES } from './consts.js'
 
 const FRUSTUM_SIZE = 15000
 
@@ -31,6 +32,7 @@ export class Heat3DModel {
         const pointer = new THREE.Vector2()
         const raycaster = new THREE.Raycaster()
         camera.up.set(0, 0, 1)
+        camera.layers.enable(LAYER_MAGENTA_SPHERES)
         const b = getBarycenter(eTempFloorplan)
         const SCENE_CENTER = new THREE.Vector3(b[0], -b[1], 0)
         const CAM_DIST = 10000
