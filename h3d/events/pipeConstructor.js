@@ -4,7 +4,7 @@ import { getMeshByUserDataValue } from '../utils'
 import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
 
 // pipes must snap to a grid with this resolution in mm
-const GRID_SNAP_DELTA = 100
+const GRID_SNAP_DELTA = 500
 const GRID_DIM = 40
 const GRID_DOT_SIZE = '3px'
 
@@ -104,10 +104,19 @@ export function addPipeListener(domElement, threeElements) {
         tempMesh = mesh
     })
 
+    const tempGroup = new THREE.Group()
+    scene.add(tempGroup)
+    domElement.addEventListener('eulerChanged', function() {
+        const sphereGroup = candidatesOnWalls(scene, anchor, euler)
+        tempGroup.clear()
+        tempGroup.add(sphereGroup)
+    })
+
     domElement.addEventListener('keydown', function(evt) {
         if (evt.key === 'r') {
             euler.z += Math.PI / 8
         }
+        domElement.dispatchEvent(new CustomEvent('eulerChanged'))
     })
     
 }
@@ -211,6 +220,31 @@ function candidatesOnGrid(_domElement, anchor, euler) {
         return seq.map(l => axis.clone().multiplyScalar(l).add(anchor))
     })
     return candidates
+}
+function candidatesToSnap(scene, anchor, euler) {
+    const pointsToSnap = []
+    const direction = getCoordinateFrame(euler)[0]
+    const NEAR = 100
+    const FAR = 100000 // 100 m
+    const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
+    const intersectObject = raycaster.intersectObject(scene, true)
+    for (const intersection of intersectObject) {
+        pointsToSnap.push(intersection.point)
+    }
+    return pointsToSnap
+}
+
+function candidatesOnWalls(scene, anchor, euler) {
+    const pointsToSnap = candidatesToSnap(scene, anchor, euler)
+    const sphereGroup = new THREE.Group()
+    for (const point of pointsToSnap) {
+        const geometry = new THREE.SphereGeometry(20)
+        const material = new THREE.MeshBasicMaterial({ color: 0xff00ff })
+        const sphere = new THREE.Mesh(geometry, material)
+        sphere.position.copy(point)
+        sphereGroup.add(sphere)
+    }
+    return sphereGroup
 }
 
 function drawCircles(domElement, circles, closestCandidateIndex) {
