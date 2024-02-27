@@ -84,7 +84,7 @@ export function addPipeListener(domElement, threeElements) {
         destroyHelpers(domElement)
         const coordHelperGroup = document.createElement('div')
         coordHelperGroup.classList.add('coord-helpers')
-        const axes = getAxes(domElement, anchor, euler, camera, mousePos)
+        const axes = getHTMLAxes(domElement, anchor, euler, camera, mousePos)
         coordHelperGroup.appendChild(axes)
         const { 
             closestCandidateIndex, 
@@ -223,13 +223,14 @@ function candidatesOnGrid(_domElement, anchor, euler) {
 }
 function candidatesToSnap(scene, anchor, euler) {
     const pointsToSnap = []
-    const direction = getCoordinateFrame(euler)[0]
     const NEAR = 100
     const FAR = 100000 // 100 m
-    const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
-    const intersectObject = raycaster.intersectObject(scene, true)
-    for (const intersection of intersectObject) {
-        pointsToSnap.push(intersection.point)
+    for (const direction of getCoordinateFrame(euler)) {
+        const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
+        const intersectObject = raycaster.intersectObject(scene, true)
+        for (const intersection of intersectObject) {
+            pointsToSnap.push(intersection.point)
+        }
     }
     return pointsToSnap
 }
@@ -238,7 +239,7 @@ function candidatesOnWalls(scene, anchor, euler) {
     const pointsToSnap = candidatesToSnap(scene, anchor, euler)
     const sphereGroup = new THREE.Group()
     for (const point of pointsToSnap) {
-        const geometry = new THREE.SphereGeometry(20)
+        const geometry = new THREE.SphereGeometry(50)
         const material = new THREE.MeshBasicMaterial({ color: 0xff00ff })
         const sphere = new THREE.Mesh(geometry, material)
         sphere.position.copy(point)
@@ -257,7 +258,17 @@ function drawCircles(domElement, circles, closestCandidateIndex) {
     return circleGroup
 }
 
-function getAxes(domElement, anchor, euler, camera, mousePos) {
+/**
+ * Returns the axes for debugging purposes.
+ * 
+ * @param {string} domElement 
+ * @param {THREE.Vector3} anchor 
+ * @param {THREE.Euler} euler 
+ * @param {THREE.Camera} camera 
+ * @param {THREE.Vector2} mousePos 
+ * @returns {HTMLDivElement}
+ */
+function getHTMLAxes(domElement, anchor, euler, camera, mousePos) {
     const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
     const axes = getCoordinateFrame(euler).map(axis => anchor.clone().addScaledVector(axis, UNIT))
     const screenPosition = new ScreenPosition(domElement, camera)
