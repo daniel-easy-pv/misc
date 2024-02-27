@@ -104,19 +104,19 @@ export function addPipeListener(domElement, threeElements) {
         tempMesh = mesh
     })
 
-    const tempGroup = new THREE.Group()
-    scene.add(tempGroup)
-    domElement.addEventListener('eulerChanged', function() {
+    const tempFuschia = new THREE.Group()
+    scene.add(tempFuschia)
+    domElement.addEventListener('updateFuschia', function() {
         const sphereGroup = candidatesOnWalls(scene, anchor, euler)
-        tempGroup.clear()
-        tempGroup.add(sphereGroup)
+        tempFuschia.clear()
+        tempFuschia.add(sphereGroup)
     })
 
     domElement.addEventListener('keydown', function(evt) {
         if (evt.key === 'r') {
             euler.z += Math.PI / 8
         }
-        domElement.dispatchEvent(new CustomEvent('eulerChanged'))
+        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
     })
     
 }
