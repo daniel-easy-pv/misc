@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { ScreenPosition } from '../ScreenPosition'
 import { getMeshByUserDataValue } from '../utils'
 import { MOUSE_ACCURACY_THRESHOLD } from '../consts'
+import { AppModes } from './h3dModes'
 
 // pipes must snap to a grid with this resolution in mm
 const GRID_SNAP_DELTA = 500
@@ -20,12 +21,14 @@ const UNITS = [
     new THREE.Vector3(0, 0, 1),
 ]
 
-export function addPipeListener(domElement, threeElements) {
+export function addPipeListener(app) {
+    const {
+        domElement,
+        threeElements,
+    } = app
     const {
         scene,
         camera,
-        // pointer,
-        // raycaster,
     } = threeElements
     
     const pipeGroup = initPipeGroup(scene)
@@ -37,6 +40,7 @@ export function addPipeListener(domElement, threeElements) {
     addStationaryClickListener(domElement)
 
     domElement.addEventListener('stationaryClick', function buildPipe(evt) {
+        if (app.mode !== AppModes.Insert) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
         
@@ -79,6 +83,7 @@ export function addPipeListener(domElement, threeElements) {
     
     // Displays the next mesh that will be added, following the mouse
     domElement.addEventListener('mousemove', function(evt) {
+        if (app.mode !== AppModes.Insert) return
         if (!anchor) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
@@ -117,9 +122,15 @@ export function addPipeListener(domElement, threeElements) {
     domElement.addEventListener('keydown', function(evt) {
         if (evt.key === 'r') {
             euler.z += Math.PI / 8
+            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
         }
-        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
+        else if (evt.key === 'Escape') {
+            anchor = null
+            pipeGroup.remove(tempMesh)
+            destroyHelpers(domElement)
+        }
     })
+
     
 }
 
@@ -292,7 +303,7 @@ function getHTMLAxes(domElement, anchor, euler, camera, mousePos) {
     return rayGroup
 }
 
-function destroyHelpers(domElement = document) {
+function destroyHelpers(domElement) {
     const coordHelperGroup = domElement.querySelector('.coord-helpers')
     coordHelperGroup?.parentNode.removeChild(coordHelperGroup)
 }

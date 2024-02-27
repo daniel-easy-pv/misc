@@ -60,19 +60,19 @@ export class Heat3DModel {
             renderer.render( scene, camera )
         }
         animate()
-        this.scene = scene
-        this.camera = camera
-        this.renderer = renderer
+
+        this.domElement = domElement
+        this.threeElements = {
+            scene,
+            camera,
+            pointer,
+            raycaster,
+        }
         this.destroy = () => {
             cancelAnimationFrame(animationFrameId)
             domElement.innerHTML = ''
         }
 
-        initEvents(domElement, {
-            scene,
-            camera,
-            pointer,
-            raycaster,
-        })
+        initEvents(this)
     }
 }

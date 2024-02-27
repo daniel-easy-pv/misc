@@ -1,12 +1,14 @@
+import { addModeListener } from './h3dModes'
 import { addPipeListener } from './pipeConstructor'
 
 
-export function initEvents(domElement, threeElements) {
+export function initEvents(app) {
     const {
-        scene,
-        camera,
+        domElement,
+        threeElements,
+    } = app
+    const {
         pointer,
-        raycaster,
     } = threeElements
     domElement.addEventListener('mousemove', function onPointerMove(event) {
         const elementRect = domElement.getBoundingClientRect()
@@ -14,5 +16,6 @@ export function initEvents(domElement, threeElements) {
         pointer.y = -((event.clientY - elementRect.top) / domElement.clientHeight) * 2 + 1
     })
 
-    addPipeListener(domElement, threeElements)
+    addPipeListener(app)
+    addModeListener(app)
 }
