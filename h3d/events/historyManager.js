@@ -35,8 +35,10 @@ export class AddIntermediatePipeNode extends UndoableEvent {
     undo() {
         const { pipeGroup, mesh, anchors, anchor } = this
         pipeGroup.remove(mesh)
-        anchors.length = 0
-        anchors.push(anchor)
+        if (anchors.length) {
+            anchors.length = 0
+            anchors.push(anchor)
+        }
     }
 }
 
