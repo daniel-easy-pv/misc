@@ -69,6 +69,7 @@ export function addPipeListener(app) {
             pipeGroup.remove(tempMesh)
             pipeGroup.add(mesh)
             anchors.length = 0
+            anchors.push(secondClick)
 
             // add imaginary valve for future pipe connections
             const imaginaryValve = new THREE.Group()
@@ -120,6 +121,7 @@ export function addPipeListener(app) {
             pipeGroup.remove(tempMesh)
             destroyHelpers(domElement)
             domElement.dispatchEvent(new CustomEvent('updateFuschia'))
+            anchors.length = 0
         }
     })
 
