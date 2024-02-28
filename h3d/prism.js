@@ -1,6 +1,14 @@
 import * as THREE from 'three'
 
+/**
+ * Creates a prism shape, given its polygonal face and height.
+ */
 export class PrismGeometry extends THREE.ExtrudeGeometry {
+    /**
+     * 
+     * @param {THREE.Vector2[]} vertices - representing the polygonal face of the prism
+     * @param {number} height 
+     */
     constructor(vertices, height) {
         const shape = new THREE.Shape();
 

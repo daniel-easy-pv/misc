@@ -1,15 +1,17 @@
 import * as THREE from 'three'
 
+/**
+ * A class that converts 3D point in scene to 2D pixel on screen, relative to domElement.
+ */
 export class ScreenPosition {
+    /**
+     * 
+     * @param {HTMLDivElement} domElement 
+     * @param {THREE.Camera} camera 
+     */
     constructor(domElement, camera) {
         this.domElement = domElement
         this.camera = camera
-    }
-
-    toNormalized(vector) {
-        const v = new THREE.Vector3().copy(vector)
-        v.project(this.camera)
-        return [v.x, v.y]
     }
 
     /**
