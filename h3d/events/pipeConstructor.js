@@ -128,6 +128,12 @@ export function addPipeListener(app) {
         }
     })
 
+    domElement.addEventListener('keydown', function(evt) {
+        if (evt.ctrlKey && evt.key === 'y') {
+            historyManager.redo()
+        }
+    })
+
     addDebugPipeListener(app, anchors, euler)
     
 }
