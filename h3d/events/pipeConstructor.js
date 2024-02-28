@@ -32,7 +32,7 @@ export function addPipeListener(app) {
     
     const anchors = []
     let tempMesh
-    const euler = new THREE.Euler(0, 0, Math.PI / 4, 'ZYX')
+    const euler = new THREE.Euler(0, 0, 0, 'ZYX')
 
     domElement.addEventListener('stationaryClick', function buildPipe(evt) {
         if (app.mode !== AppModes.Insert) return
