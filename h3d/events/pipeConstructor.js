@@ -110,7 +110,7 @@ export function addPipeListener(app) {
 
     domElement.addEventListener('keydown', function(evt) {
         if (evt.key === 'r') {
-            euler.z += Math.PI / 8
+            euler.z += Math.PI / 4
             domElement.dispatchEvent(new CustomEvent('updateFuschia'))
         }
         else if (evt.key === 'Escape') {
