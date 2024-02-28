@@ -5,21 +5,29 @@ import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../consts'
 import { AppModes } from './h3dModes'
 import { addDebugPipeListener } from './debugPipes'
 import { PipeCurve } from './PipeCurve'
-import { AddIntermediatePipeNode, HistoryManager } from './historyManager'
+import { HistoryManager, UndoableEvent } from './historyManager'
 
 // pipes must snap to a grid with this resolution in mm
 const GRID_SNAP_DELTA = 500
 const GRID_DIM = 40
 
 
-// a coordinate system from the anchor
-
+/**
+ * @const
+ * @type {THREE.Vector3[]}
+ * the standard coordinate system
+ */
 const UNITS = [
     new THREE.Vector3(1, 0, 0),
     new THREE.Vector3(0, 1, 0),
     new THREE.Vector3(0, 0, 1),
 ]
 
+/**
+ * A function that adds pipe run listeners to a canvas
+ * 
+ * @param {import('../appHeat3d.js').Heat3DModel} app 
+ */
 export function addPipeListener(app) {
     const {
         domElement,
@@ -163,7 +171,7 @@ function getClosest(arrs, vector) {
  * @property {THREE.Vector2[]} circles
  * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 
  * is closest to the mouse
- * @prpoerty {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
+ * @property {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
  */
 
 /**
@@ -288,12 +296,60 @@ function argmin(arr, func) {
     return minIndex
 }
 
+/**
+ * Given an anchor point, this adds a pipe leg to the pipe run.
+ */
+class AddIntermediatePipeNode extends UndoableEvent {
+    /**
+     * 
+     * @param {THREE.Group} pipeGroup 
+     * @param {THREE.Vector3[]} anchors 
+     * @param {THREE.Vector3} secondClick 
+     */
+    constructor(pipeGroup, anchors, secondClick) {
+        super()
+        if (anchors.length === 0) {
+            throw Error('Pipe source not found')
+        }
+        const anchor = anchors[0]
+        this.pipeGroup = pipeGroup
+        this.anchors = anchors
+        this.anchor = anchor
+        this.secondClick = secondClick
+
+        const path = new PipeCurve([anchor, secondClick])
+        const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
+        const material = PipeCurve.Material
+        const mesh = new THREE.Mesh(geometry, material)
+        this.mesh = mesh
+    }
+
+    execute() {
+        const { pipeGroup, mesh, anchors, secondClick } = this
+        pipeGroup.add(mesh)
+        anchors.length = 0
+        anchors.push(secondClick)
+    }
+
+    undo() {
+        const { pipeGroup, mesh, anchors, anchor } = this
+        pipeGroup.remove(mesh)
+        if (anchors.length) {
+            anchors.length = 0
+            anchors.push(anchor)
+        }
+    }
+}
 
 
 
 
-
-
+/**
+ * Returns the pipe group already in the scene if exists, else creates one.
+ * 
+ * @param {THREE.Scene} scene 
+ * @returns {THREE.Group}
+ */
 function initPipeGroup(scene) {
     const existingPipeGroup = getMeshByUserDataValue(scene, 'isPipeGroup', true)
     if (existingPipeGroup.length) {
