@@ -2,10 +2,10 @@ import * as THREE from 'three'
 import { ScreenPosition } from '../ScreenPosition'
 import { getMeshByUserDataValue } from '../utils'
 import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../consts'
-import { AppModes } from './h3dModes'
-import { addDebugPipeListener } from './debugPipes'
-import { PipeCurve } from './PipeCurve'
-import { HistoryManager, UndoableEvent } from './historyManager'
+import { AppModes } from './h3dModes.js'
+import { addDebugPipeListener } from './debugPipes.js'
+import { PipeCurve } from './PipeCurve.js'
+import { HistoryManager, UndoableEvent } from './historyManager.js'
 
 // pipes must snap to a grid with this resolution in mm
 const GRID_SNAP_DELTA = 500
