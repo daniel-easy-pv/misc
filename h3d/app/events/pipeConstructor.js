@@ -260,7 +260,15 @@ function candidatesToSnap(scene, anchor, euler) {
         const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
         const intersectObject = raycaster.intersectObject(scene, true)
         for (const intersection of intersectObject) {
-            pointsToSnap.push(intersection.point)
+            if (intersection.object.userData.isWall) {
+                const RADIATOR_HALF_THICKNESS = 100
+                const point = direction.clone()
+                    .multiplyScalar(intersection.distance - RADIATOR_HALF_THICKNESS)
+                    .add(anchor)
+                pointsToSnap.push(point)
+            } else {
+                pointsToSnap.push(intersection.point)
+            }
         }
     }
     return pointsToSnap

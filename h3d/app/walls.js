@@ -43,6 +43,7 @@ export function getWalls(level) {
             hole.updateMatrix()
             wallWithHoles = CSG.subtract(wallWithHoles, hole)
         }
+        wallWithHoles.userData.isWall = true
         group.add(wallWithHoles)
 
         const apertures = getApertures(neighbours, { wallThickness: width })
