@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { AppModes } from './h3dModes'
 import { ScreenPosition } from '../ScreenPosition'
-import { findClosestCandidate, get3Frame } from './pipeConstructor'
+import { findClosestCandidateToSnap, get3Frame } from './pipeConstructor'
 import { argmin } from '../utils/math'
 
 const AXIS_COLORS = [
@@ -35,7 +35,7 @@ export function addDebugPipeListener(app, anchors, euler) {
         const { 
             closestCandidateIndex, 
             circles, 
-        } = findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos)
+        } = findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos)
         const circleGroup = drawCircles(domElement, circles, closestCandidateIndex)
         coordHelperGroup.appendChild(circleGroup)
         domElement.appendChild(coordHelperGroup)
@@ -43,10 +43,12 @@ export function addDebugPipeListener(app, anchors, euler) {
     })
 }
 
+
+
 /**
  * Returns the axes for debugging purposes.
  * 
- * @param {string} domElement 
+ * @param {HTMLDivElement} domElement 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @param {THREE.Camera} camera 
@@ -55,19 +57,21 @@ export function addDebugPipeListener(app, anchors, euler) {
  */
 function getHTMLAxes(domElement, anchor, euler, camera, mousePos) {
     const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
-    const axes = get3Frame(euler).map(axis => anchor.clone().addScaledVector(axis, UNIT))
+    const axes = get3Frame(euler)
+    const axesTranslated = axes.map(axis => anchor.clone().addScaledVector(axis, UNIT))
     const screenPosition = new ScreenPosition(domElement, camera)
     // project axes to 2D
     const po = screenPosition.toPixels(anchor)
-    const pm = mousePos.clone().addScaledVector(po, -1)
-    const deltas = axes.map(v => screenPosition.toPixels(v))
+    const pm = mousePos.clone().sub(po)
+    const deltas = axesTranslated.map(v => screenPosition.toPixels(v))
         .map(v => v.clone().addScaledVector(po, -1).normalize())
     const qs = deltas.map(v => v.clone().multiplyScalar(v.dot(pm)))
     const projections = qs.map(v => v.clone().add(po))
-    // draw on screen for debugging
-    const rayGroup = document.createElement('div')
-    const distances = projections.map(p => p.clone().addScaledVector(mousePos, -1).length())
+    // find position in 3D scene
+    const distances = projections.map(p => p.clone().sub(mousePos).length())
     const closestIndex = argmin(distances, i => i)
+
+    const rayGroup = document.createElement('div')
     for (let i = 0; i < projections.length; i++) {
         const p = projections[i]
         const ray = buildRay(po.x, po.y, p.x, p.y, AXIS_COLORS[i], i === closestIndex ? 5 : 1)

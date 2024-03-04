@@ -8,11 +8,6 @@ import { PipeCurve } from './PipeCurve.js'
 import { HistoryManager, UndoableEvent } from './historyManager.js'
 import { argmin } from '../utils/math.js'
 
-// pipes must snap to a grid with this resolution in mm
-const GRID_SNAP_DELTA = 500
-const GRID_DIM = 40
-
-
 /**
  * @const
  * @type {THREE.Vector3[]}
@@ -71,8 +66,8 @@ export function addPipeListener(app) {
             }
         } else {
             const anchor = anchors[anchors.length - 1]
-            const secondClick = findClosestCandidate(
-                domElement, scene, anchor, euler, camera, mousePos).closestCandidate
+            const secondClick = findSecondClick(
+                domElement, scene, anchor, euler, camera, mousePos)
             destroyHelpers(domElement)
             const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
             historyManager.executeCommand(command)
@@ -95,7 +90,7 @@ export function addPipeListener(app) {
         const anchor = anchors[anchors.length - 1]
         const { 
             closestCandidateIndex, 
-            candidates } = findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos)
+            candidates } = findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos)
         
         const candidate = candidates[closestCandidateIndex]
         const path = new PipeCurve([anchor, candidate])
@@ -169,11 +164,35 @@ function getClosest(arrs, vector) {
 /**
  * @typedef {Object} CandidateObject
  * @property {THREE.Vector3[]} candidates
- * @property {THREE.Vector2[]} circles
+ * @property {THREE.Vector2[]} circles - candidates in pixel coordinates
  * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 
  * is closest to the mouse
+ * @property {THREE.Vector2} closestCircle - `circles[closestCandidateIndex]`
+ * @property {number} closestCircleDistance - distance between closestCircle and mouse position
  * @property {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
  */
+
+/**
+ * 
+ * @param {HTMLDivElement} domElement 
+ * @param {THREE.Scene} scene 
+ * @param {THREE.Vector3} anchor 
+ * @param {THREE.Euler} euler 
+ * @param {THREE.Camera} camera 
+ * @param {THREE.Vector2} mousePos 
+ * @returns 
+ */
+function findSecondClick(domElement, scene, anchor, euler, camera, mousePos) {
+    const THRESHOLD = 40 // px
+    const {
+        closestCircleDistance,
+        closestCandidate,
+    } = findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos)
+    if (closestCircleDistance < THRESHOLD) {
+        return closestCandidate
+    }
+    return underMouse(domElement,anchor, euler, camera, mousePos)
+}
 
 /**
  * 
@@ -183,7 +202,7 @@ function getClosest(arrs, vector) {
  * @param {THREE.Vector2} mousePos 
  * @returns {CandidateObject}
  */
-export function findClosestCandidate(domElement, scene, anchor, euler, camera, mousePos) {
+export function findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos) {
     const candidates = candidatesToSnap(scene, anchor, euler)
     if (candidates.length === 0) {
         console.log('no candidates')
@@ -195,9 +214,13 @@ export function findClosestCandidate(domElement, scene, anchor, euler, camera, m
         Array.from({ length: candidates.length }, (_, i) => i), 
         i => mousePos.distanceToSquared(circles[i]))
     const closestCandidate = candidates[closestCandidateIndex]
+    const closestCircle = circles[closestCandidateIndex]
+    const closestCircleDistance = mousePos.clone().sub(closestCircle).length()
     return {
         candidates,
         circles,
+        closestCircle,
+        closestCircleDistance,
         closestCandidateIndex,
         closestCandidate,
     }
@@ -222,15 +245,6 @@ function get6Frame(euler) {
     const frame = get3Frame(euler)
     const negativeFrame = frame.map(v => v.clone().multiplyScalar(-1))
     return frame.concat(negativeFrame)
-}
-
-// eslint-disable-next-line no-unused-vars
-function candidatesOnGrid(_domElement, anchor, euler) {
-    const candidates = get3Frame(euler).flatMap(axis => {
-        const seq = Array.from({ length: 2 * GRID_DIM + 1 }, (_, i) => (i - GRID_DIM) * GRID_SNAP_DELTA)
-        return seq.map(l => axis.clone().multiplyScalar(l).add(anchor))
-    })
-    return candidates
 }
 
 /**
@@ -271,7 +285,62 @@ function candidatesOnWalls(scene, anchor, euler) {
     return sphereGroup
 }
 
+/**
+ * Returns the 3D position under the mouse, snapped to the closest axis.
+ * 
+ * @param {HTMLDivElement} domElement 
+ * @param {THREE.Scene} scene
+ * @param {THREE.Vector3} anchor 
+ * @param {THREE.Euler} euler 
+ * @param {THREE.Camera} camera 
+ * @param {THREE.Vector2} mousePos 
+ * @returns {THREE.Vector3}
+ */
+function underMouse(domElement, anchor, euler, camera, mousePos) {
+    const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
+    const axes = get3Frame(euler)
+    const axesTranslated = axes.map(axis => anchor.clone().addScaledVector(axis, UNIT))
+    const screenPosition = new ScreenPosition(domElement, camera)
+    // project axes to 2D
+    const po = screenPosition.toPixels(anchor)
+    const pm = mousePos.clone().sub(po)
+    const deltas = axesTranslated.map(v => screenPosition.toPixels(v))
+        .map(v => v.clone().addScaledVector(po, -1).normalize())
+    const qs = deltas.map(v => v.clone().multiplyScalar(v.dot(pm)))
+    const projections = qs.map(v => v.clone().add(po))
+    // find position in 3D scene
+    const distances = projections.map(p => p.clone().sub(mousePos).length())
+    const closestIndex = argmin(distances, i => i)
+    const scale = getRatioPixelToMM(domElement, camera)
+    const lengthInPixels = projections[closestIndex].clone().sub(po).length()
+    const signedLengthInPixels = lengthInPixels * Math.sign(deltas[closestIndex].dot(pm))
+    const signedLengthInMM = signedLengthInPixels * scale
+    const target3 = axes[closestIndex].clone()
+        .multiplyScalar(signedLengthInMM).add(anchor)
 
+    return target3
+}
+
+/**
+ * Returns the ratio pixel to mm. E.g. if result is 10, then 1px = 10mm.
+ * 
+ * @param {HTMLDivElement} domElement 
+ * @param {THREE.Camera} camera 
+ * @returns {number}
+ */
+function getRatioPixelToMM(domElement, camera) {
+    if (!camera.isOrthographicCamera) {
+        throw Error('To use scale, camera must be orthographic')
+    }
+    const LENGTH_OF_RULER = 10000
+    const v0 = new THREE.Vector3(0, 0, 0)
+    const v1 = new THREE.Vector3(LENGTH_OF_RULER, 0, 0)
+    const sp = new ScreenPosition(domElement, camera)
+    const p0 = sp.toPixels(v0)
+    const p1 = sp.toPixels(v1)
+    const l = p1.clone().sub(p0).length()
+    return LENGTH_OF_RULER / l
+}
 
 
 
