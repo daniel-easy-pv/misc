@@ -1,3 +1,5 @@
+export const FRUSTUM_SIZE = 15000
+
 export const HEIGHT_ABOVE_GROUND = {
     windows: 900,
     doors: 0,

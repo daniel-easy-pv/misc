@@ -1,4 +1,5 @@
-const FRUSTUM_SIZE = 15000
+import { FRUSTUM_SIZE } from '../consts'
+
 export function addWindowListeners(app) {
     const {
         threeElements,
@@ -17,5 +18,5 @@ export function addWindowListeners(app) {
         camera.top = FRUSTUM_SIZE/2
         camera.bottom = FRUSTUM_SIZE/-2
         camera.updateProjectionMatrix()
-    });
+    })
 }
