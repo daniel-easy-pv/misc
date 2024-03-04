@@ -90,6 +90,7 @@ export class Heat3DModel {
         this.threeElements = {
             scene,
             camera,
+            renderer,
             pointer,
             raycaster,
         }
