@@ -1,10 +1,9 @@
 import * as THREE from 'three'
-import { ScreenPosition } from '../../ScreenPosition.js'
 import { getMeshByUserDataValue } from '../../utils.js'
-import { MOUSE_ACCURACY_THRESHOLD, UNITS } from '../../consts.js'
-import { AppModes } from '../h3dModes.js'
+import { UNITS } from '../../consts.js'
 import { HistoryManager } from '../historyManager.js'
 import { addPipeContinuationListener } from './pipeContinuation.js'
+import { addPipeAnchoringListener } from './pipeAnchoring.js'
 
 
 
@@ -20,51 +19,25 @@ export function addPipeListener(app) {
     } = app
     const {
         scene,
-        camera,
     } = threeElements
     
     const pipeGroup = initPipeGroup(scene)
     
     const anchors = []
-    let tempMesh
+    const tempPipes = new THREE.Group()
+    pipeGroup.add(tempPipes)
     const euler = new THREE.Euler(0, 0, 0, 'ZYX')
     const historyManager = new HistoryManager()
 
     const pipeListenerSettings = {
         pipeGroup,
         anchors,
-        tempMesh,
+        tempPipes,
         euler,
         historyManager,
     }
 
-    domElement.addEventListener('stationaryClick', function buildPipe(evt) {
-        if (app.mode !== AppModes.Insert) return
-        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
-        
-        // first click
-        if (anchors.length === 0) {
-            const pipeEntries = getMeshByUserDataValue(scene, 'isPipeEntry', true)
-            const screenPosition = new ScreenPosition(domElement, camera)
-            const potentialSnapPositions = pipeEntries
-                .map(entry => {
-                    const target = entry.getWorldPosition(new THREE.Vector3())
-                    return screenPosition.toPixels(target)
-                })
-            const { closestIndex, closestDistance } = getClosest(potentialSnapPositions, mousePos)
-    
-            // terminate if none selected
-            if (closestDistance > MOUSE_ACCURACY_THRESHOLD) return
-            const closestPipeEntry = pipeEntries[closestIndex]
-            if (closestPipeEntry) {
-                const anchor = closestPipeEntry.getWorldPosition(new THREE.Vector3())
-                anchors.push(anchor)
-            }
-        }
-        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
-    })
-    
+    addPipeAnchoringListener(app, pipeListenerSettings)
     addPipeContinuationListener(app, pipeListenerSettings)
     
 
@@ -75,7 +48,7 @@ export function addPipeListener(app) {
         }
         else if (evt.key === 'Escape') {
             anchors.length = 0
-            pipeGroup.remove(tempMesh)
+            tempPipes.clear()
             domElement.dispatchEvent(new CustomEvent('updateFuschia'))
             anchors.length = 0
         }
@@ -96,24 +69,6 @@ export function addPipeListener(app) {
     // addDebugPipeListener(app, anchors, euler)
     
 }
-
-function getClosest(arrs, vector) {
-    let closestIndex = -1
-    let closestDistance = Infinity
-    for (let i = 0; i < arrs.length; i++) {
-        const arr = arrs[i]
-        const d = arr.distanceTo(vector)
-        if (d < closestDistance) {
-            closestIndex = i
-            closestDistance = d
-        }
-    }
-    return {
-        closestIndex,
-        closestDistance,
-    }
-}
-
 
 /**
  * Returns the coordinate frame after rotating the standard frame by an Euler angle.

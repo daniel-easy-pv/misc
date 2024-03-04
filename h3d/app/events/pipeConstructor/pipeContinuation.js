@@ -21,7 +21,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         historyManager,
     } = pipeListenerSettings
     let {
-        tempMesh,
+        tempPipes,
     } = pipeListenerSettings
 
     domElement.addEventListener('stationaryClick', function extendPipe(evt) {
@@ -58,9 +58,8 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
         const material = PipeCurve.Material
         const mesh = new THREE.Mesh(geometry, material)
-        pipeGroup.remove(tempMesh)
-        pipeGroup.add(mesh)
-        tempMesh = mesh
+        tempPipes.clear()
+        tempPipes.add(mesh)
     })
 
     const tempFuschia = new THREE.Group()
