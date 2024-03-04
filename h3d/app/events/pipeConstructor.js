@@ -3,7 +3,6 @@ import { ScreenPosition } from '../ScreenPosition'
 import { getMeshByUserDataValue } from '../utils'
 import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../consts'
 import { AppModes } from './h3dModes.js'
-import { addDebugPipeListener } from './debugPipes.js'
 import { PipeCurve } from './PipeCurve.js'
 import { HistoryManager, UndoableEvent } from './historyManager.js'
 import { argmin } from '../utils/math.js'
@@ -88,12 +87,9 @@ export function addPipeListener(app) {
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
         const anchor = anchors[anchors.length - 1]
-        const { 
-            closestCandidateIndex, 
-            candidates } = findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos)
-        
-        const candidate = candidates[closestCandidateIndex]
-        const path = new PipeCurve([anchor, candidate])
+        const potentialSecondClick = findSecondClick(
+            domElement, scene, anchor, euler, camera, mousePos)
+        const path = new PipeCurve([anchor, potentialSecondClick])
         const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
         const material = PipeCurve.Material
         const mesh = new THREE.Mesh(geometry, material)
@@ -138,7 +134,7 @@ export function addPipeListener(app) {
         }
     })
 
-    addDebugPipeListener(app, anchors, euler)
+    // addDebugPipeListener(app, anchors, euler)
     
 }
 
