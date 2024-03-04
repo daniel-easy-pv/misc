@@ -307,7 +307,7 @@ function underMouse(domElement, anchor, euler, camera, mousePos) {
     // find position in 3D scene
     const distances = projections.map(p => p.clone().sub(mousePos).length())
     const closestIndex = argmin(distances, i => i)
-    const scale = getRatioPixelToMM(domElement, camera)
+    const scale = getRatioPixelToMM(domElement, camera, closestIndex)
     const lengthInPixels = projections[closestIndex].clone().sub(po).length()
     const signedLengthInPixels = lengthInPixels * Math.sign(deltas[closestIndex].dot(pm))
     const signedLengthInMM = signedLengthInPixels * scale
@@ -322,15 +322,17 @@ function underMouse(domElement, anchor, euler, camera, mousePos) {
  * 
  * @param {HTMLDivElement} domElement 
  * @param {THREE.Camera} camera 
+ * @param {0|1|2} directionIndex
  * @returns {number}
  */
-function getRatioPixelToMM(domElement, camera) {
+function getRatioPixelToMM(domElement, camera, directionIndex) {
     if (!camera.isOrthographicCamera) {
         throw Error('To use scale, camera must be orthographic')
     }
     const LENGTH_OF_RULER = 10000
     const v0 = new THREE.Vector3(0, 0, 0)
-    const v1 = new THREE.Vector3(LENGTH_OF_RULER, 0, 0)
+    const v1 = new THREE.Vector3(0, 0, 0)
+    v1[['x','y','z'][directionIndex]] = LENGTH_OF_RULER
     const sp = new ScreenPosition(domElement, camera)
     const p0 = sp.toPixels(v0)
     const p1 = sp.toPixels(v1)
