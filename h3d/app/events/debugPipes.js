@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { AppModes } from './h3dModes'
 import { ScreenPosition } from '../ScreenPosition'
 import { findClosestCandidate, get3Frame } from './pipeConstructor'
+import { argmin } from '../utils/math'
 
 const AXIS_COLORS = [
     'red',
@@ -65,25 +66,29 @@ function getHTMLAxes(domElement, anchor, euler, camera, mousePos) {
     const projections = qs.map(v => v.clone().add(po))
     // draw on screen for debugging
     const rayGroup = document.createElement('div')
+    const distances = projections.map(p => p.clone().addScaledVector(mousePos, -1).length())
+    const closestIndex = argmin(distances, i => i)
     for (let i = 0; i < projections.length; i++) {
         const p = projections[i]
-        const ray = buildRay(po.x, po.y, p.x, p.y, AXIS_COLORS[i])
+        const ray = buildRay(po.x, po.y, p.x, p.y, AXIS_COLORS[i], i === closestIndex ? 5 : 1)
         rayGroup.appendChild(ray)
     }
     return rayGroup
 }
 
-function buildRay(startX, startY, endX, endY, color = 'black') {
+function buildRay(startX, startY, endX, endY, color, thickness = 1) {
     // Create a new div element for the ray
     const ray = document.createElement('div')
   
     // Calculate the length and angle of the ray
-    const length = 1000
+    const dx = endX - startX
+    const dy = endY - startY
+    const length = Math.sqrt(dx ** 2 + dy ** 2)
     const angle = Math.atan2(endY - startY, endX - startX)
   
     // Apply styles to make it a line (ray)
     ray.style.width = length + 'px'
-    ray.style.height = '1px' // Adjust the thickness as needed
+    ray.style.height = `${thickness}px`
     ray.style.background = color
     ray.style.position = 'absolute'
     const navOffset = document.querySelector('nav')?.offsetHeight ?? 0

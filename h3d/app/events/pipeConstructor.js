@@ -6,6 +6,7 @@ import { AppModes } from './h3dModes.js'
 import { addDebugPipeListener } from './debugPipes.js'
 import { PipeCurve } from './PipeCurve.js'
 import { HistoryManager, UndoableEvent } from './historyManager.js'
+import { argmin } from '../utils/math.js'
 
 // pipes must snap to a grid with this resolution in mm
 const GRID_SNAP_DELTA = 500
@@ -279,22 +280,7 @@ function destroyHelpers(domElement) {
     coordHelperGroup?.parentNode.removeChild(coordHelperGroup)
 }
 
-function argmin(arr, func) {
-    if (arr.length === 0) {
-        throw new Error('Array must not be empty')
-    }
-    let minIndex = 0
-    let minValue = func(arr[0])
-  
-    for (let i = 1; i < arr.length; i++) {
-        const currentValue = func(arr[i])
-        if (currentValue < minValue) {
-            minValue = currentValue
-            minIndex = i
-        }
-    }
-    return minIndex
-}
+
 
 /**
  * Given an anchor point, this adds a pipe leg to the pipe run.
