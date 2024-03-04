@@ -5,9 +5,11 @@ export class PipeCurve extends THREE.Curve {
         this.arr = arr
     }
 
-    static Material = new THREE.MeshBasicMaterial({
+    static Material = new THREE.MeshPhongMaterial({
         side: THREE.DoubleSide,
-        color: 0x0000ff,
+        specular: 0xffa8a8,
+        color: 0xb87333,
+        shininess: 30,
     })
 
     getPoint(t, optionalTarget = new THREE.Vector3()) {
