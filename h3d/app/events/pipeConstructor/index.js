@@ -1,11 +1,11 @@
 import * as THREE from 'three'
-import { ScreenPosition } from '../ScreenPosition'
-import { getMeshByUserDataValue } from '../utils'
-import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../consts'
-import { AppModes } from './h3dModes.js'
+import { ScreenPosition } from '../../ScreenPosition.js'
+import { getMeshByUserDataValue } from '../../utils.js'
+import { LAYER_MAGENTA_SPHERES, MOUSE_ACCURACY_THRESHOLD } from '../../consts.js'
+import { AppModes } from '../h3dModes.js'
 import { PipeCurve } from './PipeCurve.js'
-import { HistoryManager, UndoableEvent } from './historyManager.js'
-import { argmin } from '../utils/math.js'
+import { HistoryManager, UndoableEvent } from '../historyManager.js'
+import { argmin } from '../../utils/math.js'
 
 /**
  * @const
@@ -21,7 +21,7 @@ const UNITS = [
 /**
  * A function that adds pipe run listeners to a canvas
  * 
- * @param {import('../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
  */
 export function addPipeListener(app) {
     const {
@@ -170,7 +170,7 @@ function getClosest(arrs, vector) {
 
 /**
  * 
- * @param {import('../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @param {THREE.Camera} camera 
@@ -191,7 +191,7 @@ function findSecondClick(app, anchor, euler, mousePos) {
 
 /**
  * 
- * @param {import('../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Vector2} mousePos 
  * @returns {CandidateObject}
@@ -298,7 +298,7 @@ function candidatesOnWalls(scene, anchor, euler) {
 /**
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
- * @param {import('../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @param {THREE.Vector2} mousePos 
