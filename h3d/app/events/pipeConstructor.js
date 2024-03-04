@@ -66,7 +66,7 @@ export function addPipeListener(app) {
         } else {
             const anchor = anchors[anchors.length - 1]
             const secondClick = findSecondClick(
-                domElement, scene, anchor, euler, camera, mousePos)
+                app, anchor, euler, mousePos)
             destroyHelpers(domElement)
             const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
             historyManager.executeCommand(command)
@@ -88,7 +88,7 @@ export function addPipeListener(app) {
         const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
         const anchor = anchors[anchors.length - 1]
         const potentialSecondClick = findSecondClick(
-            domElement, scene, anchor, euler, camera, mousePos)
+            app, anchor, euler, mousePos)
         const path = new PipeCurve([anchor, potentialSecondClick])
         const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
         const material = PipeCurve.Material
@@ -170,35 +170,41 @@ function getClosest(arrs, vector) {
 
 /**
  * 
- * @param {HTMLDivElement} domElement 
- * @param {THREE.Scene} scene 
+ * @param {import('../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
  * @returns 
  */
-function findSecondClick(domElement, scene, anchor, euler, camera, mousePos) {
+function findSecondClick(app, anchor, euler, mousePos) {
     const THRESHOLD = 40 // px
     const {
         closestCircleDistance,
         closestCandidate,
-    } = findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos)
+    } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
     if (closestCircleDistance < THRESHOLD) {
         return closestCandidate
     }
-    return underMouse(domElement,anchor, euler, camera, mousePos)
+    return underMouse(app, anchor, euler, mousePos)
 }
 
 /**
  * 
- * @param {HTMLElement} domElement 
+ * @param {import('../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
- * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
  * @returns {CandidateObject}
  */
-export function findClosestCandidateToSnap(domElement, scene, anchor, euler, camera, mousePos) {
+export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
+    const {
+        domElement,
+        threeElements,
+    } = app
+    const {
+        scene,
+        camera,
+    } = threeElements
     const candidates = candidatesToSnap(scene, anchor, euler)
     if (candidates.length === 0) {
         console.log('no candidates')
@@ -292,15 +298,20 @@ function candidatesOnWalls(scene, anchor, euler) {
 /**
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
- * @param {HTMLDivElement} domElement 
- * @param {THREE.Scene} scene
+ * @param {import('../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
- * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
  * @returns {THREE.Vector3}
  */
-function underMouse(domElement, anchor, euler, camera, mousePos) {
+function underMouse(app, anchor, euler, mousePos) {
+    const {
+        domElement,
+        threeElements,
+    } = app
+    const {
+        camera,
+    } = threeElements
     const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
     const axes = get3Frame(euler)
     const axesTranslated = axes.map(axis => anchor.clone().addScaledVector(axis, UNIT))
