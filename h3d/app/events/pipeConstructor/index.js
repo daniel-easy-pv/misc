@@ -4,8 +4,7 @@ import { UNITS } from '../../consts.js'
 import { HistoryManager } from '../historyManager.js'
 import { addPipeContinuationListener } from './pipeContinuation.js'
 import { addPipeAnchoringListener } from './pipeAnchoring.js'
-
-
+import { addPipeKeyboardListeners } from './pipeKeyboardListeners.js'
 
 /**
  * A function that adds pipe run listeners to a canvas
@@ -14,7 +13,6 @@ import { addPipeAnchoringListener } from './pipeAnchoring.js'
  */
 export function addPipeListener(app) {
     const {
-        domElement,
         threeElements,
     } = app
     const {
@@ -39,33 +37,7 @@ export function addPipeListener(app) {
 
     addPipeAnchoringListener(app, pipeListenerSettings)
     addPipeContinuationListener(app, pipeListenerSettings)
-    
-
-    domElement.addEventListener('keydown', function(evt) {
-        if (evt.key === 'r') {
-            euler.z += Math.PI / 4
-            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
-        }
-        else if (evt.key === 'Escape') {
-            anchors.length = 0
-            tempPipes.clear()
-            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
-            anchors.length = 0
-        }
-    })
-
-    domElement.addEventListener('keydown', function(evt) {
-        if (evt.ctrlKey && evt.key === 'z') {
-            historyManager.undo()
-        }
-    })
-
-    domElement.addEventListener('keydown', function(evt) {
-        if (evt.ctrlKey && evt.key === 'y') {
-            historyManager.redo()
-        }
-    })
-
+    addPipeKeyboardListeners(app, pipeListenerSettings)
     // addDebugPipeListener(app, anchors, euler)
     
 }
