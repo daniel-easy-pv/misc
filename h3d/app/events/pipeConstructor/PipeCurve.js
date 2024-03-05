@@ -21,3 +21,26 @@ export class PipeCurve extends THREE.Curve {
         return optionalTarget.set(tx, ty, tz)
     } 
 }
+
+export class PipeLegGeometry extends THREE.TubeGeometry {
+    constructor(path, radius) {
+        const tubularSegments = 20
+        const radialSegments = 8
+        const closed = false
+        super(path, tubularSegments, radius, radialSegments, closed)
+    }
+}
+
+export class PipeMesh extends THREE.Mesh {
+    constructor(start, end, radius) {
+        const path = new PipeCurve([start, end])
+        const geometry = new PipeLegGeometry(path, radius)
+        const material = new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            specular: 0xffa8a8,
+            color: 0xb87333,
+            shininess: 30,
+        })
+        super(geometry, material)
+    }
+}

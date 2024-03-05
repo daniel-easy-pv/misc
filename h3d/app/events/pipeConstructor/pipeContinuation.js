@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { UndoableEvent } from '../historyManager.js'
 import { ScreenPosition } from '../../ScreenPosition'
 import { argmin } from '../../utils/math.js'
-import { PipeCurve } from './PipeCurve'
+import { PipeMesh } from './PipeCurve'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { getValvePositions } from './valveFinder.js'
@@ -47,10 +47,8 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         } = findSecondClickDetailed(
             app, anchor, euler, mousePos)
         uiChange?.()
-        const path = new PipeCurve([anchor, snapPoint])
-        const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
-        const material = PipeCurve.Material
-        const mesh = new THREE.Mesh(geometry, material)
+        const pipeRadius = 20
+        const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
         tempPipes.clear()
         tempPipes.add(mesh)
     })
@@ -352,11 +350,8 @@ class AddIntermediatePipeNode extends UndoableEvent {
         this.anchors = anchors
         this.anchor = anchor
         this.secondClick = secondClick
-
-        const path = new PipeCurve([anchor, secondClick])
-        const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
-        const material = PipeCurve.Material
-        const mesh = new THREE.Mesh(geometry, material)
+        const pipeRadius = 20
+        const mesh = new PipeMesh(anchor, secondClick, pipeRadius)
         this.mesh = mesh
 
         // add imaginary valve for future pipe connections
