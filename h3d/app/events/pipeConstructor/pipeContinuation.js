@@ -86,11 +86,11 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
- * @param {THREE.Camera} camera 
  * @param {THREE.Vector2} mousePos 
- * @returns 
+ * @returns {import('./PipeSnapRule.js').PipeSnapRule}
  */
 function findSecondClickDetailed(app, anchor, euler, mousePos) {
+    
     // RULE 1
     const RULE_1_THRESHOLD = 40 // px
     const {
@@ -98,7 +98,10 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
         closestCandidate,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
     if (closestCircleDistance < RULE_1_THRESHOLD) {
-        return new PipeSnapRuleIntersect(closestCandidate)
+        const snapPoint = closestCandidate
+        return new PipeSnapRuleIntersect({
+            snapPoint,
+        })
     }
     const {
         target3,
@@ -134,17 +137,25 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
                 }
             }
         }
-        return new PipeSnapRuleValve(closestValveProjection.valveProjection, uiChange)
+        const snapPoint = closestValveProjection.valveProjection
+        return new PipeSnapRuleValve({
+            snapPoint,
+            uiChange,
+        })
     }
-
-    return new PipeSnapRuleFree(target3, 
-        () => {
+    else {
+        const uiChange = () => {
             for (const valveData of valveProjections) {
                 const { valve } = valveData
                 valve.material.color.setHex(0xffff00)
             }
         }
-    )
+        const snapPoint = target3
+        return new PipeSnapRuleFree({
+            snapPoint,
+            uiChange,
+        })
+    }
 }
 
 

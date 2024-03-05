@@ -1,7 +1,7 @@
 import { addModeListener } from './h3dModes'
 import { addMouseListeners } from './h3dMouseListeners'
 import { addWindowListeners } from './h3dWindowListeners'
-import { addPipeListener } from './pipeConstructor'
+import { addPipeListener } from './pipeConstructor/index.js'
 
 
 export function initEvents(app) {  
