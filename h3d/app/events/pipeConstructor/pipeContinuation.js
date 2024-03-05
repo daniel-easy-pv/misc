@@ -31,11 +31,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
         historyManager.executeCommand(command)
     
-        // add imaginary valve for future pipe connections
-        const imaginaryValve = new THREE.Group()
-        imaginaryValve.userData.isPipeEntry = true
-        imaginaryValve.position.copy(secondClick)
-        pipeGroup.add(imaginaryValve)
+        
     })
 
     // Displays potential pipe leg
@@ -362,6 +358,13 @@ class AddIntermediatePipeNode extends UndoableEvent {
         const material = PipeCurve.Material
         const mesh = new THREE.Mesh(geometry, material)
         this.mesh = mesh
+
+        // add imaginary valve for future pipe connections
+        const imaginaryValve = new THREE.Group()
+        imaginaryValve.userData.isPipeEntry = true
+        imaginaryValve.position.copy(secondClick)
+        this.imaginaryValve = imaginaryValve
+        
     }
 
     execute() {
@@ -369,10 +372,12 @@ class AddIntermediatePipeNode extends UndoableEvent {
         pipeGroup.add(mesh)
         anchors.length = 0
         anchors.push(secondClick)
+        pipeGroup.add(this.imaginaryValve)
     }
 
     undo() {
         const { pipeGroup, mesh, anchors, anchor } = this
+        pipeGroup.remove(this.imaginaryValve)
         pipeGroup.remove(mesh)
         if (anchors.length) {
             anchors.length = 0
