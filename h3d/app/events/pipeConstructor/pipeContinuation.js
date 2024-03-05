@@ -96,11 +96,27 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
     const {
         closestCircleDistance,
         closestCandidate,
+        intersectionInfos,
+        closestCandidateIndex,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
-    if (closestCircleDistance < RULE_1_THRESHOLD) {
+    const rule1Applies = closestCircleDistance < RULE_1_THRESHOLD
+    const uiChangeRule1 = () => {
+        for (let i = 0; i < intersectionInfos.length; i++) {
+            const { intersectionObject } = intersectionInfos[i]
+            const materialConfig = intersectionObject.userData.materialConfig
+            if (materialConfig) {
+                const opacity = (i === closestCandidateIndex && rule1Applies) ? 
+                    materialConfig.highlighted.opacity : 
+                    materialConfig.original.opacity
+                intersectionObject.material.opacity = opacity
+            }
+        }
+    }
+    if (rule1Applies) {
         const snapPoint = closestCandidate
         return new PipeSnapRuleIntersect({
             snapPoint,
+            uiChange: uiChangeRule1,
         })
     }
     const {
@@ -127,7 +143,7 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
 
     const closestValveProjection = valveProjections.find(valveData => valveSnap(valveData.valveProjection))
     if (closestValveProjection) {
-        const uiChange = () => {
+        const uiChangeRule2 = () => {
             for (const valveData of valveProjections) {
                 const { valveProjection, valve } = valveData
                 if (valveSnap(valveProjection)) {
@@ -136,24 +152,26 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
                     valve.material.color.setHex(0xffff00)
                 }
             }
+            uiChangeRule1()
         }
         const snapPoint = closestValveProjection.valveProjection
         return new PipeSnapRuleValve({
             snapPoint,
-            uiChange,
+            uiChange: uiChangeRule2,
         })
     }
     else {
-        const uiChange = () => {
+        const uiChangeRule3 = () => {
             for (const valveData of valveProjections) {
                 const { valve } = valveData
                 valve.material.color.setHex(0xffff00)
             }
+            uiChangeRule1()
         }
         const snapPoint = target3
         return new PipeSnapRuleFree({
             snapPoint,
-            uiChange,
+            uiChange: uiChangeRule3,
         })
     }
 }
@@ -186,7 +204,9 @@ export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
         scene,
         camera,
     } = threeElements
-    const candidates = intersectingCandidates(scene, anchor, euler)
+    const intersectionInfos = intersectingCandidates(scene, anchor, euler)
+    const candidates = intersectionInfos
+        .map(intersectionInfo => intersectionInfo.intersectionPoint)
     if (candidates.length === 0) {
         console.log('no candidates')
         return
@@ -200,6 +220,7 @@ export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
     const closestCircle = circles[closestCandidateIndex]
     const closestCircleDistance = mousePos.clone().sub(closestCircle).length()
     return {
+        intersectionInfos,
         candidates,
         circles,
         closestCircle,
@@ -221,6 +242,12 @@ function get6Frame(euler) {
 }
 
 /**
+ * @typedef {Object} IntersectionInfo
+ * @property {THREE.Vector3} intersectionPoint - The point where the intersection occurred.
+ * @property {THREE.Object3D} intersectionObject - The 3D object that was intersected.
+ */
+
+/**
  * Given a scene of objects, and a coordinate system represented by anchor-euler,
  * return an array of intersection points from anchor in the direction of Euler.
  * If we encounter a wall, we snap near the wall rather than at the wall.
@@ -228,24 +255,32 @@ function get6Frame(euler) {
  * @param {THREE.Scene} scene 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
- * @returns {THREE.Vector3[]}
+ * @returns {IntersectionInfo[]}
  */
 function intersectingCandidates(scene, anchor, euler) {
-    const pointsToSnap = [anchor]
+    const pointsToSnap = []
     const NEAR = 100
     const FAR = 100000 // 100 m
+    const RADIATOR_HALF_THICKNESS = 100
     for (const direction of get6Frame(euler)) {
         const raycaster = new THREE.Raycaster(anchor, direction, NEAR, FAR)
         const intersectObject = raycaster.intersectObject(scene, true)
         for (const intersection of intersectObject) {
+            const intersectionObject = intersection.object
             if (intersection.object.userData.isWall) {
-                const RADIATOR_HALF_THICKNESS = 100
-                const point = direction.clone()
+                const intersectionPoint = direction.clone()
                     .multiplyScalar(intersection.distance - RADIATOR_HALF_THICKNESS)
                     .add(anchor)
-                pointsToSnap.push(point)
+                pointsToSnap.push({
+                    intersectionPoint,
+                    intersectionObject,
+                })
             } else {
-                pointsToSnap.push(intersection.point)
+                const intersectionPoint = intersection.point
+                pointsToSnap.push({
+                    intersectionPoint,
+                    intersectionObject,
+                })
             }
         }
     }
@@ -254,6 +289,7 @@ function intersectingCandidates(scene, anchor, euler) {
 
 function candidatesOnWalls(scene, anchor, euler) {
     const pointsToSnap = intersectingCandidates(scene, anchor, euler)
+        .map(intersectionInfo => intersectionInfo.intersectionPoint)
     const sphereGroup = new THREE.Group()
     for (const point of pointsToSnap) {
         const geometry = new THREE.SphereGeometry(50)

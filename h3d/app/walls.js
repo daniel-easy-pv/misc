@@ -3,21 +3,13 @@ import { PrismGeometry } from './prism.js'
 import { CSG } from 'three-csg-ts'
 import { getRectangleProperties } from './preprocess.js'
 import { HEIGHT_ABOVE_GROUND, MESH_COLORS } from './consts.js'
-
-const wallDict = {
-    internal: {
-        color: 0x000000,
-    },
-    external: {
-        color: 0x000000,
-    }
-}
+import { materialConfig } from './materials/index.js'
 
 export function getWalls(level) {
     const group = new THREE.Group()
     for (const wall of level.walls || []) {
         const { width, height, rotation, position, neighbours } = wall
-        const externality = neighbours.length === 2 ? 'internal' : 'external'
+        // const externality = neighbours.length === 2 ? 'internal' : 'external'
         const points = [
             new THREE.Vector2(0, -height / 2),
             new THREE.Vector2(width, -height / 2),
@@ -27,11 +19,7 @@ export function getWalls(level) {
         const h = Math.max(...neighbours.map(n => heightOfRoom(level, n.roomIndexInLevel)))
 
         const geometry = new PrismGeometry(points, h)
-        const material = new THREE.MeshBasicMaterial( { 
-            ...wallDict[externality], 
-            opacity: 0.1,
-            transparent: true,
-        })
+        const material = new THREE.MeshBasicMaterial(materialConfig.wall.original)
         const wallWithoutHoles = new THREE.Mesh(geometry, material)
         wallWithoutHoles.position.x = position.x
         wallWithoutHoles.position.y = position.y
@@ -44,6 +32,7 @@ export function getWalls(level) {
             wallWithHoles = CSG.subtract(wallWithHoles, hole)
         }
         wallWithHoles.userData.isWall = true
+        wallWithHoles.userData.materialConfig = materialConfig.wall
         group.add(wallWithHoles)
 
         const apertures = getApertures(neighbours, { wallThickness: width })
