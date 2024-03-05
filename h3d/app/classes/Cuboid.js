@@ -79,6 +79,7 @@ export class Cuboid {
             }
             valve.position.copy(position)
             valve.userData.isPipeEntry = true
+            valve.userData.isValve = true
             group.add(valve)
         }
         return group

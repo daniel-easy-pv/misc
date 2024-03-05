@@ -6,6 +6,7 @@ import { LAYER_MAGENTA_SPHERES } from '../../consts'
 import { PipeCurve } from './PipeCurve'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
+import { getValvePositions } from './valveFinder.js'
 export function addPipeContinuationListener(app, pipeListenerSettings) {
     const {
         domElement,
@@ -19,8 +20,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         anchors,
         euler,
         historyManager,
-    } = pipeListenerSettings
-    let {
         tempPipes,
     } = pipeListenerSettings
 
@@ -87,6 +86,10 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
  */
 
 /**
+ * Given a mouse click that attempts to extend a pipe, we snap to points with the following priorities.
+ * 1. within 40px of an intersection of an object in scene (or near a wall)
+ * 2. if one of the coordinates match a valve coordinate
+ * 3. freehand
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
@@ -96,15 +99,48 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
  * @returns 
  */
 function findSecondClick(app, anchor, euler, mousePos) {
-    const THRESHOLD = 40 // px
+    // RULE 1
+    const RULE_1_THRESHOLD = 40 // px
     const {
         closestCircleDistance,
         closestCandidate,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
-    if (closestCircleDistance < THRESHOLD) {
+    if (closestCircleDistance < RULE_1_THRESHOLD) {
         return closestCandidate
     }
-    return underMouse(app, anchor, euler, mousePos)
+    const {
+        target3,
+        closestAxisIndex,
+    } = underMouse(app, anchor, euler, mousePos)
+    const axis = get3Frame(euler)[closestAxisIndex]
+    // RULE 2
+    const RULE_2_THRESHOLD = 50
+    const valves = getValvePositions(app)
+    const valveProjections = valves. map(valveData => {
+        const { valvePosition } = valveData
+        const projectionLength = valvePosition.clone().sub(anchor).dot(axis)
+        const valveProjection = axis.clone().multiplyScalar(projectionLength).add(anchor)
+        return {
+            valveProjection,
+            ...valveData,
+        }
+    })
+
+    const valveSnap = (valveProjection) => {
+        return valveProjection.clone().sub(target3).length() < RULE_2_THRESHOLD
+    }
+
+    for (const valveData of valveProjections) {
+        const { valveProjection, valve } = valveData
+        if (valveSnap(valveProjection)) {
+            valve.material.color.setHex(0xff0000)
+        } else {
+            valve.material.color.setHex(0xffff00)
+        }
+    }
+
+    return valveProjections.find(valveData => valveSnap(valveData.valveProjection))?.valveProjection ?? 
+    /*RULE 3*/ target3
 }
 
 /**
@@ -123,7 +159,7 @@ export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
         scene,
         camera,
     } = threeElements
-    const candidates = candidatesToSnap(scene, anchor, euler)
+    const candidates = intersectingCandidates(scene, anchor, euler)
     if (candidates.length === 0) {
         console.log('no candidates')
         return
@@ -160,13 +196,14 @@ function get6Frame(euler) {
 /**
  * Given a scene of objects, and a coordinate system represented by anchor-euler,
  * return an array of intersection points from anchor in the direction of Euler.
+ * If we encounter a wall, we snap near the wall rather than at the wall.
  * 
  * @param {THREE.Scene} scene 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @returns {THREE.Vector3[]}
  */
-function candidatesToSnap(scene, anchor, euler) {
+function intersectingCandidates(scene, anchor, euler) {
     const pointsToSnap = [anchor]
     const NEAR = 100
     const FAR = 100000 // 100 m
@@ -189,7 +226,7 @@ function candidatesToSnap(scene, anchor, euler) {
 }
 
 function candidatesOnWalls(scene, anchor, euler) {
-    const pointsToSnap = candidatesToSnap(scene, anchor, euler)
+    const pointsToSnap = intersectingCandidates(scene, anchor, euler)
     const sphereGroup = new THREE.Group()
     for (const point of pointsToSnap) {
         const geometry = new THREE.SphereGeometry(50)
@@ -210,7 +247,6 @@ function candidatesOnWalls(scene, anchor, euler) {
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Euler} euler 
  * @param {THREE.Vector2} mousePos 
- * @returns {THREE.Vector3}
  */
 function underMouse(app, anchor, euler, mousePos) {
     const {
@@ -233,15 +269,18 @@ function underMouse(app, anchor, euler, mousePos) {
     const projections = qs.map(v => v.clone().add(po))
     // find position in 3D scene
     const distances = projections.map(p => p.clone().sub(mousePos).length())
-    const closestIndex = argmin(distances, i => i)
-    const scale = getRatioPixelToMM(domElement, camera, axes[closestIndex])
-    const lengthInPixels = projections[closestIndex].clone().sub(po).length()
-    const signedLengthInPixels = lengthInPixels * Math.sign(deltas[closestIndex].dot(pm))
+    const closestAxisIndex = argmin(distances, i => i)
+    const scale = getRatioPixelToMM(domElement, camera, axes[closestAxisIndex])
+    const lengthInPixels = projections[closestAxisIndex].clone().sub(po).length()
+    const signedLengthInPixels = lengthInPixels * Math.sign(deltas[closestAxisIndex].dot(pm))
     const signedLengthInMM = signedLengthInPixels * scale
-    const target3 = axes[closestIndex].clone()
+    const target3 = axes[closestAxisIndex].clone()
         .multiplyScalar(signedLengthInMM).add(anchor)
 
-    return target3
+    return {
+        target3,
+        closestAxisIndex,
+    }
 }
 
 /**
