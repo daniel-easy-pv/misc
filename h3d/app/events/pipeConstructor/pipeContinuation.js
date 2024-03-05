@@ -7,6 +7,7 @@ import { PipeCurve } from './PipeCurve'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { getValvePositions } from './valveFinder.js'
+import { PipeSnapRuleFree, PipeSnapRuleIntersect, PipeSnapRuleValve } from './PipeSnapRule.js'
 export function addPipeContinuationListener(app, pipeListenerSettings) {
     const {
         domElement,
@@ -30,8 +31,8 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
         const anchor = anchors[anchors.length - 1]
-        const secondClick = findSecondClick(
-            app, anchor, euler, mousePos)
+        const secondClick = findSecondClickDetailed(
+            app, anchor, euler, mousePos).snapPoint
         const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
         historyManager.executeCommand(command)
     
@@ -51,9 +52,13 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
         const anchor = anchors[anchors.length - 1]
-        const potentialSecondClick = findSecondClick(
+        const {
+            snapPoint,
+            uiChange,
+        } = findSecondClickDetailed(
             app, anchor, euler, mousePos)
-        const path = new PipeCurve([anchor, potentialSecondClick])
+        uiChange?.()
+        const path = new PipeCurve([anchor, snapPoint])
         const geometry = new THREE.TubeGeometry(path, 20, 50, 8, false)
         const material = PipeCurve.Material
         const mesh = new THREE.Mesh(geometry, material)
@@ -72,19 +77,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
     })
 }
 
-
-
-/**
- * @typedef {Object} CandidateObject
- * @property {THREE.Vector3[]} candidates
- * @property {THREE.Vector2[]} circles - candidates in pixel coordinates
- * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 
- * is closest to the mouse
- * @property {THREE.Vector2} closestCircle - `circles[closestCandidateIndex]`
- * @property {number} closestCircleDistance - distance between closestCircle and mouse position
- * @property {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
- */
-
 /**
  * Given a mouse click that attempts to extend a pipe, we snap to points with the following priorities.
  * 1. within 40px of an intersection of an object in scene (or near a wall)
@@ -98,7 +90,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
  * @param {THREE.Vector2} mousePos 
  * @returns 
  */
-function findSecondClick(app, anchor, euler, mousePos) {
+function findSecondClickDetailed(app, anchor, euler, mousePos) {
     // RULE 1
     const RULE_1_THRESHOLD = 40 // px
     const {
@@ -106,7 +98,7 @@ function findSecondClick(app, anchor, euler, mousePos) {
         closestCandidate,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
     if (closestCircleDistance < RULE_1_THRESHOLD) {
-        return closestCandidate
+        return new PipeSnapRuleIntersect(closestCandidate)
     }
     const {
         target3,
@@ -114,7 +106,7 @@ function findSecondClick(app, anchor, euler, mousePos) {
     } = underMouse(app, anchor, euler, mousePos)
     const axis = get3Frame(euler)[closestAxisIndex]
     // RULE 2
-    const RULE_2_THRESHOLD = 50
+    const RULE_2_THRESHOLD = 100
     const valves = getValvePositions(app)
     const valveProjections = valves. map(valveData => {
         const { valvePosition } = valveData
@@ -130,18 +122,42 @@ function findSecondClick(app, anchor, euler, mousePos) {
         return valveProjection.clone().sub(target3).length() < RULE_2_THRESHOLD
     }
 
-    for (const valveData of valveProjections) {
-        const { valveProjection, valve } = valveData
-        if (valveSnap(valveProjection)) {
-            valve.material.color.setHex(0xff0000)
-        } else {
-            valve.material.color.setHex(0xffff00)
+    const closestValveProjection = valveProjections.find(valveData => valveSnap(valveData.valveProjection))
+    if (closestValveProjection) {
+        const uiChange = () => {
+            for (const valveData of valveProjections) {
+                const { valveProjection, valve } = valveData
+                if (valveSnap(valveProjection)) {
+                    valve.material.color.setHex(0xff0000)
+                } else {
+                    valve.material.color.setHex(0xffff00)
+                }
+            }
         }
+        return new PipeSnapRuleValve(closestValveProjection.valveProjection, uiChange)
     }
 
-    return valveProjections.find(valveData => valveSnap(valveData.valveProjection))?.valveProjection ?? 
-    /*RULE 3*/ target3
+    return new PipeSnapRuleFree(target3, 
+        () => {
+            for (const valveData of valveProjections) {
+                const { valve } = valveData
+                valve.material.color.setHex(0xffff00)
+            }
+        }
+    )
 }
+
+
+/**
+ * @typedef {Object} CandidateObject
+ * @property {THREE.Vector3[]} candidates
+ * @property {THREE.Vector2[]} circles - candidates in pixel coordinates
+ * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 
+ * is closest to the mouse
+ * @property {THREE.Vector2} closestCircle - `circles[closestCandidateIndex]`
+ * @property {number} closestCircleDistance - distance between closestCircle and mouse position
+ * @property {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
+ */
 
 /**
  * 
