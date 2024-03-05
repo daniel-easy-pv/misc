@@ -41,8 +41,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         imaginaryValve.userData.isPipeEntry = true
         imaginaryValve.position.copy(secondClick)
         pipeGroup.add(imaginaryValve)
-
-        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
     })
 
     // Displays potential pipe leg
@@ -64,16 +62,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const mesh = new THREE.Mesh(geometry, material)
         tempPipes.clear()
         tempPipes.add(mesh)
-    })
-
-    const tempFuschia = new THREE.Group()
-    scene.add(tempFuschia)
-    domElement.addEventListener('updateFuschia', function() {
-        tempFuschia.clear()
-        if (anchors.length === 0) return
-        const anchor = anchors[anchors.length - 1]
-        const sphereGroup = candidatesOnWalls(scene, anchor, euler)
-        tempFuschia.add(sphereGroup)
     })
 }
 

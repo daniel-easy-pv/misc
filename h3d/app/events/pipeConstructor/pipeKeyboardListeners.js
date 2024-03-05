@@ -11,12 +11,10 @@ export function addPipeKeyboardListeners(app, pipeListenerSettings) {
     domElement.addEventListener('keydown', function(evt) {
         if (evt.key === 'r') {
             euler.z += Math.PI / 4
-            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
         }
         else if (evt.key === 'Escape') {
             anchors.length = 0
             tempPipes.clear()
-            domElement.dispatchEvent(new CustomEvent('updateFuschia'))
             anchors.length = 0
         }
     })

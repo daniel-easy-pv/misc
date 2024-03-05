@@ -37,7 +37,6 @@ export function addPipeAnchoringListener(app, pipeListenerSettings) {
             const anchor = closestPipeEntry.getWorldPosition(new THREE.Vector3())
             anchors.push(anchor)
         }
-        domElement.dispatchEvent(new CustomEvent('updateFuschia'))
     })
 }
 
