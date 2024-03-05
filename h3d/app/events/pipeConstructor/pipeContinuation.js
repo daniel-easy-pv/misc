@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { UndoableEvent } from '../historyManager.js'
 import { ScreenPosition } from '../../ScreenPosition'
 import { argmin } from '../../utils/math.js'
-import { LAYER_MAGENTA_SPHERES } from '../../consts'
 import { PipeCurve } from './PipeCurve'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
@@ -11,11 +10,7 @@ import { PipeSnapRuleFree, PipeSnapRuleIntersect, PipeSnapRuleValve } from './Pi
 export function addPipeContinuationListener(app, pipeListenerSettings) {
     const {
         domElement,
-        threeElements,
     } = app
-    const {
-        scene,
-    } = threeElements
     const {
         pipeGroup,
         anchors,
@@ -273,22 +268,6 @@ function intersectingCandidates(scene, anchor, euler) {
         }
     }
     return pointsToSnap
-}
-
-function candidatesOnWalls(scene, anchor, euler) {
-    const pointsToSnap = intersectingCandidates(scene, anchor, euler)
-        .map(intersectionInfo => intersectionInfo.intersectionPoint)
-    const sphereGroup = new THREE.Group()
-    for (const point of pointsToSnap) {
-        const geometry = new THREE.SphereGeometry(50)
-        const material = new THREE.MeshBasicMaterial({ color: 0xff00ff })
-        const sphere = new THREE.Mesh(geometry, material)
-        sphere.position.copy(point)
-        sphere.layers.disable(0)
-        sphere.layers.enable(LAYER_MAGENTA_SPHERES)
-        sphereGroup.add(sphere)
-    }
-    return sphereGroup
 }
 
 /**
