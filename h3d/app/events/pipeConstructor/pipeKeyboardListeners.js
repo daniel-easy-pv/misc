@@ -1,4 +1,4 @@
-import { EndPipeRun } from './pipeEndRun.js'
+import { EndPipeRun } from './eventEndPipeRun.js'
 
 /**
  * 

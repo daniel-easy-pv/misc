@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { UndoableEvent } from '../historyManager.js'
 import { ScreenPosition } from '../../ScreenPosition'
 import { argmin } from '../../utils/math.js'
 import { PipeMesh } from './PipeCurve'
@@ -7,6 +6,7 @@ import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.js'
 import { pipeSnapRuleValve } from './pipeSnapRuleValve.js'
+import { AddIntermediatePipeNode } from './eventAddIntermediatePipeNode.js'
 
 /**
  * 
@@ -169,56 +169,3 @@ function getRatioPixelToMM(domElement, camera, direction) {
 }
 
 
-/**
- * Given an anchor point, this adds a pipe leg to the pipe run.
- */
-class AddIntermediatePipeNode extends UndoableEvent {
-    /**
-     * 
-     * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
-     * @param {THREE.Vector3} secondClick 
-     */
-    constructor(pipeListenerSettings, secondClick) {
-        super()
-        const {
-            anchors,
-            pipeGroup,
-        } = pipeListenerSettings
-        if (anchors.length === 0) {
-            throw Error('Pipe source not found')
-        }
-        const anchor = anchors[0]
-        this.pipeGroup = pipeGroup
-        this.anchors = anchors
-        this.anchor = anchor
-        this.secondClick = secondClick
-        const pipeRadius = 20
-        const mesh = new PipeMesh(anchor, secondClick, pipeRadius)
-        this.mesh = mesh
-
-        // add imaginary valve for future pipe connections
-        const imaginaryValve = new THREE.Group()
-        imaginaryValve.userData.isPipeEntry = true
-        imaginaryValve.position.copy(secondClick)
-        this.imaginaryValve = imaginaryValve
-        
-    }
-
-    execute() {
-        const { pipeGroup, mesh, anchors, secondClick } = this
-        pipeGroup.add(mesh)
-        anchors.length = 0
-        anchors.push(secondClick)
-        pipeGroup.add(this.imaginaryValve)
-    }
-
-    undo() {
-        const { pipeGroup, mesh, anchors, anchor } = this
-        pipeGroup.remove(this.imaginaryValve)
-        pipeGroup.remove(mesh)
-        if (anchors.length) {
-            anchors.length = 0
-            anchors.push(anchor)
-        }
-    }
-}
