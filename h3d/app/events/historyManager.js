@@ -51,7 +51,7 @@ export class HistoryManager {
      * Undoes the last executed command in the history if available.
      */
     undo() {
-        if (this.history.length > 0) {
+        if (this.history.length > 0 && this.historyIndex >= 0) {
             /**
              * Retrieves the last executed command from the history.
              * @type {UndoableEvent}
