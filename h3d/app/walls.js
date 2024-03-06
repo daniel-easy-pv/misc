@@ -19,7 +19,7 @@ export function getWalls(level) {
         const h = Math.max(...neighbours.map(n => heightOfRoom(level, n.roomIndexInLevel)))
 
         const geometry = new PrismGeometry(points, h)
-        const material = new THREE.MeshBasicMaterial(materialConfig.wall.original)
+        const material = new THREE.MeshBasicMaterial(materialConfig.wallMaterial.original)
         const wallWithoutHoles = new THREE.Mesh(geometry, material)
         wallWithoutHoles.position.x = position.x
         wallWithoutHoles.position.y = position.y
@@ -32,7 +32,7 @@ export function getWalls(level) {
             wallWithHoles = CSG.subtract(wallWithHoles, hole)
         }
         wallWithHoles.userData.isWall = true
-        wallWithHoles.userData.materialConfig = materialConfig.wall
+        wallWithHoles.userData.materialConfig = materialConfig.wallMaterial
         group.add(wallWithHoles)
 
         const apertures = getApertures(neighbours, { wallThickness: width })

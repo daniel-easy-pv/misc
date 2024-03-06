@@ -30,3 +30,10 @@ export const UNITS = [
     new THREE.Vector3(0, 1, 0),
     new THREE.Vector3(0, 0, 1),
 ]
+
+/**
+ * A value in px to for mouse to snap to point of intersection with raycaster.
+ */
+export const PIPE_SNAP_RULE_INTERSECT_THRESHOLD = 40
+
+export const PIPE_SNAP_RULE_INTERSECT_VALVE = 100

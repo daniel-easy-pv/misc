@@ -7,6 +7,12 @@ import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.js'
 import { pipeSnapRuleValve } from './pipeSnapRuleValve.js'
+
+/**
+ * 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('.').PipeListenerSettings} pipeListenerSettings 
+ */
 export function addPipeContinuationListener(app, pipeListenerSettings) {
     const {
         domElement,
@@ -14,7 +20,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
     const {
         pipeGroup,
         anchors,
-        euler,
         historyManager,
         tempPipes,
     } = pipeListenerSettings
@@ -25,9 +30,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         if (anchors.length === 0) return 
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
-        const anchor = anchors[anchors.length - 1]
-        const secondClick = findSecondClickDetailed(
-            app, anchor, euler, mousePos).snapPoint
+        const secondClick = findSecondClickDetailed(app, pipeListenerSettings, mousePos).snapPoint
         const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
         historyManager.executeCommand(command)
     
@@ -44,8 +47,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const {
             snapPoint,
             callbacks,
-        } = findSecondClickDetailed(
-            app, anchor, euler, mousePos)
+        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
         callbacks.forEach(f => f())
         const pipeRadius = 20
         const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
@@ -54,23 +56,20 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
     })
 }
 
-
-
 /**
  * Given a mouse click that attempts to extend a pipe, we snap to points with the following priorities.
- * 1. within 40px of an intersection of an object in scene (or near a wall)
- * 2. if one of the coordinates match a valve coordinate
+ * 1. within `PIPE_SNAP_RULE_INTERSECT_THRESHOLD` of an intersection of an object in scene (or near a wall).
+ * 2. if one of the coordinates match a valve coordinate within `PIPE_SNAP_RULE_INTERSECT_VALVE`mm.
  * 3. freehand
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {THREE.Vector3} anchor 
- * @param {THREE.Euler} euler 
+ * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
-function findSecondClickDetailed(app, anchor, euler, mousePos) {
+function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
     const callbacks = []
     // RULE 1
-    const rule1Result = pipeSnapRuleIntersect(app, anchor, euler, mousePos)
+    const rule1Result = pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos)
     callbacks.push(rule1Result.callback)
     if (rule1Result.ok) {
         return {
@@ -83,8 +82,8 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
     const {
         target3,
         closestAxisIndex,
-    } = underMouse(app, anchor, euler, mousePos)
-    const rule2Result = pipeSnapRuleValve(app, anchor, euler, target3, closestAxisIndex)
+    } = underMouse(app, pipeListenerSettings, mousePos)
+    const rule2Result = pipeSnapRuleValve(app, pipeListenerSettings, target3, closestAxisIndex)
     callbacks.push(rule2Result.callback)
     if (rule2Result.ok) {
         return {
@@ -105,11 +104,10 @@ function findSecondClickDetailed(app, anchor, euler, mousePos) {
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {THREE.Vector3} anchor 
- * @param {THREE.Euler} euler 
+ * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
-function underMouse(app, anchor, euler, mousePos) {
+function underMouse(app, pipeListenerSettings, mousePos) {
     const {
         domElement,
         threeElements,
@@ -117,6 +115,11 @@ function underMouse(app, anchor, euler, mousePos) {
     const {
         camera,
     } = threeElements
+    const {
+        anchors,
+        euler,
+    } = pipeListenerSettings
+    const anchor = anchors[anchors.length - 1]
     const UNIT = 1000 // distance from anchor to another point on each of the 3 axes, must be large enough for accuracy
     const axes = get3Frame(euler)
     const axesTranslated = axes.map(axis => anchor.clone().addScaledVector(axis, UNIT))

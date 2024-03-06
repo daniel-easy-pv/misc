@@ -1,5 +1,5 @@
 export const materialConfig = {
-    wall: {
+    wallMaterial: {
         original: {
             color: 0x000000,
             transparent: true,

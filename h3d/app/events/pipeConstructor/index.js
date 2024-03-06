@@ -37,9 +37,7 @@ export function addPipeListener(app) {
 
     addPipeAnchoringListener(app, pipeListenerSettings)
     addPipeContinuationListener(app, pipeListenerSettings)
-    addPipeKeyboardListeners(app, pipeListenerSettings)
-    // addDebugPipeListener(app, anchors, euler)
-    
+    addPipeKeyboardListeners(app, pipeListenerSettings) 
 }
 
 /**
@@ -68,3 +66,14 @@ function initPipeGroup(scene) {
         return pipeGroup
     }
 }
+
+/**
+ * Settings for a pipe listener.
+ *
+ * @typedef {Object} PipeListenerSettings
+ * @property {THREE.Group<THREE.Object3DEventMap>} pipeGroup - The main group for pipes.
+ * @property {THREE.Vector3[]} anchors - An array of anchor points.
+ * @property {THREE.Group<THREE.Object3DEventMap>} tempPipes - Temporary group for pipes.
+ * @property {THREE.Euler} euler - Euler angles for rotation.
+ * @property {HistoryManager} historyManager - The history manager for tracking changes.
+ */

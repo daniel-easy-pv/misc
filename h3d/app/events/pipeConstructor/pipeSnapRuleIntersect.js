@@ -2,16 +2,28 @@ import * as THREE from 'three'
 import { get3Frame } from './index.js'
 import { ScreenPosition } from '../../ScreenPosition.js'
 import { argmin } from '../../utils/math.js'
+import { PIPE_SNAP_RULE_INTERSECT_THRESHOLD } from '../../consts.js'
 
-export function pipeSnapRuleIntersect(app, anchor, euler, mousePos) {
-    const RULE_1_THRESHOLD = 40 // px
+/**
+ * Returns the 3D position of the intersection (or near the intersection for a wall).
+ * 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
+ * @param {THREE.Vector2} mousePos 
+ */
+export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
+    const {
+        anchors,
+        euler,
+    } = pipeListenerSettings
+    const anchor = anchors[anchors.length - 1]
     const {
         closestCircleDistance,
         closestCandidate,
         intersectionInfos,
         closestCandidateIndex,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
-    const rule1Applies = closestCircleDistance < RULE_1_THRESHOLD
+    const rule1Applies = closestCircleDistance < PIPE_SNAP_RULE_INTERSECT_THRESHOLD
     const uiChangeRule1 = () => {
         for (let i = 0; i < intersectionInfos.length; i++) {
             const { intersectionObject } = intersectionInfos[i]

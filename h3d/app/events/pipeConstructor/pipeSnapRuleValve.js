@@ -1,10 +1,14 @@
 import { get3Frame } from '.'
+import { PIPE_SNAP_RULE_INTERSECT_VALVE } from '../../consts'
 import { getValvePositions } from './valveFinder'
 
 
-export function pipeSnapRuleValve(app, anchor, euler, target3, closestAxisIndex) {
-    const RULE_2_THRESHOLD = 100
-    
+export function pipeSnapRuleValve(app, pipeListenerSettings, target3, closestAxisIndex) {
+    const {
+        anchors,
+        euler,
+    } = pipeListenerSettings
+    const anchor = anchors[anchors.length - 1]
     const axis = get3Frame(euler)[closestAxisIndex]
     
     const valves = getValvePositions(app)
@@ -19,7 +23,7 @@ export function pipeSnapRuleValve(app, anchor, euler, target3, closestAxisIndex)
     })
 
     const valveSnap = (valveProjection) => {
-        return valveProjection.clone().sub(target3).length() < RULE_2_THRESHOLD
+        return valveProjection.clone().sub(target3).length() <= PIPE_SNAP_RULE_INTERSECT_VALVE
     }
 
     const closestValveProjection = valveProjections.find(valveData => valveSnap(valveData.valveProjection))
