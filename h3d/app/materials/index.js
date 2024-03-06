@@ -38,3 +38,20 @@ export const materialConfig = {
         }
     }
 }
+
+/**
+ * Changes the mesh to be highlighted or original, reading from userData.
+ * 
+ * @param {'original' | 'highlighted'} emphasis 
+ * @param {THREE.Mesh} mesh 
+ * @returns 
+ */
+export function changeMaterialEmphasis(emphasis, mesh) {
+    const newMaterialConfig = mesh.userData?.materialConfig?.[emphasis]
+    if (!newMaterialConfig) return
+    const color = newMaterialConfig.color
+    mesh.material.color.setHex(color)
+                
+    const opacity = newMaterialConfig.opacity
+    mesh.material.opacity = opacity
+}

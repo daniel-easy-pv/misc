@@ -9,7 +9,6 @@ export function getWalls(level) {
     const group = new THREE.Group()
     for (const wall of level.walls || []) {
         const { width, height, rotation, position, neighbours } = wall
-        // const externality = neighbours.length === 2 ? 'internal' : 'external'
         const points = [
             new THREE.Vector2(0, -height / 2),
             new THREE.Vector2(width, -height / 2),

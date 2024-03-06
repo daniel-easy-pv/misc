@@ -3,6 +3,7 @@ import { get3Frame } from './index.js'
 import { ScreenPosition } from '../../ScreenPosition.js'
 import { argmin } from '../../utils/math.js'
 import { PIPE_SNAP_RULE_INTERSECT_THRESHOLD } from '../../consts.js'
+import { changeMaterialEmphasis } from '../../materials/index.js'
 
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).
@@ -27,16 +28,8 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
     const uiChangeRule1 = () => {
         for (let i = 0; i < intersectionInfos.length; i++) {
             const { intersectionObject } = intersectionInfos[i]
-            const materialConfig = intersectionObject.userData.materialConfig
-            if (materialConfig) {
-                const emphasis = (i === closestCandidateIndex && rule1Applies) ? 'highlighted' : 'original'
-                
-                const color = materialConfig[emphasis].color
-                intersectionObject.material.color.setHex(color)
-                
-                const opacity = materialConfig[emphasis].opacity
-                intersectionObject.material.opacity = opacity
-            }
+            const emphasis = (i === closestCandidateIndex && rule1Applies) ? 'highlighted' : 'original'
+            changeMaterialEmphasis(emphasis, intersectionObject)
         }
     }
     if (rule1Applies) {

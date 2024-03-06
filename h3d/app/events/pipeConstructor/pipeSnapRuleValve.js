@@ -1,5 +1,6 @@
 import { get3Frame } from '.'
 import { PIPE_SNAP_RULE_INTERSECT_VALVE } from '../../consts'
+import { changeMaterialEmphasis } from '../../materials'
 import { getValvePositions } from './valveFinder'
 
 
@@ -30,17 +31,14 @@ export function pipeSnapRuleValve(app, pipeListenerSettings, target3, closestAxi
     const uiChangeRule2Success = () => {
         for (const valveData of valveProjections) {
             const { valveProjection, valve } = valveData
-            if (valveSnap(valveProjection)) {
-                valve.material.color.setHex(0xff0000)
-            } else {
-                valve.material.color.setHex(0xffff00)
-            }
+            const emphasis = valveSnap(valveProjection) ? 'highlighted' : 'original'
+            changeMaterialEmphasis(emphasis, valve)
         }
     }
     const uiChangeRule2Failure = () => {
         for (const valveData of valveProjections) {
             const { valve } = valveData
-            valve.material.color.setHex(0xffff00)
+            changeMaterialEmphasis('original', valve)
         }
     }
     if (closestValveProjection) {
