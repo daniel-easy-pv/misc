@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-export class PipeCurve extends THREE.Curve {
+class PipeCurve extends THREE.Curve {
     constructor(arr) {
         super()
         this.arr = arr
@@ -22,7 +22,7 @@ export class PipeCurve extends THREE.Curve {
     } 
 }
 
-export class PipeLegGeometry extends THREE.TubeGeometry {
+class PipeLegGeometry extends THREE.TubeGeometry {
     constructor(path, radius) {
         const tubularSegments = 20
         const radialSegments = 8
