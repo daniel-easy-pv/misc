@@ -27,9 +27,7 @@ export class Cuboid {
     }
 
     #getValve() {
-        return new Valve(VALVE_RADIUS, VALVE_HEIGHT, {
-            color: 0xffff00,
-        }).getMesh()
+        return new Valve(VALVE_RADIUS, VALVE_HEIGHT).getMesh()
     }
 
     #getValvePositionsAndRotations() {

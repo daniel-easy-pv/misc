@@ -29,9 +29,12 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
             const { intersectionObject } = intersectionInfos[i]
             const materialConfig = intersectionObject.userData.materialConfig
             if (materialConfig) {
-                const opacity = (i === closestCandidateIndex && rule1Applies) ? 
-                    materialConfig.highlighted.opacity : 
-                    materialConfig.original.opacity
+                const emphasis = (i === closestCandidateIndex && rule1Applies) ? 'highlighted' : 'original'
+                
+                const color = materialConfig[emphasis].color
+                intersectionObject.material.color.setHex(color)
+                
+                const opacity = materialConfig[emphasis].opacity
                 intersectionObject.material.opacity = opacity
             }
         }
