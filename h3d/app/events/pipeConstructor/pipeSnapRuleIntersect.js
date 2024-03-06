@@ -25,11 +25,18 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
         closestCandidateIndex,
     } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
     const rule1Applies = closestCircleDistance < PIPE_SNAP_RULE_INTERSECT_THRESHOLD
-    const uiChangeRule1 = () => {
+
+    const success = () => {
+        intersectionInfos.map(info => info.intersectionObject)
+            .forEach(obj => changeMaterialEmphasis('original', obj))
+        const closestObject = intersectionInfos[closestCandidateIndex].intersectionObject
+        changeMaterialEmphasis('highlighted', closestObject)
+    }
+
+    const failure = () => {
         for (let i = 0; i < intersectionInfos.length; i++) {
             const { intersectionObject } = intersectionInfos[i]
-            const emphasis = (i === closestCandidateIndex && rule1Applies) ? 'highlighted' : 'original'
-            changeMaterialEmphasis(emphasis, intersectionObject)
+            changeMaterialEmphasis('original', intersectionObject)
         }
     }
     if (rule1Applies) {
@@ -37,13 +44,13 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
         return {
             ok: true,
             value: snapPoint,
-            callback: uiChangeRule1,
+            callback: success,
         }
     }
     else {
         return {
             ok: false,
-            callback: uiChangeRule1,
+            callback: failure,
         }
     }
 }
@@ -51,6 +58,7 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
 
 /**
  * @typedef {Object} CandidateObject
+ * @property {IntersectionInfo[]} intersectionInfos
  * @property {THREE.Vector3[]} candidates
  * @property {THREE.Vector2[]} circles - candidates in pixel coordinates
  * @property {number} closestCandidateIndex - the index in the vector `candidates` whose distance 

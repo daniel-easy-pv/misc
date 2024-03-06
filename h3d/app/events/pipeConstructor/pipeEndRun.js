@@ -1,5 +1,14 @@
 import { UndoableEvent } from '../historyManager.js'
 
+export function endPipeRun(pipeListenerSettings) {
+    const {
+        anchors,
+        tempPipes,
+    } = pipeListenerSettings
+    anchors.length = 0
+    tempPipes.clear()
+}
+
 /**
  * This event ends a pipe run.
  */
@@ -16,13 +25,11 @@ export class EndPipeRun extends UndoableEvent {
         } = this
         const {
             anchors,
-            tempPipes,
         } = pipeListenerSettings
 
         // save for undo event
         this.savedAnchors = anchors.slice()
-        anchors.length = 0
-        tempPipes.clear()
+        endPipeRun(pipeListenerSettings)
     }
 
     undo() {
