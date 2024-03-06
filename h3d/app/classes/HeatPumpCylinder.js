@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { Valve } from './Valve'
+import { materialConfig } from '../materials'
 
 const VALVE_RADIUS = 20
 const VALVE_HEIGHT = 40
@@ -13,22 +14,17 @@ export class HeatPumpCylinder {
     #getBody() {
         const { r, h } = this
         const geometry = new THREE.CylinderGeometry(r, r, h)
-        const material = new THREE.MeshPhongMaterial({
-            color: 0x556b2f,
-            specular: 0x00ff00,
-            transparent: true, 
-            opacity: 0.8,
-        })
+        const m = materialConfig.heatPumpCylinderMaterial
+        const material = new THREE.MeshPhongMaterial(m.original)
         const mesh = new THREE.Mesh(geometry, material)
         mesh.rotation.x = - Math.PI / 2
         mesh.position.z = h / 2
+        mesh.userData.materialConfig = m
         return mesh
     }
 
     #getValve() {
-        const mesh = new Valve(VALVE_RADIUS, VALVE_HEIGHT, {
-            color: 0xffff00,
-        }).getMesh()
+        const mesh = new Valve(VALVE_RADIUS, VALVE_HEIGHT).getMesh()
         mesh.rotation.x = Math.PI / 2
         mesh.position.z = VALVE_HEIGHT / 2
         return mesh

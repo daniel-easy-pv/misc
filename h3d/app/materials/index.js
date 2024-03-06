@@ -22,5 +22,19 @@ export const materialConfig = {
             transparent: true,
             opacity: 0.8,
         }
+    },
+    heatPumpCylinderMaterial: {
+        original: {
+            color: 0x556b2f,
+            specular: 0xffffff,
+            transparent: true, 
+            opacity: 0.8,
+        },
+        highlighted: {
+            color: 0x00ff00,
+            specular: 0xffffff,
+            transparent: true, 
+            opacity: 0.8,
+        }
     }
 }
