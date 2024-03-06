@@ -27,6 +27,10 @@ export function addPipeListener(app) {
     const euler = new THREE.Euler(0, 0, 0, 'ZYX')
     const historyManager = new HistoryManager()
 
+    /**
+     * @constant
+     * @type {PipeListenerSettings}
+     */
     const pipeListenerSettings = {
         pipeGroup,
         anchors,

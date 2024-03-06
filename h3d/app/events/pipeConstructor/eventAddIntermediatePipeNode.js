@@ -10,8 +10,9 @@ export class AddIntermediatePipeNode extends UndoableEvent {
      * 
      * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
      * @param {THREE.Vector3} secondClick 
+     * @param {boolean} endPipeRun
      */
-    constructor(pipeListenerSettings, secondClick) {
+    constructor(pipeListenerSettings, secondClick, endPipeRun) {
         super()
         const {
             anchors,
@@ -25,6 +26,7 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         this.anchors = anchors
         this.anchor = anchor
         this.secondClick = secondClick
+        this.endPipeRun = endPipeRun
         const pipeRadius = 20
         const mesh = new PipeMesh(anchor, secondClick, pipeRadius)
         this.mesh = mesh
@@ -38,20 +40,20 @@ export class AddIntermediatePipeNode extends UndoableEvent {
     }
 
     execute() {
-        const { pipeGroup, mesh, anchors, secondClick } = this
+        const { pipeGroup, mesh, anchors, secondClick, endPipeRun } = this
         pipeGroup.add(mesh)
         anchors.length = 0
-        anchors.push(secondClick)
-        pipeGroup.add(this.imaginaryValve)
+        if (!endPipeRun) {
+            anchors.push(secondClick)
+            pipeGroup.add(this.imaginaryValve)
+        }
     }
 
     undo() {
         const { pipeGroup, mesh, anchors, anchor } = this
         pipeGroup.remove(this.imaginaryValve)
         pipeGroup.remove(mesh)
-        if (anchors.length) {
-            anchors.length = 0
-            anchors.push(anchor)
-        }
+        anchors.length = 0
+        anchors.push(anchor)
     }
 }

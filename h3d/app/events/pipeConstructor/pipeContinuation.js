@@ -23,36 +23,50 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         tempPipes,
     } = pipeListenerSettings
 
-    domElement.addEventListener('stationaryClick', function extendPipe(evt) {
-        // apply listener for Insert mode and when there is an anchor
-        if (app.mode !== AppModes.Insert) return
-        if (anchors.length === 0) return 
-        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
-        const secondClick = findSecondClickDetailed(app, pipeListenerSettings, mousePos).snapPoint
-        const command = new AddIntermediatePipeNode(pipeListenerSettings, secondClick)
-        historyManager.executeCommand(command)
-    
-        
-    })
+    domElement.addEventListener('stationaryClick', 
+    /**
+     * On stationary click, add another pipe leg.
+     * This runs only in Insert mode and when there is an anchor.
+     * 
+     * @param {Event} evt 
+     * @returns {void}
+     */
+        function extendPipe(evt) {
+            if (app.mode !== AppModes.Insert) return
+            if (anchors.length === 0) return 
+            const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+            const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
+            const {
+                snapPoint,
+                endPipeRun,
+            } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+            const command = new AddIntermediatePipeNode(pipeListenerSettings, snapPoint, endPipeRun)
+            historyManager.executeCommand(command)
+        })
 
-    // Displays potential pipe leg
-    domElement.addEventListener('mousemove', function(evt) {
-        if (app.mode !== AppModes.Insert) return
-        if (anchors.length === 0) return
-        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
-        const anchor = anchors[anchors.length - 1]
-        const {
-            snapPoint,
-            callbacks,
-        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
-        callbacks.forEach(f => f())
-        const pipeRadius = 20
-        const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
-        tempPipes.clear()
-        tempPipes.add(mesh)
-    })
+    domElement.addEventListener('mousemove', 
+    /**
+     * Creates a temporary mesh that follows the mouse around.
+     * 
+     * @param {Event} evt 
+     * @returns {void}
+     */
+        function createTempMesh(evt) {
+            if (app.mode !== AppModes.Insert) return
+            if (anchors.length === 0) return
+            const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+            const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
+            const anchor = anchors[anchors.length - 1]
+            const {
+                snapPoint,
+                callbacks,
+            } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+            callbacks.forEach(f => f())
+            const pipeRadius = 20
+            const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
+            tempPipes.clear()
+            tempPipes.add(mesh)
+        })
 }
 
 /**
@@ -73,6 +87,7 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
     if (rule1Result.ok) {
         return {
             snapPoint: rule1Result.value,
+            endPipeRun: rule1Result.endPipeRun,
             callbacks,
         }
     }
@@ -87,6 +102,7 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
     if (rule2Result.ok) {
         return {
             snapPoint: rule2Result.value,
+            endPipeRun: false,
             callbacks,
         }
     }
@@ -94,6 +110,7 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
     // RULE 3
     return {
         snapPoint: target3,
+        endPipeRun: false,
         callbacks,
     }
 }

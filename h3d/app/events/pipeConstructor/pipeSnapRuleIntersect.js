@@ -22,6 +22,8 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
     if (!candidateInfo) {
         return {
             ok: false,
+            value: null,
+            endPipeRun: false,
             callback: () => {},
         }
     }
@@ -33,10 +35,10 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
     } = candidateInfo
     const rule1Applies = closestCircleDistance < PIPE_SNAP_RULE_INTERSECT_THRESHOLD
 
+    const closestObject = intersectionInfos[closestCandidateIndex].intersectionObject
     const success = () => {
         intersectionInfos.map(info => info.intersectionObject)
             .forEach(obj => changeMaterialEmphasis('original', obj))
-        const closestObject = intersectionInfos[closestCandidateIndex].intersectionObject
         changeMaterialEmphasis('highlighted', closestObject)
     }
 
@@ -51,12 +53,15 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
         return {
             ok: true,
             value: snapPoint,
+            endPipeRun: Boolean(closestObject.userData.isValve),
             callback: success,
         }
     }
     else {
         return {
             ok: false,
+            value: null,
+            endPipeRun: false,
             callback: failure,
         }
     }
@@ -72,7 +77,7 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
  * is closest to the mouse
  * @property {THREE.Vector2} closestCircle - `circles[closestCandidateIndex]`
  * @property {number} closestCircleDistance - distance between closestCircle and mouse position
- * @property {THREE.Vector3} candidate - `candidates[closestCandidateIndex]`
+ * @property {THREE.Vector3} closestCandidate - `candidates[closestCandidateIndex]`
  */
 
 /**
