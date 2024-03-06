@@ -13,9 +13,8 @@ export function endPipeRun(pipeListenerSettings) {
  * This event ends a pipe run.
  */
 export class EndPipeRun extends UndoableEvent {
-    constructor(app, pipeListenerSettings) {
+    constructor(pipeListenerSettings) {
         super()
-        this.app = app
         this.pipeListenerSettings = pipeListenerSettings
     }
 

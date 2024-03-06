@@ -18,7 +18,7 @@ export function addPipeKeyboardListeners(app, pipeListenerSettings) {
             euler.z += Math.PI / 4
         }
         else if (evt.key === 'e') {
-            const command = new EndPipeRun(app, pipeListenerSettings)
+            const command = new EndPipeRun(pipeListenerSettings)
             historyManager.executeCommand(command)
         }
     })
