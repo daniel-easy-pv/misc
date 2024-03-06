@@ -18,12 +18,19 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
         euler,
     } = pipeListenerSettings
     const anchor = anchors[anchors.length - 1]
+    const candidateInfo = findClosestCandidateToSnap(app, anchor, euler, mousePos)
+    if (!candidateInfo) {
+        return {
+            ok: false,
+            callback: () => {},
+        }
+    }
     const {
         closestCircleDistance,
         closestCandidate,
         intersectionInfos,
         closestCandidateIndex,
-    } = findClosestCandidateToSnap(app, anchor, euler, mousePos)
+    } = candidateInfo
     const rule1Applies = closestCircleDistance < PIPE_SNAP_RULE_INTERSECT_THRESHOLD
 
     const success = () => {
@@ -73,9 +80,9 @@ export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Vector2} mousePos 
- * @returns {CandidateObject}
+ * @returns {CandidateObject | null}
  */
-export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
+function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
     const {
         domElement,
         threeElements,
@@ -88,8 +95,7 @@ export function findClosestCandidateToSnap(app, anchor, euler, mousePos) {
     const candidates = intersectionInfos
         .map(intersectionInfo => intersectionInfo.intersectionPoint)
     if (candidates.length === 0) {
-        console.log('no candidates')
-        return
+        return null
     }
     const screenPosition = new ScreenPosition(domElement, camera)
     const circles = candidates.map(v => screenPosition.toPixels(v))
