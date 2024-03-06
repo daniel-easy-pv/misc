@@ -18,7 +18,6 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         domElement,
     } = app
     const {
-        pipeGroup,
         anchors,
         historyManager,
         tempPipes,
@@ -31,7 +30,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
         const secondClick = findSecondClickDetailed(app, pipeListenerSettings, mousePos).snapPoint
-        const command = new AddIntermediatePipeNode(pipeGroup, anchors, secondClick)
+        const command = new AddIntermediatePipeNode(pipeListenerSettings, secondClick)
         historyManager.executeCommand(command)
     
         
@@ -176,12 +175,15 @@ function getRatioPixelToMM(domElement, camera, direction) {
 class AddIntermediatePipeNode extends UndoableEvent {
     /**
      * 
-     * @param {THREE.Group} pipeGroup 
-     * @param {THREE.Vector3[]} anchors 
+     * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
      * @param {THREE.Vector3} secondClick 
      */
-    constructor(pipeGroup, anchors, secondClick) {
+    constructor(pipeListenerSettings, secondClick) {
         super()
+        const {
+            anchors,
+            pipeGroup,
+        } = pipeListenerSettings
         if (anchors.length === 0) {
             throw Error('Pipe source not found')
         }
