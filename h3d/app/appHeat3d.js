@@ -90,11 +90,29 @@ export class Heat3DModel {
             renderer,
             pointer,
         }
+        this.selectObjectSettings = getBlankSelectObjectSettings()
         this.destroy = () => {
             cancelAnimationFrame(animationFrameId)
             domElement.innerHTML = ''
         }
 
         initEvents(this)
+    }
+}
+
+/**
+ * Generates and returns a blank object containing settings for selecting objects.
+ *
+ * @function
+ * @returns {Object} An object with settings for selecting objects.
+ * @property {THREE.Mesh[]} selectedObjects - An array to store selected objects.
+ * @property {THREE.Raycaster} raycaster - An instance of THREE.Raycaster for raycasting.
+ */
+function getBlankSelectObjectSettings() {
+    const selectedObjects = []
+    const raycaster = new THREE.Raycaster()
+    return {
+        selectedObjects,
+        raycaster,
     }
 }

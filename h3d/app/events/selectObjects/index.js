@@ -1,4 +1,3 @@
-import * as THREE from 'three'
 import { AppModes } from '../h3dModes.js'
 
 /**
@@ -7,14 +6,7 @@ import { AppModes } from '../h3dModes.js'
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  */
 export function addSelectObjectsListener(app) {
-    const selectedObjects = []
-    const raycaster = new THREE.Raycaster()
-    const selectObjectSettings = {
-        selectedObjects,
-        raycaster,
-    }
-
-    addSelectMultipleObjectsListener(app, selectObjectSettings)
+    addSelectMultipleObjectsListener(app)
 }
 
 /**
@@ -23,10 +15,11 @@ export function addSelectObjectsListener(app) {
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  * @param {object} selectObjectSettings
  */
-function addSelectMultipleObjectsListener(app, selectObjectSettings) {
+function addSelectMultipleObjectsListener(app) {
     const {
         domElement,
         threeElements,
+        selectObjectSettings,
     } = app
     const {
         pointer,
@@ -66,6 +59,7 @@ function addSelectMultipleObjectsListener(app, selectObjectSettings) {
         selectedObjects.forEach(intersection => {
             intersection.object.material.wireframe = true
         })
+        console.log(selectedObjects)
     }
     domElement.addEventListener('stationaryClick', selectObjects)
 }

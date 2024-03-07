@@ -49,5 +49,39 @@ export class PipeMesh extends THREE.Mesh {
             shininess: 30,
         })
         super(geometry, material)
+        Object.assign(this.userData, {
+            eStorePipes: {
+                start,
+                end,
+                diameter,
+            }
+        })
+    }
+
+    /**
+     * Returns the diameter of the pipe.
+     * 
+     * @returns {number}
+     */
+    getDiameter() {
+        const { diameter } = this.userData.eStorePipes
+        return Number(diameter)
+    }
+
+    /**
+     * Sets the diameter of the pipe.
+     * 
+     * @param {number} newDiameter 
+     */
+    setDiameter(newDiameter) {
+        const { 
+            start,
+            end,
+        } = this.userData.eStorePipes
+        const radius = newDiameter / 2
+        const path = new PipeCurve([start, end])
+        this.geometry.dispose()
+        this.geometry = new PipeLegGeometry(path, radius)
+        this.userData.eStorePipes.diameter = newDiameter
     }
 }
