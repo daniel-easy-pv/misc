@@ -41,7 +41,7 @@ export function addPipeContinuationListener(app) {
         const {
             snapPoint,
             endPipeRun,
-        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+        } = findSecondClickDetailed(app, mousePos)
         const command = new AddIntermediatePipeNode(pipeListenerSettings, snapPoint, endPipeRun)
         historyManager.executeCommand(command)
     }
@@ -62,7 +62,7 @@ export function addPipeContinuationListener(app) {
         const {
             snapPoint,
             callbacks,
-        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+        } = findSecondClickDetailed(app, mousePos)
         callbacks.forEach(f => f())
         const {
             pipeDiameter,
@@ -83,13 +83,12 @@ export function addPipeContinuationListener(app) {
  * 3. freehand
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
-* @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
-function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
+function findSecondClickDetailed(app, mousePos) {
     const callbacks = []
     // RULE 1
-    const rule1Result = pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos)
+    const rule1Result = pipeSnapRuleIntersect(app, mousePos)
     callbacks.push(rule1Result.callback)
     if (rule1Result.ok) {
         return {
@@ -103,8 +102,8 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
     const {
         target3,
         closestAxisIndex,
-    } = underMouse(app, pipeListenerSettings, mousePos)
-    const rule2Result = pipeSnapRuleValve(app, pipeListenerSettings, target3, closestAxisIndex)
+    } = underMouse(app, mousePos)
+    const rule2Result = pipeSnapRuleValve(app, target3, closestAxisIndex)
     callbacks.push(rule2Result.callback)
     if (rule2Result.ok) {
         return {
@@ -127,13 +126,13 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
-* @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
-function underMouse(app, pipeListenerSettings, mousePos) {
+function underMouse(app, mousePos) {
     const {
         domElement,
         threeElements,
+        pipeListenerSettings,
     } = app
     const {
         camera,

@@ -4,7 +4,10 @@ import { changeMaterialEmphasis } from '../../materials'
 import { getValvePositions } from './valveFinder'
 
 
-export function pipeSnapRuleValve(app, pipeListenerSettings, target3, closestAxisIndex) {
+export function pipeSnapRuleValve(app, target3, closestAxisIndex) {
+    const {
+        pipeListenerSettings,
+    } = app
     const {
         anchors,
         euler,
