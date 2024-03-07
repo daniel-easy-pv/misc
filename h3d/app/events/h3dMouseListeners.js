@@ -18,36 +18,53 @@ function addPointerListener(app) {
     })
 }
 
+/**
+ * Distance threshold for considering a click as stationary (in pixels).
+ * @type {number}
+ */
+const DISTANCE_THRESHOLD = 10
+
+
 function addStationaryClickListener(app) {
     const {
         domElement,
     } = app
     let startX, startY
 
-    domElement.addEventListener('mousedown', function(event) {
-        startX = event.clientX
-        startY = event.clientY
-    })
+    domElement.addEventListener('mousedown', 
+    /**
+     * Records the mouse down coordinates.
+     * 
+     * @param {MouseEvent} event 
+     */
+        function(event) {
+            startX = event.clientX
+            startY = event.clientY
+        })
 
-    domElement.addEventListener('mouseup', function(event) {
-        const endX = event.clientX
-        const endY = event.clientY
+    domElement.addEventListener('mouseup', 
+    /**
+     * Fires the mouse up coordinates if within `DISTANCE_THRESHOLD` pixels of mouse down coordinates.
+     * 
+     * @param {MouseEvent} event 
+     */
+        function(event) {
+            const endX = event.clientX
+            const endY = event.clientY
 
-        // Calculate the distance between mousedown and mouseup positions
-        const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))
+            // Calculate the distance between mousedown and mouseup positions
+            const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))
 
-        // Check if the distance is within 10 pixels
-        if (distance <= 10) {
-            // Fire a custom event
-            const customEvent = new CustomEvent('stationaryClick', {
-                detail: {
-                    startX,
-                    startY,
-                    endX,
-                    endY,
-                }
-            })
-            domElement.dispatchEvent(customEvent)
-        }
-    })
+            if (distance <= DISTANCE_THRESHOLD) {
+                const customEvent = new CustomEvent('stationaryClick', {
+                    detail: {
+                        startX,
+                        startY,
+                        endX,
+                        endY,
+                    }
+                })
+                domElement.dispatchEvent(customEvent)
+            }
+        })
 }

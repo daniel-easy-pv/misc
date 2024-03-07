@@ -33,7 +33,7 @@ export function addPipeAnchoringListener(app, pipeListenerSettings) {
             camera,
         } = threeElements
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
+        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).sub(domElementOffset)
         const pipeEntries = getMeshByUserDataValue(scene, 'isPipeEntry', true)
         const screenPosition = new ScreenPosition(domElement, camera)
         const potentialSnapPositions = pipeEntries
