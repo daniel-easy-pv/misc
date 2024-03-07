@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { ScreenPosition } from '../../ScreenPosition'
 import { argmin } from '../../utils/math.js'
-import { PipeMesh } from './PipeCurve'
+import { PipeMesh } from './PipeMesh.js'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.js'

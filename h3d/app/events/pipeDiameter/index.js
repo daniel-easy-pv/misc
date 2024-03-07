@@ -1,5 +1,5 @@
 import { AppModes } from '../h3dModes.js'
-import { PipeMesh } from '../pipeConstructor/PipeCurve.js'
+import { PipeMesh } from '../pipeConstructor/PipeMesh.js'
 
 /* globals message */
 
