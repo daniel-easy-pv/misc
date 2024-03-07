@@ -34,4 +34,11 @@ export function addPipeKeyboardListeners(app) {
             historyManager.redo()
         }
     })
+
+    domElement.addEventListener('keydown', function(evt) {
+        if (['<', '>'].includes(evt.key)) {
+            const sign = evt.key === '>' ? 1 : -1
+            pipeListenerSettings.pipeDiameter += 3 * sign
+        }
+    })
 }

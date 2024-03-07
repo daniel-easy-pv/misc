@@ -13,7 +13,11 @@ import { getMeshByUserDataValue } from '../utils'
  * @property {number} pipeDiameter - the diameter the pipe that the user will draw
  */
 
-
+/**
+ * 
+ * @param {import('../appHeat3d').Heat3DModel} app 
+ * @returns {PipeListenerSettings}
+ */
 export function initPipeListenerSettings(app) {
     const {
         threeElements,
