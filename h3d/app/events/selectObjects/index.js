@@ -45,12 +45,17 @@ function addSelectMultipleObjectsListener(app) {
         const ctrlKeyHeld = evt.detail.endEvent.ctrlKey
         raycaster.setFromCamera(pointer, camera)
         const intersects = raycaster.intersectObjects( scene.children )
-        if (intersects.length) {
-            if (!ctrlKeyHeld) {
-                selectedObjects.length = 0
+        if (ctrlKeyHeld) {
+            if (intersects.length) {
+                selectedObjects.push(intersects[0])
             }
-            selectedObjects.push(intersects[0])
+        } else {
+            selectedObjects.length = 0
+            if (intersects.length) {
+                selectedObjects.push(intersects[0])
+            } 
         }
+
         scene.traverse(element => {
             if (element?.material?.wireframe) {
                 element.material.wireframe = false
