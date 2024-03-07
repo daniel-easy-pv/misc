@@ -40,18 +40,32 @@ function addSelectMultipleObjectsListener(app, selectObjectSettings) {
     } = selectObjectSettings
 
 
-    function singleClickToSelect() {
+    /**
+     * Selects a 3D object if clicked in View mode. 
+     * Multiple objects can be selected by holding the `Ctrl` key.
+     * 
+     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
+     * @returns 
+     */
+    function selectObjects(evt) {
         if (app.mode !== AppModes.View) return
+        const ctrlKeyHeld = evt.detail.endEvent.ctrlKey
         raycaster.setFromCamera(pointer, camera)
         const intersects = raycaster.intersectObjects( scene.children )
         if (intersects.length) {
-            selectedObjects.length = 0
+            if (!ctrlKeyHeld) {
+                selectedObjects.length = 0
+            }
             selectedObjects.push(intersects[0])
         }
-        console.log(selectedObjects)
+        scene.traverse(element => {
+            if (element?.material?.wireframe) {
+                element.material.wireframe = false
+            }
+        })
         selectedObjects.forEach(intersection => {
             intersection.object.material.wireframe = true
         })
     }
-    domElement.addEventListener('stationaryClick', singleClickToSelect)
+    domElement.addEventListener('stationaryClick', selectObjects)
 }
