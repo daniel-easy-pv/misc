@@ -32,6 +32,12 @@ class PipeLegGeometry extends THREE.TubeGeometry {
 }
 
 export class PipeMesh extends THREE.Mesh {
+    /**
+     * 
+     * @param {THREE.Vector3} start - start coordinate of pipe
+     * @param {THREE.Vector3} end - end coordinate of pipe
+     * @param {number} radius - radius of the pipe
+     */
     constructor(start, end, radius) {
         const path = new PipeCurve([start, end])
         const geometry = new PipeLegGeometry(path, radius)

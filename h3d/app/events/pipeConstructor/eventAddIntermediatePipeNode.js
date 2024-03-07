@@ -28,8 +28,9 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         this.secondClick = secondClick
         this.endPipeRun = endPipeRun
         const pipeRadius = 20
-        const mesh = new PipeMesh(anchor, secondClick, pipeRadius)
-        this.mesh = mesh
+        const pipeMesh = new PipeMesh(anchor, secondClick, pipeRadius)
+        pipeMesh.userData.isPipeLeg = true
+        this.pipeMesh = pipeMesh
 
         // add imaginary valve for future pipe connections
         const imaginaryValve = new THREE.Group()
@@ -40,8 +41,8 @@ export class AddIntermediatePipeNode extends UndoableEvent {
     }
 
     execute() {
-        const { pipeGroup, mesh, anchors, secondClick, endPipeRun } = this
-        pipeGroup.add(mesh)
+        const { pipeGroup, pipeMesh, anchors, secondClick, endPipeRun } = this
+        pipeGroup.add(pipeMesh)
         anchors.length = 0
         if (!endPipeRun) {
             anchors.push(secondClick)
@@ -50,9 +51,9 @@ export class AddIntermediatePipeNode extends UndoableEvent {
     }
 
     undo() {
-        const { pipeGroup, mesh, anchors, anchor } = this
+        const { pipeGroup, pipeMesh, anchors, anchor } = this
         pipeGroup.remove(this.imaginaryValve)
-        pipeGroup.remove(mesh)
+        pipeGroup.remove(pipeMesh)
         anchors.length = 0
         anchors.push(anchor)
     }
