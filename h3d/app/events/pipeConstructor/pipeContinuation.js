@@ -64,8 +64,10 @@ export function addPipeContinuationListener(app) {
             callbacks,
         } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
         callbacks.forEach(f => f())
-        const diameter = 22
-        const mesh = new PipeMesh(anchor, snapPoint, diameter)
+        const {
+            pipeDiameter,
+        } = pipeListenerSettings
+        const mesh = new PipeMesh(anchor, snapPoint, pipeDiameter)
         tempPipes.clear()
         tempPipes.add(mesh)
     }
@@ -81,7 +83,7 @@ export function addPipeContinuationListener(app) {
  * 3. freehand
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
+* @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
 function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
@@ -125,7 +127,7 @@ function findSecondClickDetailed(app, pipeListenerSettings, mousePos) {
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
+* @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
 function underMouse(app, pipeListenerSettings, mousePos) {

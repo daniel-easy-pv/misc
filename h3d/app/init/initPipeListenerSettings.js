@@ -10,6 +10,7 @@ import { getMeshByUserDataValue } from '../utils'
  * @property {THREE.Group<THREE.Object3DEventMap>} tempPipes - Temporary group for pipes.
  * @property {THREE.Euler} euler - Euler angles for rotation.
  * @property {HistoryManager} historyManager - The history manager for tracking changes.
+ * @property {number} pipeDiameter - the diameter the pipe that the user will draw
  */
 
 
@@ -28,18 +29,21 @@ export function initPipeListenerSettings(app) {
     pipeGroup.add(tempPipes)
     const euler = new THREE.Euler(0, 0, 0, 'ZYX')
     const historyManager = new HistoryManager()
+    const pipeDiameter = 42
 
     /**
      * @constant
      * @type {PipeListenerSettings}
      */
-    return {
+    const pipeListenerSettings = {
         pipeGroup,
         anchors,
         tempPipes,
         euler,
         historyManager,
+        pipeDiameter,
     }
+    return pipeListenerSettings 
 }
 
 /**

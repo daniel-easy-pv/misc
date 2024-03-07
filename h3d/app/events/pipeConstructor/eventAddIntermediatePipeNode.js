@@ -8,7 +8,7 @@ import { PipeMesh } from './PipeMesh.js'
 export class AddIntermediatePipeNode extends UndoableEvent {
     /**
      * 
-     * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
+     * @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
      * @param {THREE.Vector3} secondClick 
      * @param {boolean} endPipeRun
      */
@@ -17,6 +17,7 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         const {
             anchors,
             pipeGroup,
+            pipeDiameter,
         } = pipeListenerSettings
         if (anchors.length === 0) {
             throw Error('Pipe source not found')
@@ -27,8 +28,7 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         this.anchor = anchor
         this.secondClick = secondClick
         this.endPipeRun = endPipeRun
-        const diameter = 22
-        const pipeMesh = new PipeMesh(anchor, secondClick, diameter)
+        const pipeMesh = new PipeMesh(anchor, secondClick, pipeDiameter)
         pipeMesh.userData.isPipeLeg = true
         this.pipeMesh = pipeMesh
 

@@ -9,7 +9,7 @@ import { changeMaterialEmphasis } from '../../materials/index.js'
  * Returns the 3D position of the intersection (or near the intersection for a wall).
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('./index.js').PipeListenerSettings} pipeListenerSettings 
+* @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {THREE.Vector2} mousePos 
  */
 export function pipeSnapRuleIntersect(app, pipeListenerSettings, mousePos) {
