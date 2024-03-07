@@ -5,6 +5,8 @@ import { getLighting } from './lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from './events/index.js'
 import { FRUSTUM_SIZE, LAYER_MAGENTA_SPHERES } from './consts.js'
+import { initSelectedObjectsSettings } from './init/initSelectObjects.js'
+import { initPipeListenerSettings } from './init/initPipeListenerSettings.js'
 
 /**
  * @typedef {object} ETempFloorplan - this should be be passed in from Heatpunk as
@@ -90,7 +92,8 @@ export class Heat3DModel {
             renderer,
             pointer,
         }
-        this.selectObjectSettings = getBlankSelectObjectSettings()
+        this.selectedObjectsSettings = initSelectedObjectsSettings()
+        this.pipeListenerSettings = initPipeListenerSettings(this)
         this.destroy = () => {
             cancelAnimationFrame(animationFrameId)
             domElement.innerHTML = ''
@@ -100,19 +103,3 @@ export class Heat3DModel {
     }
 }
 
-/**
- * Generates and returns a blank object containing settings for selecting objects.
- *
- * @function
- * @returns {Object} An object with settings for selecting objects.
- * @property {THREE.Mesh[]} selectedObjects - An array to store selected objects.
- * @property {THREE.Raycaster} raycaster - An instance of THREE.Raycaster for raycasting.
- */
-function getBlankSelectObjectSettings() {
-    const selectedObjects = []
-    const raycaster = new THREE.Raycaster()
-    return {
-        selectedObjects,
-        raycaster,
-    }
-}

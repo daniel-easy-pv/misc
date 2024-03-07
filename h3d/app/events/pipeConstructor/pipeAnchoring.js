@@ -9,11 +9,11 @@ import { MOUSE_ACCURACY_THRESHOLD } from '../../consts.js'
  * Add listener for beginning a pipe run.
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('.').PipeListenerSettings} pipeListenerSettings 
  */
-export function addPipeAnchoringListener(app, pipeListenerSettings) {
+export function addPipeAnchoringListener(app) {
     const {
         domElement,
+        pipeListenerSettings,
     } = app
     const {
         anchors,

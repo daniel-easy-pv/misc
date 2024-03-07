@@ -13,13 +13,13 @@ export function addSelectObjectsListener(app) {
  * A function that adds pipe run listeners to a canvas
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {object} selectObjectSettings
+ * @param {object} selectedObjectsSettings
  */
 function addSelectMultipleObjectsListener(app) {
     const {
         domElement,
         threeElements,
-        selectObjectSettings,
+        selectedObjectsSettings,
     } = app
     const {
         pointer,
@@ -30,7 +30,7 @@ function addSelectMultipleObjectsListener(app) {
     const {
         selectedObjects,
         raycaster,
-    } = selectObjectSettings
+    } = selectedObjectsSettings
 
 
     /**

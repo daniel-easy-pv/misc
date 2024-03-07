@@ -20,12 +20,12 @@ export function addPipeDiameterListener(app) {
 function addChangeDiameterListener(app) {
     const {
         domElement,
-        selectObjectSettings,
+        selectedObjectsSettings,
     } = app
 
     const {
         selectedObjects,
-    } = selectObjectSettings
+    } = selectedObjectsSettings
 
     /**
      * In View mode, press `d` to change the diameter of selected pipes.

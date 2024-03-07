@@ -11,11 +11,11 @@ import { AddIntermediatePipeNode } from './eventAddIntermediatePipeNode.js'
 /**
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('.').PipeListenerSettings} pipeListenerSettings 
  */
-export function addPipeContinuationListener(app, pipeListenerSettings) {
+export function addPipeContinuationListener(app) {
     const {
         domElement,
+        pipeListenerSettings,
     } = app
     const {
         anchors,

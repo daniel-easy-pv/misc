@@ -3,11 +3,11 @@ import { EndPipeRun } from './eventEndPipeRun.js'
 /**
  * 
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {import('.').PipeListenerSettings} pipeListenerSettings 
  */
-export function addPipeKeyboardListeners(app, pipeListenerSettings) {
+export function addPipeKeyboardListeners(app) {
     const {
         domElement,
+        pipeListenerSettings,
     } = app
     const {
         euler,
