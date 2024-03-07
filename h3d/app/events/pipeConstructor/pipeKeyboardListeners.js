@@ -1,3 +1,4 @@
+import { PipeMaterial } from '../../materials/PipeMaterial.js'
 import { EndPipeRun } from './eventEndPipeRun.js'
 
 /**
@@ -39,6 +40,14 @@ export function addPipeKeyboardListeners(app) {
         if (['<', '>'].includes(evt.key)) {
             const sign = evt.key === '>' ? 1 : -1
             pipeListenerSettings.pipeDiameter += 3 * sign
+        }
+    })
+
+    domElement.addEventListener('keydown', function(evt) {
+        if (evt.key === 'c') {
+            pipeListenerSettings.pipeMaterial = PipeMaterial.Copper
+        } else if (evt.key === 'p') {
+            pipeListenerSettings.pipeMaterial = PipeMaterial.Plastic
         }
     })
 }

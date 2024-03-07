@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { HistoryManager } from '../events/historyManager'
 import { getMeshByUserDataValue } from '../utils'
+import { PipeMaterial } from '../materials/PipeMaterial'
 /**
  * Settings for a pipe listener.
  *
@@ -11,6 +12,7 @@ import { getMeshByUserDataValue } from '../utils'
  * @property {THREE.Euler} euler - Euler angles for rotation.
  * @property {HistoryManager} historyManager - The history manager for tracking changes.
  * @property {number} pipeDiameter - the diameter the pipe that the user will draw
+ * @property {PipeMaterial} pipeMaterial - the material of the pipe that the user will draw
  */
 
 /**
@@ -34,6 +36,7 @@ export function initPipeListenerSettings(app) {
     const euler = new THREE.Euler(0, 0, 0, 'ZYX')
     const historyManager = new HistoryManager()
     const pipeDiameter = 42
+    const pipeMaterial = PipeMaterial.Copper
 
     /**
      * @constant
@@ -46,6 +49,7 @@ export function initPipeListenerSettings(app) {
         euler,
         historyManager,
         pipeDiameter,
+        pipeMaterial,
     }
     return pipeListenerSettings 
 }
