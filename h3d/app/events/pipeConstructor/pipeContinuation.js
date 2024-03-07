@@ -64,8 +64,8 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
             callbacks,
         } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
         callbacks.forEach(f => f())
-        const pipeRadius = 20
-        const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
+        const diameter = 22
+        const mesh = new PipeMesh(anchor, snapPoint, diameter)
         tempPipes.clear()
         tempPipes.add(mesh)
     }

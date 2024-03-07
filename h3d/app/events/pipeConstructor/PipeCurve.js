@@ -36,10 +36,11 @@ export class PipeMesh extends THREE.Mesh {
      * 
      * @param {THREE.Vector3} start - start coordinate of pipe
      * @param {THREE.Vector3} end - end coordinate of pipe
-     * @param {number} radius - radius of the pipe
+     * @param {number} diameter - diameter of the pipe
      */
-    constructor(start, end, radius) {
+    constructor(start, end, diameter) {
         const path = new PipeCurve([start, end])
+        const radius = diameter / 2
         const geometry = new PipeLegGeometry(path, radius)
         const material = new THREE.MeshPhongMaterial({
             side: THREE.DoubleSide,
