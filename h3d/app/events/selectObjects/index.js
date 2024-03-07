@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import { AppModes } from '../h3dModes.js'
 
 /**
@@ -7,8 +8,10 @@ import { AppModes } from '../h3dModes.js'
  */
 export function addSelectObjectsListener(app) {
     const selectedObjects = []
+    const raycaster = new THREE.Raycaster()
     const selectObjectSettings = {
         selectedObjects,
+        raycaster,
     }
 
     addSelectMultipleObjectsListener(app, selectObjectSettings)
@@ -23,13 +26,32 @@ export function addSelectObjectsListener(app) {
 function addSelectMultipleObjectsListener(app, selectObjectSettings) {
     const {
         domElement,
+        threeElements,
     } = app
     const {
+        pointer,
+        camera,
+        scene,
+    } = threeElements
+    
+    const {
         selectedObjects,
+        raycaster,
     } = selectObjectSettings
 
-    domElement.addEventListener('stationaryClick', function singleClickToSelect(evt) {
+
+    function singleClickToSelect() {
         if (app.mode !== AppModes.View) return
-        console.log('selecting object')
-    })
+        raycaster.setFromCamera(pointer, camera)
+        const intersects = raycaster.intersectObjects( scene.children )
+        if (intersects.length) {
+            selectedObjects.length = 0
+            selectedObjects.push(intersects[0])
+        }
+        console.log(selectedObjects)
+        selectedObjects.forEach(intersection => {
+            intersection.object.material.wireframe = true
+        })
+    }
+    domElement.addEventListener('stationaryClick', singleClickToSelect)
 }

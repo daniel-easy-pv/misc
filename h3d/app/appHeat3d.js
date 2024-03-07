@@ -51,7 +51,6 @@ export class Heat3DModel {
             antialias: true,
         })
         const pointer = new THREE.Vector2()
-        const raycaster = new THREE.Raycaster()
         camera.up.set(0, 0, 1)
         camera.layers.enable(LAYER_MAGENTA_SPHERES)
         const b = getBarycenter(eTempFloorplan)
@@ -90,7 +89,6 @@ export class Heat3DModel {
             camera,
             renderer,
             pointer,
-            raycaster,
         }
         this.destroy = () => {
             cancelAnimationFrame(animationFrameId)

@@ -57,7 +57,7 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         if (app.mode !== AppModes.Insert) return
         if (anchors.length === 0) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
+        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).sub(domElementOffset)
         const anchor = anchors[anchors.length - 1]
         const {
             snapPoint,
