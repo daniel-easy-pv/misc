@@ -160,26 +160,26 @@ export const eTempFloorplan =
                         }
                     ],
                     "expandedPoints": [
-                        10319.666666666666,
-                        3791.6666666666665,
-                        10319.666666666666,
-                        6294.333333333333,
-                        12822.333333333334,
-                        6294.333333333333,
-                        12822.333333333334,
-                        3791.666666666666
+                        10319.75,
+                        3791.75,
+                        10319.75,
+                        6294.25,
+                        12822.25,
+                        6294.25,
+                        12822.25,
+                        3791.75
                     ],
-                    "expansionAmount": 1.3333333333333333,
-                    "superExpansionAmount": 101.33333333333333,
+                    "expansionAmount": 1.25,
+                    "superExpansionAmount": 101.25,
                     "superExpandedPoints": [
-                        10219.666666666666,
-                        3691.6666666666665,
-                        10219.666666666666,
-                        6394.333333333334,
-                        12922.333333333334,
-                        6394.333333333333,
-                        12922.333333333334,
-                        3691.666666666666
+                        10219.75,
+                        3691.75,
+                        10219.75,
+                        6394.25,
+                        12922.25,
+                        6394.25,
+                        12922.25,
+                        3691.75
                     ],
                     "floorRegions": [
                         {
@@ -507,26 +507,26 @@ export const eTempFloorplan =
                         }
                     ],
                     "expandedPoints": [
-                        12919.333333333334,
-                        3791.3333333333335,
-                        12919.333333333334,
-                        8790.666666666668,
-                        15422.666666666666,
-                        8790.666666666666,
-                        15422.666666666666,
-                        3791.333333333333
+                        12919.5,
+                        3791.5,
+                        12919.5,
+                        8790.5,
+                        15422.5,
+                        8790.5,
+                        15422.5,
+                        3791.5
                     ],
-                    "expansionAmount": 1.6666666666666665,
-                    "superExpansionAmount": 101.66666666666667,
+                    "expansionAmount": 1.5,
+                    "superExpansionAmount": 101.5,
                     "superExpandedPoints": [
-                        12819.333333333334,
-                        3691.3333333333335,
-                        12819.333333333334,
-                        8890.666666666668,
-                        15522.666666666666,
-                        8890.666666666666,
-                        15522.666666666666,
-                        3691.333333333333
+                        12819.5,
+                        3691.5,
+                        12819.5,
+                        8890.5,
+                        15522.5,
+                        8890.5,
+                        15522.5,
+                        3691.5
                     ],
                     "floorRegions": [
                         {
@@ -769,6 +769,73 @@ export const eTempFloorplan =
                             "grouped": true
                         },
                         {
+                            "distanceFrom": 16971,
+                            "distanceTo": 18388,
+                            "adjacentRoomIndex": 3,
+                            "type": "internal",
+                            "adjacent": "Family",
+                            "material": 109,
+                            "roomPoints": [
+                                7889,
+                                6393,
+                                7889,
+                                10655,
+                                12821,
+                                10655,
+                                12821,
+                                6393
+                            ],
+                            "roomIndexInLevel": 2,
+                            "neighbourIndex": 2,
+                            "start": {
+                                "x": 9306,
+                                "y": 6393
+                            },
+                            "end": {
+                                "x": 7889.000100000001,
+                                "y": 6393
+                            },
+                            "midPoint": {
+                                "x": 8597.5,
+                                "y": 6393
+                            },
+                            "rotation": 270,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 15956,
+                            "distanceTo": 16971,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                7889,
+                                6393,
+                                7889,
+                                10655,
+                                12821,
+                                10655,
+                                12821,
+                                6393
+                            ],
+                            "roomIndexInLevel": 2,
+                            "neighbourIndex": 3,
+                            "start": {
+                                "x": 10321,
+                                "y": 6393
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 6393
+                            },
+                            "midPoint": {
+                                "x": 9813.5,
+                                "y": 6393
+                            },
+                            "rotation": 270,
+                            "grouped": true
+                        },
+                        {
                             "distanceFrom": 0,
                             "distanceTo": 4262,
                             "type": "external",
@@ -785,7 +852,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 2,
+                            "neighbourIndex": 4,
                             "start": {
                                 "x": 7889,
                                 "y": 6393
@@ -818,7 +885,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 3,
+                            "neighbourIndex": 5,
                             "start": {
                                 "x": 7889,
                                 "y": 10655
@@ -832,7 +899,24 @@ export const eTempFloorplan =
                                 "y": 10655
                             },
                             "rotation": 90,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "3c38399a-18a4-4ca7-a534-f74789f01c6a",
+                                    "h": 650,
+                                    "points": [
+                                        9562,
+                                        10655,
+                                        8562,
+                                        10655,
+                                        8562,
+                                        10855,
+                                        9562,
+                                        10855
+                                    ],
+                                    "material": 173
+                                }
+                            ]
                         },
                         {
                             "distanceFrom": 9194,
@@ -851,7 +935,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 4,
+                            "neighbourIndex": 6,
                             "start": {
                                 "x": 12821,
                                 "y": 10655
@@ -866,62 +950,29 @@ export const eTempFloorplan =
                             },
                             "rotation": 0,
                             "grouped": true
-                        },
-                        {
-                            "distanceFrom": 15956,
-                            "distanceTo": 18388,
-                            "type": "external",
-                            "adjacent": "external",
-                            "material": 32,
-                            "roomPoints": [
-                                7889,
-                                6393,
-                                7889,
-                                10655,
-                                12821,
-                                10655,
-                                12821,
-                                6393
-                            ],
-                            "roomIndexInLevel": 2,
-                            "neighbourIndex": 5,
-                            "start": {
-                                "x": 10321,
-                                "y": 6393
-                            },
-                            "end": {
-                                "x": 7889.000100000001,
-                                "y": 6393
-                            },
-                            "midPoint": {
-                                "x": 9105,
-                                "y": 6393
-                            },
-                            "rotation": 270,
-                            "grouped": true
                         }
                     ],
                     "expandedPoints": [
-                        7887,
-                        6391,
-                        7887,
-                        10657,
-                        12823,
-                        10657,
-                        12823,
-                        6391
+                        7887.250000000001,
+                        6391.25,
+                        7887.25,
+                        10656.75,
+                        12822.75,
+                        10656.75,
+                        12822.75,
+                        6391.25
                     ],
-                    "expansionAmount": 2,
-                    "superExpansionAmount": 102,
+                    "expansionAmount": 1.75,
+                    "superExpansionAmount": 101.75,
                     "superExpandedPoints": [
-                        7787,
-                        6291,
-                        7787,
-                        10757,
-                        12923,
-                        10757,
-                        12923,
-                        6291.000000000001
+                        7787.25,
+                        6291.25,
+                        7787.25,
+                        10756.75,
+                        12922.75,
+                        10756.75,
+                        12922.75,
+                        6291.25
                     ],
                     "floorRegions": [
                         {
@@ -1061,6 +1112,352 @@ export const eTempFloorplan =
                             "material": 191
                         }
                     ]
+                },
+                {
+                    "edges": 100,
+                    "slateId": "e61803ea-6abe-4fba-ad37-54da720277d8",
+                    "points": [
+                        6806,
+                        3793,
+                        6806,
+                        6293,
+                        9306,
+                        6293,
+                        9306,
+                        3793
+                    ],
+                    "additionalHeatLoss": 0,
+                    "h": 2400,
+                    "roomType": "Family",
+                    "konvaType": "r",
+                    "neighbours": [
+                        {
+                            "distanceFrom": 3583,
+                            "distanceTo": 5000,
+                            "adjacentRoomIndex": 2,
+                            "type": "internal",
+                            "adjacent": "Bedroom",
+                            "material": 109,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 0,
+                            "start": {
+                                "x": 7889,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 6293
+                            },
+                            "midPoint": {
+                                "x": 8597.5,
+                                "y": 6293
+                            },
+                            "rotation": 90,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 0,
+                            "distanceTo": 2500,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 1,
+                            "start": {
+                                "x": 6806,
+                                "y": 3793
+                            },
+                            "end": {
+                                "x": 6806,
+                                "y": 6293
+                            },
+                            "midPoint": {
+                                "x": 6806,
+                                "y": 5043
+                            },
+                            "rotation": 180,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 2500,
+                            "distanceTo": 3583,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 2,
+                            "start": {
+                                "x": 6806,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 7889,
+                                "y": 6293
+                            },
+                            "midPoint": {
+                                "x": 7347.5,
+                                "y": 6293
+                            },
+                            "rotation": 90,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 5000,
+                            "distanceTo": 7500,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 3,
+                            "start": {
+                                "x": 9306,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 3793
+                            },
+                            "midPoint": {
+                                "x": 9306,
+                                "y": 5043
+                            },
+                            "rotation": 0,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 7500,
+                            "distanceTo": 10000,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 4,
+                            "start": {
+                                "x": 9306,
+                                "y": 3793
+                            },
+                            "end": {
+                                "x": 6806.000099999999,
+                                "y": 3793
+                            },
+                            "midPoint": {
+                                "x": 8056,
+                                "y": 3793
+                            },
+                            "rotation": 270,
+                            "grouped": true
+                        }
+                    ],
+                    "expandedPoints": [
+                        6804,
+                        3791,
+                        6804,
+                        6295,
+                        9308,
+                        6295,
+                        9308,
+                        3791
+                    ],
+                    "expansionAmount": 2,
+                    "superExpansionAmount": 102,
+                    "superExpandedPoints": [
+                        6704,
+                        3691,
+                        6704,
+                        6395,
+                        9408,
+                        6395,
+                        9408,
+                        3691
+                    ],
+                    "floorRegions": [
+                        {
+                            "points": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "plane": {
+                                "equation": [
+                                    0,
+                                    0,
+                                    1,
+                                    2400
+                                ],
+                                "transformationMatrix": [
+                                    [
+                                        1,
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        0,
+                                        1
+                                    ]
+                                ]
+                            },
+                            "material": 157,
+                            "adjacent": "external"
+                        }
+                    ],
+                    "ceilingRegions": [
+                        {
+                            "points": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "plane": {
+                                "equation": [
+                                    0,
+                                    0,
+                                    1,
+                                    2400
+                                ],
+                                "transformationMatrix": [
+                                    [
+                                        1,
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        0,
+                                        1
+                                    ]
+                                ]
+                            },
+                            "material": 1,
+                            "adjacent": "external"
+                        }
+                    ],
+                    "coverRegions": [
+                        {
+                            "points": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "plane": {
+                                "equation": [
+                                    0,
+                                    0,
+                                    1,
+                                    2400
+                                ],
+                                "transformationMatrix": [
+                                    [
+                                        1,
+                                        0,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        1,
+                                        0
+                                    ],
+                                    [
+                                        0,
+                                        0,
+                                        1
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "radiators": [
+                        {
+                            "slateId": "719d738b-407d-45a8-bb4f-33f31e86729b",
+                            "h": 600,
+                            "points": [
+                                8909,
+                                3793,
+                                7103,
+                                3793,
+                                7103,
+                                3993,
+                                8909,
+                                3993
+                            ],
+                            "material": 191
+                        }
+                    ]
                 }
             ],
             "radiators": [
@@ -1123,6 +1520,21 @@ export const eTempFloorplan =
                         7889
                     ],
                     "material": 191
+                },
+                {
+                    "slateId": "719d738b-407d-45a8-bb4f-33f31e86729b",
+                    "h": 600,
+                    "points": [
+                        8909,
+                        3793,
+                        7103,
+                        3793,
+                        7103,
+                        3993,
+                        8909,
+                        3993
+                    ],
+                    "material": 191
                 }
             ],
             "heatPumpMachines": [
@@ -1144,15 +1556,32 @@ export const eTempFloorplan =
                 {
                     "slateId": "f32e5b91-14bb-4c7a-b14c-1fbc4044cc6d",
                     "points": [
-                        12921,
-                        3793,
-                        12921,
-                        4293,
-                        13421,
-                        4293,
-                        13421,
-                        3793
+                        13399,
+                        4397,
+                        13399,
+                        5353,
+                        14355,
+                        5353,
+                        14355,
+                        4397
                     ]
+                }
+            ],
+            "windows": [
+                {
+                    "slateId": "3c38399a-18a4-4ca7-a534-f74789f01c6a",
+                    "h": 650,
+                    "points": [
+                        9562,
+                        10655,
+                        8562,
+                        10655,
+                        8562,
+                        10855,
+                        9562,
+                        10855
+                    ],
+                    "material": 173
                 }
             ],
             "walls": [
@@ -1624,6 +2053,131 @@ export const eTempFloorplan =
                 {
                     "neighbours": [
                         {
+                            "distanceFrom": 16971,
+                            "distanceTo": 18388,
+                            "adjacentRoomIndex": 3,
+                            "type": "internal",
+                            "adjacent": "Family",
+                            "material": 109,
+                            "roomPoints": [
+                                7889,
+                                6393,
+                                7889,
+                                10655,
+                                12821,
+                                10655,
+                                12821,
+                                6393
+                            ],
+                            "roomIndexInLevel": 2,
+                            "neighbourIndex": 2,
+                            "start": {
+                                "x": 9306,
+                                "y": 6393
+                            },
+                            "end": {
+                                "x": 7889.000100000001,
+                                "y": 6393
+                            },
+                            "midPoint": {
+                                "x": 8597.5,
+                                "y": 6393
+                            },
+                            "rotation": 270,
+                            "grouped": true
+                        },
+                        {
+                            "distanceFrom": 3583,
+                            "distanceTo": 5000,
+                            "adjacentRoomIndex": 2,
+                            "type": "internal",
+                            "adjacent": "Bedroom",
+                            "material": 109,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 0,
+                            "start": {
+                                "x": 7889,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 6293
+                            },
+                            "midPoint": {
+                                "x": 8597.5,
+                                "y": 6293
+                            },
+                            "rotation": 90,
+                            "grouped": true
+                        }
+                    ],
+                    "height": 1416.999899999999,
+                    "position": {
+                        "x": 8597.50005,
+                        "y": 6393
+                    },
+                    "rotation": 270,
+                    "material": 109,
+                    "width": 241
+                },
+                {
+                    "neighbours": [
+                        {
+                            "distanceFrom": 15956,
+                            "distanceTo": 16971,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                7889,
+                                6393,
+                                7889,
+                                10655,
+                                12821,
+                                10655,
+                                12821,
+                                6393
+                            ],
+                            "roomIndexInLevel": 2,
+                            "neighbourIndex": 3,
+                            "start": {
+                                "x": 10321,
+                                "y": 6393
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 6393
+                            },
+                            "midPoint": {
+                                "x": 9813.5,
+                                "y": 6393
+                            },
+                            "rotation": 270,
+                            "grouped": true
+                        }
+                    ],
+                    "height": 1015,
+                    "position": {
+                        "x": 9813.5,
+                        "y": 6393
+                    },
+                    "rotation": 270,
+                    "material": 32,
+                    "width": 267
+                },
+                {
+                    "neighbours": [
+                        {
                             "distanceFrom": 0,
                             "distanceTo": 4262,
                             "type": "external",
@@ -1640,7 +2194,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 2,
+                            "neighbourIndex": 4,
                             "start": {
                                 "x": 7889,
                                 "y": 6393
@@ -1685,7 +2239,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 3,
+                            "neighbourIndex": 5,
                             "start": {
                                 "x": 7889,
                                 "y": 10655
@@ -1699,7 +2253,24 @@ export const eTempFloorplan =
                                 "y": 10655
                             },
                             "rotation": 90,
-                            "grouped": true
+                            "grouped": true,
+                            "windows": [
+                                {
+                                    "slateId": "3c38399a-18a4-4ca7-a534-f74789f01c6a",
+                                    "h": 650,
+                                    "points": [
+                                        9562,
+                                        10655,
+                                        8562,
+                                        10655,
+                                        8562,
+                                        10855,
+                                        9562,
+                                        10855
+                                    ],
+                                    "material": 173
+                                }
+                            ]
                         }
                     ],
                     "height": 4932,
@@ -1730,7 +2301,7 @@ export const eTempFloorplan =
                                 6393
                             ],
                             "roomIndexInLevel": 2,
-                            "neighbourIndex": 4,
+                            "neighbourIndex": 6,
                             "start": {
                                 "x": 12821,
                                 "y": 10655
@@ -1759,43 +2330,178 @@ export const eTempFloorplan =
                 {
                     "neighbours": [
                         {
-                            "distanceFrom": 15956,
-                            "distanceTo": 18388,
+                            "distanceFrom": 0,
+                            "distanceTo": 2500,
                             "type": "external",
                             "adjacent": "external",
                             "material": 32,
                             "roomPoints": [
-                                7889,
-                                6393,
-                                7889,
-                                10655,
-                                12821,
-                                10655,
-                                12821,
-                                6393
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
                             ],
-                            "roomIndexInLevel": 2,
-                            "neighbourIndex": 5,
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 1,
                             "start": {
-                                "x": 10321,
-                                "y": 6393
+                                "x": 6806,
+                                "y": 3793
                             },
                             "end": {
-                                "x": 7889.000100000001,
-                                "y": 6393
+                                "x": 6806,
+                                "y": 6293
                             },
                             "midPoint": {
-                                "x": 9105,
-                                "y": 6393
+                                "x": 6806,
+                                "y": 5043
+                            },
+                            "rotation": 180,
+                            "grouped": true
+                        }
+                    ],
+                    "height": 2500,
+                    "position": {
+                        "x": 6806,
+                        "y": 5043
+                    },
+                    "rotation": 180,
+                    "material": 32,
+                    "width": 267
+                },
+                {
+                    "neighbours": [
+                        {
+                            "distanceFrom": 2500,
+                            "distanceTo": 3583,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 2,
+                            "start": {
+                                "x": 6806,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 7889,
+                                "y": 6293
+                            },
+                            "midPoint": {
+                                "x": 7347.5,
+                                "y": 6293
+                            },
+                            "rotation": 90,
+                            "grouped": true
+                        }
+                    ],
+                    "height": 1083,
+                    "position": {
+                        "x": 7347.5,
+                        "y": 6293
+                    },
+                    "rotation": 90,
+                    "material": 32,
+                    "width": 267
+                },
+                {
+                    "neighbours": [
+                        {
+                            "distanceFrom": 5000,
+                            "distanceTo": 7500,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 3,
+                            "start": {
+                                "x": 9306,
+                                "y": 6293
+                            },
+                            "end": {
+                                "x": 9306,
+                                "y": 3793
+                            },
+                            "midPoint": {
+                                "x": 9306,
+                                "y": 5043
+                            },
+                            "rotation": 0,
+                            "grouped": true
+                        }
+                    ],
+                    "height": 2500,
+                    "position": {
+                        "x": 9306,
+                        "y": 5043
+                    },
+                    "rotation": 0,
+                    "material": 32,
+                    "width": 267
+                },
+                {
+                    "neighbours": [
+                        {
+                            "distanceFrom": 7500,
+                            "distanceTo": 10000,
+                            "type": "external",
+                            "adjacent": "external",
+                            "material": 32,
+                            "roomPoints": [
+                                6806,
+                                3793,
+                                6806,
+                                6293,
+                                9306,
+                                6293,
+                                9306,
+                                3793
+                            ],
+                            "roomIndexInLevel": 3,
+                            "neighbourIndex": 4,
+                            "start": {
+                                "x": 9306,
+                                "y": 3793
+                            },
+                            "end": {
+                                "x": 6806.000099999999,
+                                "y": 3793
+                            },
+                            "midPoint": {
+                                "x": 8056,
+                                "y": 3793
                             },
                             "rotation": 270,
                             "grouped": true
                         }
                     ],
-                    "height": 2432,
+                    "height": 2500,
                     "position": {
-                        "x": 9105,
-                        "y": 6393
+                        "x": 8056,
+                        "y": 3793
                     },
                     "rotation": 270,
                     "material": 32,
