@@ -29,6 +29,11 @@ function updateMode(app, mode) {
     app.domElement.appendChild(bottomBar(app.mode))
 }
 
+const modeColors = {
+    Insert: '#5DADE2',
+    View: '#9F0',
+}
+
 /**
  * 
  * @param {AppModes} mode 
@@ -37,8 +42,15 @@ function updateMode(app, mode) {
 function bottomBar(mode) {
     const div = document.createElement('div')
     div.classList.add('h3d-bar')
-    div.style = 'width: 100%; position:absolute; bottom:0;'
-    div.textContent = `Mode: ${mode.name}`
+    div.style = /*css*/`
+        width: 100%; 
+        position:absolute; 
+        bottom:0; 
+        padding: 4px 20px; 
+        font-family: monospace;
+        background-color: ${modeColors[mode.name]}
+        `
+    div.innerHTML = `<b>Mode:</b> ${mode.name}`
     return div
 }
 
