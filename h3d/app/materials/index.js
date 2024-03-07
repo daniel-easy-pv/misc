@@ -4,6 +4,7 @@ export const materialConfig = {
             color: 0x000000,
             transparent: true,
             opacity: 0.1,
+            depthWrite: false,
         },
         highlighted: {
             color: 0x000000,
