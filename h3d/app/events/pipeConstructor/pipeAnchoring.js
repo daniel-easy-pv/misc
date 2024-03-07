@@ -20,7 +20,12 @@ export function addPipeAnchoringListener(app, pipeListenerSettings) {
         historyManager, 
     } = pipeListenerSettings
 
-    domElement.addEventListener('stationaryClick', function anchorPipe(evt) {
+    /**
+     * An event listener for anchoring pipes to pipe entries.
+     * 
+     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
+     */
+    function anchorPipe(evt) {
         if (app.mode !== AppModes.Insert) return
         if (anchors.length !== 0) return
         evt.stopImmediatePropagation()
@@ -33,7 +38,10 @@ export function addPipeAnchoringListener(app, pipeListenerSettings) {
             camera,
         } = threeElements
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-        const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).sub(domElementOffset)
+        const mousePos = new THREE.Vector2(
+            evt.detail.endEvent.clientX, 
+            evt.detail.endEvent.clientY)
+            .sub(domElementOffset)
         const pipeEntries = getMeshByUserDataValue(scene, 'isPipeEntry', true)
         const screenPosition = new ScreenPosition(domElement, camera)
         const potentialSnapPositions = pipeEntries
@@ -50,7 +58,8 @@ export function addPipeAnchoringListener(app, pipeListenerSettings) {
             const command = new AddBeginningPipeNode(pipeListenerSettings, anchor)
             historyManager.executeCommand(command)
         }
-    })
+    }
+    domElement.addEventListener('stationaryClick', anchorPipe)
 }
 
 

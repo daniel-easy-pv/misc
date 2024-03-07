@@ -29,7 +29,7 @@ function addStationaryClickListener(app) {
     const {
         domElement,
     } = app
-    let startX, startY
+    let startEvent
 
     domElement.addEventListener('mousedown', 
     /**
@@ -38,8 +38,8 @@ function addStationaryClickListener(app) {
      * @param {MouseEvent} event 
      */
         function(event) {
-            startX = event.clientX
-            startY = event.clientY
+            console.log(event)
+            startEvent = event
         })
 
     domElement.addEventListener('mouseup', 
@@ -49,22 +49,34 @@ function addStationaryClickListener(app) {
      * @param {MouseEvent} event 
      */
         function(event) {
-            const endX = event.clientX
-            const endY = event.clientY
+            const endEvent = event
+            const dx = endEvent.offsetX - startEvent.offsetX
+            const dy = endEvent.offsetY - startEvent.offsetY
 
             // Calculate the distance between mousedown and mouseup positions
-            const distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2))
+            const distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
 
             if (distance <= DISTANCE_THRESHOLD) {
+                /**
+             * Custom event for a stationary click.
+             * 
+             * @type {CustomEvent<StationaryClickEventDetails>}
+             */
                 const customEvent = new CustomEvent('stationaryClick', {
                     detail: {
-                        startX,
-                        startY,
-                        endX,
-                        endY,
+                        startEvent,
+                        endEvent,
                     }
                 })
                 domElement.dispatchEvent(customEvent)
             }
         })
 }
+
+/**
+ * Custom event details for a stationary click event.
+ * 
+ * @typedef {Object} StationaryClickEventDetails
+ * @property {MouseEvent} startEvent - The mouse down event.
+ * @property {MouseEvent} endEvent - The mouse up event.
+ */

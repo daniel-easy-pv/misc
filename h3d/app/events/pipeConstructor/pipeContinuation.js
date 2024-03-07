@@ -23,50 +23,55 @@ export function addPipeContinuationListener(app, pipeListenerSettings) {
         tempPipes,
     } = pipeListenerSettings
 
-    domElement.addEventListener('stationaryClick', 
     /**
      * On stationary click, add another pipe leg.
      * This runs only in Insert mode and when there is an anchor.
      * 
-     * @param {Event} evt 
+     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
      * @returns {void}
      */
-        function extendPipe(evt) {
-            if (app.mode !== AppModes.Insert) return
-            if (anchors.length === 0) return 
-            const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-            const mousePos = new THREE.Vector2(evt.detail.endX, evt.detail.endY).addScaledVector(domElementOffset, -1)
-            const {
-                snapPoint,
-                endPipeRun,
-            } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
-            const command = new AddIntermediatePipeNode(pipeListenerSettings, snapPoint, endPipeRun)
-            historyManager.executeCommand(command)
-        })
+    function extendPipe(evt) {
+        if (app.mode !== AppModes.Insert) return
+        if (anchors.length === 0) return 
+        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+        const mousePos = new THREE.Vector2(
+            evt.detail.endEvent.clientX, 
+            evt.detail.endEvent.clientY)
+            .sub(domElementOffset)
+        const {
+            snapPoint,
+            endPipeRun,
+        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+        const command = new AddIntermediatePipeNode(pipeListenerSettings, snapPoint, endPipeRun)
+        historyManager.executeCommand(command)
+    }
+    
 
-    domElement.addEventListener('mousemove', 
     /**
      * Creates a temporary mesh that follows the mouse around.
      * 
-     * @param {Event} evt 
+     * @param {MouseEvent} evt 
      * @returns {void}
      */
-        function createTempMesh(evt) {
-            if (app.mode !== AppModes.Insert) return
-            if (anchors.length === 0) return
-            const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
-            const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
-            const anchor = anchors[anchors.length - 1]
-            const {
-                snapPoint,
-                callbacks,
-            } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
-            callbacks.forEach(f => f())
-            const pipeRadius = 20
-            const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
-            tempPipes.clear()
-            tempPipes.add(mesh)
-        })
+    function createTempMesh(evt) {
+        if (app.mode !== AppModes.Insert) return
+        if (anchors.length === 0) return
+        const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
+        const mousePos = new THREE.Vector2(evt.clientX, evt.clientY).addScaledVector(domElementOffset, -1)
+        const anchor = anchors[anchors.length - 1]
+        const {
+            snapPoint,
+            callbacks,
+        } = findSecondClickDetailed(app, pipeListenerSettings, mousePos)
+        callbacks.forEach(f => f())
+        const pipeRadius = 20
+        const mesh = new PipeMesh(anchor, snapPoint, pipeRadius)
+        tempPipes.clear()
+        tempPipes.add(mesh)
+    }
+
+    domElement.addEventListener('stationaryClick', extendPipe)
+    domElement.addEventListener('mousemove', createTempMesh)
 }
 
 /**
