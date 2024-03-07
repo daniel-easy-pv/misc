@@ -31,46 +31,44 @@ function addStationaryClickListener(app) {
     } = app
     let startEvent
 
-    domElement.addEventListener('mousedown', 
     /**
      * Records the mouse down coordinates.
      * 
      * @param {MouseEvent} event 
      */
-        function(event) {
-            console.log(event)
-            startEvent = event
-        })
+    function recordMouseStart(event) {
+        startEvent = event
+    }
 
-    domElement.addEventListener('mouseup', 
     /**
      * Fires the mouse up coordinates if within `DISTANCE_THRESHOLD` pixels of mouse down coordinates.
      * 
      * @param {MouseEvent} event 
      */
-        function(event) {
-            const endEvent = event
-            const dx = endEvent.offsetX - startEvent.offsetX
-            const dy = endEvent.offsetY - startEvent.offsetY
+    function fireStationaryClick(event) {
+        const endEvent = event
+        const dx = endEvent.offsetX - startEvent.offsetX
+        const dy = endEvent.offsetY - startEvent.offsetY
+        const distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
 
-            // Calculate the distance between mousedown and mouseup positions
-            const distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
-
-            if (distance <= DISTANCE_THRESHOLD) {
-                /**
+        if (distance <= DISTANCE_THRESHOLD) {
+            /**
              * Custom event for a stationary click.
              * 
              * @type {CustomEvent<StationaryClickEventDetails>}
              */
-                const customEvent = new CustomEvent('stationaryClick', {
-                    detail: {
-                        startEvent,
-                        endEvent,
-                    }
-                })
-                domElement.dispatchEvent(customEvent)
-            }
-        })
+            const customEvent = new CustomEvent('stationaryClick', {
+                detail: {
+                    startEvent,
+                    endEvent,
+                }
+            })
+            domElement.dispatchEvent(customEvent)
+        }
+    }
+    
+    domElement.addEventListener('mousedown', recordMouseStart)
+    domElement.addEventListener('mouseup', fireStationaryClick)
 }
 
 /**
