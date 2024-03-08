@@ -1,3 +1,4 @@
+import { addDeleteObjectsListeners } from './deleteObjects/deleteObjects.js'
 import { addModeListener } from './h3dModes'
 import { addMouseListeners } from './h3dMouseListeners'
 import { addWindowListeners } from './h3dWindowListeners'
@@ -13,4 +14,5 @@ export function initEvents(app) {
     addWindowListeners(app)
     addSelectObjectsListener(app)
     addPipeDiameterListener(app)
+    addDeleteObjectsListeners(app)
 }

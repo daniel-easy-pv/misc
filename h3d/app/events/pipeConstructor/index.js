@@ -9,8 +9,6 @@ import { addPipeKeyboardListeners } from './pipeKeyboardListeners.js'
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  */
 export function addPipeListener(app) {
-    
-
     addPipeAnchoringListener(app)
     addPipeContinuationListener(app)
     addPipeKeyboardListeners(app) 
