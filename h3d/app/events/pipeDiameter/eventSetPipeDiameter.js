@@ -7,22 +7,22 @@ export class SetPipeDiameter extends UndoableEvent {
     /**
      * 
      * @param {import('../pipeConstructor/PipeMesh.js').PipeMesh[]} pipeMeshes 
-     * @param {number} newDiameter
+     * @param {number[]} newDiameters
      */
-    constructor(pipeMeshes, newDiameter) {
+    constructor(pipeMeshes, newDiameters) {
         super()
         this.pipeMeshes = pipeMeshes
         this.originalDiameters = pipeMeshes.map(m => m.getDiameter())
-        this.newDiameter = newDiameter
+        this.newDiameters = newDiameters
     }
 
     execute() {
         const {
             pipeMeshes,
-            newDiameter,
+            newDiameters,
         } = this
-        for (const pipeMesh of pipeMeshes) {
-            pipeMesh.setDiameter(newDiameter)
+        for (let i = 0; i < pipeMeshes.length; i++) {
+            pipeMeshes[i].setDiameter(newDiameters[i])
         }
     }
 

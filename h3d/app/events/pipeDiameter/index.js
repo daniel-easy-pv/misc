@@ -1,7 +1,6 @@
 import { AppModes } from '../h3dModes.js'
 import { PipeMesh } from '../pipeConstructor/PipeMesh.js'
 import { SetPipeDiameter } from './eventSetPipeDiameter.js'
-import { IncrementPipeDiameter } from './incrementPipeDiameter.js'
 
 /* globals message */
 
@@ -36,13 +35,14 @@ function addChangeDiameterListener(app) {
             if (app.mode !== AppModes.View) return
             const pipeMeshes = getSelectedPipeMeshes(app)
             if (!pipeMeshes.length) return
-            const newDiameter = parseInt(prompt('Enter new diameter (between 10 and 110 mm):'))
+            const newDiameter = parseInt(prompt('Enter new diameter (between 8 and 110 mm):'))
             if (!newDiameter) return
             if (!diameterIsValid(newDiameter)) {
-                message('Please enter a diameter between 10 and 110 mm.', 'bad')
+                message('Please enter a diameter between 8 and 110 mm.', 'bad')
                 return
             }
-            const command = new SetPipeDiameter(pipeMeshes, newDiameter)
+            const newDiameters = new Array(pipeMeshes.length).fill(newDiameter)
+            const command = new SetPipeDiameter(pipeMeshes, newDiameters)
             historyManager.executeCommand(command)
         }
     }
@@ -50,12 +50,13 @@ function addChangeDiameterListener(app) {
     function incrementDiameterOfSelectedPipes(evt) {
         if (['<', '>'].includes(evt.key)) {
             if (app.mode !== AppModes.View) return
-            const PIPE_INCREMENT = 5
             const pipeMeshes = getSelectedPipeMeshes(app)
             if (!pipeMeshes.length) return
-            const sign = evt.key === '>' ? 1 : -1
-            const increment = PIPE_INCREMENT * sign
-            const command = new IncrementPipeDiameter(pipeMeshes, increment)
+            const increment = evt.key === '>'
+            const oldDiameters = pipeMeshes.map(p => p.getDiameter())
+            const newDiameters = pipeMeshes.map(p => increment ? getIncreasedDiameter(p) : getDecreasedDiameter(p))
+            if (JSON.stringify(newDiameters) === JSON.stringify(oldDiameters)) return
+            const command = new SetPipeDiameter(pipeMeshes, newDiameters)
             historyManager.executeCommand(command)
         }
     }
@@ -63,7 +64,11 @@ function addChangeDiameterListener(app) {
     domElement.addEventListener('keydown', incrementDiameterOfSelectedPipes)
 }
 
-
+/**
+ * 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @returns {PipeMesh[]}
+ */
 function getSelectedPipeMeshes(app) {
     const {
         selectedObjectsSettings: { selectedObjects },
@@ -72,6 +77,18 @@ function getSelectedPipeMeshes(app) {
         .filter(object => object instanceof PipeMesh)
 }
 
+function getIncreasedDiameter(pipeMesh) {
+    const diameter = pipeMesh.getDiameter()
+    const allowedPipeDiameters = pipeMesh.constructor.allowedPipeDiameters
+    return allowedPipeDiameters.find(x => x > diameter) || diameter
+}
+
+function getDecreasedDiameter(pipeMesh) {
+    const diameter = pipeMesh.getDiameter()
+    const allowedPipeDiameters = pipeMesh.constructor.allowedPipeDiameters
+    return allowedPipeDiameters.slice().reverse().find(x => x < diameter) || diameter
+}
+
 function diameterIsValid(diameter) {
-    return diameter >= 10 && diameter <= 110
+    return diameter >= 8 && diameter <= 110
 }
