@@ -35,7 +35,7 @@ export function initPipeListenerSettings(app) {
     pipeGroup.add(tempPipes)
     const euler = new THREE.Euler(0, 0, 0, 'ZYX')
     const historyManager = new HistoryManager()
-    const pipeDiameter = 42
+    const pipeDiameter = 60
     const pipeMaterial = PipeMaterial.Copper
 
     /**

@@ -1,5 +1,6 @@
+import { nextBiggest, nextSmallest } from '../../utils/math.js'
 import { AppModes } from '../h3dModes.js'
-import { PipeMesh } from '../pipeConstructor/PipeMesh.js'
+import { PipeMesh, allowedPipeDiametersByMaterial } from '../pipeConstructor/PipeMesh.js'
 import { SetPipeDiameter } from './eventSetPipeDiameter.js'
 
 /* globals message */
@@ -79,14 +80,16 @@ function getSelectedPipeMeshes(app) {
 
 function getIncreasedDiameter(pipeMesh) {
     const diameter = pipeMesh.getDiameter()
-    const allowedPipeDiameters = pipeMesh.constructor.allowedPipeDiameters
-    return allowedPipeDiameters.find(x => x > diameter) || diameter
+    const materialType = pipeMesh.getMaterialType().name
+    const allowedPipeDiameters = allowedPipeDiametersByMaterial[materialType]
+    return nextBiggest(allowedPipeDiameters, diameter)
 }
 
 function getDecreasedDiameter(pipeMesh) {
     const diameter = pipeMesh.getDiameter()
-    const allowedPipeDiameters = pipeMesh.constructor.allowedPipeDiameters
-    return allowedPipeDiameters.slice().reverse().find(x => x < diameter) || diameter
+    const materialType = pipeMesh.getMaterialType().name
+    const allowedPipeDiameters = allowedPipeDiametersByMaterial[materialType]
+    return nextSmallest(allowedPipeDiameters, diameter)
 }
 
 function diameterIsValid(diameter) {

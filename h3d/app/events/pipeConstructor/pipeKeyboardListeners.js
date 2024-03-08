@@ -1,4 +1,6 @@
 import { PipeMaterial } from '../../materials/PipeMaterial.js'
+import { nextBiggest, nextSmallest } from '../../utils/math.js'
+import { allowedPipeDiametersByMaterial } from './PipeMesh.js'
 import { EndPipeRun } from './eventEndPipeRun.js'
 
 /**
@@ -38,8 +40,13 @@ export function addPipeKeyboardListeners(app) {
 
     domElement.addEventListener('keydown', function(evt) {
         if (['<', '>'].includes(evt.key)) {
-            const sign = evt.key === '>' ? 1 : -1
-            pipeListenerSettings.pipeDiameter += 3 * sign
+            const currentDiameter = pipeListenerSettings.pipeDiameter
+            const currentMaterial = pipeListenerSettings.pipeMaterial.name
+            const allowedPipeDiameters = allowedPipeDiametersByMaterial[currentMaterial]
+            const newDiameter = evt.key === '>' ? 
+                nextBiggest(allowedPipeDiameters, currentDiameter) :
+                nextSmallest(allowedPipeDiameters, currentDiameter)
+            pipeListenerSettings.pipeDiameter = newDiameter
         }
     })
 

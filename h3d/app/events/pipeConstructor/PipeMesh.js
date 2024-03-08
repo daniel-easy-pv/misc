@@ -49,14 +49,6 @@ export class PipeMesh extends THREE.Mesh {
     }
 
     /**
-     * List of allowed pipe diameters in the CIBSE guide.
-     * 
-     * @abstract
-     * @type {number[]}
-     */
-    static allowedPipeDiameters
-
-    /**
      * Returns the diameter of the pipe.
      * 
      * @returns {number}
@@ -65,6 +57,13 @@ export class PipeMesh extends THREE.Mesh {
         const { diameter } = this.userData.eStorePipes
         return Number(diameter)
     }
+
+    /**
+     * Returns the material type
+     * @abstract
+     * @returns {PipeMaterial}
+     */
+    getMaterialType() {}
 
     /**
      * Sets the diameter of the pipe.
@@ -95,9 +94,9 @@ export class CopperPipeMesh extends PipeMesh {
         super(start, end, diameter, material)
     }
 
-    static allowedPipeDiameters = [
-        8, 10, 15, 22, 28, 35, 42, 54, 67, 76, 108,
-    ]
+    getMaterialType() {
+        return PipeMaterial.Copper
+    }
 }
 
 export class PlasticPipeMesh extends PipeMesh {
@@ -109,7 +108,16 @@ export class PlasticPipeMesh extends PipeMesh {
         super(start, end, diameter, material)
     }
 
-    static allowedPipeDiameters = [
+    getMaterialType() {
+        return PipeMaterial.Plastic
+    }
+}
+
+export const allowedPipeDiametersByMaterial = {
+    Copper: [
+        8, 10, 15, 22, 28, 35, 42, 54, 67, 76, 108,
+    ],
+    Plastic: [
         10, 12, 15, 16, 18, 20, 22, 25, 28, 32, 40, 50, 63, 75, 90, 110,
     ]
 }
