@@ -32,24 +32,27 @@ function addChangeDiameterListener(app) {
      * @returns 
      */
     function setDiameterOfSelectedPipes(evt) {
-        if (app.mode !== AppModes.View) return
         if (evt.key === 'd') {
+            if (app.mode !== AppModes.View) return
+            const pipeMeshes = getSelectedPipeMeshes(app)
+            if (!pipeMeshes.length) return
             const newDiameter = parseInt(prompt('Enter new diameter (between 10 and 110 mm):'))
             if (!newDiameter) return
             if (!diameterIsValid(newDiameter)) {
                 message('Please enter a diameter between 10 and 110 mm.', 'bad')
                 return
             }
-            const command = new SetPipeDiameter(app, newDiameter)
+            const command = new SetPipeDiameter(pipeMeshes, newDiameter)
             historyManager.executeCommand(command)
         }
     }
 
     function incrementDiameterOfSelectedPipes(evt) {
-        if (app.mode !== AppModes.View) return
-        const PIPE_INCREMENT = 5
-        const pipeMeshes = getSelectedPipeMeshes(app)
         if (['<', '>'].includes(evt.key)) {
+            if (app.mode !== AppModes.View) return
+            const PIPE_INCREMENT = 5
+            const pipeMeshes = getSelectedPipeMeshes(app)
+            if (!pipeMeshes.length) return
             const sign = evt.key === '>' ? 1 : -1
             const increment = PIPE_INCREMENT * sign
             const command = new IncrementPipeDiameter(pipeMeshes, increment)

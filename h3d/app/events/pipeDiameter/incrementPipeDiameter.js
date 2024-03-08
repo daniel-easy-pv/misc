@@ -6,7 +6,7 @@ import { UndoableEvent } from '../historyManager.js'
 export class IncrementPipeDiameter extends UndoableEvent {
     /**
      * 
-     * @param {import('../../appHeat3d.js').Heat3DModel} app 
+     * @param {import('../pipeConstructor/PipeMesh.js').PipeMesh[]} pipeMeshes 
      * @param {number} increment
      */
     constructor(pipeMeshes, increment) {
