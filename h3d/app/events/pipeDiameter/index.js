@@ -1,5 +1,6 @@
 import { AppModes } from '../h3dModes.js'
 import { PipeMesh } from '../pipeConstructor/PipeMesh.js'
+import { SetPipeDiameter } from './eventSetPipeDiameter.js'
 
 /* globals message */
 
@@ -21,6 +22,7 @@ function addChangeDiameterListener(app) {
     const {
         domElement,
         selectedObjectsSettings,
+        pipeListenerSettings: { historyManager },
     } = app
 
     const {
@@ -45,9 +47,8 @@ function addChangeDiameterListener(app) {
                 message('Please enter a diameter between 10 and 110 mm.', 'bad')
                 return
             }
-            for (const pipeMesh of pipeMeshes) {
-                pipeMesh.setDiameter(newDiameter)
-            }
+            const command = new SetPipeDiameter(app, newDiameter)
+            historyManager.executeCommand(command)
         }
         else if (['<', '>'].includes(evt.key)) {
             for (const pipeMesh of pipeMeshes) {
