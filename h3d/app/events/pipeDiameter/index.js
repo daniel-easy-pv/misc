@@ -1,6 +1,7 @@
 import { AppModes } from '../h3dModes.js'
 import { PipeMesh } from '../pipeConstructor/PipeMesh.js'
 import { SetPipeDiameter } from './eventSetPipeDiameter.js'
+import { IncrementPipeDiameter } from './incrementPipeDiameter.js'
 
 /* globals message */
 
@@ -21,13 +22,8 @@ export function addPipeDiameterListener(app) {
 function addChangeDiameterListener(app) {
     const {
         domElement,
-        selectedObjectsSettings,
         pipeListenerSettings: { historyManager },
     } = app
-
-    const {
-        selectedObjects,
-    } = selectedObjectsSettings
 
     /**
      * In View mode, press `d` to change the diameter of selected pipes.
@@ -35,11 +31,8 @@ function addChangeDiameterListener(app) {
      * @param {KeyboardEvent} evt 
      * @returns 
      */
-    function changePipeDiameter(evt) {
+    function setDiameterOfSelectedPipes(evt) {
         if (app.mode !== AppModes.View) return
-        const PIPE_INCREMENT = 5
-        const pipeMeshes = selectedObjects.map(info => info.object)
-            .filter(object => object instanceof PipeMesh)
         if (evt.key === 'd') {
             const newDiameter = parseInt(prompt('Enter new diameter (between 10 and 110 mm):'))
             if (!newDiameter) return
@@ -50,18 +43,30 @@ function addChangeDiameterListener(app) {
             const command = new SetPipeDiameter(app, newDiameter)
             historyManager.executeCommand(command)
         }
-        else if (['<', '>'].includes(evt.key)) {
-            for (const pipeMesh of pipeMeshes) {
-                const diameter = pipeMesh.getDiameter()
-                const sign = evt.key === '>' ? 1 : -1
-                const newDiameter = diameter + PIPE_INCREMENT * sign
-                if (diameterIsValid(newDiameter)) {
-                    pipeMesh.setDiameter(newDiameter)
-                }
-            }
+    }
+
+    function incrementDiameterOfSelectedPipes(evt) {
+        if (app.mode !== AppModes.View) return
+        const PIPE_INCREMENT = 5
+        const pipeMeshes = getSelectedPipeMeshes(app)
+        if (['<', '>'].includes(evt.key)) {
+            const sign = evt.key === '>' ? 1 : -1
+            const increment = PIPE_INCREMENT * sign
+            const command = new IncrementPipeDiameter(pipeMeshes, increment)
+            historyManager.executeCommand(command)
         }
     }
-    domElement.addEventListener('keydown', changePipeDiameter)
+    domElement.addEventListener('keydown', setDiameterOfSelectedPipes)
+    domElement.addEventListener('keydown', incrementDiameterOfSelectedPipes)
+}
+
+
+function getSelectedPipeMeshes(app) {
+    const {
+        selectedObjectsSettings: { selectedObjects },
+    } = app
+    return selectedObjects.map(info => info.object)
+        .filter(object => object instanceof PipeMesh)
 }
 
 function diameterIsValid(diameter) {
