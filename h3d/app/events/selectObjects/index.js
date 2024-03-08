@@ -6,16 +6,6 @@ import { AppModes } from '../h3dModes.js'
  * @param {import('../../appHeat3d.js').Heat3DModel} app 
  */
 export function addSelectObjectsListener(app) {
-    addSelectMultipleObjectsListener(app)
-}
-
-/**
- * A function that adds pipe run listeners to a canvas
- * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
- * @param {object} selectedObjectsSettings
- */
-function addSelectMultipleObjectsListener(app) {
     const {
         domElement,
         threeElements,
@@ -44,7 +34,8 @@ function addSelectMultipleObjectsListener(app) {
         if (app.mode !== AppModes.View) return
         const ctrlKeyHeld = evt.detail.endEvent.ctrlKey
         raycaster.setFromCamera(pointer, camera)
-        const intersects = raycaster.intersectObjects( scene.children )
+        const intersects = raycaster.intersectObjects(scene.children)
+            .filter(i => i.object.userData.isSelectable)
         if (ctrlKeyHeld) {
             if (intersects.length) {
                 selectedObjects.push(intersects[0])

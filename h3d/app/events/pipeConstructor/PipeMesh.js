@@ -43,7 +43,8 @@ export class PipeMesh extends THREE.Mesh {
                 start,
                 end,
                 diameter,
-            }
+            },
+            isSelectable: true,
         })
     }
 
