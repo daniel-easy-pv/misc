@@ -149,7 +149,7 @@ function intersectingCandidates(scene, anchor, euler) {
         const intersectObject = raycaster.intersectObject(scene, true)
         for (const intersection of intersectObject) {
             const intersectionObject = intersection.object
-            if (intersection.object.userData.isWall) {
+            if (intersectionObject.userData.isWall) {
                 const intersectionPoint = direction.clone()
                     .multiplyScalar(intersection.distance - RADIATOR_HALF_THICKNESS)
                     .add(anchor)
@@ -157,7 +157,11 @@ function intersectingCandidates(scene, anchor, euler) {
                     intersectionPoint,
                     intersectionObject,
                 })
-            } else {
+            } 
+            else if (intersectionObject.userData.isRadiator) {
+                continue
+            }
+            else {
                 const intersectionPoint = intersection.point
                 pointsToSnap.push({
                     intersectionPoint,

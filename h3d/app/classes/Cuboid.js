@@ -14,7 +14,7 @@ export class Cuboid {
         this.bodyMaterial = bodyMaterial
     }
 
-    #getBody() {
+    getBody() {
         const { w, d, h, bodyMaterial } = this
         const points = [
             new THREE.Vector2(-w / 2, -d / 2),
@@ -68,7 +68,7 @@ export class Cuboid {
 
     getMesh() {
         const group = new THREE.Group()
-        const body = this.#getBody()
+        const body = this.getBody()
         group.add(body)
         for (const { position, rotation } of this.#getValvePositionsAndRotations()) {
             const valve = this.#getValve()

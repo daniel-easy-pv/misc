@@ -14,4 +14,9 @@ export class Radiator extends Cuboid {
             ...stuff })
 
     }
+    getBody() {
+        const body = super.getBody()
+        body.userData.isRadiator = true
+        return body
+    }
 }
