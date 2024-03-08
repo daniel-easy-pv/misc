@@ -3,7 +3,13 @@ import { PIPE_SNAP_RULE_INTERSECT_VALVE } from '../../consts'
 import { changeMaterialEmphasis } from '../../materials'
 import { getValvePositions } from './valveFinder'
 
-
+/**
+ * Returns the 3D position of the intersection (or near the intersection for a wall).
+ * 
+ * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {THREE.Vector3} target3 - the 3D coordinate that the mouse is pointing at
+ * @param {number} closestAxisIndex - the index of the axis the temporary pipe leg is running along
+ */
 export function pipeSnapRuleValve(app, target3, closestAxisIndex) {
     const {
         pipeListenerSettings,
@@ -16,36 +22,39 @@ export function pipeSnapRuleValve(app, target3, closestAxisIndex) {
     const axis = get3Frame(euler)[closestAxisIndex]
     
     const valves = getValvePositions(app)
-    const valveProjections = valves. map(valveData => {
+    const projections = valves. map(valveData => {
         const { valvePosition } = valveData
         const projectionLength = valvePosition.clone().sub(anchor).dot(axis)
         const valveProjection = axis.clone().multiplyScalar(projectionLength).add(anchor)
+        const distance = valveProjection.clone().sub(target3).length()
         return {
             valveProjection,
+            distance,
             ...valveData,
         }
     })
 
-    const valveSnap = (valveProjection) => {
-        return valveProjection.clone().sub(target3).length() <= PIPE_SNAP_RULE_INTERSECT_VALVE
+    const closestDistance = Math.min(...projections.map(p => p.distance))
+    const isClosest = (projection) => {
+        return projection.distance === closestDistance && closestDistance <= PIPE_SNAP_RULE_INTERSECT_VALVE
     }
 
-    const closestValveProjection = valveProjections.find(valveData => valveSnap(valveData.valveProjection))
+    const closestValves = projections.filter(isClosest)
     const uiChangeRule2Success = () => {
-        for (const valveData of valveProjections) {
-            const { valveProjection, valve } = valveData
-            const emphasis = valveSnap(valveProjection) ? 'highlighted' : 'original'
+        for (const projection of projections) {
+            const { valve } = projection
+            const emphasis = isClosest(projection) ? 'highlighted' : 'original'
             changeMaterialEmphasis(emphasis, valve)
         }
     }
     const uiChangeRule2Failure = () => {
-        for (const valveData of valveProjections) {
-            const { valve } = valveData
+        for (const projection of projections) {
+            const { valve } = projection
             changeMaterialEmphasis('original', valve)
         }
     }
-    if (closestValveProjection) {
-        const snapPoint = closestValveProjection.valveProjection
+    if (closestValves.length) {
+        const snapPoint = closestValves[0].valveProjection
         return {
             ok: true,
             value: snapPoint,

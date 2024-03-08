@@ -91,14 +91,7 @@ function findSecondClickDetailed(app, mousePos) {
     // RULE 1
     const rule1Result = pipeSnapRuleIntersect(app, mousePos)
     callbacks.push(rule1Result.callback)
-    if (rule1Result.ok) {
-        return {
-            snapPoint: rule1Result.value,
-            endPipeRun: rule1Result.endPipeRun,
-            callbacks,
-        }
-    }
-
+    
     // RULE 2
     const {
         target3,
@@ -106,19 +99,28 @@ function findSecondClickDetailed(app, mousePos) {
     } = underMouse(app, mousePos)
     const rule2Result = pipeSnapRuleValve(app, target3, closestAxisIndex)
     callbacks.push(rule2Result.callback)
-    if (rule2Result.ok) {
+    
+    if (rule1Result.ok) {
+        return {
+            snapPoint: rule1Result.value,
+            endPipeRun: rule1Result.endPipeRun,
+            callbacks,
+        }
+    }
+    else if (rule2Result.ok) {
         return {
             snapPoint: rule2Result.value,
             endPipeRun: false,
             callbacks,
         }
     }
-
-    // RULE 3
-    return {
-        snapPoint: target3,
-        endPipeRun: false,
-        callbacks,
+    else {
+        // RULE 3
+        return {
+            snapPoint: target3,
+            endPipeRun: false,
+            callbacks,
+        }
     }
 }
 

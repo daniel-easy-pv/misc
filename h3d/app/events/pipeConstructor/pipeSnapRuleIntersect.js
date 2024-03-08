@@ -158,10 +158,7 @@ function intersectingCandidates(scene, anchor, euler) {
                     intersectionObject,
                 })
             } 
-            else if (intersectionObject.userData.isRadiator) {
-                continue
-            }
-            else {
+            else if (intersectionObject.userData.isValve) {
                 const intersectionPoint = intersection.point
                 pointsToSnap.push({
                     intersectionPoint,
