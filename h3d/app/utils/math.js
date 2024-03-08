@@ -1,3 +1,11 @@
+/**
+ * Finds the index of the minimum value in an array based on the provided mapping function.
+ *
+ * @param {Array} arr - The input array.
+ * @param {Function} func - A mapping function to transform array elements for comparison.
+ * @throws {Error} Throws an error if the array is empty.
+ * @returns {number} - The index of the minimum value.
+ */
 export function argmin(arr, func) {
     if (arr.length === 0) {
         throw new Error('Array must not be empty')
