@@ -80,14 +80,14 @@ function getSelectedPipeMeshes(app) {
 
 function getIncreasedDiameter(pipeMesh) {
     const diameter = pipeMesh.getDiameter()
-    const materialType = pipeMesh.getMaterialType().name
+    const materialType = pipeMesh.getPipeMaterial().name
     const allowedPipeDiameters = allowedPipeDiametersByMaterial[materialType]
     return nextBiggest(allowedPipeDiameters, diameter)
 }
 
 function getDecreasedDiameter(pipeMesh) {
     const diameter = pipeMesh.getDiameter()
-    const materialType = pipeMesh.getMaterialType().name
+    const materialType = pipeMesh.getPipeMaterial().name
     const allowedPipeDiameters = allowedPipeDiametersByMaterial[materialType]
     return nextSmallest(allowedPipeDiameters, diameter)
 }

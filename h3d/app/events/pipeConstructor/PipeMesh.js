@@ -25,24 +25,47 @@ class PipeLegGeometry extends THREE.TubeGeometry {
     }
 }
 
+function newPipeMaterial(pipeMaterial) {
+    if (pipeMaterial === PipeMaterial.Copper) {
+        return new THREE.MeshPhongMaterial({
+            side: THREE.DoubleSide,
+            specular: 0xffa8a8,
+            color: 0xb87333,
+            shininess: 30,
+        })
+    } else if (pipeMaterial === PipeMaterial.Plastic) {
+        return new THREE.MeshStandardMaterial({
+            side: THREE.DoubleSide,
+            color: 0xffffff,
+        })
+    } else {
+        return new THREE.MeshStandardMaterial({
+            side: THREE.DoubleSide,
+            color: 0xff0000,
+        })
+    }
+}
+
 export class PipeMesh extends THREE.Mesh {
     /**
      * 
      * @param {THREE.Vector3} start - start coordinate of pipe
      * @param {THREE.Vector3} end - end coordinate of pipe
      * @param {number} diameter - diameter of the pipe
-     * @param {THREE.Material} material - material of pipe
+     * @param {PipeMaterial} pipeMaterial - material of pipe
      */
-    constructor(start, end, diameter, material) {
+    constructor(start, end, diameter, pipeMaterial) {
         const path = new PipeCurve([start, end])
         const radius = diameter / 2
         const geometry = new PipeLegGeometry(path, radius)
+        const material = newPipeMaterial(pipeMaterial)
         super(geometry, material)
         Object.assign(this.userData, {
             eStorePipes: {
                 start,
                 end,
                 diameter,
+                pipeMaterial,
             },
             isSelectable: true,
         })
@@ -59,11 +82,12 @@ export class PipeMesh extends THREE.Mesh {
     }
 
     /**
-     * Returns the material type
-     * @abstract
+     * Returns the pipe material.
      * @returns {PipeMaterial}
      */
-    getMaterialType() {}
+    getPipeMaterial() {
+        return this.userData.eStorePipes.pipeMaterial
+    }
 
     /**
      * Sets the diameter of the pipe.
@@ -85,31 +109,13 @@ export class PipeMesh extends THREE.Mesh {
 
 export class CopperPipeMesh extends PipeMesh {
     constructor(start, end, diameter) {
-        const material = new THREE.MeshPhongMaterial({
-            side: THREE.DoubleSide,
-            specular: 0xffa8a8,
-            color: 0xb87333,
-            shininess: 30,
-        })
-        super(start, end, diameter, material)
-    }
-
-    getMaterialType() {
-        return PipeMaterial.Copper
+        super(start, end, diameter, PipeMaterial.Copper)
     }
 }
 
 export class PlasticPipeMesh extends PipeMesh {
     constructor(start, end, diameter) {
-        const material = new THREE.MeshStandardMaterial({
-            side: THREE.DoubleSide,
-            color: 0xffffff,
-        })
-        super(start, end, diameter, material)
-    }
-
-    getMaterialType() {
-        return PipeMaterial.Plastic
+        super(start, end, diameter, PipeMaterial.Plastic)
     }
 }
 
