@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { Valve } from '../../lib/classes/Valve'
-import { materialConfig } from '../../materials'
+import { materialConfig } from '../../materials/materials.js'
 
 const VALVE_RADIUS = 20
 const VALVE_HEIGHT = 40

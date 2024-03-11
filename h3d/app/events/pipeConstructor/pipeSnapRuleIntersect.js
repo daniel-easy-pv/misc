@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { get3Frame } from './addPipeListener.js'
 import { ScreenPosition } from '../../lib/utils/ScreenPosition.js'
 import { argmin } from '../../lib/utils/math.js'
-import { changeMaterialEmphasis } from '../../materials/index.js'
+import { changeMaterialEmphasis } from '../../materials/materials.js'
 
 /**
  * A value in px to for mouse to snap to point of intersection with raycaster.

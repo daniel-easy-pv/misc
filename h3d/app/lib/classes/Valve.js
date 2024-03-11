@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { materialConfig } from '../../materials'
+import { materialConfig } from '../../materials/materials.js'
 
 export class Valve {
     constructor(r, h) {
