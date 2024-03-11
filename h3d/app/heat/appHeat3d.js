@@ -6,9 +6,9 @@ import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from '../lib/events/events.js'
 import { initSelectedObjectsSettings } from '../lib/init/initSelectObjects.js'
 import { initPipeListenerSettings } from '../lib/init/initPipeListenerSettings.js'
+import { FRUSTUM_SIZE } from '../lib/init/consts.js'
 
 const LAYER_MAGENTA_SPHERES = 1
-export const FRUSTUM_SIZE = 15000
 
 /**
  * @typedef {object} ETempFloorplan - this should be be passed in from Heatpunk as

@@ -1,4 +1,4 @@
-import { FRUSTUM_SIZE } from '../../heat/appHeat3d'
+import { FRUSTUM_SIZE } from '../init/consts'
 
 export function addWindowListeners(app) {
     const {
