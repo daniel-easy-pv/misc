@@ -94,15 +94,31 @@ export class PipeMesh extends THREE.Mesh {
     }
 
     /**
+     * Returns the start of the pipe as type THREE.Vector3.
+     * 
+     * @returns {THREE.Vector3}
+     */
+    getStart() {
+        return new THREE.Vector3(...this.userData.constructorParameters.start)
+    }
+
+    /**
+     * Returns the end of the pipe as type THREE.Vector3.
+     * 
+     * @returns {THREE.Vector3}
+     */
+    getEnd() {
+        return new THREE.Vector3(...this.userData.constructorParameters.end)
+    }
+
+    /**
      * Sets the diameter of the pipe.
      * 
      * @param {number} newDiameter 
      */
     setDiameter(newDiameter) {
-        const { 
-            start,
-            end,
-        } = this.userData.constructorParameters
+        const start = this.getStart()
+        const end = this.getEnd()
         const radius = newDiameter / 2
         const path = new PipeCurve([start, end])
         this.geometry.dispose()
