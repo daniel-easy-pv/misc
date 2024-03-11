@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { PrismGeometry } from './prism.js'
+import { PrismGeometry } from './utils/prism.js'
 import { CSG } from 'three-csg-ts'
 import { getRectangleProperties } from './preprocess.js'
 import { HEIGHT_ABOVE_GROUND, MESH_COLORS } from './consts.js'

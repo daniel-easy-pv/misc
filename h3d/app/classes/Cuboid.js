@@ -1,4 +1,4 @@
-import { PrismGeometry } from '../prism'
+import { PrismGeometry } from '../utils/prism'
 import * as THREE from 'three'
 import { Valve } from './Valve'
 

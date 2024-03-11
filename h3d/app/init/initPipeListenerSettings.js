@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { HistoryManager } from '../events/historyManager'
-import { getMeshByUserDataValue } from '../utils'
+import { getMeshByUserDataValue } from '../utils/threeUtils'
 import { PipeMaterial } from '../materials/PipeMaterial'
 /**
  * Settings for a pipe listener.
