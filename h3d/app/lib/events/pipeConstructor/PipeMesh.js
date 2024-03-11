@@ -66,15 +66,7 @@ export class PipeMesh extends THREE.Mesh {
         const geometry = new PipeLegGeometry(path, radius)
         const material = newPipeMaterial(PipeMaterial[pipeMaterialName])
         super(geometry, material)
-        Object.assign(this.userData, {
-            eStorePipes: {
-                start,
-                end,
-                diameter,
-                pipeMaterialName,
-            },
-            isSelectable: true,
-        })
+        this.userData.isSelectable = true
         recordConstructorParameters(this, constructorParameters)
     }
 
@@ -84,16 +76,16 @@ export class PipeMesh extends THREE.Mesh {
      * @returns {number}
      */
     getDiameter() {
-        const { diameter } = this.userData.eStorePipes
+        const { diameter } = this.userData.constructorParameters
         return Number(diameter)
     }
 
     /**
-     * Returns the pipe material.
-     * @returns {PipeMaterial}
+     * Returns the pipe material name.
+     * @returns {string}
      */
-    getPipeMaterial() {
-        return this.userData.eStorePipes.pipeMaterial
+    getPipeMaterialName() {
+        return this.userData.constructorParameters.pipeMaterialName
     }
 
     /**
@@ -105,12 +97,12 @@ export class PipeMesh extends THREE.Mesh {
         const { 
             start,
             end,
-        } = this.userData.eStorePipes
+        } = this.userData.constructorParameters
         const radius = newDiameter / 2
         const path = new PipeCurve([start, end])
         this.geometry.dispose()
         this.geometry = new PipeLegGeometry(path, radius)
-        this.userData.eStorePipes.diameter = newDiameter
+        this.userData.constructorParameters.diameter = newDiameter
     }
 }
 
