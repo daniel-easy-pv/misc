@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { PrismGeometry } from '../utils/prism.js'
+import { PrismGeometry } from '../lib/utils/prism.js'
 import { getWalls } from './walls.js'
 import { FLOOR_THICKNESS, HEIGHT_ABOVE_GROUND } from '../consts.js'
 import { getRectangleProperties } from './preprocess.js'
