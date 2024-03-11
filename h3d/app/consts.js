@@ -12,10 +12,3 @@ export const MESH_COLORS = {
 }
 
 export const FLOOR_THICKNESS = 100
-
-/**
- * A value in px to for mouse to snap to point of intersection with raycaster.
- */
-export const PIPE_SNAP_RULE_INTERSECT_THRESHOLD = 40
-
-export const PIPE_SNAP_RULE_INTERSECT_VALVE = 100

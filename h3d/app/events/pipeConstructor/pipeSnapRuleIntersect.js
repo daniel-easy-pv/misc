@@ -2,8 +2,12 @@ import * as THREE from 'three'
 import { get3Frame } from './index.js'
 import { ScreenPosition } from '../../lib/utils/ScreenPosition.js'
 import { argmin } from '../../lib/utils/math.js'
-import { PIPE_SNAP_RULE_INTERSECT_THRESHOLD } from '../../consts.js'
 import { changeMaterialEmphasis } from '../../materials/index.js'
+
+/**
+ * A value in px to for mouse to snap to point of intersection with raycaster.
+ */
+const PIPE_SNAP_RULE_INTERSECT_THRESHOLD = 40
 
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).

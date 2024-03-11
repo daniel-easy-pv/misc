@@ -1,7 +1,8 @@
 import { get3Frame } from '.'
-import { PIPE_SNAP_RULE_INTERSECT_VALVE } from '../../consts'
 import { changeMaterialEmphasis } from '../../materials'
 import { getValvePositions } from './valveFinder'
+
+const PIPE_SNAP_RULE_INTERSECT_VALVE = 100
 
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).
