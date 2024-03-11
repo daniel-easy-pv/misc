@@ -77,4 +77,18 @@ export class TrailCreator {
 
         initEvents(this)
     }
+
+    pullData() {
+        const { scene } = this.threeElements
+        const data = {}
+        scene.traverse(function(elt) {
+            if (elt.userData.constructorParameters) {
+                const key = elt.constructor.name
+                const value = elt.userData.constructorParameters
+                data[key] ??= []
+                data[key].push(value)
+            }
+        })
+        return data
+    }
 }
