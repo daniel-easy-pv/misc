@@ -1,4 +1,4 @@
-import { Heat3DModel } from './app/appHeat3d.js'
+import { Heat3DModel } from './app/heat/appHeat3d.js'
 import { eTempFloorplan } from './levelSample.js'
 import * as THREE from 'three'
 window.eTempFloorplan = eTempFloorplan

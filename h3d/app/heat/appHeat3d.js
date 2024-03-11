@@ -1,12 +1,12 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLevel } from './levelShapes.js'
-import { getLighting } from './materials/lighting.js'
+import { getLighting } from '../materials/lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
-import { initEvents } from './events/index.js'
-import { FRUSTUM_SIZE, LAYER_MAGENTA_SPHERES } from './consts.js'
-import { initSelectedObjectsSettings } from './init/initSelectObjects.js'
-import { initPipeListenerSettings } from './init/initPipeListenerSettings.js'
+import { initEvents } from '../events/index.js'
+import { FRUSTUM_SIZE, LAYER_MAGENTA_SPHERES } from '../consts.js'
+import { initSelectedObjectsSettings } from '../init/initSelectObjects.js'
+import { initPipeListenerSettings } from '../init/initPipeListenerSettings.js'
 
 /**
  * @typedef {object} ETempFloorplan - this should be be passed in from Heatpunk as

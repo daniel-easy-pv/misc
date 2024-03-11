@@ -1,1 +1,1 @@
-export * from './appHeat3d.js'
+export * from './heat/appHeat3d.js'
