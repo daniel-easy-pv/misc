@@ -29,7 +29,11 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         this.anchor = anchor
         this.secondClick = secondClick
         this.endPipeRun = endPipeRun
-        const pipeMesh = new PipeMesh(anchor, secondClick, pipeDiameter, pipeMaterial.name)
+        const start = anchor
+        const end = secondClick
+        const diameter = pipeDiameter
+        const pipeMaterialName = pipeMaterial.name
+        const pipeMesh = new PipeMesh({ start, end, diameter, pipeMaterialName })
         pipeMesh.userData.isPipeLeg = true
         this.pipeMesh = pipeMesh
 

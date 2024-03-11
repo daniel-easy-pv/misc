@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { PipeMaterial } from '../../../materials/PipeMaterial'
+import { recordConstructorParameters } from '../../database/databaseMixin'
 class PipeCurve extends THREE.Curve {
     constructor(arr) {
         super()
@@ -48,13 +49,18 @@ function newPipeMaterial(pipeMaterial) {
 
 export class PipeMesh extends THREE.Mesh {
     /**
-     * 
-     * @param {THREE.Vector3} start - start coordinate of pipe
-     * @param {THREE.Vector3} end - end coordinate of pipe
-     * @param {number} diameter - diameter of the pipe
-     * @param {string} pipeMaterialName - material of pipe as a string
+     * @typedef {Object} PipeMeshParameters
+     * @property {THREE.Vector3} start - Start coordinate of the pipe.
+     * @property {THREE.Vector3} end - End coordinate of the pipe.
+     * @property {number} diameter - Diameter of the pipe.
+     * @property {string} pipeMaterialName - Material of the pipe as a string.
      */
-    constructor(start, end, diameter, pipeMaterialName) {
+
+    /**
+     * @param {PipeMeshParameters} params - Parameters for creating the PipeMesh.
+     */
+    constructor(constructorParameters) {
+        const {start, end, diameter, pipeMaterialName} = constructorParameters
         const path = new PipeCurve([start, end])
         const radius = diameter / 2
         const geometry = new PipeLegGeometry(path, radius)
@@ -69,6 +75,7 @@ export class PipeMesh extends THREE.Mesh {
             },
             isSelectable: true,
         })
+        recordConstructorParameters(this, constructorParameters)
     }
 
     /**
