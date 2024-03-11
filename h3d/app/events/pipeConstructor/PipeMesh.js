@@ -52,20 +52,20 @@ export class PipeMesh extends THREE.Mesh {
      * @param {THREE.Vector3} start - start coordinate of pipe
      * @param {THREE.Vector3} end - end coordinate of pipe
      * @param {number} diameter - diameter of the pipe
-     * @param {PipeMaterial} pipeMaterial - material of pipe
+     * @param {string} pipeMaterialName - material of pipe as a string
      */
-    constructor(start, end, diameter, pipeMaterial) {
+    constructor(start, end, diameter, pipeMaterialName) {
         const path = new PipeCurve([start, end])
         const radius = diameter / 2
         const geometry = new PipeLegGeometry(path, radius)
-        const material = newPipeMaterial(pipeMaterial)
+        const material = newPipeMaterial(PipeMaterial[pipeMaterialName])
         super(geometry, material)
         Object.assign(this.userData, {
             eStorePipes: {
                 start,
                 end,
                 diameter,
-                pipeMaterial,
+                pipeMaterialName,
             },
             isSelectable: true,
         })
@@ -107,18 +107,6 @@ export class PipeMesh extends THREE.Mesh {
     }
 }
 
-export class CopperPipeMesh extends PipeMesh {
-    constructor(start, end, diameter) {
-        super(start, end, diameter, PipeMaterial.Copper)
-    }
-}
-
-export class PlasticPipeMesh extends PipeMesh {
-    constructor(start, end, diameter) {
-        super(start, end, diameter, PipeMaterial.Plastic)
-    }
-}
-
 export const allowedPipeDiametersByMaterial = {
     Copper: [
         8, 10, 15, 22, 28, 35, 42, 54, 67, 76, 108,
@@ -126,40 +114,4 @@ export const allowedPipeDiametersByMaterial = {
     Plastic: [
         10, 12, 15, 16, 18, 20, 22, 25, 28, 32, 40, 50, 63, 75, 90, 110,
     ]
-}
-
-export class PipeMeshFactory {
-    /**
-     * Creates a factory that builds pipes of a given setting.
-     * 
-     * @param {THREE.Vector3} start 
-     * @param {THREE.Vector3} end 
-     * @param {number} diameter 
-     * @param {PipeMaterial} material 
-     */
-    constructor(start, end, diameter, material) {
-        this.start = start
-        this.end = end
-        this.diameter = diameter
-        this.material = material
-    }
-
-    /**
-     * Builds a pipe given the configurations.
-     * 
-     * @returns 
-     */
-    build() {
-        const {
-            start, 
-            end,
-            diameter,
-            material,
-        } = this
-        if (material === PipeMaterial.Copper) {
-            return new CopperPipeMesh(start, end, diameter)
-        } else {
-            return new PlasticPipeMesh(start, end, diameter)
-        }
-    }
 }

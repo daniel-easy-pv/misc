@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { UndoableEvent } from '../historyManager.js'
-import { PipeMeshFactory } from './PipeMesh.js'
+import { PipeMesh } from './PipeMesh.js'
 
 /**
  * Given an anchor point, this adds a pipe leg to the pipe run.
@@ -29,7 +29,7 @@ export class AddIntermediatePipeNode extends UndoableEvent {
         this.anchor = anchor
         this.secondClick = secondClick
         this.endPipeRun = endPipeRun
-        const pipeMesh = new PipeMeshFactory(anchor, secondClick, pipeDiameter, pipeMaterial).build()
+        const pipeMesh = new PipeMesh(anchor, secondClick, pipeDiameter, pipeMaterial.name)
         pipeMesh.userData.isPipeLeg = true
         this.pipeMesh = pipeMesh
 

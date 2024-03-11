@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { ScreenPosition } from '../../ScreenPosition'
 import { argmin } from '../../utils/math.js'
-import { PipeMeshFactory } from './PipeMesh.js'
+import { PipeMesh } from './PipeMesh.js'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './index.js'
 import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.js'
@@ -68,7 +68,7 @@ export function addPipeContinuationListener(app) {
             pipeDiameter,
             pipeMaterial,
         } = pipeListenerSettings
-        const pipeMesh = new PipeMeshFactory(anchor, snapPoint, pipeDiameter, pipeMaterial).build()
+        const pipeMesh = new PipeMesh(anchor, snapPoint, pipeDiameter, pipeMaterial.name)
         tempPipes.clear()
         tempPipes.add(pipeMesh)
     }
