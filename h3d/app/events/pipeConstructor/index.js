@@ -1,7 +1,18 @@
-import { UNITS } from '../../consts.js'
+import * as THREE from 'three'
 import { addPipeContinuationListener } from './pipeContinuation.js'
 import { addPipeAnchoringListener } from './pipeAnchoring.js'
 import { addPipeKeyboardListeners } from './pipeKeyboardListeners.js'
+
+/**
+ * @const
+ * @type {THREE.Vector3[]}
+ * the standard coordinate system
+ */
+const UNITS = [
+    new THREE.Vector3(1, 0, 0),
+    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(0, 0, 1),
+]
 
 /**
  * A function that adds pipe run listeners to a canvas

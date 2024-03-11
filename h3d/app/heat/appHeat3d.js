@@ -4,9 +4,11 @@ import { getLevel } from './levelShapes.js'
 import { getLighting } from '../materials/lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
 import { initEvents } from '../events/index.js'
-import { FRUSTUM_SIZE, LAYER_MAGENTA_SPHERES } from '../consts.js'
 import { initSelectedObjectsSettings } from '../lib/init/initSelectObjects.js'
 import { initPipeListenerSettings } from '../lib/init/initPipeListenerSettings.js'
+
+const LAYER_MAGENTA_SPHERES = 1
+export const FRUSTUM_SIZE = 15000
 
 /**
  * @typedef {object} ETempFloorplan - this should be be passed in from Heatpunk as

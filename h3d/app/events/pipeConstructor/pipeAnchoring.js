@@ -3,8 +3,8 @@ import { AppModes } from '../h3dModes.js'
 import { AddBeginningPipeNode } from './eventAddBeginningPipeNode.js'
 import { getMeshByUserDataValue } from '../../lib/utils/threeUtils.js'
 import { ScreenPosition } from '../../lib/utils/ScreenPosition.js'
-import { MOUSE_ACCURACY_THRESHOLD } from '../../consts.js'
 
+const MOUSE_ACCURACY_THRESHOLD = 20 // how many pixels within to click on
 /**
  * Add listener for beginning a pipe run.
  * 
