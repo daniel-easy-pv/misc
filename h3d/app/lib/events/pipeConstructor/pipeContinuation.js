@@ -68,8 +68,8 @@ export function addPipeContinuationListener(app) {
             pipeDiameter,
             pipeMaterial,
         } = pipeListenerSettings
-        const start = anchor
-        const end = snapPoint
+        const start = [anchor.x, anchor.y, anchor.z]
+        const end = [snapPoint.x, snapPoint.y, snapPoint.z]
         const diameter = pipeDiameter
         const pipeMaterialName = pipeMaterial.name
         const pipeMesh = new PipeMesh({ start, end, diameter, pipeMaterialName })

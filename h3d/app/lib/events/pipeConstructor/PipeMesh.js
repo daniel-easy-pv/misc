@@ -49,19 +49,24 @@ function newPipeMaterial(pipeMaterial) {
 
 export class PipeMesh extends THREE.Mesh {
     /**
+     * @typedef {Array<number, number, number>} Array3
+     */
+    /**
      * @typedef {Object} PipeMeshParameters
-     * @property {THREE.Vector3} start - Start coordinate of the pipe.
-     * @property {THREE.Vector3} end - End coordinate of the pipe.
+     * @property {Array3} start - Start coordinate of the pipe.
+     * @property {Array3} end - End coordinate of the pipe.
      * @property {number} diameter - Diameter of the pipe.
      * @property {string} pipeMaterialName - Material of the pipe as a string.
      */
 
     /**
-     * @param {PipeMeshParameters} params - Parameters for creating the PipeMesh.
+     * @param {PipeMeshParameters} constructorParameters - Parameters for creating the PipeMesh.
      */
     constructor(constructorParameters) {
         const {start, end, diameter, pipeMaterialName} = constructorParameters
-        const path = new PipeCurve([start, end])
+        const start3 = new THREE.Vector3(...start)
+        const end3 = new THREE.Vector3(...end)
+        const path = new PipeCurve([start3, end3])
         const radius = diameter / 2
         const geometry = new PipeLegGeometry(path, radius)
         const material = newPipeMaterial(PipeMaterial[pipeMaterialName])
