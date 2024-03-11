@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { AppModes } from '../h3dModes.js'
 import { AddBeginningPipeNode } from './eventAddBeginningPipeNode.js'
-import { getMeshByUserDataValue } from '../../lib/utils/threeUtils.js'
-import { ScreenPosition } from '../../lib/utils/ScreenPosition.js'
+import { getMeshByUserDataValue } from '../../utils/threeUtils.js'
+import { ScreenPosition } from '../../utils/ScreenPosition.js'
 
 const MOUSE_ACCURACY_THRESHOLD = 20 // how many pixels within to click on
 /**

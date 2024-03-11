@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { PipeMaterial } from '../../materials/PipeMaterial'
+import { PipeMaterial } from '../../../materials/PipeMaterial'
 class PipeCurve extends THREE.Curve {
     constructor(arr) {
         super()

@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { getMeshByUserDataValue } from '../../lib/utils/threeUtils.js'
+import { getMeshByUserDataValue } from '../../utils/threeUtils.js'
 
 /**
  * Returns the valves and their world coordinates in the scene.

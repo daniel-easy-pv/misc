@@ -1,5 +1,5 @@
+import { changeMaterialEmphasis } from '../../../materials/materials.js'
 import { get3Frame } from './addPipeListener.js'
-import { changeMaterialEmphasis } from '../../materials/materials.js'
 import { getValvePositions } from './valveFinder.js'
 
 const PIPE_SNAP_RULE_INTERSECT_VALVE = 100
