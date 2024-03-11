@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { PrismGeometry } from '../lib/utils/prism.js'
 import { CSG } from 'three-csg-ts'
 import { getRectangleProperties } from './preprocess.js'
-import { HEIGHT_ABOVE_GROUND, MESH_COLORS } from './consts.js'
+import { HEIGHT_ABOVE_GROUND, MESH_COLORS } from './pipeSizingConsts.js'
 import { materialConfig } from '../materials/materials.js'
 
 export function getWalls(level) {

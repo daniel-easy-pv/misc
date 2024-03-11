@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { PrismGeometry } from '../lib/utils/prism.js'
 import { getWalls } from './walls.js'
-import { FLOOR_THICKNESS, HEIGHT_ABOVE_GROUND } from './consts.js'
+import { FLOOR_THICKNESS, HEIGHT_ABOVE_GROUND } from './pipeSizingConsts.js'
 import { getRectangleProperties } from './preprocess.js'
 import { Radiator } from './classes/Radiator.js'
 import { HeatPumpCylinder } from './classes/HeatPumpCylinder.js'
