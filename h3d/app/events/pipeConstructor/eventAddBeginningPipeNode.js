@@ -3,7 +3,7 @@ import { endPipeRun } from './eventEndPipeRun.js'
 
 /**
  * Given an anchor point, this adds a pipe leg to the pipe run.
- * @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
+ * @param {import('../../lib/init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
  * @param {import('THREE').Vector3} anchor
  */
 export class AddBeginningPipeNode extends UndoableEvent {

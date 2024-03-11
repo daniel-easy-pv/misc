@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { Cuboid } from './Cuboid'
+import { Cuboid } from '../lib/classes/Cuboid'
 
 export class Radiator extends Cuboid {
     constructor({ ...stuff } = {}) {

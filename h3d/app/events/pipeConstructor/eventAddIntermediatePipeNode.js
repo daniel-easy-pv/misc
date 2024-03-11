@@ -8,7 +8,7 @@ import { PipeMesh } from './PipeMesh.js'
 export class AddIntermediatePipeNode extends UndoableEvent {
     /**
      * 
-     * @param {import('../../init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
+     * @param {import('../../lib/init/initPipeListenerSettings.js').PipeListenerSettings} pipeListenerSettings 
      * @param {THREE.Vector3} secondClick 
      * @param {boolean} endPipeRun
      */

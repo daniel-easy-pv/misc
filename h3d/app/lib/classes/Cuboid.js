@@ -1,6 +1,6 @@
-import { PrismGeometry } from '../lib/utils/prism'
+import { PrismGeometry } from '../utils/prism'
 import * as THREE from 'three'
-import { Valve } from './Valve'
+import { Valve } from '../../classes/Valve'
 
 const VALVE_RADIUS = 20
 const VALVE_HEIGHT = 40
