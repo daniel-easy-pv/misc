@@ -1,10 +1,10 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLighting } from '../materials/lighting.js'
-import { initEvents } from '../lib/events/events.js'
-import { initSelectedObjectsSettings } from '../lib/init/initSelectObjects.js'
-import { initPipeListenerSettings } from '../lib/init/initPipeListenerSettings.js'
-import { FRUSTUM_SIZE } from '../lib/init/consts.js'
+import { initEvents } from './events/events.js'
+import { initSelectedObjectsSettings } from './init/initSelectObjects.js'
+import { initPipeListenerSettings } from './init/initPipeListenerSettings.js'
+import { FRUSTUM_SIZE } from './init/consts.js'
 
 const LAYER_MAGENTA_SPHERES = 1
 
