@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { ScreenPosition } from '../../ScreenPosition'
+import { ScreenPosition } from '../../utils/ScreenPosition.js'
 import { argmin } from '../../utils/math.js'
 import { PipeMesh } from './PipeMesh.js'
 import { AppModes } from '../h3dModes.js'

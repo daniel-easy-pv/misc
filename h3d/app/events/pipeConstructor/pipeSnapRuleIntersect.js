@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { get3Frame } from './index.js'
-import { ScreenPosition } from '../../ScreenPosition.js'
+import { ScreenPosition } from '../../utils/ScreenPosition.js'
 import { argmin } from '../../utils/math.js'
 import { PIPE_SNAP_RULE_INTERSECT_THRESHOLD } from '../../consts.js'
 import { changeMaterialEmphasis } from '../../materials/index.js'
