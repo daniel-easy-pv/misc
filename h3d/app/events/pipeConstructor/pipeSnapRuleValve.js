@@ -1,6 +1,6 @@
-import { get3Frame } from '.'
-import { changeMaterialEmphasis } from '../../materials'
-import { getValvePositions } from './valveFinder'
+import { get3Frame } from './index.js'
+import { changeMaterialEmphasis } from '../../materials/index.js'
+import { getValvePositions } from './valveFinder.js'
 
 const PIPE_SNAP_RULE_INTERSECT_VALVE = 100
 
