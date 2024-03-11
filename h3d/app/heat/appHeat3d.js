@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { getLevel } from './levelShapes.js'
 import { getLighting } from '../materials/lighting.js'
 import { getBarycenter, preprocess } from './preprocess.js'
-import { initEvents } from '../events/index.js'
+import { initEvents } from '../events/events.js'
 import { initSelectedObjectsSettings } from '../lib/init/initSelectObjects.js'
 import { initPipeListenerSettings } from '../lib/init/initPipeListenerSettings.js'
 

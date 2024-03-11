@@ -1,4 +1,4 @@
-import { get3Frame } from './index.js'
+import { get3Frame } from './addPipeListener.js'
 import { changeMaterialEmphasis } from '../../materials/index.js'
 import { getValvePositions } from './valveFinder.js'
 
