@@ -8,7 +8,7 @@ const MOUSE_ACCURACY_THRESHOLD = 20 // how many pixels within to click on
 /**
  * Add listener for beginning a pipe run.
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 export function addPipeAnchoringListener(app) {
     const {

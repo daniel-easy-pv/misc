@@ -12,7 +12,7 @@ const PIPE_SNAP_RULE_INTERSECT_THRESHOLD = 40
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @param {THREE.Vector2} mousePos 
  */
 export function pipeSnapRuleIntersect(app, mousePos) {
@@ -88,7 +88,7 @@ export function pipeSnapRuleIntersect(app, mousePos) {
 
 /**
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @param {THREE.Vector3} anchor 
  * @param {THREE.Vector2} mousePos 
  * @returns {CandidateObject | null}

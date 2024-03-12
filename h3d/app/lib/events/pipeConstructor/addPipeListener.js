@@ -17,7 +17,7 @@ const UNITS = [
 /**
  * A function that adds pipe run listeners to a canvas
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 export function addPipeListener(app) {
     addPipeAnchoringListener(app)

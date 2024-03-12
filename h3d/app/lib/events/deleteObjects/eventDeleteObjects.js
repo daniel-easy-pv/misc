@@ -6,7 +6,7 @@ import { UndoableEvent } from '../historyManager.js'
 export class DeleteObjects extends UndoableEvent {
     /**
      * 
-     * @param {import('../../appHeat3d.js').Heat3DModel} app 
+     * @param {import('../../appHeat3d.ts').Heat3DModel} app 
      */
     constructor(app) {
         super()

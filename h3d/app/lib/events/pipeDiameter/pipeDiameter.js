@@ -8,7 +8,7 @@ import { SetPipeDiameter } from './eventSetPipeDiameter.js'
 /**
  * A function that adds pipe diameter change listeners to a canvas
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 export function addPipeDiameterListener(app) {
     addChangeDiameterListener(app)
@@ -17,7 +17,7 @@ export function addPipeDiameterListener(app) {
 /**
  * A function that changes the diameter of selected pipes
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 function addChangeDiameterListener(app) {
     const {
@@ -67,7 +67,7 @@ function addChangeDiameterListener(app) {
 
 /**
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @returns {PipeMesh[]}
  */
 function getSelectedPipeMeshes(app) {

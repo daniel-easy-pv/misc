@@ -9,12 +9,23 @@ import { FRUSTUM_SIZE } from './init/consts.js'
 const LAYER_MAGENTA_SPHERES = 1
 
 export class TrailCreator {
+    domElement: HTMLElement
+    threeElements: { 
+        scene: THREE.Scene; 
+        camera: THREE.OrthographicCamera; 
+        renderer: THREE.WebGLRenderer; 
+        pointer: THREE.Vector2 }
+    selectedObjectsSettings: import("./init/initSelectObjects").SelectedObjectsSettings
+    pipeListenerSettings: import("./init/initPipeListenerSettings").PipeListenerSettings
+    destroy: () => void
     constructor(
-        domElementName,
-        data,
-        barycenter,
+        domElementName: string,
+        barycenter: number[],
     ) {
         const domElement = document.getElementById(domElementName)
+        if (!domElement) {
+            throw Error(`#${domElementName} does not exist.`)
+        }
         const scene = new THREE.Scene()
         const aspect = domElement.offsetWidth / domElement.offsetHeight
         const perspectiveCamera = new THREE.PerspectiveCamera( 75, domElement.offsetWidth / domElement.offsetHeight,
@@ -78,6 +89,10 @@ export class TrailCreator {
         initEvents(this)
     }
 
+    /**
+     * Traverses scene's descendents with `constructorParameters` and collects them into a returned object.
+     * @returns {object}
+     */
     pullData() {
         const { scene } = this.threeElements
         const data = {}

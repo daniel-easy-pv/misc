@@ -5,7 +5,7 @@ import { EndPipeRun } from './eventEndPipeRun.js'
 
 /**
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 export function addPipeKeyboardListeners(app) {
     const {

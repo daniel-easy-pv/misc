@@ -7,7 +7,7 @@ const PIPE_SNAP_RULE_INTERSECT_VALVE = 100
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @param {THREE.Vector3} target3 - the 3D coordinate that the mouse is pointing at
  * @param {number} closestAxisIndex - the index of the axis the temporary pipe leg is running along
  */

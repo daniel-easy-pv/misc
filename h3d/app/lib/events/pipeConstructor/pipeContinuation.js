@@ -10,7 +10,7 @@ import { AddIntermediatePipeNode } from './eventAddIntermediatePipeNode.js'
 
 /**
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  */
 export function addPipeContinuationListener(app) {
     const {
@@ -87,7 +87,7 @@ export function addPipeContinuationListener(app) {
  * 2. if one of the coordinates match a valve coordinate within `PIPE_SNAP_RULE_INTERSECT_VALVE`mm.
  * 3. freehand
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @param {THREE.Vector2} mousePos 
  */
 function findSecondClickDetailed(app, mousePos) {
@@ -132,7 +132,7 @@ function findSecondClickDetailed(app, mousePos) {
 /**
  * Returns the 3D position under the mouse, snapped to the closest axis.
  * 
- * @param {import('../../appHeat3d.js').Heat3DModel} app 
+ * @param {import('../../appHeat3d.ts').Heat3DModel} app 
  * @param {THREE.Vector2} mousePos 
  */
 function underMouse(app, mousePos) {
