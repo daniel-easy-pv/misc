@@ -4,10 +4,30 @@
     height: 70vh;
     position: relative;
     top: 20px;
-    left: 50px;
+    left: 0;
     overflow: hidden;
 }
 
 body {
     height: 100%;
+}
+
+span.mono {
+    font-family: monospace;
+}
+
+#help-box {
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    border: solid 2px black;
+    border-radius: 10px;
+    width: 20vw;
+    padding: 10px;
+}
+
+kbd {
+    border: solid 1px gray;
+    border-radius: 3px;
+    padding: 2px 5px;
 }

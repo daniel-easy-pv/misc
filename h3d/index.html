@@ -23,7 +23,26 @@
 </head>
 <body>
     <h1>Heat 3D Model</h1>
-    <div id='temp-heat-3d' tabindex="0">
+    <div id='temp-heat-3d' tabindex="0"></div>
+    <div id="help-box">
+        <h3>Modes</h3>
+        <p><kbd>i</kbd> Insert mode</p>
+        <p><kbd>Esc</kbd> View mode</p>
+        <h3><span class="mono">View</span> mode</h3>
+        <p>Click to select pipes.</p>
+        <p>Hold <kbd>Ctrl</kbd> to select multiple pipes.</p>
+        <p><kbd>Del</kbd> Delete selected pipes</p>
+        <p><kbd>&lt;</kbd> Decrease diameter of selected pipes</p>
+        <p><kbd>&gt;</kbd> Increase diameter of selected pipes</p>
+        <p><kbd>d</kbd> Enter <u>d</u>iameter</p>
+        <h3><span class="mono">Insert</span> mode</h3>
+        <p><kbd>&lt;</kbd> Decrease pipe diameter</p>
+        <p><kbd>&gt;</kbd> Increase pipe diameter</p>
+        <p><kbd>d</kbd> Enter <u>d</u>iameter</p>
+        <p><kbd>c</kbd> Change to <u>c</u>opper</p>
+        <p><kbd>p</kbd> Change to <u>p</u>lastic</p>
+        <p><kbd>e</kbd> <u>E</u>nd pipe run</p>
+        <p><kbd>r</kbd> <u>R</u>otate by 45 degrees</p>
     </div>
     <!-- Add your JavaScript at the end of the body tag for better performance -->
     <script src="index.js" type="module"></script>
