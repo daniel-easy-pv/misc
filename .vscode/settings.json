@@ -6,5 +6,9 @@
     },
     "files.associations": {
       "*.html": "html"
-    }
+    },
+    "colorize.languages": [
+      "javascript",
+      "typescript"
+    ]
   }

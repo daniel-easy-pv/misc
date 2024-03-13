@@ -56,6 +56,9 @@ interface PipeMeshParameters {
     pipeMaterialName: string
 }
 
+/**
+ * A class representing a pipe segment with a certain diameter and material.
+ */
 export class PipeMesh extends THREE.Mesh {
     constructor(constructorParameters: PipeMeshParameters) {
         const {start, end, diameter, pipeMaterialName} = constructorParameters
