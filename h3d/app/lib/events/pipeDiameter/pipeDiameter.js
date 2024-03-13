@@ -1,6 +1,6 @@
 import { nextBiggest, nextSmallest } from '../../utils/math.js'
 import { AppModes } from '../h3dModes.js'
-import { PipeMesh, allowedPipeDiametersByMaterial } from '../pipeConstructor/PipeMesh.js'
+import { PipeMesh, allowedPipeDiametersByMaterial } from '../pipeConstructor/PipeMesh.ts'
 import { SetPipeDiameter } from './eventSetPipeDiameter.js'
 
 /* globals message */

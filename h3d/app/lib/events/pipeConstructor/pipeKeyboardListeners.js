@@ -1,6 +1,6 @@
 import { PipeMaterial } from '../../../materials/PipeMaterial.js'
 import { nextBiggest, nextSmallest } from '../../utils/math.js'
-import { allowedPipeDiametersByMaterial } from './PipeMesh.js'
+import { allowedPipeDiametersByMaterial } from './PipeMesh.ts'
 import { EndPipeRun } from './eventEndPipeRun.js'
 
 /**

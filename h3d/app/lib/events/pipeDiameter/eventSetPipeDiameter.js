@@ -6,7 +6,7 @@ import { UndoableEvent } from '../historyManager.js'
 export class SetPipeDiameter extends UndoableEvent {
     /**
      * 
-     * @param {import('../pipeConstructor/PipeMesh.js').PipeMesh[]} pipeMeshes 
+     * @param {import('../pipeConstructor/PipeMesh.ts').PipeMesh[]} pipeMeshes 
      * @param {number[]} newDiameters
      */
     constructor(pipeMeshes, newDiameters) {

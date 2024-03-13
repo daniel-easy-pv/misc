@@ -1,13 +1,14 @@
 import * as THREE from 'three'
 import { PipeMaterial } from '../../../materials/PipeMaterial'
 import { recordConstructorParameters } from '../../database/databaseMixin'
-class PipeCurve extends THREE.Curve {
-    constructor(arr) {
+class PipeCurve extends THREE.Curve<THREE.Vector3> {
+    arr: THREE.Vector3[]
+    constructor(arr: THREE.Vector3[]) {
         super()
         this.arr = arr
     }
 
-    getPoint(t, optionalTarget = new THREE.Vector3()) {
+    getPoint(t: number, optionalTarget = new THREE.Vector3()) {
         const p0 = this.arr[0]
         const p1 = this.arr[1]
         const tx = (1-t) * p0.x + t * p1.x
@@ -18,7 +19,7 @@ class PipeCurve extends THREE.Curve {
 }
 
 class PipeLegGeometry extends THREE.TubeGeometry {
-    constructor(path, radius) {
+    constructor(path: THREE.Curve<THREE.Vector3>, radius: number) {
         const tubularSegments = 20
         const radialSegments = 8
         const closed = false
@@ -26,7 +27,7 @@ class PipeLegGeometry extends THREE.TubeGeometry {
     }
 }
 
-function newPipeMaterial(pipeMaterial) {
+function newPipeMaterial(pipeMaterial: PipeMaterial) {
     if (pipeMaterial === PipeMaterial.Copper) {
         return new THREE.MeshPhongMaterial({
             side: THREE.DoubleSide,
@@ -47,22 +48,16 @@ function newPipeMaterial(pipeMaterial) {
     }
 }
 
-export class PipeMesh extends THREE.Mesh {
-    /**
-     * @typedef {Array<number, number, number>} Array3
-     */
-    /**
-     * @typedef {Object} PipeMeshParameters
-     * @property {Array3} start - Start coordinate of the pipe.
-     * @property {Array3} end - End coordinate of the pipe.
-     * @property {number} diameter - Diameter of the pipe.
-     * @property {string} pipeMaterialName - Material of the pipe as a string.
-     */
+type Array3 = [number, number, number]
+interface PipeMeshParameters {
+    start: Array3
+    end: Array3
+    diameter: number
+    pipeMaterialName: string
+}
 
-    /**
-     * @param {PipeMeshParameters} constructorParameters - Parameters for creating the PipeMesh.
-     */
-    constructor(constructorParameters) {
+export class PipeMesh extends THREE.Mesh {
+    constructor(constructorParameters: PipeMeshParameters) {
         const {start, end, diameter, pipeMaterialName} = constructorParameters
         const start3 = new THREE.Vector3(...start)
         const end3 = new THREE.Vector3(...end)
@@ -77,46 +72,37 @@ export class PipeMesh extends THREE.Mesh {
 
     /**
      * Returns the diameter of the pipe.
-     * 
-     * @returns {number}
      */
-    getDiameter() {
+    getDiameter(): number {
         const { diameter } = this.userData.constructorParameters
         return Number(diameter)
     }
 
     /**
      * Returns the pipe material name.
-     * @returns {string}
      */
-    getPipeMaterialName() {
+    getPipeMaterialName(): string {
         return this.userData.constructorParameters.pipeMaterialName
     }
 
     /**
      * Returns the start of the pipe as type THREE.Vector3.
-     * 
-     * @returns {THREE.Vector3}
      */
-    getStart() {
+    getStart(): THREE.Vector3 {
         return new THREE.Vector3(...this.userData.constructorParameters.start)
     }
 
     /**
      * Returns the end of the pipe as type THREE.Vector3.
-     * 
-     * @returns {THREE.Vector3}
      */
-    getEnd() {
+    getEnd(): THREE.Vector3 {
         return new THREE.Vector3(...this.userData.constructorParameters.end)
     }
 
     /**
      * Sets the diameter of the pipe.
-     * 
-     * @param {number} newDiameter 
      */
-    setDiameter(newDiameter) {
+    setDiameter(newDiameter: number) {
         const start = this.getStart()
         const end = this.getEnd()
         const radius = newDiameter / 2
@@ -127,6 +113,9 @@ export class PipeMesh extends THREE.Mesh {
     }
 }
 
+/**
+ * According to CIBSE, these are the diameters of pipes (in mm) with entries in their data tables.
+ */
 export const allowedPipeDiametersByMaterial = {
     Copper: [
         8, 10, 15, 22, 28, 35, 42, 54, 67, 76, 108,

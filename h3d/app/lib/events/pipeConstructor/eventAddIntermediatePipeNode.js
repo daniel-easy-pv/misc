@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { UndoableEvent } from '../historyManager.js'
-import { PipeMesh } from './PipeMesh.js'
+import { PipeMesh } from './PipeMesh.ts'
 
 /**
  * Given an anchor point, this adds a pipe leg to the pipe run.
