@@ -4,7 +4,7 @@ import { argmin } from '../../utils/math.js'
 import { PipeMesh } from './PipeMesh.js'
 import { AppModes } from '../h3dModes.js'
 import { get3Frame } from './addPipeListener.js'
-import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.js'
+import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.ts'
 import { pipeSnapRuleValve } from './pipeSnapRuleValve.ts'
 import { AddIntermediatePipeNode } from './eventAddIntermediatePipeNode.js'
 

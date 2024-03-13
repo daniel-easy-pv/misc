@@ -6,7 +6,7 @@ import * as THREE from 'three'
 export class ScreenPosition {
     /**
      * 
-     * @param {HTMLDivElement} domElement 
+     * @param {HTMLElement} domElement 
      * @param {THREE.Camera} camera 
      */
     constructor(domElement, camera) {

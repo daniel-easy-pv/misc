@@ -44,7 +44,7 @@ export const materialConfig = {
  * Changes the mesh to be highlighted or original, reading from userData.
  * 
  * @param {'original' | 'highlighted'} emphasis 
- * @param {THREE.Mesh} mesh 
+ * @param {THREE.Object3D} mesh 
  * @returns 
  */
 export function changeMaterialEmphasis(emphasis, mesh) {
