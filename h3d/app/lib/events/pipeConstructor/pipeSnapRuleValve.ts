@@ -1,17 +1,14 @@
+import { Heat3DModel } from '../../../heat/appHeat3d.ts'
 import { changeMaterialEmphasis } from '../../../materials/materials.js'
 import { get3Frame } from './addPipeListener.js'
-import { getValvePositions } from './valveFinder.js'
+import { getValvePositions } from './valveFinder.ts'
 
 const PIPE_SNAP_RULE_INTERSECT_VALVE = 100
 
 /**
  * Returns the 3D position of the intersection (or near the intersection for a wall).
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- * @param {THREE.Vector3} target3 - the 3D coordinate that the mouse is pointing at
- * @param {number} closestAxisIndex - the index of the axis the temporary pipe leg is running along
  */
-export function pipeSnapRuleValve(app, target3, closestAxisIndex) {
+export function pipeSnapRuleValve(app: Heat3DModel, target3: THREE.Vector3, closestAxisIndex: number) {
     const {
         pipeListenerSettings,
     } = app
@@ -54,17 +51,12 @@ export function pipeSnapRuleValve(app, target3, closestAxisIndex) {
             changeMaterialEmphasis('original', valve)
         }
     }
-    if (closestValves.length) {
-        const snapPoint = closestValves[0].valveProjection
-        return {
-            ok: true,
-            value: snapPoint,
-            callback: uiChangeRule2Success,
-        }
-    } else {
-        return {
-            ok: false,
-            callback: uiChangeRule2Failure,
-        }
+    const ok = closestValves.length > 0
+    const value = closestValves[0]?.valveProjection
+    const callback = ok ? uiChangeRule2Success : uiChangeRule2Failure
+    return {
+        ok,
+        value,
+        callback,
     }
 }

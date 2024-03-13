@@ -1,13 +1,8 @@
 import * as THREE from 'three'
 import { getMeshByUserDataValue } from '../../utils/threeUtils.js'
+import { Heat3DModel } from '../../../heat/appHeat3d.js'
 
-/**
- * Returns the valves and their world coordinates in the scene.
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- * @returns 
- */
-export function getValvePositions(app) {
+export function getValvePositions(app: Heat3DModel) {
     const {
         threeElements,
     } = app
