@@ -93,7 +93,6 @@ export class TrailCreator {
 
     /**
      * Traverses scene's descendents with `constructorParameters` and collects them into a returned object.
-     * @returns {object}
      */
     pullData() {
         const { scene } = this.threeElements
