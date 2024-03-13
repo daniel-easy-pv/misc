@@ -5,6 +5,7 @@ import { initEvents } from './events/events.js'
 import { initSelectedObjectsSettings } from './init/initSelectObjects.js'
 import { initPipeListenerSettings } from './init/initPipeListenerSettings.js'
 import { FRUSTUM_SIZE } from './init/consts.js'
+import { AppModes } from './events/h3dModes.js'
 
 const LAYER_MAGENTA_SPHERES = 1
 
@@ -18,6 +19,7 @@ export class TrailCreator {
     selectedObjectsSettings: import("./init/initSelectObjects").SelectedObjectsSettings
     pipeListenerSettings: import("./init/initPipeListenerSettings").PipeListenerSettings
     destroy: () => void
+    mode: AppModes
     constructor(
         domElementName: string,
         barycenter: number[],
@@ -85,7 +87,7 @@ export class TrailCreator {
             cancelAnimationFrame(animationFrameId)
             domElement.innerHTML = ''
         }
-
+        this.mode = AppModes.Insert
         initEvents(this)
     }
 

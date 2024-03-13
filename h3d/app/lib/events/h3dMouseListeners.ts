@@ -73,8 +73,8 @@ function addStationaryClickListener(app) {
 
 /**
  * Custom event details for a stationary click event.
- * 
- * @typedef {Object} StationaryClickEventDetails
- * @property {MouseEvent} startEvent - The mouse down event.
- * @property {MouseEvent} endEvent - The mouse up event.
  */
+export interface StationaryClickEventDetails extends CustomEvent {
+    startEvent: MouseEvent
+    endEvent: MouseEvent
+}

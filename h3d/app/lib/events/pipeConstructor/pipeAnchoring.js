@@ -23,7 +23,7 @@ export function addPipeAnchoringListener(app) {
     /**
      * An event listener for anchoring pipes to pipe entries.
      * 
-     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
+     * @param {CustomEvent<import('../h3dMouseListeners.ts').StationaryClickEventDetails>} evt 
      */
     function anchorPipe(evt) {
         if (app.mode !== AppModes.Insert) return

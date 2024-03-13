@@ -1,6 +1,6 @@
 import { addDeleteObjectsListeners } from './deleteObjects/deleteObjects.js'
 import { addModeListener } from './h3dModes.js'
-import { addMouseListeners } from './h3dMouseListeners.js'
+import { addMouseListeners } from './h3dMouseListeners.ts'
 import { addWindowListeners } from './h3dWindowListeners.js'
 import { addPipeListener } from './pipeConstructor/addPipeListener.js'
 import { addPipeDiameterListener } from './pipeDiameter/pipeDiameter.js'

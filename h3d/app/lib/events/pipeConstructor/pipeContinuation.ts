@@ -7,12 +7,10 @@ import { get3Frame } from './addPipeListener.js'
 import { pipeSnapRuleIntersect } from './pipeSnapRuleIntersect.ts'
 import { pipeSnapRuleValve } from './pipeSnapRuleValve.ts'
 import { AddIntermediatePipeNode } from './eventAddIntermediatePipeNode.js'
+import { Heat3DModel } from '../../../heat/appHeat3d.ts'
+import { StationaryClickEventDetails } from '../h3dMouseListeners.ts'
 
-/**
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- */
-export function addPipeContinuationListener(app) {
+export function addPipeContinuationListener(app: Heat3DModel) {
     const {
         domElement,
         pipeListenerSettings,
@@ -26,24 +24,24 @@ export function addPipeContinuationListener(app) {
     /**
      * On stationary click, add another pipe leg.
      * This runs only in Insert mode and when there is an anchor.
-     * 
-     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
-     * @returns {void}
      */
-    function extendPipe(evt) {
-        if (app.mode !== AppModes.Insert) return
-        if (anchors.length === 0) return 
+    const extendPipe = (evt: Event): evt is StationaryClickEventDetails => {
+        if (app.mode !== AppModes.Insert) return false
+        if (anchors.length === 0) return false
+        const detail = (<CustomEvent>evt).detail
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
         const mousePos = new THREE.Vector2(
-            evt.detail.endEvent.clientX, 
-            evt.detail.endEvent.clientY)
+            detail.endEvent.clientX, 
+            detail.endEvent.clientY)
             .sub(domElementOffset)
         const {
             snapPoint,
             endPipeRun,
         } = findSecondClickDetailed(app, mousePos)
+        if (snapPoint === null) return false
         const command = new AddIntermediatePipeNode(pipeListenerSettings, snapPoint, endPipeRun)
         historyManager.executeCommand(command)
+        return true
     }
     
 
@@ -53,7 +51,7 @@ export function addPipeContinuationListener(app) {
      * @param {MouseEvent} evt 
      * @returns {void}
      */
-    function createTempMesh(evt) {
+    function createTempMesh(evt: MouseEvent): void {
         if (app.mode !== AppModes.Insert) return
         if (anchors.length === 0) return
         const domElementOffset = new THREE.Vector2(domElement.offsetLeft, domElement.offsetTop)
@@ -68,6 +66,7 @@ export function addPipeContinuationListener(app) {
             pipeDiameter,
             pipeMaterial,
         } = pipeListenerSettings
+        if (snapPoint === null) return
         const start = [anchor.x, anchor.y, anchor.z]
         const end = [snapPoint.x, snapPoint.y, snapPoint.z]
         const diameter = pipeDiameter
@@ -86,12 +85,9 @@ export function addPipeContinuationListener(app) {
  * 1. within `PIPE_SNAP_RULE_INTERSECT_THRESHOLD` of an intersection of an object in scene (or near a wall).
  * 2. if one of the coordinates match a valve coordinate within `PIPE_SNAP_RULE_INTERSECT_VALVE`mm.
  * 3. freehand
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- * @param {THREE.Vector2} mousePos 
  */
-function findSecondClickDetailed(app, mousePos) {
-    const callbacks = []
+function findSecondClickDetailed(app: Heat3DModel, mousePos: THREE.Vector2) {
+    const callbacks: (() => void)[] = []
     // RULE 1
     const rule1Result = pipeSnapRuleIntersect(app, mousePos)
     callbacks.push(rule1Result.callback)
@@ -131,11 +127,8 @@ function findSecondClickDetailed(app, mousePos) {
 
 /**
  * Returns the 3D position under the mouse, snapped to the closest axis.
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- * @param {THREE.Vector2} mousePos 
  */
-function underMouse(app, mousePos) {
+function underMouse(app: Heat3DModel, mousePos: THREE.Vector2) {
     const {
         domElement,
         threeElements,
@@ -178,13 +171,8 @@ function underMouse(app, mousePos) {
 
 /**
  * Returns the ratio pixel to mm. E.g. if result is 10, then 1px = 10mm.
- * 
- * @param {HTMLDivElement} domElement 
- * @param {THREE.Camera} camera 
- * @param {THREE.Vector3} direction
- * @returns {number}
  */
-function getRatioPixelToMM(domElement, camera, direction) {
+function getRatioPixelToMM(domElement: HTMLElement, camera: THREE.OrthographicCamera, direction: THREE.Vector3): number {
     if (!camera.isOrthographicCamera) {
         throw Error('To use scale, camera must be orthographic')
     }

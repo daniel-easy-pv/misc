@@ -9,7 +9,6 @@ export class AppModes {
 }
 
 export function addModeListener(app) {
-    app.mode = AppModes.Insert
     const { domElement } = app
     domElement.appendChild(bottomBar(app.mode))
 

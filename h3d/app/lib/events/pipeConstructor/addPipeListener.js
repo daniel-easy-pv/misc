@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { addPipeContinuationListener } from './pipeContinuation.js'
+import { addPipeContinuationListener } from './pipeContinuation.ts'
 import { addPipeAnchoringListener } from './pipeAnchoring.js'
 import { addPipeKeyboardListeners } from './pipeKeyboardListeners.ts'
 

@@ -48,10 +48,9 @@ function newPipeMaterial(pipeMaterial: PipeMaterial) {
     }
 }
 
-type Array3 = [number, number, number]
 interface PipeMeshParameters {
-    start: Array3
-    end: Array3
+    start: number[]
+    end: number[]
     diameter: number
     pipeMaterialName: string
 }

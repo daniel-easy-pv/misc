@@ -27,7 +27,7 @@ export function addSelectObjectsListener(app) {
      * Selects a 3D object if clicked in View mode. 
      * Multiple objects can be selected by holding the `Ctrl` key.
      * 
-     * @param {CustomEvent<import('../h3dMouseListeners.js').StationaryClickEventDetails>} evt 
+     * @param {CustomEvent<import('../h3dMouseListeners.ts').StationaryClickEventDetails>} evt 
      * @returns 
      */
     function selectObjects(evt) {
