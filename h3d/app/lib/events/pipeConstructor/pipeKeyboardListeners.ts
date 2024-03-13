@@ -2,12 +2,9 @@ import { PipeMaterial } from '../../../materials/PipeMaterial.js'
 import { nextBiggest, nextSmallest } from '../../utils/math.js'
 import { allowedPipeDiametersByMaterial } from './PipeMesh.ts'
 import { EndPipeRun } from './eventEndPipeRun.js'
+import { Heat3DModel } from '../../../heat/appHeat3d.ts'
 
-/**
- * 
- * @param {import('../../appHeat3d.ts').Heat3DModel} app 
- */
-export function addPipeKeyboardListeners(app) {
+export function addPipeKeyboardListeners(app: Heat3DModel) {
     const {
         domElement,
         pipeListenerSettings,

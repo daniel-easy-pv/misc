@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { addPipeContinuationListener } from './pipeContinuation.js'
 import { addPipeAnchoringListener } from './pipeAnchoring.js'
-import { addPipeKeyboardListeners } from './pipeKeyboardListeners.js'
+import { addPipeKeyboardListeners } from './pipeKeyboardListeners.ts'
 
 /**
  * @const
