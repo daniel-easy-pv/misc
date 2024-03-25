@@ -25,25 +25,25 @@ const modal = {
 							<div class="palette-card palette-card-blank-project" data-card-id="1">	                           
 								<div class="gw-tag tag-compact">No Presets</div>  
 								<div class="palette-card-title">Blank project
-								<p class="body.compact">Single use palette</p></div>
+								<p>Single use palette</p></div>
 							</div>
 
 						<div class="palette-card palette-card-heatpunk-palette" data-card-id="2">	                           
 							<div class="gw-tag tag-compact">Heatpunk</div>  
 							<div class="palette-card-title">Building Regs 2000-2006
-							<p class="body.compact">12 Materials</p></div>
+							<p>12 Materials</p></div>
 						</div>	
 
 						<div class="palette-card palette-card-heatpunk-palette" data-card-id="3">	                           
 							<div class="gw-tag tag-compact">Heatpunk</div>  
 							<div class="palette-card-title">Building Regs 2006-2015
-							<p class="body.compact">13 Materials</p></div>
+							<p>13 Materials</p></div>
 						</div>	
 
 						<div class="palette-card palette-card-user-palette" data-card-id="4">	                           
 							<div class="gw-tag tag-compact">User</div>  
 							<div class="palette-card-title">User palette 1
-							<p class="body.compact">15 Materials</p></div>
+							<p>15 Materials</p></div>
 						</div>	
 
 						<div class="palette-card palette-card-new-palette" data-card-id="0">	                           

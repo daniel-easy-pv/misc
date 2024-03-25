@@ -33,7 +33,6 @@ function selectCard(event) {
 }
 
 function setSelectedPalette() {
-    console.log('up to here')
     const palettePlaceholder = document.getElementById('palettePlaceholder')
     const selectedPalette = document.getElementById('selectedPalette')
     palettePlaceholder.style.display = 'none'
