@@ -1,0 +1,44 @@
+
+.horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+label{
+    @extend .gw-textbox-caption;
+    color: var(--neutral-800)
+}
+
+.black-text {
+    color: var(	--neutral-800, #151515);
+}
+
+.disabled-style{
+    cursor: not-allowed;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    max-width: 100vw;
+    min-height: 100dvh;
+    margin: 0 auto;
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+    color: var(--neutral-800, #151515);
+}
+
+.gw-link{
+    text-decoration: underline;
+    color: var(--primary-800, #B43F0A);
+    cursor: pointer;
+
+    &:hover{
+        color: var(--primary-600, #E87326);
+    }
+}
+

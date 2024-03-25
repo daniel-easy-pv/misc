@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+
+
+                    <h4>Full Column</h4>
+                    <p>Consistent full column options for the sidebar</p>
+                    <div class="ds-component-space horizontal">
+
+
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                            <div class="gw-tab-and-page" id="system-a">
+                                <div class="tab-container" >
+                                    <!--tab ID's mush be consecutive numbers-->
+                                    <div class="tab" id="tab-1"><div class="tab-name">Tab 1</div></div>
+                                    <div class="tab" id="tab-2"><div class="tab-name">Tab 2</div></div>
+                                    <div class="tab" id="tab-3"><div class="tab-name">Tab 3</div></div>
+                                    <div class="tab" id="tab-4"><div class="tab-name">Tab 4</div></div>
+                                </div>
+                                
+                                <div class="tab-content-container">
+                                    <div class="tab-content default-tab-content" id="content-tab-1">Tab 1 Content</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-2">Tab 2 Content</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-3">Tab 3 Content</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-4">Tab 4 Content</div>
+                                </div>
+                            </div>
+        
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+        
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">               
+                                    &lt;div class=&quot;gw-tab-and-page&quot; id=&quot;system-a&quot;&gt;
+                                        &lt;div class=&quot;tab-container&quot; &gt;
+                                            &lt;!--tab ID&#39;s mush be consecutive numbers--&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-1&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 1&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-2&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 2&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-3&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 3&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-4&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 4&lt;/div&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div class=&quot;tab-content-container&quot;&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-1&quot;&gt;Tab 1 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-2&quot;&gt;Tab 2 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-3&quot;&gt;Tab 3 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-4&quot;&gt;Tab 4 Content&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </pre>
+                            </div>
+                            default
+        
+                        </div>
+
+
+                    </div>
+
+
+                    <h4>Second Tab system</h4>
+                    <p>No different from the first, just to show two tab systems working on the same page - they just require a different system id.</p>
+                    <div class="ds-component-space horizontal">
+
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                            <div class="gw-tab-and-page" id="system-b">
+                                <div class="tab-container" >
+                                    <div class="tab" id="tab-1"><div class="tab-name">Tab 1</div></div>
+                                    <div class="tab" id="tab-2"><div class="tab-name">Tab 2</div></div>
+                                    <div class="tab" id="tab-3"><div class="tab-name">Tab 3</div></div>
+                                    <div class="tab" id="tab-4"><div class="tab-name">Tab 4</div></div>
+                                    <div class="tab" id="tab-5"><div class="tab-name">Tab 5</div></div>
+                                    <div class="tab" id="tab-6"><div class="tab-name">Tab 6</div></div>
+                                    <div class="tab" id="tab-7"><div class="tab-name">Tab 7</div></div>
+                                </div>
+                                
+                                <div class="tab-content-container">
+                                    <div class="tab-content default-tab-content" id="content-tab-1">Tab 1 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-2">Tab 2 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-3">Tab 3 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-4">Tab 4 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-5">Tab 5 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-6">Tab 6 Content Alternate</div>
+                                    <div class="tab-content default-tab-content" id="content-tab-7">Tab 7 Content Alternate</div>
+                                </div>
+                            </div>
+        
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+        
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">               
+                                    &lt;div class=&quot;gw-tab-and-page&quot; id=&quot;system-b&quot;&gt;
+                                        &lt;div class=&quot;tab-container&quot; &gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-1&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 1&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-2&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 2&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-3&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 3&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-4&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 4&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-5&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 5&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-6&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 6&lt;/div&gt;&lt;/div&gt;
+                                            &lt;div class=&quot;tab&quot; id=&quot;tab-7&quot;&gt;&lt;div class=&quot;tab-name&quot;&gt;Tab 7&lt;/div&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        
+                                        &lt;div class=&quot;tab-content-container&quot;&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-1&quot;&gt;Tab 1 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-2&quot;&gt;Tab 2 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-3&quot;&gt;Tab 3 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-4&quot;&gt;Tab 4 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-5&quot;&gt;Tab 5 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-6&quot;&gt;Tab 6 Content&lt;/div&gt;
+                                            &lt;div class=&quot;tab-content default-tab-content&quot; id=&quot;content-tab-7&quot;&gt;Tab 7 Content&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </pre>
+                            </div>
+                            default
+        
+                        </div>
+
+
+                    </div>
+
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Title
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Lorem Ipsum</p>
+                    </div>
+                </div>    
+            </div>
+
+            
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>      
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+        <script src="/testing/javascript/tabs.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                            
+                    <h4>Styles</h4>
+                    <p>Buttons have four styles: 'Primary', 'Secondary', 'Tertiary', and 'Link'. The 'Primary' style is recommended for the principal Call to Action (CTA) on a page, and typically, only one 'Primary' button should be employed per page. 'Secondary' CTAs serve when a less pivotal action is taken or as the counterpart to a 'Primary' button, such as Submit (Primary) and cancel (Secondary). 'Tertiary' buttons are suitable for less critical functions that users actively seek or in scenarios where multiple buttons are used in conjunction. 'Link' buttons are used for applications where a hyperlink is embedded within the text.</p>
+                    <div class="ds-component-space horizontal">
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <button class="gw-button">
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;button class=&quot;gw-button&quot;&gt;
+                                    Button
+                                &lt;/button&gt;
+                                </pre>
+                            </div>
+                            Primary
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <button class="gw-button btn-secondary">
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class="gw-button btn-secondary"&gt;Button&lt;/button&gt;
+                                </pre>
+                            </div>
+                            Secondary
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <button  class="gw-button btn-tertiary">
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class="gw-button btn-tertiary"&gt;Button&lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Tertiary
+                        </div>
+                    </div>
+                        
+            
+                    <h4>Icons</h4>
+                    <p>Icons may be incorporated into buttons, either alongside text or on their own. They should only be used when they contribute the user's comprehension of the button's function. Buttons consisting solely of icons should be employed sparsely and exclusively when the icon clearly conveys the intended action; otherwise, text should accompany the icon.</p>
+                    <div class="ds-component-space horizontal">
+                    
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                            <button class='gw-button'>
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;button class=&#39;gw-button&#39;&gt;
+                                    Button
+                                &lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Default
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                            <button class='gw-button' id="yourButton">
+                                <img class=" icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon " src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class='gw-button'&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            With icon
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                            <button class="gw-button icon-only">
+                                <img class="icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon  " src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class="gw-button icon-only"&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Icon only
+                        </div>
+                    </div>
+                    
+            
+                    <h4>Sizing</h4>
+                    <p>Buttons are categorized into three sizes: Default, Small, and Large. Default is recommended for most use cases, while Small is suitable for compact spaces, particularly on mobile platforms. If using small buttons, care should be taken to ensure visibility and accessibility, especially when incorporating icons. Large is ideal for spacious pages or prominent calls to action (CTAs).</p>
+                    <div class="ds-component-space horizontal">
+                    
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                            <button class="gw-button btn-small">
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class="gw-button btn-small"&gt;Button&lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Small
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                
+                            <button class='gw-button'>
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;button class=&#39;gw-button&#39;&gt;
+                                    Button
+                                &lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Default
+                        </div>
+            
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                
+                            <button class="gw-button btn-large">
+                                Button
+                            </button>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                &lt;button class="gw-button btn-large"&gt;Button&lt;/button&gt;
+                                </pre>
+                            
+                            </div>
+                            Large
+                        </div>
+                    </div>
+                    
+                    
+                    <h4>All Buttons</h4>
+            
+                    
+                    <h6>Primary Buttons</h6>
+                        <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon icon-on-primary" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class='gw-button'>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                        &lt;button class=&#39;gw-button&#39;&gt;
+                                        Button
+                                    &lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                -
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small">
+                                    <img class="icon  icon-on-primary" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small"&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button">
+                                    <img class="icon  icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                        &lt;button class=&quot;gw-button&quot;&gt;
+                                        &lt;img class=&quot;icon  icon-on-primary&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;
+                                        Button
+                                    &lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                -
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large">
+                                    <img class="icon  icon-on-primary" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large"&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only">
+                                    <img class="icon icon-on-primary" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only"&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only">
+                                    <img class="icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only"&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only">
+                                    <img class="icon icon-on-primary" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only"&gt;&lt;img class="icon icon-on-primary" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only
+                            </div>
+                        </div>
+                    </div>
+            
+                    
+                    <h6>Primary Buttons: Disabled</h6>
+                    <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class='gw-button' disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class=&#39;gw-button&#39; disabled&gt;
+                                    Button
+                                &lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large disabled
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class='gw-button' disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class=&#39;gw-button&#39; disabled&gt;
+                                    &lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;
+                                    Button
+                                &lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large disabled
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only" disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only" disabled&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only disabled
+                            </div>
+                        </div>
+                    </div>
+            
+                    
+                    <h6>Secondary Buttons</h6>
+                        <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small btn-secondary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small  btn-secondary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-secondary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-secondary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-secondary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-secondary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-secondary
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-secondary
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only btn-secondary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only btn-secondary">
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only btn-secondary"&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only btn-secondary
+                            </div>
+                        </div>
+                    </div>
+            
+                    
+                    <h6>Secondary Buttons: Disabled</h6>
+                        <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small btn-secondary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small  btn-secondary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-secondary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-secondary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-secondary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-secondary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-secondary disabled
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-secondary disabled
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only btn-secondary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only btn-secondary" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only btn-secondary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only btn-secondary disabled
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <h6>Tertiary Buttons</h6>
+                        <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small btn-tertiary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small  btn-tertiary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-tertiary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-tertiary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-tertiary">
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-tertiary"&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-tertiary
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-tertiary
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only btn-tertiary
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only btn-tertiary">
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only btn-tertiary"&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only btn-tertiary
+                            </div>
+                        </div>
+                    </div>
+            
+                    
+                    <h6>Tertiary Buttons: Disabled</h6>
+                    <div class="ds-component-space horizontal">
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <button class="gw-button btn-small btn-tertiary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small  btn-tertiary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-tertiary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-tertiary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-tertiary" disabled>
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-tertiary" disabled&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-tertiary disabled
+                            </div>
+                        </div>
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                    Button
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;Button&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large btn-tertiary disabled
+                            </div>
+                        </div>
+            
+            
+                        <div class="component-stack">
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-small icon-only btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-small icon-only btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-small icon-only btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button icon-only btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button icon-only btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                icon-only btn-tertiary disabled
+                            </div>
+            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)" >
+                    
+                                <button class="gw-button btn-large icon-only btn-tertiary" disabled>
+                                    <img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" />
+                                </button>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)">
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                    &lt;button class="gw-button btn-large icon-only btn-tertiary" disabled&gt;&lt;img class="icon" src="/testing/icons/400/24/Placeholder.svg" alt="icon" /&gt;&lt;/button&gt;
+                                    </pre>
+                                
+                                </div>
+                                btn-large icon-only btn-tertiary disabled
+                            </div>
+                        </div>
+                    </div>
+
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Buttons
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Use the following page to view and understand the buttons which are included within the Gigawatt design system. All buttons within the software should match or relate to one of the components on this page.                    </p>
+                    </div>
+                </div>    
+            </div>
+
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>
+                        
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

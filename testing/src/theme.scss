@@ -1,0 +1,282 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+
+    --primary-gradient: #f6912c;
+    
+	--primary-200: #fef3e2;
+	--primary-300: #fee1b8;
+	--primary-400: #fcb95d;
+	--primary-500: #f6912c;
+	--primary-600: #e87326;
+	--primary-700: #ce481d;
+	--primary-800: #b43f0a;
+
+	--secondary-200: #e3f1fe;
+	--secondary-300: #bbdcfc;
+	--secondary-400: #65b2f9;
+	--secondary-500: #2c91f6;
+	--secondary-600: #2971d4;
+	--secondary-700: #2141a2;
+	--secondary-800: #012681;
+
+	--neutral-100: #fff;
+	--neutral-200: #f2f2f2;
+	--neutral-300: #e8e8e8;
+	--neutral-400: #c6c6c6;
+	--neutral-500: #7e7e7e;
+	--neutral-600: #4a4a4a;
+	--neutral-700: #282828;
+	--neutral-800: #151515;
+	--neutral-900: #000;
+
+	--on-primary: #151515;
+	--on-secondary: #151515;
+	--on-peripheral: #151515;
+
+	--success-300: #daebc2;
+	--success-500: #72ad2b;
+	--success-700: #246402;
+	--failure-300: #f7c9ce;
+	--failure-500: #cf2e30;
+	--failure-700: #a11219;
+	--warning-300: #f9f7c9;
+	--warning-500: #e8b214;
+	--warning-700: #a9580e;
+	--info-300: #c7ccf8;
+	--info-500: #294bdb;
+	--info-700: #001fac;
+	--disabled-300: #c2c2c2;
+	--disabled-500: #757575;
+	--disabled-700: #4c4c4c;
+	
+	--peripheral-a-300: #f3c0e2;
+	--peripheral-a-500: #ec6eba;
+	--peripheral-a-700: #852670;
+	--peripheral-b-300: #f9d9d2;
+	--peripheral-b-500: #ed6e54;
+	--peripheral-b-700: #ab3825;
+	--peripheral-C-300: #fceed3;
+	--peripheral-C-500: #f2b643;
+	--peripheral-C-700: #b04100;
+	--peripheral-d-300: #bcebe2;
+	--peripheral-d-500: #63cbb8;
+	--peripheral-d-700: #00664b;
+	--peripheral-e-300: #a6e3f5;
+	--peripheral-e-500: #65cff0;
+	--peripheral-e-700: #005194;
+
+	--nav-bar-color: var(--neutral-200, #f2f2f2);
+	--nav-bar-text-color: var(--neutral-800, #151515);
+
+    --spacing-24: 1.5rem;
+	--spacing-16: 1rem;
+	--spacing-8: 0.5rem;
+	--spacing-4: 0.25rem;
+	--spacing-2: 0.125rem;
+	
+	--border-48: 3rem;
+	--border-32: 2rem;
+	--border-24: 1.5rem;
+	--border-16: 1rem;
+	--border-8: 0.5rem;
+	--border-4: 0.25rem;
+
+	--radius-20: 1.25rem;
+	--radius-16: 1rem;
+	--radius-12: 0.75rem;
+	--radius-8: 0.5rem;
+	--radius-4: 0.25rem;
+
+	--size-20: 1.25rem;
+	--size-24: 1.5rem;
+	--size-32: 2rem;
+	--size-40: 2.5rem;
+	--size-48: 3rem;
+	--size-56: 3.5rem;
+	--size-64: 4rem;
+	
+	--drop-shadow:  0px 0px 15px #00000026;
+
+	color: var(--neutral-800, #151515);
+
+
+}
+
+body {
+    font-family: nunito;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh; 
+  }
+
+h1, .h1{
+font-size: 4rem;
+font-family: "Nunito";
+font-weight: 700;
+font-style: normal;
+line-height: 120%;
+text-decoration: none;
+text-transform: none;
+}
+
+h2, .h2{
+font-size: 3rem;
+font-family: "Nunito";
+font-weight: 700;
+font-style: normal;
+line-height: 120%;
+text-decoration: none;
+text-transform: none;
+}
+
+h3, .h3{
+	font-size: 2.5rem;
+	font-family: "Nunito";
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+h4, .h4{
+	font-size: 2rem;
+	font-family: "Nunito";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+h5, .h5{
+	font-size: 1.5rem;
+	font-family: "Nunito";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+h6, .h6{
+	font-size: 1.25rem;
+	font-family: "Nunito";
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.subtitle-1{
+	font-size: 1rem;
+	font-family: "Nunito";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.subtitle-2{
+	font-size: 0.875rem;
+	font-family: "Nunito";
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+p, .p, .body{
+	font-size: 1rem;
+	font-family: "Nunito";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.body-bold{
+	font-size: 1rem;
+	font-family: "Nunito";
+	font-weight: 700;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.body-compact{
+	font-size: 0.875rem;
+	font-family: "Nunito";
+	font-weight: 400;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.caption{
+	font-size: 0.75rem;
+	font-family: "Nunito";
+	font-weight: 300;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.btn-text{
+	font-size: 1rem;
+	font-family: "Nunito";
+	font-weight: 600;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+.btn-small-text{
+	font-size: 0.75rem;
+	font-family: "Nunito";
+	font-weight: 600;
+	font-style: normal;
+	line-height: 120%;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+  }
+
+.theme-logo{
+	background-image: url('/testing/images/logos/easypv.svg');
+	background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+	//width: 100%;
+	height: 100%;
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/easy-pv-light.svg');
+	background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+	width: 100%;
+	height: 100%;
+}
+
+.white-text{
+	color: var(--neutral-100, #fff);
+}
+
+.nav-bar-logo{
+	@extend .theme-logo;
+}

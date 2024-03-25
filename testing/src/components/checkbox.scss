@@ -1,0 +1,150 @@
+.gw-checkbox {
+ display: none;
+
+  + label {
+    position: relative;
+    padding-left: 2rem;
+    height: 2rem;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0.25rem;
+      width: 1.5rem; 
+      height: 1.5rem; 
+      transition: background-color 0.2s ease-in-out; 
+      border-radius: var(--radius-8, 0.5rem);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      width: calc(1rem - 4px); 
+      height: calc(1rem - 4px);
+      border-radius: var(--radius-4, 0.25rem);
+      border: 2px solid var(--neutral-600, #4A4A4A);
+      background-color: transparent; 
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    }
+  }
+
+  &:checked { 
+    + label::after {
+      background: var(--primary-500, #F6912C);
+      border-color: var(--primary-500, #F6912C);
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    }
+
+    + label .tickbox-tick {
+      opacity: 1;
+    }
+  }
+
+  &:disabled {
+    + label::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem; 
+      width: calc(1rem - 4px); 
+      height: calc(1rem - 4px); 
+      border-radius: var(--radius-4, 0.25rem);
+      border: 2px solid var(--disabled-500);;
+      z-index: 2;
+    }
+
+    ~ label {
+      cursor: not-allowed;
+      color: var(--disabled-700, #4C4C4C);
+    }
+
+    &:hover ~ label::before {
+      background: transparent;
+    }
+  }
+
+  &:hover + label::before {
+    background: var(--primary-300, #FEE1B8);
+  }
+}
+
+.switch-container.form-style{
+  display: flex;
+  align-items: center;
+
+  .gw-checkbox{
+    + label {
+      position: relative;
+      padding-left: 0; 
+      width: 100%;
+      height: 2rem;
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      line-height: 1.5;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(100% - 1.5rem); 
+        width: 1.5rem;
+        height: 1.5rem; 
+        transition: background-color 0.2s ease-in-out; 
+        border-radius: var(--radius-8, 0.5rem);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: calc(100% - 1.25rem); 
+        width: calc(1rem - 4px); 
+        height: calc(1rem - 4px);
+        border-radius: var(--radius-4, 0.25rem);
+        border: 2px solid var(--neutral-600, #4A4A4A);
+        background-color: transparent; 
+        transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+      }
+    }
+
+    &:disabled + label {
+      cursor: not-allowed;
+
+      &::before {
+        content: "";
+        cursor: not-allowed;
+        position: absolute;
+        left: calc(100% - 1.25rem); 
+        width: calc(1rem - 4px);
+        height: calc(1rem - 4px); 
+        transition: background-color 0.2s ease-in-out; 
+        border-radius: var(--radius-4, 0.25rem);
+      }
+    }
+
+    &:checked + label::after {
+      background: var(--primary-500, #F6912C);
+      border-color: var(--primary-500, #F6912C);
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    }
+  } 
+  
+  .tickbox-tick{
+    left: calc(100% - 1.5rem);
+  }
+
+  .toggle-switch-caption {
+    margin-right: 0.5rem;
+  }
+}
+
+.tickbox-tick{
+  position: absolute;
+  left:0.225rem;
+  opacity: 0;
+  z-index:2;
+  transition: opacity 0.2s ease-in-out;
+}

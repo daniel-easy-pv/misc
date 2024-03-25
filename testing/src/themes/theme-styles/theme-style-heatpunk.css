@@ -1,0 +1,31 @@
+:root{
+    --radius-20: 0.3125rem;
+    --radius-16: 0.25rem;
+    --radius-12: 0.1875rem;
+    --radius-8: 0.125rem;
+    --radius-4: 0.0625rem;
+
+    --peripheral-a-500: #B774E8;
+    --peripheral-a-700: #2C2BB1;
+    --peripheral-a-300: #E0C3F5;
+    --peripheral-b-300: #F8D1D3;
+    --peripheral-b-500: #E0655A;
+    --peripheral-b-700: #A73A2B;
+    --peripheral-c-300: #FAF3C2;
+    --peripheral-c-500: #E8AF35;
+    --peripheral-c-700: #A8510F;
+    --peripheral-d-300: #BAFFF2;
+    --peripheral-d-500: #65DDAB;
+    --peripheral-d-700: #007546;
+    --peripheral-e-300: #C1C9EF;
+    --peripheral-e-500: #6B83DA;
+    --peripheral-e-700: #001E8D;
+
+    --nav-bar-color: var(--neutral-800, #151515);
+    --nav-bar-text-color: var(--neutral-100, #fff);
+}
+/*
+.nav-bar-logo{
+	@extend .theme-logo-light;
+}
+*/

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                            
+                    <h4>No caption</h4>
+                    <p>Basic version without caption.</p>
+                    <div class="ds-component-space horizontal">
+
+                        <div>
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button" id="noCaption">
+                                    <button class="segmented-button-item" onclick="selectSegment(0, 'noCaption')">Segment 1</button>
+                                    <button class="segmented-button-item" onclick="selectSegment(1, 'noCaption')">Segment 2</button>
+                                    <button class="segmented-button-item" onclick="selectSegment(2, 'noCaption')">Segment 3</button>
+                                    <button class="segmented-button-item" onclick="selectSegment(3, 'noCaption')">Segment 4</button>
+                                    <button class="segmented-button-item" onclick="selectSegment(4, 'noCaption')">Segment 5</button>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button&quot; id=&quot;noCaption&quot;&gt;
+                                            &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;noCaption&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;noCaption&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;noCaption&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;noCaption&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;noCaption&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                No Caption
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                                
+                                <div class="gw-segmented-button-and-clear">
+                                    <div class="gw-segmented-button" id="noCaptionClear">
+                                        <button class="segmented-button-item" onclick="selectSegment(0, 'noCaptionClear')">Segment 1</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(1, 'noCaptionClear')">Segment 2</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(2, 'noCaptionClear')">Segment 3</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(3, 'noCaptionClear')">Segment 4</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(4, 'noCaptionClear')">Segment 5</button>
+                                    </div>
+                                    <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('noCaptionClear')">Clear</button> 
+                                </div>
+
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;noCaptionClear&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;noCaptionClear&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;noCaptionClear&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;noCaptionClear&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;noCaptionClear&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;noCaptionClear&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                            &lt;/div&gt;
+                                            &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;noCaptionClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                No Caption / Clear
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button" id="iconNoCaption">
+                                    <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconNoCaption')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconNoCaption')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconNoCaption')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconNoCaption')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconNoCaption')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconNoCaption&quot;&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconNoCaption&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconNoCaption&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconNoCaption&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconNoCaption&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconNoCaption&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / No Caption
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                                
+                                    
+                                <div class="gw-segmented-button-and-clear">
+                                    <div class="gw-segmented-button" id="iconNoCaptionClear">
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconNoCaptionClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconNoCaptionClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconNoCaptionClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconNoCaptionClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconNoCaptionClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    </div>
+                                    <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('iconNoCaptionClear')">Clear</button> 
+                                </div>
+
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconNoCaptionClear&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconNoCaptionClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconNoCaptionClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconNoCaptionClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconNoCaptionClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconNoCaptionClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;/div&gt;
+                                            &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;iconNoCaptionClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / No Caption / Clear
+            
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <h4>Default</h4>
+                    <p>Consistent width, for general use</p>
+                    <div class="ds-component-space horizontal">
+                        <div>
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container default-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="default">
+                                        <button class="segmented-button-item" onclick="selectSegment(0, 'default')">Segment 1</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(1, 'default')">Segment 2</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(2, 'default')">Segment 3</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(3, 'default')">Segment 4</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(4, 'default')">Segment 5</button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container default-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;default&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;default&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;default&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;default&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;default&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;default&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Default Style
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container default-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="defaultClear">
+                                            <button class="segmented-button-item" onclick="selectSegment(0, 'defaultClear')">Segment 1</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(1, 'defaultClear')">Segment 2</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(2, 'defaultClear')">Segment 3</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(3, 'defaultClear')">Segment 4</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(4, 'defaultClear')">Segment 5</button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('defaultClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container default-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;defaultClear&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;defaultClear&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;defaultClear&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;defaultClear&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;defaultClear&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;defaultClear&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;defaultClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Default Style / Clear
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container default-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="iconDefault">
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconDefault')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconDefault')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconDefault')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconDefault')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconDefault')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container default-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconDefault&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconDefault&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconDefault&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconDefault&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconDefault&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconDefault&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Default Style
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container default-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="iconDefaultClear">
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconDefaultClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconDefaultClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconDefaultClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconDefaultClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconDefaultClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('iconDefaultClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container default-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconDefaultClear&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconDefaultClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconDefaultClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconDefaultClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconDefaultClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconDefaultClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;defaultClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Default Style / Clear
+            
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h4>Form</h4>
+                    <p>Full width, for use on form pages</p>
+                    <div class="ds-component-space horizontal">
+                        <div>
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container form-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="form">
+                                        <button class="segmented-button-item" onclick="selectSegment(0, 'form')">Segment 1</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(1, 'form')">Segment 2</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(2, 'form')">Segment 3</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(3, 'form')">Segment 4</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(4, 'form')">Segment 5</button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container form-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;form&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;form&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;form&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;form&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;form&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;form&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Form Style
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container form-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="formClear">
+                                            <button class="segmented-button-item" onclick="selectSegment(0, 'formClear')">Segment 1</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(1, 'formClear')">Segment 2</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(2, 'formClear')">Segment 3</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(3, 'formClear')">Segment 4</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(4, 'formClear')">Segment 5</button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('formClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container form-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;formClear&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;formClear&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;formClear&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;formClear&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;formClear&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;formClear&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;formClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Form Style / Clear
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container form-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="iconForm">
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconForm')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconForm')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconForm')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconForm')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconForm')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container form-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconForm&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconForm&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconForm&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconForm&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconForm&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconForm&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Form Style
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container form-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="iconFormClear">
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconFormClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconFormClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconFormClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconFormClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconFormClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('iconFormClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container form-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconFormClear&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconFormClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconFormClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconFormClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconFormClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconFormClear&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;formClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Form Style / Clear
+            
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <h4>Mobile</h4>
+                    <p>For use on slim spaces or mobile.</p>
+                    <div class="ds-component-space horizontal">
+                        <div>
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container mobile-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="mobile">
+                                        <button class="segmented-button-item" onclick="selectSegment(0, 'mobile')">Segment 1</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(1, 'mobile')">Segment 2</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(2, 'mobile')">Segment 3</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(3, 'mobile')">Segment 4</button>
+                                        <button class="segmented-button-item" onclick="selectSegment(4, 'mobile')">Segment 5</button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container mobile-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button&quot; id=&quot;mobile&quot;&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;mobile&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;mobile&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;mobile&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;mobile&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;mobile&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Mobile
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container mobile-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="mobileClear">
+                                            <button class="segmented-button-item" onclick="selectSegment(0, 'mobileClear')">Segment 1</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(1, 'mobileClear')">Segment 2</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(2, 'mobileClear')">Segment 3</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(3, 'mobileClear')">Segment 4</button>
+                                            <button class="segmented-button-item" onclick="selectSegment(4, 'mobileClear')">Segment 5</button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('mobileClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container mobile-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;mobileClear&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(0, &#39;mobileClear&#39;)&quot;&gt;Segment 1&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(1, &#39;mobileClear&#39;)&quot;&gt;Segment 2&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(2, &#39;mobileClear&#39;)&quot;&gt;Segment 3&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(3, &#39;mobileClear&#39;)&quot;&gt;Segment 4&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item&quot; onclick=&quot;selectSegment(4, &#39;mobileClear&#39;)&quot;&gt;Segment 5&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;mobileClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Mobile / Clear
+            
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container mobile-style">
+                                    Caption
+                                    <div class="gw-segmented-button" id="iconMobile">
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconMobile')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconMobile')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconMobile')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconMobile')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconMobile')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconMobile&quot;&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Mobile
+            
+                            </div>
+                            
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                                <div class="gw-segmented-button-container mobile-style">
+                                    Caption
+                                    <div class="gw-segmented-button-and-clear">
+                                        <div class="gw-segmented-button" id="iconMobileClear">
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(0, 'iconMobileClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(1, 'iconMobileClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(2, 'iconMobileClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(3, 'iconMobileClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="segmented-button-item segment-icon" onclick="selectSegment(4, 'iconMobileClear')"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                        <button class="gw-button btn-tertiary" onclick="clearSegmentSelect('iconMobileClear')">Clear</button> 
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-segmented-button-container mobile-style&quot;&gt;
+                                            Caption
+                                            &lt;div class=&quot;gw-segmented-button-and-clear&quot;&gt;
+                                                &lt;div class=&quot;gw-segmented-button&quot; id=&quot;iconMobile&quot;&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(0, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(1, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(2, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(3, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;segmented-button-item segment-icon&quot; onclick=&quot;selectSegment(4, &#39;iconMobile&#39;)&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                                &lt;button class=&quot;gw-button btn-tertiary&quot; onclick=&quot;clearSegmentSelect(&#39;mobileClear&#39;)&quot;&gt;Clear&lt;/button&gt; 
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Icon / Mobile / Clear
+            
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+              
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Title
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Content Switcher to be used for instances similar to a dropdown where the content wants to be more visible. It should only be used for 2-5 options. In instances where there are six or more options a dropdown selector should be used.</p>
+                        <br>
+                        <p>Icon content switchers should only be used in rare instances where the icons purposes are very clear and there is not enough space for words.</p>
+                    </div>
+                </div>    
+            </div>
+
+            
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>      
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+        <script src="/testing/javascript/segmented-button.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

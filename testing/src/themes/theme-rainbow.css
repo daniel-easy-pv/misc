@@ -1,0 +1,52 @@
+:root {
+
+	--primary-gradient: #50E5AB;
+
+	--on-peripheral: #151515;
+	--on-primary: #151515;
+	--on-secondary: #151515;
+
+	--peripheral-a-500: #BF6DFF;
+	--peripheral-a-700: #710AC2;
+	--peripheral-a-300: #E0B9FE;
+	--peripheral-b-300: #FFBCB8;
+	--peripheral-b-500: #FF544A;
+	--peripheral-b-700: #940E06;
+	--peripheral-c-300: #FED1A7;
+	--peripheral-c-500: #FA983D;
+	--peripheral-c-700: #964B07;
+	--peripheral-d-300: #E2FFC6;
+	--peripheral-d-500: #9BFA3D;
+	--peripheral-d-700: #3D7703;
+	--peripheral-e-300: #A6C2FF;
+	--peripheral-e-500: #3D79FA;
+	--peripheral-e-700: #0438A7;
+
+	--primary-200: #E4FBF1;
+	--primary-300: #BEF3DB;
+	--primary-400: #8FECC4;
+	--primary-500: #50E5AB;
+	--primary-600: #00D585;
+	--primary-700: #007D46;
+	--primary-800: #015C34;
+
+	--primary-gradient: #d34a18;
+
+	--secondary-200: #FEF8E0;
+	--secondary-300: #FCEDB0;
+	--secondary-400: #F9D643;
+	--secondary-500: #F9CC00;
+	--secondary-600: #FCA100;
+	--secondary-700: #B95000;
+	--secondary-800: #AB4B01;
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/rainbow.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/rainbow-light.svg');
+}

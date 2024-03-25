@@ -1,0 +1,36 @@
+:root {
+
+--on-secondary: #151515;
+--on-primary: #FFFFFF;
+
+
+
+--secondary-200: #FEEEB5;
+--secondary-300: #FEEBA9;
+--secondary-400: #FFCF31;
+--secondary-500: #FFB913;
+--secondary-600: #FFA50F;
+--secondary-700: #B75B07;
+--secondary-800: #984B04;
+
+--primary-gradient: #001044;
+
+
+--primary-200: #BABFD5;
+--primary-300: #8D96B8;
+--primary-400: #1D3070;
+--primary-500: #001044;
+--primary-600: #000E39;
+--primary-700: #000B2C;
+--primary-800: #000820;
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/aes.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/aes-light.svg');
+}

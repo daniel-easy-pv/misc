@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                            
+            
+                    <h4>Header Options</h4>
+                    <p>Contains code for full sidebar column with specified header.</p>
+                    <div class="ds-component-space horizontal dark">       
+                       <div>
+
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <div class="sidebar">
+                                <div class="sidebar-header">
+                                    <div class="sidebar-controls">
+                                        <a href=""><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                                        <div class="quick-actions">
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-title" onclick="toggleSidebarMobile()">
+                                        Title
+                                        <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                    </div>
+                                </div>
+                                <div class="sidebar-content">
+                                    <div>
+                                        <p>Lorem Ipsum</p>
+                                    </div>
+                                </div>    
+                            </div>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;div class=&quot;sidebar&quot;&gt;
+                                        &lt;div class=&quot;sidebar-header&quot;&gt;
+                                            &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                &lt;a href=&quot;&quot;&gt;&lt;button class=&quot;gw-button btn-tertiary&quot; &gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Left.svg&quot; alt=&quot;icon&quot; /&gt;Back&lt;/button&gt;&lt;/a&gt;
+                                                &lt;div class=&quot;quick-actions&quot;&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                Title
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;sidebar-content&quot;&gt;
+                                            &lt;div&gt;
+                                                &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;    
+                                    &lt;/div&gt;
+                                </pre>
+                            </div>
+                            Default
+                        </div>
+
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <div class="sidebar">
+                                <div class="sidebar-header">
+                                    <div class="sidebar-controls">
+                                        Item Type
+                                        <div class="quick-actions">
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-title" onclick="toggleSidebarMobile()">
+                                        Title
+                                        <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                    </div>
+                                </div>
+                                <div class="sidebar-content">
+                                    <div>
+                                        <p>Lorem Ipsum</p>
+                                    </div>
+                                </div>    
+                            </div>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;div class=&quot;sidebar&quot;&gt;
+                                        &lt;div class=&quot;sidebar-header&quot;&gt;
+                                            &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                Item Type
+                                                &lt;div class=&quot;quick-actions&quot;&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                Title
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;sidebar-content&quot;&gt;
+                                            &lt;div&gt;
+                                                &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;    
+                                    &lt;/div&gt;
+                                </pre>
+                            </div>
+                            Item Version
+                        </div>
+
+                        <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                
+                            <div class="sidebar">
+                                <div class="sidebar-header">
+                                    <div class="sidebar-controls">
+                                        Item Type
+                                        <div class="quick-actions">
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                            <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar-title" onclick="toggleSidebarMobile()">
+                                        Title
+                                        <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                        <button class="gw-button btn-small btn-secondary"><img class="icon icon-on-primary" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Button</button>
+                                        
+                                    </div>
+                                </div>
+                                <div class="sidebar-content">
+                                    <div>
+                                        <p>Lorem Ipsum</p>
+                                    </div>
+                                </div>    
+                            </div>
+            
+                            <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                            </button>
+            
+                            <div class="code-container" id="button-code-snippet">
+                                <!-- Code to be copied -->
+                                <pre id="codeSnippet">
+                                    &lt;div class=&quot;sidebar&quot;&gt;
+                                        &lt;div class=&quot;sidebar-header&quot;&gt;
+                                            &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                Item Type
+                                                &lt;div class=&quot;quick-actions&quot;&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                Title
+                                                &lt;button class=&quot;gw-button btn-small btn-secondary&quot;&gt;&lt;img class=&quot;icon icon-on-primary&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Button&lt;/button&gt;
+                                                
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;sidebar-content&quot;&gt;
+                                            &lt;div&gt;
+                                                &lt;p&gt;Lorem Ipsum&lt;/p&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;    
+                                    &lt;/div&gt;
+                                </pre>
+                            </div>
+                            Item Version - with button
+                        </div>
+
+                        </div>
+                    </div> 
+
+
+                 
+        
+                    <h4>Full Column</h4>
+                    <p>Consistent full column options for the sidebar</p>
+                    <div class="ds-component-space horizontal dark">
+                        <div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <div class="sidebar">
+                                    <div class="sidebar-header">
+                                            <div class="sidebar-controls">
+                                                <a href=""><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                                                <div class="quick-actions">
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                </div>
+                                            </div>
+                                            <div class="sidebar-title" onclick="toggleSidebarMobile()">
+                                                Title
+                                                <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                            </div>
+                                        </div>
+                                    <div class="sidebar-content">
+                                        <div class="gw-sidebar-tab-section">
+                                            List Title
+                                            <div class="sidebar-tabs">
+                                                <a href=""><div class="sidebar-tab">Option A</div></a>
+                                                <a href=""><div class="sidebar-tab">Option B</div></a>
+                                                <a href=""><div class="sidebar-tab">Option C</div></a>
+                                                <a href=""><div class="sidebar-tab">Option D</div></a>
+                                                <a href=""><div class="sidebar-tab">Option E</div></a>
+                                                <a href=""><div class="sidebar-tab">Option F</div></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+                
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                        &lt;div class=&quot;sidebar&quot;&gt;
+                                            &lt;div class=&quot;sidebar-header&quot;&gt;
+                                                    &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;button class=&quot;gw-button btn-tertiary&quot; &gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Left.svg&quot; alt=&quot;icon&quot; /&gt;Back&lt;/button&gt;&lt;/a&gt;
+                                                        &lt;div class=&quot;quick-actions&quot;&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                        Title
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-content&quot;&gt;
+                                                &lt;div class=&quot;gw-sidebar-tab-section&quot;&gt;
+                                                    List Title
+                                                    &lt;div class=&quot;sidebar-tabs&quot;&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option A&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option B&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option C&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option D&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option E&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option F&lt;/div&gt;&lt;/a&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                List of options
+                            </div>
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <div class="sidebar tab-style">
+                                    <div class="sidebar-header">
+                                            <div class="sidebar-controls">
+                                                <a href=""><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                                                <div class="quick-actions">
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                </div>
+                                            </div>
+                                            <div class="sidebar-title" onclick="toggleSidebarMobile()"">
+                                                Title
+                                                <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                            </div>
+                                            <div class="sidebar-title tab-mode-title-mobile"  onclick="toggleSidebarMobile()">
+                                                <div id="selected-tab-name">Selected Tab</div>
+                                                <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                            </div>
+                                        </div>
+                                    <div class="sidebar-content">
+                                        <div class="gw-sidebar-tab-section">
+                                            List Title
+                                            <div class="sidebar-tabs">
+                                                <a href=""><div class="sidebar-tab">Option A</div></a>
+                                                <a href=""><div class="sidebar-tab">Option B</div></a>
+                                                <a href=""><div class="sidebar-tab">Option C</div></a>
+                                                <a href=""><div class="sidebar-tab">Option D</div></a>
+                                                <a href=""><div class="sidebar-tab">Option E</div></a>
+                                                <a href=""><div class="sidebar-tab">Option F</div></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+                
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                        &lt;div class=&quot;sidebar&quot;&gt;
+                                            &lt;div class=&quot;sidebar-header&quot;&gt;
+                                                    &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;button class=&quot;gw-button btn-tertiary&quot; &gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Left.svg&quot; alt=&quot;icon&quot; /&gt;Back&lt;/button&gt;&lt;/a&gt;
+                                                        &lt;div class=&quot;quick-actions&quot;&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                        Title
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-content&quot;&gt;
+                                                &lt;div class=&quot;gw-sidebar-tab-section&quot;&gt;
+                                                    List Title
+                                                    &lt;div class=&quot;sidebar-tabs&quot;&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option A&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option B&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option C&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option D&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option E&lt;/div&gt;&lt;/a&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;div class=&quot;sidebar-tab&quot;&gt;Option F&lt;/div&gt;&lt;/a&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                List of options
+                            </div>
+
+
+
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                <div class="sidebar">
+                                    <div class="sidebar-header">
+                                            <div class="sidebar-controls">
+                                                <a href=""><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                                                <div class="quick-actions">
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                    <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button>
+                                                </div>
+                                            </div>
+                                            <div class="sidebar-title" onclick="toggleSidebarMobile()">
+                                                Title
+                                                <img class="icon mobile-expand" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+                                            </div>
+                                        </div>
+                                    <div class="sidebar-content">
+                                        Lorem ipsum dolor sit amet
+                                        <div class="sidebar-confirm">
+                                            <button class="gw-button btn-secondary">Button</button>
+                                            <button class="gw-button">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+                
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">
+                                        &lt;div class=&quot;sidebar&quot;&gt;
+                                            &lt;div class=&quot;sidebar-header&quot;&gt;
+                                                    &lt;div class=&quot;sidebar-controls&quot;&gt;
+                                                        &lt;a href=&quot;&quot;&gt;&lt;button class=&quot;gw-button btn-tertiary&quot; &gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Left.svg&quot; alt=&quot;icon&quot; /&gt;Back&lt;/button&gt;&lt;/a&gt;
+                                                        &lt;div class=&quot;quick-actions&quot;&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                            &lt;button class=&quot;gw-button icon-only btn-tertiary&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class=&quot;sidebar-title&quot;&gt;
+                                                        Title
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;div class=&quot;sidebar-content&quot;&gt;
+                                                Lorem ipsum dolor sit amet
+                                                &lt;div class=&quot;sidebar-confirm&quot;&gt;
+                                                    &lt;button class=&quot;gw-button btn-secondary&quot;&gt;Button&lt;/button&gt;
+                                                    &lt;button class=&quot;gw-button&quot;&gt;Button&lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                Base Controls
+                            </div>
+                        
+                        </div>
+                    </div> 
+
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Title
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Lorem Ipsum</p>
+                    </div>
+                    
+                </div>    
+            </div>
+
+            
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>      
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

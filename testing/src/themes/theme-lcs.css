@@ -1,0 +1,34 @@
+:root {
+
+	--primary-gradient: #5D930E;
+	
+	--on-primary: #FFFFFF;
+	--on-secondary: #151515;
+
+	--primary-200: #DAE8BF;
+	--primary-300: #A8CB6A;
+	--primary-400: #82B622;
+	--primary-500: #5D930E;
+	--primary-600: #548038;
+	--primary-700: #4B7332;
+	--primary-800: #385625;
+
+	--secondary-200: #FEEEB5;
+	--secondary-300: #FFE383;
+	--secondary-400: #FFCF31;
+	--secondary-500: #FFB913;
+	--secondary-600: #FF950C;
+	--secondary-700: #C05803;
+	--secondary-800: #AA4004;
+
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/lcs.png');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/lcs.svg');
+}

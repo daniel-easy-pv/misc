@@ -1,0 +1,51 @@
+:root {
+
+	--primary-gradient: #0836CC;
+	
+	--on-peripheral: #151515;
+	--on-primary: #FFFFFF;
+	--on-secondary: #000000;
+
+	--peripheral-a-300: #DEBAE8;
+	--peripheral-a-500: #C54CE3;
+	--peripheral-a-700: #330240;
+	--peripheral-b-300: #F1C2B9;
+	--peripheral-b-500: #EF5132;
+	--peripheral-b-700: #601000;
+	--peripheral-c-300: #FAE5C6;
+	--peripheral-c-500: #FC9E0F;
+	--peripheral-c-700: #724500;
+	--peripheral-d-300: #D8EEAF;
+	--peripheral-d-500: #89BF24;
+	--peripheral-d-700: #466904;
+	--peripheral-e-300: #D2F2FA;
+	--peripheral-e-500: #A4E6F7;
+	--peripheral-e-700: #056F8A;
+
+	--primary-200: #C5C9F7;
+	--primary-300: #9EA6F3;
+	--primary-400: #2249E4;
+	--primary-500: #0836CC;
+	--primary-600: #002AC1;
+	--primary-700: #000FB0;
+	--primary-800: #010C8A;
+
+	--secondary-200: #FCFDC0;
+	--secondary-300: #F9FA93;
+	--secondary-400: #F5F662;
+	--secondary-500: #FFFF00;
+	--secondary-600: #FFB700;
+	--secondary-700: #AF5F00;
+	--secondary-800: #6F3C01;
+
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/broad-oak.png');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/broad-oak.svg');
+}

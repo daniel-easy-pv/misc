@@ -1,0 +1,107 @@
+//this file overwrites certain elements within 'modals.2.2.2.js'
+
+
+[modal] {
+    border-radius: var(--radius-20, 1.25rem) !important;
+    background: var(--neutral-100, #FFF) !important;
+
+ 
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15) !important;   
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start ;
+
+    position: fixed !important;
+    top: calc(4.5rem + calc(100% - 4.5rem) / 2) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+
+    max-height: 85vh;
+    min-height: auto !important;
+
+    right: auto !important;
+    width: auto !important;
+
+    overflow: hidden;
+} 
+
+.modal-confirm{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gaps-12, 1.5rem);
+    align-self: stretch;    
+    width: 100%;
+}
+
+.modal-content {
+    width: auto;
+}
+
+.modal-lhs{
+    padding: var(--border-24, 1.5rem);
+
+    display: flex;
+    padding: var(--border-24, 1.5rem);
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--border-24, 1.5rem);
+
+    flex: 1 0 0;
+    align-self: stretch;   
+    overflow: auto; 
+}
+
+.modal-lhs-content{
+    flex: 1 0 0;
+    
+}
+
+.gw-sidebar-tab-section{
+    padding: var(--border-24, 1.5rem);
+    width: 10rem;
+    background: var(--neutral-200, #F2F2F2);
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+
+
+    .gw-sidebar-tab-section  .sidebar-tabs  .sidebar-tab:hover{
+        background: var(--neutral-300, #E8E8E8);
+    }
+}
+
+.x-small-modal{
+    width: 21.875rem;
+}
+
+.small-modal{
+    width: 28.125rem;
+}
+
+.default-modal{
+    width: 37.5rem;
+}
+
+.large-modal{
+    width: 46.875rem;
+}
+
+.x-large-modal{
+    width: 62.5rem;
+}
+
+.large-modal .gw-sidebar-tab-section{
+    width: 15.625rem;
+}
+
+.x-large-modal .gw-sidebar-tab-section{
+    width: 20rem;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Help Modal</title>
+
+
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script> 
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+
+
+</head>
+<body>
+    <nav class="nav-bar-container">
+
+        <div class="nav-bar nav-bar-new">
+            <div class="nav-section">
+                <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                <div class="nav-option">Projects</div>
+                <div class="nav-option">Components</div>
+                <div class="nav-option">Help</div>
+            </div>
+            <div class="nav-section">
+                <div class="nav-option">My Account</div>
+                <div class="nav-option"></div>
+            </div>
+        </div>
+        <div class="nav-underline"></div>
+    </nav>
+
+               
+    <div class="full-page">
+        <button class="gw-button open-help-modal">Open modal</button>
+
+        
+    </div>    
+
+   
+    <div class="ds-theme-switcher" id="themeSwitcher">
+        <button class="gw-button theme-switcher-btn" onclick="toggleThemeDropdown()">
+            <div class="theme-switcher-logo-container"><div class="theme-logo"></div></div>
+            <img class="icon" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+        </button>
+        <div class="theme-dropdown horizontal" id="themeDropdown">
+            <div class="theme-dropdown-column">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/easypv.svg" alt="Easy PV" onclick="changeTheme('theme-easy-pv'); changeThemeStyle('theme-style-easy-pv')">
+                <div class="theme-switcher-divider"></div>
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/sunmax.svg" alt="Sunmax" onclick="changeTheme('theme-sunmax'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/ovo.svg" alt="Ovo" onclick="changeTheme('theme-ovo'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/so-energy.svg" alt="So Energy" onclick="changeTheme('theme-so-energy'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/spartek.svg" alt="Spartek" onclick="changeTheme('theme-spartek'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/rainbow.svg" alt="Rainbow" onclick="changeTheme('theme-rainbow'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/glowgreen.svg" alt="Glowgreen" onclick="changeTheme('theme-glowgreen'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/eon.svg" alt="E.on" onclick="changeTheme('theme-eon'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/fresh.svg" alt="Fresh" onclick="changeTheme('theme-fresh'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/warma.svg" alt="Warma" onclick="changeTheme('theme-warma'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/lcs.png" alt="lcs" onclick="changeTheme('theme-lcs'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/rexel.svg" alt="Rexel" onclick="changeTheme('theme-rexel'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/greenway.svg" alt="Greenway" onclick="changeTheme('theme-greenway'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/broad-oak.png" alt="Broad Oak" onclick="changeTheme('theme-broad-oak'); changeThemeStyle('theme-style-easy-pv')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/evergreen.png" alt="Evergreen" onclick="changeTheme('theme-evergreen'); changeThemeStyle('theme-style-easy-pv')">
+            </div>
+           
+        </div>
+    </div> 
+                
+
+
+    <script src="/testing/pages/easy-pv/help-modal/src/helpModal.js"></script>
+    <script src="/testing/pages/easy-pv/help-modal/src/helpModalMain.js"></script>
+
+    <script src="/testing/javascript/textbox.js"></script>
+    <script src="/testing/javascript/dropdown.js"></script>
+    <script src="/testing/javascript/toggle.js"></script>
+    <script src="/testing/javascript/radiobox.js"></script>
+    <script src="/testing/javascript/context-menu.js"></script>
+
+
+    <script src="/testing/javascript/sidebar.js"></script>
+    <script src="/testing/javascript/copy-script.js"></script>
+    <script src="/testing/javascript/theme-switch.js"></script>
+    <script src="/testing/javascript/light-svg.js"></script>
+
+
+</body>
+</html>

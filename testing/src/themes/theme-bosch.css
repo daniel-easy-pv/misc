@@ -1,0 +1,52 @@
+:root {
+
+--on-peripheral: #FFFFFF;
+--on-primary: #FFFFFF;
+--on-secondary: #FFFFFF;
+
+--peripheral-a-300: #EBCAE8;
+--peripheral-a-500: #C535BC;
+--peripheral-a-700: #671761;
+--peripheral-b-300: #9BE4B3;
+--peripheral-b-500: #00884A;
+--peripheral-b-700: #004523;
+--peripheral-c-300: #FFDF95;
+--peripheral-c-500: #8F7300;
+--peripheral-c-700: #564400;
+--peripheral-d-300: #A1DFDB;
+--peripheral-d-500: #18837E;
+--peripheral-d-700: #053634;
+--peripheral-e-300: #B8D6FF;
+--peripheral-e-500: #007BC0;
+--peripheral-e-700: #003E64;
+
+--primary-200: #D1E4FF;
+--primary-300: #7EBDFF;
+--primary-400: #0096E8;
+--primary-500: #007BC0;
+--primary-600: #00629A;
+--primary-700: #004975;
+--primary-800: #003253;
+
+--primary-gradient: linear-gradient(90deg, #952231 0%, #962332 7.52%, #B4273A 7.55%, #B4273A 12.27%, #AF191A 12.3%, #AF191A 13.3%, #D4151C 13.3%, #D4151C 23.83%, #84367E 23.87%, #8C3480 24.14%, #6B378C 24.18%, #3A4392 34.97%, #313982 35%, #253783 51.81%, #225BA2 51.82%, #225BA2 57.25%, #287EB7 57.26%, #287EB7 62.31%, #1CA4CC 62.34%, #00A6CE 77.09%, #009C5C 77.11%, #009C5F 85.49%, #87BB70 85.49%, #87BB70 91.54%, #62B16F 91.58%, #5FB26E 92.1%, #228D3F 92.13%, #1F8C3D 100%);
+
+
+
+--secondary-200: #FFD9D9;
+--secondary-300: #FF9D9D;
+--secondary-400: #FF5152;
+--secondary-500: #ED0007;
+--secondary-600: #BE0004;
+--secondary-700: #920002;
+--secondary-800: #680001;
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/worcsbosch.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/worcsbosch-light.svg');
+}

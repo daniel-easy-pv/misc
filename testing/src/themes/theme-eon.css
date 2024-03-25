@@ -1,0 +1,51 @@
+:root {
+
+	--primary-gradient: #B00402;
+
+	--on-peripheral: #151515;
+	--on-primary: #FFFFFF;
+	--on-secondary: #151515;
+
+	--peripheral-a-700: #AE08AE;
+	--peripheral-a-500: #FF88FF;
+	--peripheral-a-300: #FFD8FF;
+	--peripheral-b-300: #D5BFFC;
+	--peripheral-b-500: #9861F6;
+	--peripheral-b-700: #380099;
+	--peripheral-c-300: #FEFDB1;
+	--peripheral-c-500: #E3E000;
+	--peripheral-c-700: #6C6B00;
+	--peripheral-d-300: #BBFBD3;
+	--peripheral-d-500: #3CE179;
+	--peripheral-d-700: #037A2F;
+	--peripheral-e-300: #C9F8FF;
+	--peripheral-e-500: #23E4FF;
+	--peripheral-e-700: #017484;
+
+	--primary-200: #FFC9CC;
+	--primary-300: #E16B64;
+	--primary-400: #DD2D1E;
+	--primary-500: #B00402;
+	--primary-600: #900200;
+	--primary-700: #740301;
+	--primary-800: #4F0201;
+
+	--primary-gradient: #B00402;
+
+	--secondary-200: #B1E8EC;
+	--secondary-300: #80D8E0;
+	--secondary-400: #32BDCB;
+	--secondary-500: #1EA2B1;
+	--secondary-600: #1C8E98;
+	--secondary-700: #1A7A81;
+	--secondary-800: #165758;
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/eon.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/eon-light.svg');
+}

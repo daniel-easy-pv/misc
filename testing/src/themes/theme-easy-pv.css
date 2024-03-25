@@ -1,0 +1,13 @@
+
+.loading-animation{
+    all: initial;
+    width: 20rem;
+    height: 10rem;
+    background: url(/testing/images/general/epv-loading-gif.gif), lightgray 50% / auto no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.loading-animation .loading {
+    all: initial;
+}

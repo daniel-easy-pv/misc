@@ -1,0 +1,59 @@
+.gw-textbox-table{
+    display: flex;
+    //width: 54.0625rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    thead, tbody {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    tr{
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        align-self: stretch;
+    }
+
+    .header-with-buttons{
+        padding-right: 2.5rem;
+    }
+
+    th{ 
+        flex: 1 0 0;
+    }
+
+    td, th{
+        display: flex;
+        width: 100%;;
+        .table-element{
+            width: 100%;
+        }
+
+        &.row-button{
+            width: auto;
+        }
+    }
+
+    .content-and-unit{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+
+        .content{
+            padding-left: 0.5rem;
+        }
+    
+        .table-trailing-unit{
+            color: var(--neutral-800, #151515);
+            //padding-top: 0.5rem;
+            
+            @extend .body-bold;
+        }
+    }
+}

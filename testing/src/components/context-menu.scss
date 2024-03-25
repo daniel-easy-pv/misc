@@ -1,0 +1,84 @@
+.gw-context-menu-container{
+    display: flex;
+    width: var(--size-32, 2rem);
+    height: var(--size-32, 2rem);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gaps-2, 0.125rem);
+    flex-shrink: 0;
+
+    &.small-context-menu-container{
+        width: var(--size-24, 1.5rem);
+        height: var(--size-24, 1.5rem);
+    }
+    
+    &.large-context-menu-container{
+        width: var(--size-40, 2.5rem);
+        height: var(--size-40, 2.5rem);
+    }
+
+    &.context-menu-left{
+        align-items: flex-end;
+    }
+    
+    &.context-menu-top{
+        flex-direction: column-reverse;
+    }
+    
+    .context-menu-dropdown{
+        display: flex;
+        min-width: var(--Size-100-300-130-Small-Size-100-300, 8.125rem);
+        padding: 0.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    
+        border-radius: var(--radius-8, 0.5rem);
+        background: var(--neutral-100, #FFF);
+    
+        /* Drop Shadow */
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+    }
+    
+    .context-menu-option{
+        @extend .btn-small-text;
+        color: var(--neutral-800, #151515);
+        display: flex;
+        padding: var(--border-4, 0.25rem);
+        align-items: center;
+        gap: var(--gaps-4, 0.25rem);
+        align-self: stretch;
+        border-radius: var(--radius-4, 0.25rem);
+        cursor: pointer;
+
+        &:hover{
+            background: var(--neutral-300, #E8E8E8);
+        }
+
+        &:active{
+            background: var(--neutral-400, #C6C6C6);
+        }
+    }
+    
+    .context-menu-option-last{
+        color: var(--failure-700, #A11219);
+
+        .context-menu-last-icon{
+            filter: invert(18%) sepia(82%) saturate(3123%) hue-rotate(344deg) brightness(72%) contrast(103%);
+        }
+
+        &:hover{
+            background: var(--failure-300, #F7C9CE);
+        }
+
+        &:active{
+            background: var(--failure-700, #A11219);
+            color: var(--neutral-100, #FFF);
+
+            .context-menu-last-icon{
+                filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(20deg) brightness(118%) contrast(114%);
+            }
+        }
+    }
+}

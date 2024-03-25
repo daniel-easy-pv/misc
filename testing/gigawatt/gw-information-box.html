@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                            
+                    <h4>Versions</h4>
+                    <p>Information boxes take different forms depending on what type of information they are trying to inform the user of.</p>
+                    <div class="ds-component-space horizontal wrap dark">       
+                      
+
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Default</div></div>
+                                        Used rarely - when information does not fit any other possible options.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    default
+                
+                                </div>
+
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box info">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Information</div></div>
+                                        Used for unaligned information, to add context to a page or give the user helpful hints or tips.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box info&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Info
+                
+                                </div>
+
+
+                                                            
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box warning">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Warning</div></div>
+                                        Used to give information to a user where something might go wrong, aims to help them avoid future errors.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box warning&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Warning
+                
+                                </div>
+
+                                
+
+                           
+
+                                                                                            
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box success">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Success</div></div>
+                                        Used to inform a user that something has gone successfully or to inform of positive information.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box success&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Success
+                
+                                </div>
+
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box failure">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Failure</div></div>
+                                        Used to inform the user that something has gone wrong or to generally convey negative information.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box failure&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    Failure
+                
+                                </div>
+
+
+                                
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box alert">
+                                        <div class="information-header-container"><div class="information-icon"></div><div class="information-header">Alert</div></div>
+                                        Used to warn the user of a vital piece of information - usually something which has already gone wrong or will cause negative effects.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box alert&quot;&gt;
+                                                &lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Header&lt;/div&gt;&lt;/div&gt;
+                                                Lorem ipsum dolor sit amet consectetur. At curabitur arcu purus suscipit enim semper at id.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Alert
+                
+                                </div>
+
+                           
+                    </div>   
+
+
+                    <h4>Clickable</h4>
+                    <p>These versions can be clicked to take the user to somewhere they can deal with a task. Clickable should always have a pointer cursor, a hover state, and a button icon (top right) which clearly denotes an action - not just a decorative button icon.</p>
+                    <div class="ds-component-space horizontal wrap dark">       
+                       
+
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Default</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used rarely - when information does not fit any other possible options.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Default&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used rarely - when information does not fit any other possible options.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    default
+                
+                                </div>
+
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box info">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Information</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used for unaligned information, to add context to a page or give the user helpful hints or tips.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box info&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Information&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used for unaligned information, to add context to a page or give the user helpful hints or tips.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Info
+                
+                                </div>
+
+
+                                                            
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box warning">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Warning</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used to give information to a user where something might go wrong, aims to help them avoid future errors.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box warning&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Warning&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used to give information to a user where something might go wrong, aims to help them avoid future errors.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Warning
+                
+                                </div>
+
+                                
+
+                               
+                           
+
+                                                                                            
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box success">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Success</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used to inform a user that something has gone successfully or to inform of positive information.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box success&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Success&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used to inform a user that something has gone successfully or to inform of positive information.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Success
+                
+                                </div>
+
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box failure">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Failure</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used to inform the user that something has gone wrong or to generally convey negative information.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box failure&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Failure&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used to inform the user that something has gone wrong or to generally convey negative information.
+                                            &lt;/div&gt; 
+                                        </pre>
+                                    </div>
+                                    Failure
+                
+                                </div>
+
+
+                                
+                                
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+                    
+                                    <div class="gw-information-box alert">
+                                        <div class="information-header-and-button"><div class="information-header-container"><div class="information-icon"></div><div class="information-header">Alert</div></div><img class="icon" src="/testing/icons/400/20/Open In New Tab.svg" alt="icon" /></div>
+                                        Used to warn the user of a vital piece of information - usually something which has already gone wrong or will cause negative effects.
+                                    </div>
+                
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+                
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-information-box alert&quot;&gt;
+                                                &lt;div class=&quot;information-header-and-button&quot;&gt;&lt;div class=&quot;information-header-container&quot;&gt;&lt;div class=&quot;information-icon&quot;&gt;&lt;/div&gt;&lt;div class=&quot;information-header&quot;&gt;Alert&lt;/div&gt;&lt;/div&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/Open In New Tab.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/div&gt;
+                                                Used to warn the user of a vital piece of information - usually something which has already gone wrong or will cause negative effects.
+                                            &lt;/div&gt;
+                                        </pre>
+                                    </div>
+                                    Alert
+                
+                                </div>
+
+                           
+                    </div>   
+         
+
+
+
+
+              
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Information Box
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Lorem Ipsum</p>
+                    </div>
+                </div>    
+            </div>
+
+            
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>      
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

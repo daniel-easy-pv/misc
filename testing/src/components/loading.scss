@@ -1,0 +1,47 @@
+.gw-loading-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .default-loading{
+        width: 6.33738rem;
+        height: 6.33738rem;
+        flex-shrink: 0;
+
+    }
+
+    .loading-text{
+        color: var(--neutral-900, #000);
+        text-align: center;
+        max-width: 32rem;
+
+        @extend .body-bold
+    }
+}
+
+.loading-animation {
+    position: relative;
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: var(--radius-8, 0.5rem);
+    background: var(--neutral-200, #F2F2F2);
+    margin: 2rem 0;
+
+    .loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-gradient, #F6912C);
+        animation: moveColor 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    
+    @keyframes moveColor {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+    
+}
+

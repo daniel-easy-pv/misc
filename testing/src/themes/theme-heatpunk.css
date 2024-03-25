@@ -1,0 +1,81 @@
+:root {
+--disabled-300: #C2C2C2;
+--disabled-500: #757575;
+--disabled-700: #4C4C4C;
+
+--failure-300: #F7C9CE;
+--failure-500: #CF2E30;
+--failure-700: #A11219;
+
+--info-300: #C7CCF8;
+--info-500: #294BDB;
+--info-700: #001FAC;
+
+--neutral-100: #FFFFFF;
+--neutral-200: #F2F2F2;
+--neutral-300: #E8E8E8;
+--neutral-400: #C6C6C6;
+--neutral-500: #7E7E7E;
+--neutral-600: #4A4A4A;
+--neutral-700: #282828;
+--neutral-800: #151515;
+--neutral-900: #000000;
+
+--on-peripheral: #151515;
+--on-primary: #151515;
+--on-secondary: #FFFFFF;
+
+--peripheral-a-500: #B774E8;
+--peripheral-a-700: #2C2BB1;
+--peripheral-a-300: #E0C3F5;
+--peripheral-b-300: #F8D1D3;
+--peripheral-b-500: #E0655A;
+--peripheral-b-700: #A73A2B;
+--peripheral-c-300: #FAF3C2;
+--peripheral-c-500: #EAB84C;
+--peripheral-c-700: #A8510F;
+--peripheral-d-300: #BAFFF2;
+--peripheral-d-500: #65DDAB;
+--peripheral-d-700: #007546;
+--peripheral-e-300: #C1C9EF;
+--peripheral-e-500: #6B83DA;
+--peripheral-e-700: #001E8D;
+
+--primary-200: #E2F8F9;
+--primary-300: #B8ECF0;
+--primary-400: #8CE0E7;
+--primary-500: #65D3DD;
+--primary-600: #43C0D0;
+--primary-700: #399AA4;
+--primary-800: #296363;
+
+--primary-gradient: linear-gradient(90deg, #65D3DD 0%, #7B8BDD 26.08%, #B74BDD 49.5%, #D53EB3 72.82%, #E8356E 100%);
+
+--secondary-200: #FBE5ED;
+--secondary-300: #F7BED3;
+--secondary-400: #EE6B9A;
+--secondary-500: #D7326A;
+--secondary-600: #C02E64;
+--secondary-700: #AB2A5F;
+--secondary-800: #852455;
+
+--success-300: #DAEBC2;
+--success-500: #72AD2B;
+--success-700: #246402;
+
+--transparent-200: rgba(0,0,0,0.05);
+--transparent-300: rgba(0,0,0,0.09);
+--transparent-400: rgba(0,0,0,0.22);
+
+--warning-300: #F9F7C9;
+--warning-500: #E8B214;
+--warning-700: #A9580E
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/heatpunk.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/heatpunk-light.svg');
+}

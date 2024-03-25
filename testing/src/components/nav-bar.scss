@@ -1,0 +1,89 @@
+.nav-bar{
+    display: flex;
+    padding: 0rem 1rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.nav-bar-container{
+    width: 100%;
+   // position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-bar-legacy {
+    background: #212D35;
+}
+
+.nav-bar-new{
+    background: var(--neutral-300, #E8E8E8);
+}
+
+.nav-bar-heatpunk{
+    background: var(--nav-bar-color);
+}
+
+.nav-underline{
+    background: var(--primary-gradient);
+    height: 0.5rem;
+}
+
+.heatpunk-nav-bar-container{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-section{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-option{
+    display: flex;
+    height: 100%;
+    padding: 0rem 1rem;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    color: var(--nav-bar-text-color);
+    text-align: center;
+    @extend .body-bold;
+    cursor: pointer; 
+    border: 0.25rem solid transparent;
+}
+
+.nav-option:hover{
+    border-bottom: 0.25rem solid var(--primary-500);
+}
+
+.logo-container{
+    padding: 0.5rem 0;
+  //  height: calc(100% - 1rem);
+    height: 100%;
+}
+
+.main-logo{
+    display: flex;
+    background-size: auto 100%; /* Auto width, 100% height to maintain aspect ratio */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Ensure the background image is not repeated */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+.design-system-nav-bar{
+    position: relative;
+}

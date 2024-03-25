@@ -1,0 +1,106 @@
+.switch-container.switch-style,
+.switch-container.form-style {
+    display: flex;
+    height: var(--size-32, 2rem);
+    align-items: center;
+    gap: var(--gaps-8, 0.5rem);
+    flex-shrink: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+
+    &.form-style {
+        width: var(--Size-100-300-300-Large-Size-100-300, 18.75rem);
+        height: var(--size-40, 2.5rem);
+        justify-content: space-between;
+    }
+
+    &.disabled-style{
+        cursor: not-allowed;
+    }
+}
+
+.gw-toggle-switch-container{
+    .toggle-switch-checkbox {
+        opacity: 0;
+        position: absolute;
+        z-index: 0;
+
+        &:checked ~ .slot .dot {
+            transform: translateX(1rem);
+        }
+
+        &:checked ~ .slot {
+            background: var(--primary-500, #F6912C);
+        }
+
+        &:hover:checked ~ .slot .dot {
+            transform: translateX(calc(1rem - 0.05rem));
+            background-color: var(--primary-300, #FEE1B8);
+        }
+
+        &:hover:checked ~ .slot {
+            background: var(--primary-600, #E87326);
+        }
+
+        &:hover ~ .slot .dot {
+            transform: translateX(0.05rem);
+            background-color: var(--neutral-300, #EAEAEA);
+            cursor: pointer;
+        }
+
+        &:hover ~ .slot {
+            background: var(--neutral, #4A4A4A);
+        }
+
+        &:disabled ~ .toggle-switch-caption {
+            color: var(--disabled-500);
+        }
+    }
+
+    .slot {
+        position: relative;
+        width: 2.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+        border-radius: 10rem;
+        background: var(--neutral-500, #7E7E7E);
+        align-items: center;
+        z-index: 1;
+    }
+
+    .dot {
+        position: absolute;
+        content: "";
+        height: 1.125rem;
+        width: 1.125rem;
+        margin: 0.1875rem;
+        border-radius: 10rem;
+        background-color: var(--neutral-100, white);
+        transition: transform cubic-bezier(0, 0, 0.30, 1.25) 0.4s;
+        z-index: 2;
+    }
+
+    .toggle-switch-checkbox:disabled,
+    .toggle-switch-checkbox:hover:disabled,
+    .toggle-switch-checkbox:hover:checked:disabled {
+        cursor: not-allowed;
+    }
+    
+    .toggle-switch-checkbox:disabled ~ .slot {
+        cursor: not-allowed;
+        background: var(--disabled-700, #4C4C4C);
+    }
+    
+    .toggle-switch-checkbox:disabled ~ .slot .dot {
+        cursor: not-allowed;
+        background: var(--disabled-300, #C2C2C2);
+    }
+
+    .toggle-switch-checkbox:hover:disabled ~ .slot .dot,
+    .toggle-switch-checkbox:hover:checked:disabled ~ .slot .dot {
+        transform: translateX(0rem);
+    }
+}
+
+

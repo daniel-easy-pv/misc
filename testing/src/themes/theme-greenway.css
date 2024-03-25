@@ -1,0 +1,32 @@
+:root {
+
+	--primary-gradient: linear-gradient(90deg, #FFDE00 0%,  #063 100%);
+	
+	--on-primary: #FFFFFF;
+	--on-secondary: #151515;
+
+	--primary-200: #C9E8C9;
+	--primary-300: #68BF68;
+	--primary-400: #44A445;
+	--primary-500: #19621D;
+	--primary-600: #125716;
+	--primary-700: #0F5613;
+	--primary-800: #0E4A11;
+
+	--secondary-200: #FFFAC0;
+	--secondary-300: #FCF267;
+	--secondary-400: #F9EE3E;
+	--secondary-500: #FFDE00;
+	--secondary-600: #FFAB00;
+	--secondary-700: #B65C04;
+	--secondary-800: #9E4F02;
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/greenway.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/greenway-light.svg');
+}

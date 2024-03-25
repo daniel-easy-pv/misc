@@ -1,0 +1,82 @@
+:root {
+	--disabled-300: #c2c2c2;
+	--disabled-500: #757575;
+	--disabled-700: #4c4c4c;
+
+	--failure-300: #FAC8C7;
+	--failure-500: #D9534F;
+	--failure-700: #761C19;
+
+	--info-300: #D2F5FF;
+	--info-500: #5BC0DE;
+	--info-700: #1B6D85;
+
+	--neutral-100: #FFFFFF;
+	--neutral-200: #F2F2F2;
+	--neutral-300: #e8e8e8;
+	--neutral-400: #c6c6c6;
+	--neutral-500: #7e7e7e;
+	--neutral-600: #4a4a4a;
+	--neutral-700: #282828;
+	--neutral-800: #151515;
+	--neutral-900: #000000;
+
+	--on-peripheral: #151515;
+	--on-primary: #151515;
+	--on-secondary: #FFFFFF;
+
+	--peripheral-a-300: #FFD7E1;
+	--peripheral-a-500: #F78DA7;
+	--peripheral-a-700: #A8324F;
+	--peripheral-b-300: #DEC2F9;
+	--peripheral-b-500: #9B51E0;
+	--peripheral-b-700: #5B06AA;
+	--peripheral-c-300: #FFEFC3;
+	--peripheral-c-500: #FCB900;
+	--peripheral-c-700: #836000;
+	--peripheral-d-300: #F9B8B8;
+	--peripheral-d-500: #DC3939;
+	--peripheral-d-700: #830505;
+	--peripheral-e-300: #FFBF93;
+	--peripheral-e-500: #FF6900;
+	--peripheral-e-700: #7E3502;
+
+	--primary-200: #DEF2EF;
+	--primary-300: #AEDED5;
+	--primary-400: #7BDCB5;
+	--primary-500: #00B67A;
+	--primary-600: #00856D;
+	--primary-700: #006550;
+	--primary-800: #004935;
+
+	--primary-gradient: #00B67A;
+
+	--secondary-200: #D9EDF7;
+	--secondary-300: #AFD9EE;
+	--secondary-400: #66AFE9;
+	--secondary-500: #337AB7;
+	--secondary-600: #2E6DA4;
+	--secondary-700: #286090;
+	--secondary-800: #245269;
+
+	--success-300: #DBF8DB;
+	--success-500: #5CB85C;
+	--success-700: #255625;
+
+	--transparent-200: rgba(0,0,0,0.05);
+	--transparent-300: rgba(0,0,0,0.09);
+	--transparent-400: rgba(0,0,0,0.22);
+
+	--warning-300: #FCF1E2;
+	--warning-500: #F0AD4E;
+	--warning-700: #985F0D;
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/spartek.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/spartek.svg');
+}

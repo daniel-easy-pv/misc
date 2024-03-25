@@ -1,0 +1,53 @@
+:root {
+
+	--primary-gradient: #9CC33A;
+	
+	--on-peripheral: #FFFFFF;
+	--on-primary: #000000;
+	--on-secondary: #151515;
+
+	--peripheral-a-300: #FDE4EA;
+	--peripheral-a-500: #F78DA7;
+	--peripheral-a-700: #8A0345;
+	--peripheral-b-300: #DFCAF5;
+	--peripheral-b-500: #B57FE8;
+	--peripheral-b-700: #5E1DB1;
+	--peripheral-c-300: #FFF7E0;
+	--peripheral-c-500: #FCB900;
+	--peripheral-c-700: #A54100;
+	--peripheral-d-300: #BEEED3;
+	--peripheral-d-500: #00D084;
+	--peripheral-d-700: #007132;
+	--peripheral-e-300: #B9DCF5;
+	--peripheral-e-500: #0693E3;
+	--peripheral-e-700: #004594;
+
+	--primary-200: #E2EDC5;
+	--primary-300: #CEE19F;
+	--primary-400: #BBD578;
+	--primary-500: #9CC33A;
+	--primary-600: #779F28;
+	--primary-700: #4B6D15;
+	--primary-800: #3E6A0C;
+
+	--primary-gradient: #9CC33A;
+
+	--secondary-200: #FFEED4;
+	--secondary-300: #FFD99F;
+	--secondary-400: #F8B656;
+	--secondary-500: #F7A736;
+	--secondary-600: #F18D1F;
+	--secondary-700: #B1510B;
+	--secondary-800: #943607;
+
+
+
+}
+
+.theme-logo{
+	background-image: url('/testing/images/logos/fresh.svg');
+}
+
+.theme-logo-light{
+	background-image: url('/testing/images/logos/light/fresh-light.svg');
+}

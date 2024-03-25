@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                        
+    
+                        <h4>Bottom Right</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                            <!-- small bottom-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container small-context-menu-container">
+                                    <button class="gw-button btn-small icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-small"><img class="icon" src="/testing/icons/400/16/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-small">
+                                        <!-- Menu content for small context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container small-context-menu-container&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-small icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-small&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-small&quot;&gt;
+                                                &lt;!-- Menu content for small context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                small bottom-right
+            
+                            </div>
+            
+                            <!-- default bottom-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container">
+                                    <button class="gw-button btn icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-default"><img class="icon" src="/testing/icons/400/20/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-default">
+                                        <!-- Menu content for default context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-default&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-default&quot;&gt;
+                                                &lt;!-- Menu content for default context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt; 
+                                    </pre>
+                                </div>
+                                small bottom-right
+            
+                            </div>
+            
+                            <!-- large bottom-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container large-context-menu-container">
+                                    <button class="gw-button btn-large icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-large"><img class="icon" src="/testing/icons/400/24/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-large">
+                                        <!-- Menu content for large context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container large-context-menu-container&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-large icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-large&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/24/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-large&quot;&gt;
+                                                &lt;!-- Menu content for large context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt; 
+                                    </pre>
+                                </div>
+                                small bottom-right
+            
+                            </div>
+                        </div>
+            
+                        
+                        <h4>Bottom Left</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                            <!-- small bottom-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container small-context-menu-container context-menu-left">
+                                    <button class="gw-button btn-small icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-small-bl"><img class="icon" src="/testing/icons/400/16/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-small-bl">
+                                        <!-- Menu content for small context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container small-context-menu-container context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-small icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-small-bl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-small-bl&quot;&gt;
+                                                &lt;!-- Menu content for small context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;  
+                                    </pre>
+                                </div>
+                                small bottom-left
+            
+                            </div>
+            
+                            <!-- default bottom-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container context-menu-left">
+                                    <button class="gw-button btn icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-default-bl"><img class="icon" src="/testing/icons/400/20/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-default-bl">
+                                        <!-- Menu content for default context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-default-bl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-default-bl&quot;&gt;
+                                                &lt;!-- Menu content for default context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;  
+                                    </pre>
+                                </div>
+                                default bottom-left
+            
+                            </div>
+            
+                            <!-- large bottom-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container large-context-menu-container context-menu-left">
+                                    <button class="gw-button btn-large icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-large-bl"><img class="icon" src="/testing/icons/400/24/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-large-bl">
+                                        <!-- Menu content for large context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container large-context-menu-container context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-large icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-large-bl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/24/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-large-bl&quot;&gt;
+                                                &lt;!-- Menu content for large context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                large bottom-left
+            
+                            </div>
+                        </div>
+                                
+                                
+                        
+                        <h4>Top Right</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                            <!-- small top-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container small-context-menu-container context-menu-top">
+                                    <button class="gw-button btn-small icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-small-tr"><img class="icon" src="/testing/icons/400/16/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-small-tr">
+                                        <!-- Menu content for small context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container small-context-menu-container context-menu-top&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-small icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-small-tr&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-small-tr&quot;&gt;
+                                                &lt;!-- Menu content for small context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                small top-right
+            
+                            </div>
+            
+                            <!-- default top-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container context-menu-top">
+                                    <button class="gw-button btn icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-default-tr"><img class="icon" src="/testing/icons/400/20/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-default-tr">
+                                        <!-- Menu content for default context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container context-menu-top&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-default-tr&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-default-tr&quot;&gt;
+                                                &lt;!-- Menu content for default context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt; 
+                                    </pre>
+                                </div>
+                                default top-right
+            
+                            </div>
+            
+                            <!-- large top-right-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container large-context-menu-container context-menu-top">
+                                    <button class="gw-button btn-large icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-large-tr"><img class="icon" src="/testing/icons/400/24/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-large-tr">
+                                        <!-- Menu content for large context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container large-context-menu-container context-menu-top&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-large icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-large-tr&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/24/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-large-tr&quot;&gt;
+                                                &lt;!-- Menu content for large context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt; 
+                                    </pre>
+                                </div>
+                                small top-right
+            
+                            </div>
+                        </div>
+            
+                        
+                        
+                        <h4>Top Left</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                            <!-- small top-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container small-context-menu-container context-menu-top context-menu-left">
+                                    <button class="gw-button btn-small icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-small-tl"><img class="icon" src="/testing/icons/400/16/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-small-tl">
+                                        <!-- Menu content for small context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container small-context-menu-container context-menu-top context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-small icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-small-tl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-small-tl&quot;&gt;
+                                                &lt;!-- Menu content for small context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                small top-left
+            
+                            </div>
+            
+                            <!-- default top-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container context-menu-top  context-menu-left">
+                                    <button class="gw-button btn icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-default-tl"><img class="icon" src="/testing/icons/400/20/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-default-tl">
+                                        <!-- Menu content for default context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container context-menu-top  context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-default-tl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/20/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-default-tl&quot;&gt;
+                                                &lt;!-- Menu content for default context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                default top-left
+            
+                            </div>
+            
+                            <!-- large top-left-->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-context-menu-container large-context-menu-container context-menu-top  context-menu-left">
+                                    <button class="gw-button btn-large icon-only btn-tertiary context-menu-trigger" data-menu-id="context-menu-large-tl"><img class="icon" src="/testing/icons/400/24/More Horizontal.svg" alt="icon" /></button>
+                                    <div class="context-menu-dropdown" id="context-menu-large-tl">
+                                        <!-- Menu content for large context menu -->
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 1</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 2</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 3</div>
+                                        <div class="context-menu-option" onclick=""><img class="icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 4</div>
+                                        <div class="context-menu-option context-menu-option-last" onclick=""><img class="icon context-menu-last-icon" src="/testing/icons/400/16/Placeholder.svg" alt="icon" />Action 5</div>
+                                    </div>
+                                </div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-context-menu-container large-context-menu-container context-menu-top  context-menu-left&quot;&gt;
+                                            &lt;button class=&quot;gw-button btn-large icon-only btn-tertiary context-menu-trigger&quot; data-menu-id=&quot;context-menu-large-tl&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/24/More Horizontal.svg&quot; alt=&quot;icon&quot; /&gt;&lt;/button&gt;
+                                            &lt;div class=&quot;context-menu-dropdown&quot; id=&quot;context-menu-large-tl&quot;&gt;
+                                                &lt;!-- Menu content for large context menu --&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 1&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 2&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 3&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 4&lt;/div&gt;
+                                                &lt;div class=&quot;context-menu-option context-menu-option-last&quot; onclick=&quot;&quot;&gt;&lt;img class=&quot;icon context-menu-last-icon&quot; src=&quot;/testing/icons/400/16/Placeholder.svg&quot; alt=&quot;icon&quot; /&gt;Action 5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    </pre>
+                                </div>
+                                small top-left
+            
+                            </div>
+                        </div>
+            
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Title
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Lorem Ipsuim</p>
+                    </div>
+                </div>    
+            </div>
+
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>
+                        
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

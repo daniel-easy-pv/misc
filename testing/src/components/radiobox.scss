@@ -1,0 +1,98 @@
+.gw-radio {
+  display: none;
+}
+
+.gw-radio-container {
+  display: flex;
+  flex-direction: column;
+
+  .radio-label {
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      width: calc(1rem - 0.2rem);
+      height: calc(1rem - 0.2rem);
+      border-radius: 50%;
+      border: 0.1rem solid var(--neutral-600, #000);
+      transition: background-color 0.2s ease-in-out, border-color 0.3s ease-in-out;
+    }
+  }
+
+  .gw-radio{
+    &:checked + label::after {
+      width: 0.001rem;
+      height: 0.001rem;
+      background: transparent;
+      border: 0.5rem double var(--primary-500, #000);
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    + label::before {
+      margin-left: 0.25rem;
+    }
+
+    &:not(:checked) + label:hover::before {
+      border-color: #FEE1B8;
+    }
+
+    &:disabled + label:hover::before {
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+
+    &:disabled + label {
+      cursor: not-allowed;
+    }
+  }
+
+  label:hover::before {
+    background-color: var(--primary-300);
+  }
+
+  .switch-container.form-style {  
+    label {
+      padding-left: 0rem;
+
+      &::after {
+        left: calc(100% - 1rem); 
+      }
+
+      &::before {
+        left: calc(100% - 1.5rem); 
+      }
+    }
+
+    .radio-label {
+      position: relative;
+      padding-left: 0;
+      width: 100%;
+      height: 2rem;
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      line-height: 1.5; 
+    }
+
+    .gw-radio:disabled + label {
+      cursor: not-allowed;
+    }
+  }
+}

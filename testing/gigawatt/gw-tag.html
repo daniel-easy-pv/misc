@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigawatt</title>
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-easy-pv.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-easy-pv.css">
+   
+</head>
+<body>
+    <div id="container">
+        <nav class="nav-bar-container">
+            <div class="nav-bar nav-bar-new">
+                <div class="nav-section">
+                    <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                    <div class="nav-option">Projects</div>
+                    <div class="nav-option">Components</div>
+                    <div class="nav-option">Help</div>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-option">My Account</div>
+                    <div class="nav-option"></div>
+                </div>
+            </div>
+            <div class="nav-underline"></div>
+        </nav>
+
+
+        <main class="gw-page-with-sidebar">
+            <div class="sidebar-page">
+        
+                <div class="ds-component-page">
+                            
+                        <h4>Sizes</h4>
+                        <p>Tags can be default sized or compact for situations where space is limited.</p>
+                        <div class="ds-component-space horizontal">       
+                            <!-- default -->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-tag">Tag</div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-tag&quot;&gt;Tag&lt;/div&gt;  
+                                    </pre>
+                                </div>
+                                default
+            
+                            </div>
+            
+                            <!-- default -->
+                            <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                <div class="gw-tag tag-compact">Tag</div>
+            
+                                <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                    <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                </button>
+            
+                                <div class="code-container" id="button-code-snippet">
+                                    <!-- Code to be copied -->
+                                    <pre id="codeSnippet">               
+                                        &lt;div class=&quot;gw-tag tag-compact&quot;&gt;Tag&lt;/div&gt;  
+                                    </pre>
+                                </div>
+                                compact
+            
+                            </div>
+                        </div>   
+             
+                        <h4>Default</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- default -->
+                                <div >                          
+                                    <!-- default -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        default
+            
+                                    </div>
+            
+                                    <!-- default collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-collapsed">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        default collapsed
+            
+                                    </div>
+                                </div>
+                                
+                                <!-- secondary -->
+                                <div>                          
+                                    <!-- secondary -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-secondary">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-secondary&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary
+            
+                                    </div>
+            
+                                    <!-- secondary collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed  tag-secondary">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed  tag-secondary&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- neutral -->
+                                <div>                          
+                                    <!-- neutral -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-neutral">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-neutral&quot;&gt;Tag&lt;/div&gt;
+                                            </pre>
+                                        </div>
+                                        neutral
+            
+                                    </div>
+            
+                                    <!-- neutral collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed tag-neutral">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed tag-neutral&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        neutral collapsed
+            
+                                    </div>
+                                </div>
+            
+                        </div>                        
+                        
+                        <h4>Success / Failure</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- success -->
+                                <div >                          
+                                    <!-- success -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-success">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-success&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        success
+            
+                                    </div>
+            
+                                    <!-- success collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed tag-success">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed tag-success&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        success collapsed
+            
+                                    </div>
+                                </div>
+                                
+                                <!-- warning -->
+                                <div>                          
+                                    <!-- warning -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-warning">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-warning&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        warning
+            
+                                    </div>
+            
+                                    <!-- warning collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed  tag-warning">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed  tag-warning&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        warning collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- failure -->
+                                <div>                          
+                                    <!-- failure -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-failure">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-failure&quot;&gt;Tag&lt;/div&gt;
+                                            </pre>
+                                        </div>
+                                        failure
+            
+                                    </div>
+            
+                                    <!-- failure collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed tag-failure">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed tag-failure&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        failure collapsed
+            
+                                    </div>
+                                </div>
+            
+                        </div>     
+            
+                        <h4>Periphery</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- periphery-a -->
+                                <div>                          
+                                    <!-- periphery-a -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-periphery-a">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-periphery-a&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        periphery-a
+            
+                                    </div>
+            
+                                    <!-- periphery-a collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed  tag-periphery-a">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed  tag-periphery-a&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary-a collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- periphery-b -->
+                                <div>                          
+                                    <!-- periphery-b -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-periphery-b">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-periphery-b&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        periphery-b
+            
+                                    </div>
+            
+                                    <!-- periphery-b collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-collapsed  tag-periphery-b">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-collapsed  tag-periphery-b&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary-b collapsed
+            
+                                    </div>
+                                </div>
+            
+                            <!-- periphery-c -->
+                            <div>                          
+                                <!-- periphery-c -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-periphery-c">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-periphery-c&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-c
+            
+                                </div>
+            
+                                <!-- periphery-c collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag  tag-collapsed  tag-periphery-c">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-collapsed  tag-periphery-c&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-c collapsed
+            
+                                </div>
+                            </div>
+            
+                            <!-- periphery-d -->
+                            <div>                          
+                                <!-- periphery-d -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-periphery-d">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-periphery-d&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-d
+            
+                                </div>
+            
+                                <!-- periphery-d collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag  tag-collapsed  tag-periphery-d">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-collapsed  tag-periphery-d&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-d collapsed
+            
+                                </div>
+                            </div>
+            
+                            <!-- periphery-e -->
+                            <div>                          
+                                <!-- periphery-e -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-periphery-e">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-periphery-e&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-e
+            
+                                </div>
+            
+                                <!-- periphery-e collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag  tag-collapsed  tag-periphery-e">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag  tag-collapsed  tag-periphery-e&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-e collapsed
+            
+                                </div>
+                            </div>
+            
+            
+                        </div>     
+                        
+                        <h4>Default</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- default -->
+                                <div >                          
+                                    <!-- default -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        default
+            
+                                    </div>
+            
+                                    <!-- default collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-collapsed">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact tag-collapsed&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        default collapsed
+            
+                                    </div>
+                                </div>
+                                
+                                <!-- secondary -->
+                                <div>                          
+                                    <!-- secondary -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-secondary">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-secondary&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary
+            
+                                    </div>
+            
+                                    <!-- secondary collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag  tag-compact tag-collapsed  tag-secondary">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-compact tag-collapsed  tag-secondary&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- neutral -->
+                                <div>                          
+                                    <!-- neutral -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-neutral">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-neutral&quot;&gt;Tag&lt;/div&gt;
+                                            </pre>
+                                        </div>
+                                        neutral
+            
+                                    </div>
+            
+                                    <!-- neutral collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-collapsed tag-neutral">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-collapsed tag-neutral&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        neutral collapsed
+            
+                                    </div>
+                                </div>
+            
+                        </div>                        
+                        
+                        <h4>Success / Failure</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- success -->
+                                <div >                          
+                                    <!-- success -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-success">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact tag-success&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        success
+            
+                                    </div>
+            
+                                    <!-- success collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-collapsed tag-success">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-collapsed tag-success&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        success collapsed
+            
+                                    </div>
+                                </div>
+                                
+                                <!-- warning -->
+                                <div>                          
+                                    <!-- warning -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-warning">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-warning&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        warning
+            
+                                    </div>
+            
+                                    <!-- warning collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-collapsed  tag-warning">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-collapsed  tag-warning&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        warning collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- failure -->
+                                <div>                          
+                                    <!-- failure -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-failure">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-compact tag-failure&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        failure
+            
+                                    </div>
+            
+                                    <!-- failure collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-collapsed tag-failure">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-collapsed tag-failure&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        failure collapsed
+            
+                                    </div>
+                                </div>
+            
+                        </div>     
+            
+                        <h4>Periphery</h4>
+                        <p>Lorem ipsum</p>
+                        <div class="ds-component-space horizontal">
+            
+                                <!-- periphery-a -->
+                                <div>                          
+                                    <!-- periphery-a -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-periphery-a">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-periphery-a&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        periphery-a
+            
+                                    </div>
+            
+                                    <!-- periphery-a collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-collapsed  tag-periphery-a">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag  tag-compact tag-collapsed  tag-periphery-a&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary-a collapsed
+            
+                                    </div>
+                                </div>
+            
+                                <!-- periphery-b -->
+                                <div>                          
+                                    <!-- periphery-b -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact tag-periphery-b">Tag</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-periphery-b&quot;&gt;Tag&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        periphery-b
+            
+                                    </div>
+            
+                                    <!-- periphery-b collapsed -->
+                                    <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                        <div class="gw-tag tag-compact  tag-collapsed  tag-periphery-b">+2</div>
+            
+                                        <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                            <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                        </button>
+            
+                                        <div class="code-container" id="button-code-snippet">
+                                            <!-- Code to be copied -->
+                                            <pre id="codeSnippet">               
+                                                &lt;div class=&quot;gw-tag tag-compact  tag-collapsed  tag-periphery-b&quot;&gt;+2&lt;/div&gt;  
+                                            </pre>
+                                        </div>
+                                        secondary-b collapsed
+            
+                                    </div>
+                                </div>
+            
+                            <!-- periphery-c -->
+                            <div>                          
+                                <!-- periphery-c -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact tag-periphery-c">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-periphery-c&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-c
+            
+                                </div>
+            
+                                <!-- periphery-c collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact  tag-collapsed  tag-periphery-c">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-collapsed  tag-periphery-c&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-c collapsed
+            
+                                </div>
+                            </div>
+            
+                            <!-- periphery-d -->
+                            <div>                          
+                                <!-- periphery-d -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact tag-periphery-d">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-periphery-d&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-d
+            
+                                </div>
+            
+                                <!-- periphery-d collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact  tag-collapsed  tag-periphery-d">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-collapsed  tag-periphery-d&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-d collapsed
+            
+                                </div>
+                            </div>
+            
+                            <!-- periphery-e -->
+                            <div>                          
+                                <!-- periphery-e -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact tag-periphery-e">Tag</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-periphery-e&quot;&gt;Tag&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    periphery-e
+            
+                                </div>
+            
+                                <!-- periphery-e collapsed -->
+                                <div class="ds-component-container" onmouseover="showCopyButton(event)" onmouseout="hideCopyButton(event)">
+            
+                                    <div class="gw-tag tag-compact  tag-collapsed  tag-periphery-e">+2</div>
+            
+                                    <button id="copy-button" class="gw-button icon-only btn-tertiary copy-code-button" onclick="copyCode(event)" >
+                                        <img class="icon" src="/testing/icons/400/20/Copy.svg" alt="icon"/>
+                                    </button>
+            
+                                    <div class="code-container" id="button-code-snippet">
+                                        <!-- Code to be copied -->
+                                        <pre id="codeSnippet">               
+                                            &lt;div class=&quot;gw-tag tag-compact  tag-collapsed  tag-periphery-e&quot;&gt;+2&lt;/div&gt;  
+                                        </pre>
+                                    </div>
+                                    secondary-e collapsed
+            
+                                </div>
+                            </div>
+            
+            
+                        </div>   
+            
+
+                    <span class="bottom-spacer">---</span>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-controls">
+                        <a href="/testing/gigawatt.html"><button class="gw-button btn-tertiary" ><img class="icon" src="/testing/icons/400/20/Left.svg" alt="icon" />Back</button></a>
+                        <div class="quick-actions">
+                            <!-- <button class="gw-button icon-only btn-tertiary"><img class="icon" src="/testing/icons/400/20/Placeholder.svg" alt="icon" /></button> -->
+                        </div>
+                    </div>
+                    <div class="sidebar-title">
+                        Title
+                    </div>
+                </div>
+                <div class="sidebar-content">
+                    <div>
+                        <p>Lorem Ipsuim</p>
+                    </div>
+                </div>    
+            </div>
+
+            
+            <div class="ds-theme-switcher"  id="themeSwitcherImport"></div>      
+            
+        </main>
+
+        <script src="/testing/javascript/modals/default-modal.js"></script>
+
+        <script src="/testing/javascript/textbox.js"></script>
+        <script src="/testing/javascript/dropdown.js"></script>
+        <script src="/testing/javascript/toggle.js"></script>
+        <script src="/testing/javascript/radiobox.js"></script>
+        <script src="/testing/javascript/context-menu.js"></script>
+        <script src="/testing/javascript/modals.js"></script>
+        <script src="/testing/javascript/textbox-table.js"></script>
+
+        <script src="/testing/javascript/sidebar.js"></script>
+        <script src="/testing/javascript/copy-script.js"></script>
+        <script src="/testing/javascript/theme-switch.js"></script>
+        <script src="/testing/javascript/light-svg.js"></script>
+
+    </div>
+</body>
+</html>

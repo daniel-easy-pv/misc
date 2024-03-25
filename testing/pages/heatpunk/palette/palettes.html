@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Palettes</title>
+
+    <script src="https://static.easy-pv.co.uk/js/libraries/jquery-3.5.1.min.js"></script>
+    <script src="https://static.easy-pv.co.uk/js/libraries/modals/modals.2.2.2.js"></script> 
+
+    <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    <link href='/testing/icons/icons.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/testing/out/index.css">
+    <link id="theme-style-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-styles/theme-style-heatpunk.css">
+    <link id="theme-stylesheet" rel="stylesheet" href="/testing/src/themes/theme-heatpunk.css">
+   <!-- <link id="palette" rel="stylesheet" href="/testing/pages/heatpunk/palette/src/palette.css"> -->
+
+
+</head>
+<body>
+    <nav class="nav-bar-container">
+
+        <div class="nav-bar nav-bar-new">
+            <div class="nav-section">
+                <div class="nav-option logo-container" id="navLogo"><div class="main-logo theme-logo" id="themeLogo"></div></div>
+                <div class="nav-option">Projects</div>
+                <div class="nav-option">Components</div>
+                <div class="nav-option">Help</div>
+            </div>
+            <div class="nav-section">
+                <div class="nav-option">My Account</div>
+                <div class="nav-option"></div>
+            </div>
+        </div>
+        <div class="nav-underline"></div>
+    </nav>
+
+
+
+    <div class="full-page">
+        <button class="gw-button open-palette-selection-modal">Open modal</button>
+    </div>       
+    <div></div>
+
+
+
+    <div class="ds-theme-switcher" id="themeSwitcher">
+        <button class="gw-button theme-switcher-btn" onclick="toggleThemeDropdown()">
+            <div class="theme-switcher-logo-container"><div class="theme-logo"></div></div>
+            <img class="icon" src="/testing/icons/400/24/Down More.svg" alt="icon" />
+        </button>
+        <div class="theme-dropdown switcher-one-site theme-dropdown-column" id="themeDropdown">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/heatpunk.svg" alt="Heatpunk" onclick="changeThemeStyle('theme-style-heatpunk'); changeTheme('theme-heatpunk'); ">
+                <div class="theme-switcher-divider"></div>
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/eon.svg" alt="E.on" onclick="changeThemeStyle('theme-style-heatpunk'); changeTheme('theme-eon')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/worcsbosch.svg" alt="Bosch" onclick="changeTheme('theme-bosch'); changeThemeStyle('theme-style-heatpunk')">
+                <img class="theme-switcher-logo-selectable" src="/testing/images/logos/aes.svg" alt="aes" onclick="changeTheme('theme-aes'); changeThemeStyle('theme-style-heatpunk')"> 
+        </div>
+    </div>
+
+    <script src="/testing/pages/heatpunk/palette/src/paletteModal.js"></script>
+    <script src="/testing/pages/heatpunk/palette/src/main.js"></script>
+
+    <script src="/testing/javascript/textbox.js"></script>
+    <script src="/testing/javascript/dropdown.js"></script>
+    <script src="/testing/javascript/toggle.js"></script>
+    <script src="/testing/javascript/radiobox.js"></script>
+    <script src="/testing/javascript/context-menu.js"></script>
+
+    <script src="/testing/javascript/theme-switch.js"></script>
+    <script src="/testing/javascript/light-svg.js"></script>
+
+
+
+</body>
+</html>
